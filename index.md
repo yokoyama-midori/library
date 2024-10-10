@@ -9,7 +9,7 @@ data:
   verificationCategories:
   - name: .
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: aplusb.test.cpp
       title: aplusb.test.cpp
 layout: toppage
