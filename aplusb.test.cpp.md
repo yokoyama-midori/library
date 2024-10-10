@@ -54,10 +54,10 @@ data:
     #define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b, c) for(int\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n// #include <atcoder/modint>\n\
-    // using namespace atcoder;\n// using mint = modint998244353;\nvoid solve() {\n\
-    \    LL(a, b);\n    print(a + b);\n}\nint main() {\n    ll t = 1;\n    rep(_,\
-    \ t) solve();\n}\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#include <atcoder/modint>\nusing\
+    \ namespace atcoder;\nusing mint = modint998244353;\nvoid solve() {\n    LL(a,\
+    \ b);\n    print(a + b);\n}\nint main() {\n    ll t = 1;\n    rep(_, t) solve();\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
     \ methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0,\
@@ -99,15 +99,15 @@ data:
     #define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b, c) for(int\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n// #include <atcoder/modint>\n\
-    // using namespace atcoder;\n// using mint = modint998244353;\nvoid solve() {\n\
-    \    LL(a, b);\n    print(a + b);\n}\nint main() {\n    ll t = 1;\n    rep(_,\
-    \ t) solve();\n}\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#include <atcoder/modint>\nusing\
+    \ namespace atcoder;\nusing mint = modint998244353;\nvoid solve() {\n    LL(a,\
+    \ b);\n    print(a + b);\n}\nint main() {\n    ll t = 1;\n    rep(_, t) solve();\n\
+    }\n"
   dependsOn: []
   isVerificationFile: true
   path: aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-10-11 00:15:58+09:00'
+  timestamp: '2024-10-11 00:27:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: aplusb.test.cpp
