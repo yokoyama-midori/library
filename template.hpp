@@ -77,13 +77,3 @@ vl dy = {0, 0, 1, -1};
 #include <atcoder/modint>
 using namespace atcoder;
 using mint = modint998244353;
-void solve() {
-    rep(i, 3) print(i);
-    rep(i, 10, 12) print(i);
-    rep(i, 10, 20, 3) print(i);
-    rep1(i, 3) print(i);
-}
-int main() {
-    ll t = 1;
-    rep(_, t) solve();
-}
