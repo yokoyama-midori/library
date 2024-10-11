@@ -1,0 +1,5 @@
+{
+  "code-runner.executorMap": {
+    "cpp": "cxx -DLOCAL $fullFileName  -o a.out && ./a.out"
+  },
+}
