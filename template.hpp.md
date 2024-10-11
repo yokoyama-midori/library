@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/library_checker/sample/many_aplusb.cpp
+    title: test/library_checker/sample/many_aplusb.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/aplusb.test.cpp
@@ -13,25 +16,26 @@ data:
     links:
     - https://trap.jp/post/1224/
     - https://xn--kst.jp/blog/2019/08/29/cpp-comp/
-  bundledCode: "#line 1 \"template.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n//\
-    \ usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0, a1, a2,\
-    \ a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 << endl\n\
-    #define debug_2(x1, x2)                                                      \
-    \  \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 << endl\n\
-    #define debug_3(x1, x2, x3)                                                  \
-    \  \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \"\
-    \ #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1, x2, x3, x4)\
-    \                                                \\\n    cout << #x1 << \": \"\
-    \ << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n        \
-    \ << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2, x3, x4,\
-    \ x5)                                            \\\n    cout << #x1 << \": \"\
-    \ << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n        \
-    \ << x3 << \", \" #x4 << \": \" << x4 << \", \" #x5 << \": \" << x5 << endl\n\
-    #ifdef LOCAL\n#define debug(...)                                             \
-    \                \\\n    CHOOSE((__VA_ARGS__, debug_5, debug_4, debug_3, debug_2,\
-    \ debug_1, ~))      \\\n    (__VA_ARGS__)\n#else\n#define debug(...)\n#endif\n\
-    \nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+  bundledCode: "#line 1 \"template.hpp\"\n#pragma GCC target(\"avx2\")\n#pragma GCC\
+    \ optimize(\"O3\")\n#pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0,\
+    \ a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 <<\
+    \ endl\n#define debug_2(x1, x2)                                              \
+    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
+    \ endl\n#define debug_3(x1, x2, x3)                                          \
+    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
+    \ \", \" #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1, x2,\
+    \ x3, x4)                                                \\\n    cout << #x1 <<\
+    \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
+    \        << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2,\
+    \ x3, x4, x5)                                            \\\n    cout << #x1 <<\
+    \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
+    \        << x3 << \", \" #x4 << \": \" << x4 << \", \" #x5 << \": \" << x5 <<\
+    \ endl\n#ifdef LOCAL\n#define debug(...)                                     \
+    \                        \\\n    CHOOSE((__VA_ARGS__, debug_5, debug_4, debug_3,\
+    \ debug_2, debug_1, ~))      \\\n    (__VA_ARGS__)\n#else\n#define debug(...)\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -55,7 +59,8 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n"
-  code: "#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
+  code: "#pragma GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\")\n#pragma GCC optimize(\"\
+    unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
     // debug methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define\
     \ CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \"\
     : \" << x1 << endl\n#define debug_2(x1, x2)                                  \
@@ -99,8 +104,9 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: template.hpp
-  requiredBy: []
-  timestamp: '2024-10-11 00:08:13+09:00'
+  requiredBy:
+  - test/library_checker/sample/many_aplusb.cpp
+  timestamp: '2024-10-11 13:15:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/sample/aplusb.test.cpp
