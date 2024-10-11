@@ -46,19 +46,21 @@ data:
     }\ntemplate <class... T> void input(T &...a) {\n    (cin >> ... >> a);\n}\nvoid\
     \ print() {\n    cout << '\\n';\n}\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
-    \    cout << '\\n';\n}\n#define INT(...)                                     \
-    \                          \\\n    int __VA_ARGS__;                          \
-    \                                 \\\n    input(__VA_ARGS__)\n#define LL(...)\
-    \                                                                \\\n    long\
-    \ long __VA_ARGS__;                                                     \\\n \
-    \   input(__VA_ARGS__)\n#define STRING(...)                                  \
-    \                          \\\n    string __VA_ARGS__;                       \
-    \                                 \\\n    input(__VA_ARGS__)\n#define REP1(a)\
-    \ for(int i = 0; i < a; i++)\n#define REP2(i, a) for(int i = 0; i < a; i++)\n\
-    #define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b, c) for(int\
-    \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
-    \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n"
+    \    cout << '\\n';\n}\ntemplate <class T> void print(vector<T> x) {\n    if(x.size())\
+    \ {\n        for(ll i = 0; i < x.size(); i++) {\n            cout << x[i] << \"\
+    \ \\n\"[i + 1 == x.size()];\n        }\n    }\n}\n#define INT(...)           \
+    \                                                    \\\n    int __VA_ARGS__;\
+    \                                                           \\\n    input(__VA_ARGS__)\n\
+    #define LL(...)                                                              \
+    \  \\\n    long long __VA_ARGS__;                                            \
+    \         \\\n    input(__VA_ARGS__)\n#define STRING(...)                    \
+    \                                        \\\n    string __VA_ARGS__;         \
+    \                                               \\\n    input(__VA_ARGS__)\n#define\
+    \ REP1(a) for(int i = 0; i < a; i++)\n#define REP2(i, a) for(int i = 0; i < a;\
+    \ i++)\n#define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b,\
+    \ c) for(int i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n\
+    #define rep(...) overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\
+    \nll inf = 3e18;\nvl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n"
   code: "#pragma GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\")\n#pragma GCC optimize(\"\
     unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
     // debug methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define\
@@ -88,24 +90,26 @@ data:
     }\ntemplate <class... T> void input(T &...a) {\n    (cin >> ... >> a);\n}\nvoid\
     \ print() {\n    cout << '\\n';\n}\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
-    \    cout << '\\n';\n}\n#define INT(...)                                     \
-    \                          \\\n    int __VA_ARGS__;                          \
-    \                                 \\\n    input(__VA_ARGS__)\n#define LL(...)\
-    \                                                                \\\n    long\
-    \ long __VA_ARGS__;                                                     \\\n \
-    \   input(__VA_ARGS__)\n#define STRING(...)                                  \
-    \                          \\\n    string __VA_ARGS__;                       \
-    \                                 \\\n    input(__VA_ARGS__)\n#define REP1(a)\
-    \ for(int i = 0; i < a; i++)\n#define REP2(i, a) for(int i = 0; i < a; i++)\n\
-    #define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b, c) for(int\
-    \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
-    \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};"
+    \    cout << '\\n';\n}\ntemplate <class T> void print(vector<T> x) {\n    if(x.size())\
+    \ {\n        for(ll i = 0; i < x.size(); i++) {\n            cout << x[i] << \"\
+    \ \\n\"[i + 1 == x.size()];\n        }\n    }\n}\n#define INT(...)           \
+    \                                                    \\\n    int __VA_ARGS__;\
+    \                                                           \\\n    input(__VA_ARGS__)\n\
+    #define LL(...)                                                              \
+    \  \\\n    long long __VA_ARGS__;                                            \
+    \         \\\n    input(__VA_ARGS__)\n#define STRING(...)                    \
+    \                                        \\\n    string __VA_ARGS__;         \
+    \                                               \\\n    input(__VA_ARGS__)\n#define\
+    \ REP1(a) for(int i = 0; i < a; i++)\n#define REP2(i, a) for(int i = 0; i < a;\
+    \ i++)\n#define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b,\
+    \ c) for(int i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n\
+    #define rep(...) overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\
+    \nll inf = 3e18;\nvl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};"
   dependsOn: []
   isVerificationFile: false
   path: template.hpp
   requiredBy: []
-  timestamp: '2024-10-11 13:15:49+09:00'
+  timestamp: '2024-10-11 15:04:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/sample/aplusb.test.cpp
