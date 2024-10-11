@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: aplusb.test.cpp
-    title: aplusb.test.cpp
+    path: test/library_checker/sample/aplusb.test.cpp
+    title: test/library_checker/sample/aplusb.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -103,7 +103,7 @@ data:
   timestamp: '2024-10-11 00:08:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - aplusb.test.cpp
+  - test/library_checker/sample/aplusb.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:
