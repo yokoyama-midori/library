@@ -59,6 +59,13 @@ template <class T, class... Ts> void print(const T &a, const Ts &...b) {
     (cout << ... << (cout << ' ', b));
     cout << '\n';
 }
+template <class T> void print(vector<T> x) {
+    if(x.size()) {
+        for(ll i = 0; i < x.size(); i++) {
+            cout << x[i] << " \n"[i + 1 == x.size()];
+        }
+    }
+}
 #define INT(...)                                                               \
     int __VA_ARGS__;                                                           \
     input(__VA_ARGS__)
