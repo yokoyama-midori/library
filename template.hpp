@@ -1,3 +1,7 @@
+#pragma GCC target("avx2")
+#pragma GCC optimize("O3")
+#pragma GCC optimize("unroll-loops")
+
 #include <bits/stdc++.h>
 using namespace std;
 // https://xn--kst.jp/blog/2019/08/29/cpp-comp/
