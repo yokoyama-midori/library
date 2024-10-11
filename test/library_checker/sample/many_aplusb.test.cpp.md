@@ -52,9 +52,9 @@ data:
     \                                                           \\\n    input(__VA_ARGS__)\n\
     #define LL(...)                                                              \
     \  \\\n    long long __VA_ARGS__;                                            \
-    \         \\\n    input(__VA_ARGS__)\n#define STRING(...)                    \
-    \                                        \\\n    string __VA_ARGS__;         \
-    \                                               \\\n    input(__VA_ARGS__)\n#define\
+    \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
+    \                                     \\\n    string __VA_ARGS__;            \
+    \                                            \\\n    input(__VA_ARGS__)\n#define\
     \ REP1(a) for(int i = 0; i < a; i++)\n#define REP2(i, a) for(int i = 0; i < a;\
     \ i++)\n#define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b,\
     \ c) for(int i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n\
@@ -71,7 +71,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/sample/many_aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-10-11 15:04:34+09:00'
+  timestamp: '2024-10-11 20:00:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/sample/many_aplusb.test.cpp
