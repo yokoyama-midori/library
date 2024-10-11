@@ -72,7 +72,7 @@ template <class T> void print(vector<T> x) {
 #define LL(...)                                                                \
     long long __VA_ARGS__;                                                     \
     input(__VA_ARGS__)
-#define STRING(...)                                                            \
+#define STR(...)                                                            \
     string __VA_ARGS__;                                                        \
     input(__VA_ARGS__)
 #define REP1(a) for(int i = 0; i < a; i++)
