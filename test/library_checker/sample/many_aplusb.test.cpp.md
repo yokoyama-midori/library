@@ -8,13 +8,15 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/many_aplusb
     links:
     - https://judge.yosupo.jp/problem/many_aplusb
-  bundledCode: "#line 1 \"test/library_checker/sample/many_aplusb.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/many_aplusb\"\n#line 1 \"template.hpp\"\n\
-    #pragma GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\")\n#pragma GCC optimize(\"\
+  bundledCode: "#line 1 \"test/library_checker/sample/many_aplusb.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/many_aplusb\"\n#line 1 \"template.hpp\"\
+    \n#pragma GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\")\n#pragma GCC optimize(\"\
     unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
     // debug methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define\
     \ CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \"\
@@ -55,7 +57,7 @@ data:
     #define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b, c) for(int\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"test/library_checker/sample/many_aplusb.cpp\"\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"test/library_checker/sample/many_aplusb.test.cpp\"\
     \nvoid solve() {\n    LL(a, b);\n    print(a + b);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    LL(t);\n    rep(_, t) solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/many_aplusb\"\n#include\
@@ -64,16 +66,16 @@ data:
     \    rep(_, t) solve();\n}\n"
   dependsOn:
   - template.hpp
-  isVerificationFile: false
-  path: test/library_checker/sample/many_aplusb.cpp
+  isVerificationFile: true
+  path: test/library_checker/sample/many_aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-10-11 13:15:49+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2024-10-11 13:18:24+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/sample/many_aplusb.cpp
+documentation_of: test/library_checker/sample/many_aplusb.test.cpp
 layout: document
 redirect_from:
-- /library/test/library_checker/sample/many_aplusb.cpp
-- /library/test/library_checker/sample/many_aplusb.cpp.html
-title: test/library_checker/sample/many_aplusb.cpp
+- /verify/test/library_checker/sample/many_aplusb.test.cpp
+- /verify/test/library_checker/sample/many_aplusb.test.cpp.html
+title: test/library_checker/sample/many_aplusb.test.cpp
 ---
