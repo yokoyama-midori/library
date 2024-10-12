@@ -15,7 +15,7 @@ data:
     links:
     - https://judge.yosupo.jp/problem/aplusb
   bundledCode: "#line 1 \"test/library_checker/sample/aplusb.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/aplusb\"\n#line 1 \"template.hpp\"\n#pragma\
+    \ \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"template.hpp\"\n#pragma\
     \ GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\")\n#pragma GCC optimize(\"\
     unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
     // debug methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define\
@@ -42,8 +42,9 @@ data:
     \ ++i)\n// https://trap.jp/post/1224/\ntemplate <class... T> constexpr auto min(T...\
     \ a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n}\ntemplate\
     \ <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
-    }\ntemplate <class... T> void input(T &...a) {\n    (cin >> ... >> a);\n}\nvoid\
-    \ print() {\n    cout << '\\n';\n}\ntemplate <class T, class... Ts> void print(const\
+    }\ntemplate <class... T> void input(T &...a) { (cin >> ... >> a); }\ntemplate\
+    \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
+    }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
     \    cout << '\\n';\n}\ntemplate <class T> void print(vector<T> x) {\n    if(x.size())\
     \ {\n        for(ll i = 0; i < x.size(); i++) {\n            cout << x[i] << \"\
@@ -53,8 +54,8 @@ data:
     #define LL(...)                                                              \
     \  \\\n    long long __VA_ARGS__;                                            \
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
-    \                                     \\\n    string __VA_ARGS__;            \
-    \                                            \\\n    input(__VA_ARGS__)\n#define\
+    \                                        \\\n    string __VA_ARGS__;         \
+    \                                               \\\n    input(__VA_ARGS__)\n#define\
     \ REP1(a) for(int i = 0; i < a; i++)\n#define REP2(i, a) for(int i = 0; i < a;\
     \ i++)\n#define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b,\
     \ c) for(int i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n\
@@ -70,7 +71,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/sample/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-10-11 20:00:38+09:00'
+  timestamp: '2024-10-12 12:52:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/sample/aplusb.test.cpp
