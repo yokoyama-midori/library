@@ -2,4 +2,12 @@
   "code-runner.executorMap": {
     "cpp": "cxx -DLOCAL $fullFileName  -o a.out && ./a.out"
   },
+  "files.associations": {
+    "segtree": "cpp",
+    "type_traits": "cpp",
+    "cassert": "cpp",
+    "vector": "cpp",
+    "functional": "cpp",
+    "iostream": "cpp"
+  },
 }
