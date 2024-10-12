@@ -7,6 +7,9 @@ data:
     title: data_structure/segtree.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/point_set_range_composite.test.cpp
+    title: test/library_checker/data_structure/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq.test.cpp
     title: test/library_checker/data_structure/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -122,6 +125,7 @@ data:
   timestamp: '2024-10-12 12:52:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp

@@ -15,6 +15,9 @@ data:
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/point_set_range_composite.test.cpp
+      title: test/library_checker/data_structure/point_set_range_composite.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/staticrmq.test.cpp
       title: test/library_checker/data_structure/staticrmq.test.cpp
   - name: test/library_checker/sample
