@@ -2,37 +2,35 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
+    path: data_structure/segtree.hpp
+    title: data_structure/segtree.hpp
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/atcoder/practice2_j.test.cpp
-    title: test/atcoder/practice2_j.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/point_set_range_composite.test.cpp
-    title: test/library_checker/data_structure/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/staticrmq.test.cpp
-    title: test/library_checker/data_structure/staticrmq.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: true
-  _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _pathExtension: cpp
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"template.hpp\"\n#pragma GCC target(\"avx2\")\n#pragma GCC\
-    \ optimize(\"O3\")\n#pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
-    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
-    \ methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0,\
-    \ a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 <<\
-    \ endl\n#define debug_2(x1, x2)                                              \
-    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
-    \ endl\n#define debug_3(x1, x2, x3)                                          \
-    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
-    \ \", \" #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1, x2,\
-    \ x3, x4)                                                \\\n    cout << #x1 <<\
-    \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
-    \        << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2,\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://atcoder.jp/contests/practice2/tasks/practice2_j
+    links:
+    - https://atcoder.jp/contests/practice2/tasks/practice2_j
+  bundledCode: "#line 1 \"test/atcoder/practice2_j.test.cpp\"\n#define PROBLEM \"\
+    https://atcoder.jp/contests/practice2/tasks/practice2_j\"\n#line 2 \"template.hpp\"\
+    \n#pragma GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\")\n#pragma GCC optimize(\"\
+    unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
+    // debug methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define\
+    \ CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \"\
+    : \" << x1 << endl\n#define debug_2(x1, x2)                                  \
+    \                      \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \"\
+    : \" << x2 << endl\n#define debug_3(x1, x2, x3)                              \
+    \                      \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \"\
+    : \" << x2 << \", \" #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1,\
+    \ x2, x3, x4)                                                \\\n    cout << #x1\
+    \ << \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n\
+    \         << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2,\
     \ x3, x4, x5)                                            \\\n    cout << #x1 <<\
     \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
     \        << x3 << \", \" #x4 << \": \" << x4 << \", \" #x5 << \": \" << x5 <<\
@@ -79,36 +77,46 @@ data:
     \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
     \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
     \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S,\
-    \ S), S (*e)()> struct segtree {\n    ll n;\n    vector<S> v;\n    segtree(ll\
-    \ n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const vector<S> &v_) : n(v_.size())\
-    \ {\n        v = vector<S>(2 * n, e());\n        rep(i, n) v[n + i] = v_[i];\n\
-    \        for(ll i = n - 1; i >= 0; i--) {\n            v[i] = op(v[i << 1], v[i\
-    \ << 1 | 1]);\n        }\n    }\n    void set(ll x, S p) {\n        assert(0 <=\
-    \ x && x < n);\n        x += n;\n        v[x] = p;\n        while(x > 1) {\n \
-    \           x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n     \
-    \   }\n    }\n    S prod(ll l, ll r) {\n        assert(0 <= l && l <= r && r <=\
-    \ n);\n        S pl(e()), pr(e());\n        l += n, r += n;\n        while(l <\
-    \ r) {\n            if(l & 1) {\n                pl = op(pl, v[l]);\n        \
-    \    }\n            if(r & 1) {\n                pr = op(v[r - 1], pr);\n    \
-    \        }\n            l = (l + 1) >> 1;\n            r >>= 1;\n        }\n \
-    \       return op(pl, pr);\n    }\n    S get(ll x) { return v[n + x]; }\n};"
+    \ x) { return v[n + x]; }\n};\n#line 3 \"test/atcoder/practice2_j.test.cpp\"\n\
+    \nll e() { return -1; }\nvoid solve() {\n    LL(n, q);\n    vl a(n);\n    input(a);\n\
+    \    segtree<ll, max, e> seg(a);\n    rep(_, q) {\n        LL(flag);\n       \
+    \ if(flag == 1) {\n            LL(x, v);\n            x--;\n            seg.set(x,\
+    \ v);\n        } else if(flag == 2) {\n            LL(l, r);\n            l--;\n\
+    \            print(seg.prod(l, r));\n        } else {\n            LL(x, v);\n\
+    \            x--;\n            ll ng = x, ok = n;\n            if(seg.prod(x,\
+    \ n) < v) {\n                print(n + 1);\n                continue;\n      \
+    \      }\n            while(ok > ng + 1) {\n                ll mid = (ok + ng)\
+    \ / 2;\n                if(seg.prod(x, mid) >= v) {\n                    ok =\
+    \ mid;\n                } else\n                    ng = mid;\n            }\n\
+    \            print(ok);\n        }\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/practice2/tasks/practice2_j\"\
+    \n#include \"data_structure/segtree.hpp\"\n\nll e() { return -1; }\nvoid solve()\
+    \ {\n    LL(n, q);\n    vl a(n);\n    input(a);\n    segtree<ll, max, e> seg(a);\n\
+    \    rep(_, q) {\n        LL(flag);\n        if(flag == 1) {\n            LL(x,\
+    \ v);\n            x--;\n            seg.set(x, v);\n        } else if(flag ==\
+    \ 2) {\n            LL(l, r);\n            l--;\n            print(seg.prod(l,\
+    \ r));\n        } else {\n            LL(x, v);\n            x--;\n          \
+    \  ll ng = x, ok = n;\n            if(seg.prod(x, n) < v) {\n                print(n\
+    \ + 1);\n                continue;\n            }\n            while(ok > ng +\
+    \ 1) {\n                ll mid = (ok + ng) / 2;\n                if(seg.prod(x,\
+    \ mid) >= v) {\n                    ok = mid;\n                } else\n      \
+    \              ng = mid;\n            }\n            print(ok);\n        }\n \
+    \   }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
   dependsOn:
+  - data_structure/segtree.hpp
   - template.hpp
-  isVerificationFile: false
-  path: data_structure/segtree.hpp
+  isVerificationFile: true
+  path: test/atcoder/practice2_j.test.cpp
   requiredBy: []
-  timestamp: '2024-10-12 13:59:25+09:00'
-  verificationStatus: LIBRARY_SOME_WA
-  verifiedWith:
-  - test/library_checker/data_structure/point_set_range_composite.test.cpp
-  - test/library_checker/data_structure/staticrmq.test.cpp
-  - test/atcoder/practice2_j.test.cpp
-documentation_of: data_structure/segtree.hpp
+  timestamp: '2024-10-12 17:37:20+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
+  verifiedWith: []
+documentation_of: test/atcoder/practice2_j.test.cpp
 layout: document
 redirect_from:
-- /library/data_structure/segtree.hpp
-- /library/data_structure/segtree.hpp.html
-title: data_structure/segtree.hpp
+- /verify/test/atcoder/practice2_j.test.cpp
+- /verify/test/atcoder/practice2_j.test.cpp.html
+title: test/atcoder/practice2_j.test.cpp
 ---

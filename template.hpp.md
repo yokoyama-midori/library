@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/atcoder/practice2_j.test.cpp
+    title: test/atcoder/practice2_j.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_set_range_composite.test.cpp
     title: test/library_checker/data_structure/point_set_range_composite.test.cpp
@@ -18,9 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/many_aplusb.test.cpp
     title: test/library_checker/sample/many_aplusb.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -123,12 +126,13 @@ data:
   requiredBy:
   - data_structure/segtree.hpp
   timestamp: '2024-10-12 12:52:57+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp
+  - test/atcoder/practice2_j.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:
