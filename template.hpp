@@ -1,3 +1,4 @@
+#pragma once
 #pragma GCC target("avx2")
 #pragma GCC optimize("O3")
 #pragma GCC optimize("unroll-loops")
@@ -48,12 +49,12 @@ template <class... T> constexpr auto min(T... a) {
 template <class... T> constexpr auto max(T... a) {
     return max(initializer_list<common_type_t<T...>>{a...});
 }
-template <class... T> void input(T &...a) {
-    (cin >> ... >> a);
+template <class... T> void input(T &...a) { (cin >> ... >> a); }
+template <class T> void input(vector<T> &a) {
+    for(T &x : a)
+        cin >> x;
 }
-void print() {
-    cout << '\n';
-}
+void print() { cout << '\n'; }
 template <class T, class... Ts> void print(const T &a, const Ts &...b) {
     cout << a;
     (cout << ... << (cout << ' ', b));
@@ -72,7 +73,7 @@ template <class T> void print(vector<T> x) {
 #define LL(...)                                                                \
     long long __VA_ARGS__;                                                     \
     input(__VA_ARGS__)
-#define STR(...)                                                            \
+#define STR(...)                                                               \
     string __VA_ARGS__;                                                        \
     input(__VA_ARGS__)
 #define REP1(a) for(int i = 0; i < a; i++)

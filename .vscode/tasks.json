@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        // ctrl + alt + jで実行
+        "label": "Run oj-bundle",
+        "type": "shell",
+        "command": "oj-bundle ${file} | iconv -t utf-16le | clip.exe",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": [],
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "shared"
+        }
+      }
+    ]
+  }
+  
