@@ -5,7 +5,7 @@ template <class S, S (*op)(S, S), S (*e)()> struct segtree {
     ll n;
     vector<S> v;
     segtree(ll n_) : segtree(vector<S>(n_, e())) {}
-    segtree(vector<S> &v_) : n(v_.size()) {
+    segtree(const vector<S> &v_) : n(v_.size()) {
         v = vector<S>(2 * n, e());
         rep(i, n) v[n + i] = v_[i];
         for(ll i = n - 1; i >= 0; i--) {
@@ -14,7 +14,8 @@ template <class S, S (*op)(S, S), S (*e)()> struct segtree {
     }
     void set(ll x, S p) {
         assert(0 <= x && x < n);
-        v[n + x] = p;
+        x += n;
+        v[x] = p;
         while(x > 1) {
             x >>= 1;
             v[x] = op(v[x << 1], v[x << 1 | 1]);
@@ -36,4 +37,5 @@ template <class S, S (*op)(S, S), S (*e)()> struct segtree {
         }
         return op(pl, pr);
     }
+    S get(ll x) { return v[n + x]; }
 };
