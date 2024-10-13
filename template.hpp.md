@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
+  - icon: ':heavy_check_mark:'
+    path: math/matrix.hpp
+    title: math/matrix.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/practice2_j.test.cpp
@@ -15,6 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq.test.cpp
     title: test/library_checker/data_structure/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/linear_algebra/matrix_product.test.cpp
+    title: test/library_checker/linear_algebra/matrix_product.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+    title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/aplusb.test.cpp
     title: test/library_checker/sample/aplusb.test.cpp
@@ -124,6 +133,7 @@ data:
   isVerificationFile: false
   path: template.hpp
   requiredBy:
+  - math/matrix.hpp
   - data_structure/segtree.hpp
   timestamp: '2024-10-13 12:29:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
@@ -132,6 +142,8 @@ data:
   - test/library_checker/data_structure/staticrmq.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp
+  - test/library_checker/linear_algebra/matrix_product.test.cpp
+  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - test/atcoder/practice2_j.test.cpp
 documentation_of: template.hpp
 layout: document

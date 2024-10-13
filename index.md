@@ -6,6 +6,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
+  - name: math
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: math/matrix.hpp
+      title: math/matrix.hpp
   - name: .
     pages:
     - icon: ':heavy_check_mark:'
@@ -25,6 +30,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/staticrmq.test.cpp
       title: test/library_checker/data_structure/staticrmq.test.cpp
+  - name: test/library_checker/linear_algebra
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/linear_algebra/matrix_product.test.cpp
+      title: test/library_checker/linear_algebra/matrix_product.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+      title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - name: test/library_checker/sample
     pages:
     - icon: ':heavy_check_mark:'
