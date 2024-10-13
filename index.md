@@ -22,6 +22,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/practice2_j.test.cpp
       title: test/atcoder/practice2_j.test.cpp
+    - icon: ':x:'
+      path: test/atcoder/tdpc_fibonacci.test.cpp
+      title: test/atcoder/tdpc_fibonacci.test.cpp
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'
