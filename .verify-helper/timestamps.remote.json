@@ -2,6 +2,8 @@
 "test/atcoder/practice2_j.test.cpp": "2024-10-13 12:29:14 +0900",
 "test/library_checker/data_structure/point_set_range_composite.test.cpp": "2024-10-13 12:29:14 +0900",
 "test/library_checker/data_structure/staticrmq.test.cpp": "2024-10-13 12:29:14 +0900",
+"test/library_checker/linear_algebra/matrix_product.test.cpp": "2024-10-13 15:48:46 +0900",
+"test/library_checker/linear_algebra/pow_of_matrix.test.cpp": "2024-10-13 15:48:46 +0900",
 "test/library_checker/sample/aplusb.test.cpp": "2024-10-13 12:29:14 +0900",
 "test/library_checker/sample/many_aplusb.test.cpp": "2024-10-13 12:29:14 +0900"
 }
