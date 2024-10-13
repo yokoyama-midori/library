@@ -69,11 +69,11 @@ data:
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
     \                                        \\\n    string __VA_ARGS__;         \
     \                                               \\\n    input(__VA_ARGS__)\n#define\
-    \ REP1(a) for(int i = 0; i < a; i++)\n#define REP2(i, a) for(int i = 0; i < a;\
-    \ i++)\n#define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b,\
-    \ c) for(int i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n\
-    #define rep(...) overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\
-    \nll inf = 3e18;\nvl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n"
+    \ REP1(a) for(ll i = 0; i < a; i++)\n#define REP2(i, a) for(ll i = 0; i < a; i++)\n\
+    #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
+    \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
+    \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n"
   code: "#pragma once\n#pragma GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\")\n\
     #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace\
     \ std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n//\
@@ -115,17 +115,17 @@ data:
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
     \                                        \\\n    string __VA_ARGS__;         \
     \                                               \\\n    input(__VA_ARGS__)\n#define\
-    \ REP1(a) for(int i = 0; i < a; i++)\n#define REP2(i, a) for(int i = 0; i < a;\
-    \ i++)\n#define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b,\
-    \ c) for(int i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n\
-    #define rep(...) overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\
-    \nll inf = 3e18;\nvl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};"
+    \ REP1(a) for(ll i = 0; i < a; i++)\n#define REP2(i, a) for(ll i = 0; i < a; i++)\n\
+    #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
+    \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
+    \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};"
   dependsOn: []
   isVerificationFile: false
   path: template.hpp
   requiredBy:
   - data_structure/segtree.hpp
-  timestamp: '2024-10-12 12:52:57+09:00'
+  timestamp: '2024-10-13 12:29:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/point_set_range_composite.test.cpp

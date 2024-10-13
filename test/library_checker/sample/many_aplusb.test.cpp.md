@@ -56,11 +56,11 @@ data:
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
     \                                        \\\n    string __VA_ARGS__;         \
     \                                               \\\n    input(__VA_ARGS__)\n#define\
-    \ REP1(a) for(int i = 0; i < a; i++)\n#define REP2(i, a) for(int i = 0; i < a;\
-    \ i++)\n#define REP3(i, a, b) for(int i = a; i < b; i++)\n#define REP4(i, a, b,\
-    \ c) for(int i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n\
-    #define rep(...) overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\
-    \nll inf = 3e18;\nvl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"test/library_checker/sample/many_aplusb.test.cpp\"\
+    \ REP1(a) for(ll i = 0; i < a; i++)\n#define REP2(i, a) for(ll i = 0; i < a; i++)\n\
+    #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
+    \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
+    \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"test/library_checker/sample/many_aplusb.test.cpp\"\
     \nvoid solve() {\n    LL(a, b);\n    print(a + b);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    LL(t);\n    rep(_, t) solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/many_aplusb\"\n#include\
@@ -72,7 +72,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/sample/many_aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-10-12 12:52:57+09:00'
+  timestamp: '2024-10-13 12:29:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/sample/many_aplusb.test.cpp
