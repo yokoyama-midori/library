@@ -76,10 +76,10 @@ template <class T> void print(vector<T> x) {
 #define STR(...)                                                               \
     string __VA_ARGS__;                                                        \
     input(__VA_ARGS__)
-#define REP1(a) for(int i = 0; i < a; i++)
-#define REP2(i, a) for(int i = 0; i < a; i++)
-#define REP3(i, a, b) for(int i = a; i < b; i++)
-#define REP4(i, a, b, c) for(int i = a; i < b; i += c)
+#define REP1(a) for(ll i = 0; i < a; i++)
+#define REP2(i, a) for(ll i = 0; i < a; i++)
+#define REP3(i, a, b) for(ll i = a; i < b; i++)
+#define REP4(i, a, b, c) for(ll i = a; i < b; i += c)
 #define overload4(a, b, c, d, e, ...) e
 #define rep(...) overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)
 
