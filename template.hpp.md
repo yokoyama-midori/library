@@ -13,6 +13,9 @@ data:
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/point_add_range_sum.test.cpp
+    title: test/library_checker/data_structure/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_set_range_composite.test.cpp
     title: test/library_checker/data_structure/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -141,6 +144,7 @@ data:
   timestamp: '2024-10-13 12:29:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
   - test/library_checker/data_structure/static_range_sum.test.cpp
