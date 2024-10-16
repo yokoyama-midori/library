@@ -66,21 +66,20 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"poly/bostan_mori.hpp\"\
-    \n#include <atcoder/modint>\ntemplate <class T> T bostanMori(vector<T> p, vector<T>\
-    \ q, ll n) {\n    // return [x^n]P(x)/Q(x)\n    ll k = p.size();\n    while(n)\
-    \ {\n        auto q_minus(q);\n        rep(i, k + 1) {\n            if(i & 1)\n\
-    \                q_minus[i] *= -1;\n        }\n        if(T::mod() == 998244353)\
-    \ {\n            p = convolution(p, q_minus);\n            q = convolution(q,\
-    \ q_minus);\n        } else {\n            p = convolution_naive(p, q_minus);\n\
-    \            q = convolution_naive(q, q_minus);\n        }\n        vector<T>\
-    \ q_nex(k + 1), p_nex(k);\n        rep(i, k + 1) { q_nex[i] = q[2 * i]; }\n  \
-    \      ll n1 = n & 1;\n        rep(i, k) { p_nex[i] = p[2 * i + n1]; }\n     \
-    \   swap(p, p_nex);\n        swap(q, q_nex);\n        n /= 2;\n    }\n    return\
-    \ p[0] / q[0];\n}\n#line 5 \"test/atcoder/tdpc_fibonacci.test.cpp\"\n#include\
-    \ <atcoder/convolution>\n#line 7 \"test/atcoder/tdpc_fibonacci.test.cpp\"\nusing\
-    \ namespace atcoder;\nusing mint = modint1000000007;\nvoid solve() {\n    LL(k,\
-    \ n);\n    vector<mint> f(k), q(k + 1);\n    rep(i, k) f[i] = 1;\n    q[0] = 1;\n\
-    \    rep1(i, k) q[i] = -1;\n    auto p = convolution_naive(f,q);\n    p.resize(k);\n\
+    \n#include <atcoder/modint>\n#include <atcoder/convolution>\ntemplate <class T>\
+    \ T bostanMori(vector<T> p, vector<T> q, ll n) {\n    // return [x^n]P(x)/Q(x)\n\
+    \    ll k = p.size();\n    while(n) {\n        auto q_minus(q);\n        rep(i,\
+    \ k + 1) {\n            if(i & 1)\n                q_minus[i] *= -1;\n       \
+    \ }\n        if(T::mod() == 998244353) {\n            p = convolution(p, q_minus);\n\
+    \            q = convolution(q, q_minus);\n        } else {\n            p = convolution_naive(p,\
+    \ q_minus);\n            q = convolution_naive(q, q_minus);\n        }\n     \
+    \   vector<T> q_nex(k + 1), p_nex(k);\n        rep(i, k + 1) { q_nex[i] = q[2\
+    \ * i]; }\n        ll n1 = n & 1;\n        rep(i, k) { p_nex[i] = p[2 * i + n1];\
+    \ }\n        swap(p, p_nex);\n        swap(q, q_nex);\n        n /= 2;\n    }\n\
+    \    return p[0] / q[0];\n}\n#line 7 \"test/atcoder/tdpc_fibonacci.test.cpp\"\n\
+    using namespace atcoder;\nusing mint = modint1000000007;\nvoid solve() {\n   \
+    \ LL(k, n);\n    vector<mint> f(k), q(k + 1);\n    rep(i, k) f[i] = 1;\n    q[0]\
+    \ = 1;\n    rep1(i, k) q[i] = -1;\n    auto p = convolution_naive(f,q);\n    p.resize(k);\n\
     \    print(bostanMori(p,q,n-1).val());\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    cout << std::setprecision(16);\n    int t = 1;\n\
     \    rep(_, t) { solve(); }\n}\n"
@@ -100,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/tdpc_fibonacci.test.cpp
   requiredBy: []
-  timestamp: '2024-10-16 15:35:40+09:00'
+  timestamp: '2024-10-16 15:40:18+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/tdpc_fibonacci.test.cpp
