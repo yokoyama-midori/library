@@ -25,7 +25,7 @@ template <class T> T bostanMori(vector<T> p, vector<T> q, ll n) {
         rep(i, k) { p_nex[i] = p[2 * i + n1]; }
         swap(p, p_nex);
         swap(q, q_nex);
-        n /= 2;
+        n >>= 1;
     }
     return p[0] / q[0];
 }
