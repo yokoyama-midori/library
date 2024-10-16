@@ -6,6 +6,7 @@
 "test/library_checker/data_structure/staticrmq.test.cpp": "2024-10-13 12:29:14 +0900",
 "test/library_checker/linear_algebra/matrix_product.test.cpp": "2024-10-13 15:48:46 +0900",
 "test/library_checker/linear_algebra/pow_of_matrix.test.cpp": "2024-10-13 15:48:46 +0900",
+"test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp": "2024-10-16 16:03:06 +0900",
 "test/library_checker/sample/aplusb.test.cpp": "2024-10-13 12:29:14 +0900",
 "test/library_checker/sample/many_aplusb.test.cpp": "2024-10-13 12:29:14 +0900"
 }
