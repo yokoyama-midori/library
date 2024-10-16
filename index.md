@@ -11,9 +11,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/matrix.hpp
       title: math/matrix.hpp
+  - name: poly
+    pages:
+    - icon: ':x:'
+      path: poly/bostan_mori.hpp
+      title: poly/bostan_mori.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
   verificationCategories:

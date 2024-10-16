@@ -6,24 +6,12 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/atcoder/practice2_j.test.cpp
-    title: test/atcoder/practice2_j.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/point_add_range_sum.test.cpp
-    title: test/library_checker/data_structure/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/point_set_range_composite.test.cpp
-    title: test/library_checker/data_structure/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/static_range_sum.test.cpp
-    title: test/library_checker/data_structure/static_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/staticrmq.test.cpp
-    title: test/library_checker/data_structure/staticrmq.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/atcoder/tdpc_fibonacci.test.cpp
+    title: test/atcoder/tdpc_fibonacci.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n#pragma GCC target(\"avx2\")\n#pragma GCC\
@@ -71,52 +59,42 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/segtree.hpp\"\
-    \n\ntemplate <class S, S (*op)(S, S), S (*e)()> struct segtree {\n    ll n;\n\
-    \    vector<S> v;\n    segtree(ll n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const\
-    \ vector<S> &v_) : n(v_.size()) {\n        v = vector<S>(2 * n, e());\n      \
-    \  rep(i, n) v[n + i] = v_[i];\n        for(ll i = n - 1; i >= 0; i--) {\n   \
-    \         v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll\
-    \ x, S p) {\n        assert(0 <= x && x < n);\n        x += n;\n        v[x] =\
-    \ p;\n        while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x\
-    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) {\n       \
-    \ assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n        l\
-    \ += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n           \
-    \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
-    \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
-    \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S,\
-    \ S), S (*e)()> struct segtree {\n    ll n;\n    vector<S> v;\n    segtree(ll\
-    \ n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const vector<S> &v_) : n(v_.size())\
-    \ {\n        v = vector<S>(2 * n, e());\n        rep(i, n) v[n + i] = v_[i];\n\
-    \        for(ll i = n - 1; i >= 0; i--) {\n            v[i] = op(v[i << 1], v[i\
-    \ << 1 | 1]);\n        }\n    }\n    void set(ll x, S p) {\n        assert(0 <=\
-    \ x && x < n);\n        x += n;\n        v[x] = p;\n        while(x > 1) {\n \
-    \           x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n     \
-    \   }\n    }\n    S prod(ll l, ll r) {\n        assert(0 <= l && l <= r && r <=\
-    \ n);\n        S pl(e()), pr(e());\n        l += n, r += n;\n        while(l <\
-    \ r) {\n            if(l & 1) {\n                pl = op(pl, v[l]);\n        \
-    \    }\n            if(r & 1) {\n                pr = op(v[r - 1], pr);\n    \
-    \        }\n            l = (l + 1) >> 1;\n            r >>= 1;\n        }\n \
-    \       return op(pl, pr);\n    }\n    S get(ll x) { return v[n + x]; }\n};"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"poly/bostan_mori.hpp\"\
+    \n#include <atcoder/modint>\ntemplate <class T> T bostanMori(vector<T> p, vector<T>\
+    \ q, ll n) {\n    // return [x^n]P(x)/Q(x)\n    ll k = p.size();\n    while(n)\
+    \ {\n        auto q_minus(q);\n        rep(i, k + 1) {\n            if(i & 1)\n\
+    \                q_minus[i] *= -1;\n        }\n        if(T::mod() == 998244353)\
+    \ {\n            p = convolution(p, q_minus);\n            q = convolution(q,\
+    \ q_minus);\n        } else {\n            p = convolution_naive(p, q_minus);\n\
+    \            q = convolution_naive(q, q_minus);\n        }\n        vector<T>\
+    \ q_nex(k + 1), p_nex(k);\n        rep(i, k + 1) { q_nex[i] = q[2 * i]; }\n  \
+    \      ll n1 = n & 1;\n        rep(i, k) { p_nex[i] = p[2 * i + n1]; }\n     \
+    \   swap(p, p_nex);\n        swap(q, q_nex);\n        n /= 2;\n    }\n    return\
+    \ p[0] / q[0];\n}\n"
+  code: "#pragma once\n#include \"template.hpp\"\n#include <atcoder/modint>\ntemplate\
+    \ <class T> T bostanMori(vector<T> p, vector<T> q, ll n) {\n    // return [x^n]P(x)/Q(x)\n\
+    \    ll k = p.size();\n    while(n) {\n        auto q_minus(q);\n        rep(i,\
+    \ k + 1) {\n            if(i & 1)\n                q_minus[i] *= -1;\n       \
+    \ }\n        if(T::mod() == 998244353) {\n            p = convolution(p, q_minus);\n\
+    \            q = convolution(q, q_minus);\n        } else {\n            p = convolution_naive(p,\
+    \ q_minus);\n            q = convolution_naive(q, q_minus);\n        }\n     \
+    \   vector<T> q_nex(k + 1), p_nex(k);\n        rep(i, k + 1) { q_nex[i] = q[2\
+    \ * i]; }\n        ll n1 = n & 1;\n        rep(i, k) { p_nex[i] = p[2 * i + n1];\
+    \ }\n        swap(p, p_nex);\n        swap(q, q_nex);\n        n /= 2;\n    }\n\
+    \    return p[0] / q[0];\n}"
   dependsOn:
   - template.hpp
   isVerificationFile: false
-  path: data_structure/segtree.hpp
+  path: poly/bostan_mori.hpp
   requiredBy: []
-  timestamp: '2024-10-13 12:29:14+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-10-16 15:35:40+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/library_checker/data_structure/point_add_range_sum.test.cpp
-  - test/library_checker/data_structure/point_set_range_composite.test.cpp
-  - test/library_checker/data_structure/staticrmq.test.cpp
-  - test/library_checker/data_structure/static_range_sum.test.cpp
-  - test/atcoder/practice2_j.test.cpp
-documentation_of: data_structure/segtree.hpp
+  - test/atcoder/tdpc_fibonacci.test.cpp
+documentation_of: poly/bostan_mori.hpp
 layout: document
 redirect_from:
-- /library/data_structure/segtree.hpp
-- /library/data_structure/segtree.hpp.html
-title: data_structure/segtree.hpp
+- /library/poly/bostan_mori.hpp
+- /library/poly/bostan_mori.hpp.html
+title: poly/bostan_mori.hpp
 ---
