@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: data_structure/segtree.hpp
-    title: data_structure/segtree.hpp
+    path: poly/bostan_mori.hpp
+    title: poly/bostan_mori.hpp
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
@@ -14,15 +14,16 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
+    PROBLEM: https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
     links:
-    - https://judge.yosupo.jp/problem/point_add_range_sum
-  bundledCode: "#line 1 \"test/library_checker/data_structure/point_add_range_sum.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n#line\
-    \ 2 \"template.hpp\"\n#pragma GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\"\
-    )\n#pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n//\
-    \ usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0, a1, a2,\
+    - https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
+  bundledCode: "#line 1 \"test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp\"\
+    \n#define PROBLEM                                                            \
+    \    \\\n    \"https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence\"\
+    \n#line 2 \"template.hpp\"\n#pragma GCC target(\"avx2\")\n#pragma GCC optimize(\"\
+    O3\")\n#pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing\
+    \ namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n\
+    // usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0, a1, a2,\
     \ a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 << endl\n\
     #define debug_2(x1, x2)                                                      \
     \  \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 << endl\n\
@@ -64,50 +65,46 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/segtree.hpp\"\
-    \n\ntemplate <class S, S (*op)(S, S), S (*e)()> struct segtree {\n    ll n;\n\
-    \    vector<S> v;\n    segtree(ll n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const\
-    \ vector<S> &v_) : n(v_.size()) {\n        v = vector<S>(2 * n, e());\n      \
-    \  rep(i, n) v[n + i] = v_[i];\n        for(ll i = n - 1; i >= 0; i--) {\n   \
-    \         v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll\
-    \ x, S p) {\n        assert(0 <= x && x < n);\n        x += n;\n        v[x] =\
-    \ p;\n        while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x\
-    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) {\n       \
-    \ assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n        l\
-    \ += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n           \
-    \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
-    \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
-    \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n#line 4 \"test/library_checker/data_structure/point_add_range_sum.test.cpp\"\
-    \n\nll e() {\n    return 0;\n}\nll op(ll a, ll b) {\n    return a + b;\n}\nvoid\
-    \ solve() {\n    LL(n, q);\n    vl a(n);\n    input(a);\n    segtree<ll, op, e>\
-    \ seg(a);\n    rep(_, q) {\n        LL(flag);\n        if(flag == 0) {\n     \
-    \       LL(p, x);\n            seg.set(p, seg.get(p) + x);\n        } else {\n\
-    \            LL(l, r);\n            print(seg.prod(l, r));\n        }\n    }\n\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"poly/bostan_mori.hpp\"\
+    \n#include <atcoder/modint>\n#include <atcoder/convolution>\nusing namespace atcoder;\n\
+    template <class T> T bostanMori(vector<T> p, vector<T> q, ll n) {\n    // return\
+    \ [x^n]P(x)/Q(x)\n    ll k = p.size();\n    while(n) {\n        auto q_minus(q);\n\
+    \        rep(i, k + 1) {\n            if(i & 1)\n                q_minus[i] *=\
+    \ -1;\n        }\n        if(T::mod() == 998244353) {\n            p = convolution(p,\
+    \ q_minus);\n            q = convolution(q, q_minus);\n        } else {\n    \
+    \        p = convolution_naive(p, q_minus);\n            q = convolution_naive(q,\
+    \ q_minus);\n        }\n        vector<T> q_nex(k + 1), p_nex(k);\n        rep(i,\
+    \ k + 1) { q_nex[i] = q[2 * i]; }\n        ll n1 = n & 1;\n        rep(i, k) {\
+    \ p_nex[i] = p[2 * i + n1]; }\n        swap(p, p_nex);\n        swap(q, q_nex);\n\
+    \        n >>= 1;\n    }\n    return p[0] / q[0];\n}\n#line 5 \"test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp\"\
+    \nusing mint = modint998244353;\nvoid solve() {\n    LL(d, k);\n    vector<mint>\
+    \ a(d);\n    vector<mint> q(d + 1);\n    rep(i, d) {\n        LL(ai);\n      \
+    \  a[i] = ai;\n    }\n    q[0] = 1;\n    rep1(i, d) {\n        LL(qi);\n     \
+    \   q[i] = -qi;\n    }\n    auto p = convolution(a, q);\n    p.resize(d);\n  \
+    \  print(bostanMori(p, q, k).val());\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM                                                         \
+    \       \\\n    \"https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence\"\
+    \n#include \"poly/bostan_mori.hpp\"\n#include <atcoder/modint>\nusing mint = modint998244353;\n\
+    void solve() {\n    LL(d, k);\n    vector<mint> a(d);\n    vector<mint> q(d +\
+    \ 1);\n    rep(i, d) {\n        LL(ai);\n        a[i] = ai;\n    }\n    q[0] =\
+    \ 1;\n    rep1(i, d) {\n        LL(qi);\n        q[i] = -qi;\n    }\n    auto\
+    \ p = convolution(a, q);\n    p.resize(d);\n    print(bostanMori(p, q, k).val());\n\
     }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\n\
-    #include \"data_structure/segtree.hpp\"\n#include \"template.hpp\"\n\nll e() {\n\
-    \    return 0;\n}\nll op(ll a, ll b) {\n    return a + b;\n}\nvoid solve() {\n\
-    \    LL(n, q);\n    vl a(n);\n    input(a);\n    segtree<ll, op, e> seg(a);\n\
-    \    rep(_, q) {\n        LL(flag);\n        if(flag == 0) {\n            LL(p,\
-    \ x);\n            seg.set(p, seg.get(p) + x);\n        } else {\n           \
-    \ LL(l, r);\n            print(seg.prod(l, r));\n        }\n    }\n}\nint main()\
-    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
-    }\n"
   dependsOn:
-  - data_structure/segtree.hpp
+  - poly/bostan_mori.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/library_checker/data_structure/point_add_range_sum.test.cpp
+  path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   requiredBy: []
-  timestamp: '2024-10-14 21:39:49+09:00'
+  timestamp: '2024-10-16 16:03:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/point_add_range_sum.test.cpp
+documentation_of: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/data_structure/point_add_range_sum.test.cpp
-- /verify/test/library_checker/data_structure/point_add_range_sum.test.cpp.html
-title: test/library_checker/data_structure/point_add_range_sum.test.cpp
+- /verify/test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+- /verify/test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp.html
+title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
 ---

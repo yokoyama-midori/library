@@ -1,17 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/atcoder/tdpc_fibonacci.test_.cpp
+    title: test/atcoder/tdpc_fibonacci.test_.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/atcoder/tdpc_fibonacci.test.cpp
-    title: test/atcoder/tdpc_fibonacci.test.cpp
-  _isVerificationFailed: true
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+    title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n#pragma GCC target(\"avx2\")\n#pragma GCC\
@@ -70,7 +73,7 @@ data:
     \ q_minus);\n        }\n        vector<T> q_nex(k + 1), p_nex(k);\n        rep(i,\
     \ k + 1) { q_nex[i] = q[2 * i]; }\n        ll n1 = n & 1;\n        rep(i, k) {\
     \ p_nex[i] = p[2 * i + n1]; }\n        swap(p, p_nex);\n        swap(q, q_nex);\n\
-    \        n /= 2;\n    }\n    return p[0] / q[0];\n}\n"
+    \        n >>= 1;\n    }\n    return p[0] / q[0];\n}\n"
   code: "#pragma once\n#include \"template.hpp\"\n#include <atcoder/modint>\n#include\
     \ <atcoder/convolution>\nusing namespace atcoder;\ntemplate <class T> T bostanMori(vector<T>\
     \ p, vector<T> q, ll n) {\n    // return [x^n]P(x)/Q(x)\n    ll k = p.size();\n\
@@ -81,17 +84,18 @@ data:
     \            q = convolution_naive(q, q_minus);\n        }\n        vector<T>\
     \ q_nex(k + 1), p_nex(k);\n        rep(i, k + 1) { q_nex[i] = q[2 * i]; }\n  \
     \      ll n1 = n & 1;\n        rep(i, k) { p_nex[i] = p[2 * i + n1]; }\n     \
-    \   swap(p, p_nex);\n        swap(q, q_nex);\n        n /= 2;\n    }\n    return\
+    \   swap(p, p_nex);\n        swap(q, q_nex);\n        n >>= 1;\n    }\n    return\
     \ p[0] / q[0];\n}"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: poly/bostan_mori.hpp
-  requiredBy: []
-  timestamp: '2024-10-16 15:47:46+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  requiredBy:
+  - test/atcoder/tdpc_fibonacci.test_.cpp
+  timestamp: '2024-10-16 16:03:06+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/atcoder/tdpc_fibonacci.test.cpp
+  - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
 documentation_of: poly/bostan_mori.hpp
 layout: document
 redirect_from:

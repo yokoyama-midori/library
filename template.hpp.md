@@ -8,16 +8,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
+  - icon: ':warning:'
+    path: test/atcoder/tdpc_fibonacci.test_.cpp
+    title: test/atcoder/tdpc_fibonacci.test_.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/tdpc_fibonacci.test.cpp
-    title: test/atcoder/tdpc_fibonacci.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_add_range_sum.test.cpp
     title: test/library_checker/data_structure/point_add_range_sum.test.cpp
@@ -37,14 +37,17 @@ data:
     path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
     title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+    title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/aplusb.test.cpp
     title: test/library_checker/sample/aplusb.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/many_aplusb.test.cpp
     title: test/library_checker/sample/many_aplusb.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -145,21 +148,22 @@ data:
   isVerificationFile: false
   path: template.hpp
   requiredBy:
+  - test/atcoder/tdpc_fibonacci.test_.cpp
   - poly/bostan_mori.hpp
   - math/matrix.hpp
   - data_structure/segtree.hpp
   timestamp: '2024-10-13 12:29:14+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
   - test/library_checker/data_structure/static_range_sum.test.cpp
+  - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp
   - test/library_checker/linear_algebra/matrix_product.test.cpp
   - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
-  - test/atcoder/tdpc_fibonacci.test.cpp
   - test/atcoder/practice2_j.test.cpp
 documentation_of: template.hpp
 layout: document

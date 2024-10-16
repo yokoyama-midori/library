@@ -13,23 +13,25 @@ data:
       title: math/matrix.hpp
   - name: poly
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: poly/bostan_mori.hpp
       title: poly/bostan_mori.hpp
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.hpp
       title: template.hpp
+  - name: test/atcoder
+    pages:
+    - icon: ':warning:'
+      path: test/atcoder/tdpc_fibonacci.test_.cpp
+      title: test/atcoder/tdpc_fibonacci.test_.cpp
   verificationCategories:
   - name: test/atcoder
     pages:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/practice2_j.test.cpp
       title: test/atcoder/practice2_j.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/tdpc_fibonacci.test.cpp
-      title: test/atcoder/tdpc_fibonacci.test.cpp
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -52,6 +54,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
       title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - name: test/library_checker/other
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+      title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - name: test/library_checker/sample
     pages:
     - icon: ':heavy_check_mark:'
