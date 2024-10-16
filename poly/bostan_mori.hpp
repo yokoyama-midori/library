@@ -1,6 +1,7 @@
 #pragma once
 #include "template.hpp"
 #include <atcoder/modint>
+#include <atcoder/convolution>
 template <class T> T bostanMori(vector<T> p, vector<T> q, ll n) {
     // return [x^n]P(x)/Q(x)
     ll k = p.size();
