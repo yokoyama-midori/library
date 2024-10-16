@@ -2,9 +2,6 @@
 // 行列累乗では無理 (高速)きたまさ法,Bostan-Moriが必要
 #include "template.hpp"
 #include "poly/bostan_mori.hpp"
-#include <atcoder/convolution>
-#include <atcoder/modint>
-using namespace atcoder;
 using mint = modint1000000007;
 void solve() {
     LL(k, n);
