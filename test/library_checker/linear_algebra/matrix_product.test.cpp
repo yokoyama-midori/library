@@ -17,8 +17,6 @@ void solve() {
         b[i][j] = p;
     }
     auto c = a * b;
-    debug(a.height, a.width, b.height, b.width);
-    debug(c.height, c.width);
     c.show();
 }
 int main() {
