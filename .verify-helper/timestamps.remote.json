@@ -4,5 +4,10 @@
 "test/library_checker/data_structure/point_set_range_composite.test.cpp": "2024-10-18 23:31:12 +0900",
 "test/library_checker/data_structure/static_range_sum.test.cpp": "2024-10-18 23:31:12 +0900",
 "test/library_checker/data_structure/staticrmq.test.cpp": "2024-10-18 23:31:12 +0900",
-"test/library_checker/linear_algebra/pow_of_matrix.test.cpp": "2024-10-18 23:31:12 +0900"
+"test/library_checker/linear_algebra/pow_of_matrix.test.cpp": "2024-10-18 23:31:12 +0900",
+"test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp": "2024-10-18 23:31:12 +0900",
+"test/library_checker/sample/aplusb.test.cpp": "2024-10-18 23:31:12 +0900",
+"test/library_checker/sample/many_aplusb.test.cpp": "2024-10-18 23:31:12 +0900",
+"test/yukicoder/12.test.cpp": "2024-10-18 23:52:07 +0900",
+"test/yukicoder/230.test.cpp": "2024-10-19 00:40:40 +0900"
 }
