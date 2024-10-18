@@ -72,7 +72,7 @@ data:
       title: test/library_checker/sample/many_aplusb.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/12.test.cpp
       title: test/yukicoder/12.test.cpp
     - icon: ':x:'
