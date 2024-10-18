@@ -1,19 +1,12 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':question:'
-    path: template.hpp
-    title: template.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
-  attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/aplusb
-    links:
-    - https://judge.yosupo.jp/problem/aplusb
+  _verificationStatusIcon: ':x:'
+  attributes: {}
   bundledCode: "#line 1 \"test/library_checker/sample/aplusb.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"template.hpp\"\n// #pragma\
     \ GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"\
@@ -66,13 +59,12 @@ data:
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"template.hpp\"\
     \nvoid solve() {\n    LL(a, b);\n    print(a + b);\n}\nint main() {\n    ll t\
     \ = 1;\n    rep(_, t) solve();\n}\n"
-  dependsOn:
-  - template.hpp
+  dependsOn: []
   isVerificationFile: true
   path: test/library_checker/sample/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-10-18 23:31:12+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/sample/aplusb.test.cpp
 layout: document

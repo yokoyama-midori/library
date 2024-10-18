@@ -1,20 +1,11 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':question:'
-    path: template.hpp
-    title: template.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/linear_algebra/matrix_product.test.cpp
-    title: test/library_checker/linear_algebra/matrix_product.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
-    title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -124,16 +115,13 @@ data:
     \ Matrix &B) { return Matrix(*this) += B; }\n    Matrix operator-(const Matrix\
     \ &B) { return Matrix(*this) -= B; }\n    Matrix operator*(const Matrix &B) {\
     \ return Matrix(*this) *= B; }\n};\n"
-  dependsOn:
-  - template.hpp
+  dependsOn: []
   isVerificationFile: false
   path: math/matrix.hpp
   requiredBy: []
-  timestamp: '2024-10-18 23:31:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/linear_algebra/matrix_product.test.cpp
-  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: math/matrix.hpp
 layout: document
 redirect_from:

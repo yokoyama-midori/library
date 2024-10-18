@@ -1,22 +1,12 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/matrix.hpp
-    title: math/matrix.hpp
-  - icon: ':question:'
-    path: template.hpp
-    title: template.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
-  attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/pow_of_matrix
-    links:
-    - https://judge.yosupo.jp/problem/pow_of_matrix
+  _verificationStatusIcon: ':x:'
+  attributes: {}
   bundledCode: "#line 1 \"test/library_checker/linear_algebra/pow_of_matrix.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_matrix\"\n#line 2 \"\
     template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\"\
@@ -106,14 +96,12 @@ data:
     \  LL(n, k);\n    Matrix<mint> a(n);\n    rep(i, n) rep(j, n) {\n        LL(p);\n\
     \        a[i][j] = p;\n    }\n    a ^= k;\n    a.show();\n}\nint main() {\n  \
     \  ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n}\n"
-  dependsOn:
-  - math/matrix.hpp
-  - template.hpp
+  dependsOn: []
   isVerificationFile: true
   path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   requiredBy: []
-  timestamp: '2024-10-18 23:31:12+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
 layout: document

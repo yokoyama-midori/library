@@ -1,17 +1,11 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':question:'
-    path: template.hpp
-    title: template.hpp
+  _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/yukicoder/230.test.cpp
-    title: test/yukicoder/230.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -131,15 +125,13 @@ data:
     \    void recul_above(ll x) {\n        while(x > 1) {\n            x >>= 1;\n\
     \            v[x] = op(eval_at(x << 1), eval_at(x << 1 | 1));\n        }\n   \
     \ }\n};"
-  dependsOn:
-  - template.hpp
+  dependsOn: []
   isVerificationFile: false
   path: data_structure/lazy_segtree.hpp
   requiredBy: []
-  timestamp: '2024-10-19 00:06:05+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/yukicoder/230.test.cpp
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: data_structure/lazy_segtree.hpp
 layout: document
 redirect_from:
