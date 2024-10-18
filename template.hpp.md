@@ -11,16 +11,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
-  - icon: ':warning:'
-    path: test/atcoder/tdpc_fibonacci.test_.cpp
-    title: test/atcoder/tdpc_fibonacci.test_.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
+  - icon: ':x:'
+    path: test/atcoder/tdpc_fibonacci.test.cpp
+    title: test/atcoder/tdpc_fibonacci.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_add_range_sum.test.cpp
     title: test/library_checker/data_structure/point_add_range_sum.test.cpp
@@ -54,9 +54,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -157,13 +157,12 @@ data:
   isVerificationFile: false
   path: template.hpp
   requiredBy:
-  - test/atcoder/tdpc_fibonacci.test_.cpp
   - poly/bostan_mori.hpp
   - math/matrix.hpp
   - data_structure/lazy_segtree.hpp
   - data_structure/segtree.hpp
   timestamp: '2024-10-18 23:31:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
@@ -174,6 +173,7 @@ data:
   - test/library_checker/sample/many_aplusb.test.cpp
   - test/library_checker/linear_algebra/matrix_product.test.cpp
   - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - test/atcoder/tdpc_fibonacci.test.cpp
   - test/atcoder/practice2_j.test.cpp
   - test/yukicoder/230.test.cpp
   - test/yukicoder/12.test.cpp

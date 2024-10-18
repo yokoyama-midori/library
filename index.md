@@ -16,25 +16,23 @@ data:
       title: math/matrix.hpp
   - name: poly
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: poly/bostan_mori.hpp
       title: poly/bostan_mori.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
-  - name: test/atcoder
-    pages:
-    - icon: ':warning:'
-      path: test/atcoder/tdpc_fibonacci.test_.cpp
-      title: test/atcoder/tdpc_fibonacci.test_.cpp
   verificationCategories:
   - name: test/atcoder
     pages:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/practice2_j.test.cpp
       title: test/atcoder/practice2_j.test.cpp
+    - icon: ':x:'
+      path: test/atcoder/tdpc_fibonacci.test.cpp
+      title: test/atcoder/tdpc_fibonacci.test.cpp
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'
