@@ -1,7 +1,7 @@
 #pragma once
-#pragma GCC target("avx2")
-#pragma GCC optimize("O3")
-#pragma GCC optimize("unroll-loops")
+// #pragma GCC target("avx2")
+// #pragma GCC optimize("O3")
+// #pragma GCC optimize("unroll-loops")
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -60,7 +60,7 @@ template <class T, class... Ts> void print(const T &a, const Ts &...b) {
     (cout << ... << (cout << ' ', b));
     cout << '\n';
 }
-template <class T> void print(vector<T> x) {
+template <class T> void print(vector<T> &x) {
     if(x.size()) {
         for(ll i = 0; i < x.size(); i++) {
             cout << x[i] << " \n"[i + 1 == x.size()];
