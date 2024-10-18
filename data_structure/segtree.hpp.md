@@ -1,11 +1,29 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: template.hpp
+    title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/atcoder/practice2_j.test.cpp
+    title: test/atcoder/practice2_j.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/point_add_range_sum.test.cpp
+    title: test/library_checker/data_structure/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/point_set_range_composite.test.cpp
+    title: test/library_checker/data_structure/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/static_range_sum.test.cpp
+    title: test/library_checker/data_structure/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/staticrmq.test.cpp
+    title: test/library_checker/data_structure/staticrmq.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -82,13 +100,19 @@ data:
     \    }\n            if(r & 1) {\n                pr = op(v[r - 1], pr);\n    \
     \        }\n            l = (l + 1) >> 1;\n            r >>= 1;\n        }\n \
     \       return op(pl, pr);\n    }\n    S get(ll x) { return v[n + x]; }\n};"
-  dependsOn: []
+  dependsOn:
+  - template.hpp
   isVerificationFile: false
   path: data_structure/segtree.hpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2024-10-18 23:31:12+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/data_structure/point_add_range_sum.test.cpp
+  - test/library_checker/data_structure/point_set_range_composite.test.cpp
+  - test/library_checker/data_structure/staticrmq.test.cpp
+  - test/library_checker/data_structure/static_range_sum.test.cpp
+  - test/atcoder/practice2_j.test.cpp
 documentation_of: data_structure/segtree.hpp
 layout: document
 redirect_from:

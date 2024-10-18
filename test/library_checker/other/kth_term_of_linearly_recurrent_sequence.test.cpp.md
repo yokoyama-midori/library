@@ -1,12 +1,22 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':x:'
+    path: poly/bostan_mori.hpp
+    title: poly/bostan_mori.hpp
+  - icon: ':question:'
+    path: template.hpp
+    title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
   _pathExtension: cpp
   _verificationStatusIcon: ':x:'
-  attributes: {}
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
+    links:
+    - https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
   bundledCode: "#line 1 \"test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp\"\
     \n#define PROBLEM                                                            \
     \    \\\n    \"https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence\"\
@@ -82,11 +92,13 @@ data:
     \ p = convolution(a, q);\n    p.resize(d);\n    print(bostanMori(p, q, k).val());\n\
     }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
-  dependsOn: []
+  dependsOn:
+  - poly/bostan_mori.hpp
+  - template.hpp
   isVerificationFile: true
   path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
+  timestamp: '2024-10-18 23:31:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp

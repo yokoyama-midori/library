@@ -1,11 +1,20 @@
 ---
 data:
-  _extendedDependsOn: []
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: template.hpp
+    title: template.hpp
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: test/atcoder/tdpc_fibonacci.test_.cpp
+    title: test/atcoder/tdpc_fibonacci.test_.cpp
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+    title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -77,13 +86,16 @@ data:
     \      ll n1 = n & 1;\n        rep(i, k) { p_nex[i] = p[2 * i + n1]; }\n     \
     \   swap(p, p_nex);\n        swap(q, q_nex);\n        n >>= 1;\n    }\n    return\
     \ p[0] / q[0];\n}"
-  dependsOn: []
+  dependsOn:
+  - template.hpp
   isVerificationFile: false
   path: poly/bostan_mori.hpp
-  requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  requiredBy:
+  - test/atcoder/tdpc_fibonacci.test_.cpp
+  timestamp: '2024-10-18 23:31:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
 documentation_of: poly/bostan_mori.hpp
 layout: document
 redirect_from:

@@ -1,12 +1,22 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/segtree.hpp
+    title: data_structure/segtree.hpp
+  - icon: ':question:'
+    path: template.hpp
+    title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
-  attributes: {}
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
+    links:
+    - https://judge.yosupo.jp/problem/static_range_sum
   bundledCode: "#line 1 \"test/library_checker/data_structure/static_range_sum.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#line\
     \ 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
@@ -81,12 +91,14 @@ data:
     \ q) {\n        LL(l, r);\n        print(seg.prod(l, r));\n    }\n}\nint main()\
     \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
     }\n"
-  dependsOn: []
+  dependsOn:
+  - data_structure/segtree.hpp
+  - template.hpp
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_sum.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-18 23:31:12+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_sum.test.cpp
 layout: document

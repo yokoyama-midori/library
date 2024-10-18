@@ -1,11 +1,62 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: data_structure/lazy_segtree.hpp
+    title: data_structure/lazy_segtree.hpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/segtree.hpp
+    title: data_structure/segtree.hpp
+  - icon: ':question:'
+    path: math/matrix.hpp
+    title: math/matrix.hpp
+  - icon: ':x:'
+    path: poly/bostan_mori.hpp
+    title: poly/bostan_mori.hpp
+  - icon: ':warning:'
+    path: test/atcoder/tdpc_fibonacci.test_.cpp
+    title: test/atcoder/tdpc_fibonacci.test_.cpp
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/atcoder/practice2_j.test.cpp
+    title: test/atcoder/practice2_j.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/point_add_range_sum.test.cpp
+    title: test/library_checker/data_structure/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/point_set_range_composite.test.cpp
+    title: test/library_checker/data_structure/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/static_range_sum.test.cpp
+    title: test/library_checker/data_structure/static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/staticrmq.test.cpp
+    title: test/library_checker/data_structure/staticrmq.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/linear_algebra/matrix_product.test.cpp
+    title: test/library_checker/linear_algebra/matrix_product.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+    title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+    title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/sample/aplusb.test.cpp
+    title: test/library_checker/sample/aplusb.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/sample/many_aplusb.test.cpp
+    title: test/library_checker/sample/many_aplusb.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/12.test.cpp
+    title: test/yukicoder/12.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/230.test.cpp
+    title: test/yukicoder/230.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -105,10 +156,27 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: template.hpp
-  requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  requiredBy:
+  - test/atcoder/tdpc_fibonacci.test_.cpp
+  - poly/bostan_mori.hpp
+  - math/matrix.hpp
+  - data_structure/lazy_segtree.hpp
+  - data_structure/segtree.hpp
+  timestamp: '2024-10-18 23:31:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/library_checker/data_structure/point_add_range_sum.test.cpp
+  - test/library_checker/data_structure/point_set_range_composite.test.cpp
+  - test/library_checker/data_structure/staticrmq.test.cpp
+  - test/library_checker/data_structure/static_range_sum.test.cpp
+  - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - test/library_checker/sample/aplusb.test.cpp
+  - test/library_checker/sample/many_aplusb.test.cpp
+  - test/library_checker/linear_algebra/matrix_product.test.cpp
+  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - test/atcoder/practice2_j.test.cpp
+  - test/yukicoder/230.test.cpp
+  - test/yukicoder/12.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:

@@ -3,25 +3,25 @@ data:
   libraryCategories:
   - name: data_structure
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
   - name: math
     pages:
-    - icon: ':warning:'
+    - icon: ':question:'
       path: math/matrix.hpp
       title: math/matrix.hpp
   - name: poly
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: poly/bostan_mori.hpp
       title: poly/bostan_mori.hpp
   - name: .
     pages:
-    - icon: ':warning:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
   - name: test/atcoder
@@ -32,21 +32,21 @@ data:
   verificationCategories:
   - name: test/atcoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/atcoder/practice2_j.test.cpp
       title: test/atcoder/practice2_j.test.cpp
   - name: test/library_checker/data_structure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_add_range_sum.test.cpp
       title: test/library_checker/data_structure/point_add_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_set_range_composite.test.cpp
       title: test/library_checker/data_structure/point_set_range_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_range_sum.test.cpp
       title: test/library_checker/data_structure/static_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/staticrmq.test.cpp
       title: test/library_checker/data_structure/staticrmq.test.cpp
   - name: test/library_checker/linear_algebra
@@ -54,7 +54,7 @@ data:
     - icon: ':x:'
       path: test/library_checker/linear_algebra/matrix_product.test.cpp
       title: test/library_checker/linear_algebra/matrix_product.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
       title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - name: test/library_checker/other

@@ -1,12 +1,22 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: math/matrix.hpp
+    title: math/matrix.hpp
+  - icon: ':question:'
+    path: template.hpp
+    title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
   _pathExtension: cpp
   _verificationStatusIcon: ':x:'
-  attributes: {}
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/matrix_product
+    links:
+    - https://judge.yosupo.jp/problem/matrix_product
   bundledCode: "#line 1 \"test/library_checker/linear_algebra/matrix_product.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#line 2\
     \ \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
@@ -101,11 +111,13 @@ data:
     \ a.width, b.height, b.width);\n    debug(c.height, c.width);\n    c.show();\n\
     }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
-  dependsOn: []
+  dependsOn:
+  - math/matrix.hpp
+  - template.hpp
   isVerificationFile: true
   path: test/library_checker/linear_algebra/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
+  timestamp: '2024-10-18 23:31:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/linear_algebra/matrix_product.test.cpp

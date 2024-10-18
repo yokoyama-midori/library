@@ -1,6 +1,12 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':x:'
+    path: poly/bostan_mori.hpp
+    title: poly/bostan_mori.hpp
+  - icon: ':question:'
+    path: template.hpp
+    title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -86,11 +92,13 @@ data:
     \    p.resize(k);\n    print(bostanMori(p,q,n-1).val());\n}\nint main() {\n  \
     \  ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    cout << std::setprecision(16);\n\
     \    int t = 1;\n    rep(_, t) { solve(); }\n}\n"
-  dependsOn: []
+  dependsOn:
+  - template.hpp
+  - poly/bostan_mori.hpp
   isVerificationFile: false
   path: test/atcoder/tdpc_fibonacci.test_.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
+  timestamp: '2024-10-18 23:31:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/tdpc_fibonacci.test_.cpp
