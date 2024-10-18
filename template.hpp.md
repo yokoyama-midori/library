@@ -49,6 +49,9 @@ data:
     path: test/library_checker/sample/many_aplusb.test.cpp
     title: test/library_checker/sample/many_aplusb.test.cpp
   - icon: ':x:'
+    path: test/yukicoder/12.test.cpp
+    title: test/yukicoder/12.test.cpp
+  - icon: ':x:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
   _isVerificationFailed: true
@@ -173,6 +176,7 @@ data:
   - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - test/atcoder/practice2_j.test.cpp
   - test/yukicoder/230.test.cpp
+  - test/yukicoder/12.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:

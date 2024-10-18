@@ -73,6 +73,9 @@ data:
   - name: test/yukicoder
     pages:
     - icon: ':x:'
+      path: test/yukicoder/12.test.cpp
+      title: test/yukicoder/12.test.cpp
+    - icon: ':x:'
       path: test/yukicoder/230.test.cpp
       title: test/yukicoder/230.test.cpp
 layout: toppage
