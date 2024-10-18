@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -15,8 +15,8 @@ data:
     links:
     - https://judge.yosupo.jp/problem/aplusb
   bundledCode: "#line 1 \"test/library_checker/sample/aplusb.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"template.hpp\"\n#pragma\
-    \ GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\")\n#pragma GCC optimize(\"\
+    \ \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"template.hpp\"\n// #pragma\
+    \ GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"\
     unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
     // debug methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define\
     \ CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \"\
@@ -46,7 +46,7 @@ data:
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
-    \    cout << '\\n';\n}\ntemplate <class T> void print(vector<T> x) {\n    if(x.size())\
+    \    cout << '\\n';\n}\ntemplate <class T> void print(vector<T> &x) {\n    if(x.size())\
     \ {\n        for(ll i = 0; i < x.size(); i++) {\n            cout << x[i] << \"\
     \ \\n\"[i + 1 == x.size()];\n        }\n    }\n}\n#define INT(...)           \
     \                                                    \\\n    int __VA_ARGS__;\
@@ -71,7 +71,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/sample/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-10-13 12:29:14+09:00'
+  timestamp: '2024-10-18 23:31:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/sample/aplusb.test.cpp

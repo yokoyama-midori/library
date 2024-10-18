@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -19,10 +19,10 @@ data:
     - https://judge.yosupo.jp/problem/pow_of_matrix
   bundledCode: "#line 1 \"test/library_checker/linear_algebra/pow_of_matrix.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/pow_of_matrix\"\n#line 2 \"\
-    template.hpp\"\n#pragma GCC target(\"avx2\")\n#pragma GCC optimize(\"O3\")\n#pragma\
-    \ GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n//\
-    \ usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0, a1, a2,\
+    template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\"\
+    )\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing\
+    \ namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n\
+    // usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0, a1, a2,\
     \ a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 << endl\n\
     #define debug_2(x1, x2)                                                      \
     \  \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 << endl\n\
@@ -50,7 +50,7 @@ data:
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
-    \    cout << '\\n';\n}\ntemplate <class T> void print(vector<T> x) {\n    if(x.size())\
+    \    cout << '\\n';\n}\ntemplate <class T> void print(vector<T> &x) {\n    if(x.size())\
     \ {\n        for(ll i = 0; i < x.size(); i++) {\n            cout << x[i] << \"\
     \ \\n\"[i + 1 == x.size()];\n        }\n    }\n}\n#define INT(...)           \
     \                                                    \\\n    int __VA_ARGS__;\
@@ -112,7 +112,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   requiredBy: []
-  timestamp: '2024-10-13 15:48:46+09:00'
+  timestamp: '2024-10-18 23:31:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/linear_algebra/pow_of_matrix.test.cpp

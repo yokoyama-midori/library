@@ -1,0 +1,149 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: template.hpp
+    title: template.hpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/yukicoder/230.test.cpp
+    title: test/yukicoder/230.test.cpp
+  _isVerificationFailed: true
+  _pathExtension: hpp
+  _verificationStatusIcon: ':x:'
+  attributes:
+    links: []
+  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
+    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
+    // debug methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define\
+    \ CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \"\
+    : \" << x1 << endl\n#define debug_2(x1, x2)                                  \
+    \                      \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \"\
+    : \" << x2 << endl\n#define debug_3(x1, x2, x3)                              \
+    \                      \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \"\
+    : \" << x2 << \", \" #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1,\
+    \ x2, x3, x4)                                                \\\n    cout << #x1\
+    \ << \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n\
+    \         << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2,\
+    \ x3, x4, x5)                                            \\\n    cout << #x1 <<\
+    \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
+    \        << x3 << \", \" #x4 << \": \" << x4 << \", \" #x5 << \": \" << x5 <<\
+    \ endl\n#ifdef LOCAL\n#define debug(...)                                     \
+    \                        \\\n    CHOOSE((__VA_ARGS__, debug_5, debug_4, debug_3,\
+    \ debug_2, debug_1, ~))      \\\n    (__VA_ARGS__)\n#else\n#define debug(...)\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
+    \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
+    }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
+    \ (a = b, true) : (false));\n}\n#define rep1(i, n) for(ll i = 1; i <= ((ll)n);\
+    \ ++i)\n// https://trap.jp/post/1224/\ntemplate <class... T> constexpr auto min(T...\
+    \ a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n}\ntemplate\
+    \ <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
+    }\ntemplate <class... T> void input(T &...a) { (cin >> ... >> a); }\ntemplate\
+    \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
+    }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
+    \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
+    \    cout << '\\n';\n}\ntemplate <class T> void print(vector<T> &x) {\n    if(x.size())\
+    \ {\n        for(ll i = 0; i < x.size(); i++) {\n            cout << x[i] << \"\
+    \ \\n\"[i + 1 == x.size()];\n        }\n    }\n}\n#define INT(...)           \
+    \                                                    \\\n    int __VA_ARGS__;\
+    \                                                           \\\n    input(__VA_ARGS__)\n\
+    #define LL(...)                                                              \
+    \  \\\n    long long __VA_ARGS__;                                            \
+    \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
+    \                                        \\\n    string __VA_ARGS__;         \
+    \                                               \\\n    input(__VA_ARGS__)\n#define\
+    \ REP1(a) for(ll i = 0; i < a; i++)\n#define REP2(i, a) for(ll i = 0; i < a; i++)\n\
+    #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
+    \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
+    \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"data_structure/lazy_segtree.hpp\"\
+    \n\ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n\
+    \          F (*composition)(F, F), F (*id)()>\nstruct lazy_segtree {\n    vector<S>\
+    \ v;\n    vector<F> vf;\n    ll n;\n    lazy_segtree(ll n)\n        : n(n), v(vector<S>(2\
+    \ * n, e())), vf(vector<F>(2 * n, id())) {};\n    lazy_segtree(vector<S> v_)\n\
+    \        : n(v_.size()), vf(vector<F>(2 * n, id())), v(vector<S>(2 * n, e()))\
+    \ {\n        rep(i, n) { v[i + n] = v_[i]; }\n        for(ll i = n - 1; i > 0;\
+    \ i--) {\n            v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n\
+    \    void apply(ll l, ll r, F f) {\n        l += n;\n        r += n;\n       \
+    \ ll l0 = l / (l & -l);\n        ll r0 = r / (r & -r) - 1;\n        propagate_above(l0);\n\
+    \        propagate_above(r0);\n        while(l < r) {\n            if(l & 1) {\n\
+    \                vf[l] = composition(vf[l], f);\n                l++;\n      \
+    \      }\n            if(r & 1) {\n                r--;\n                vf[r]\
+    \ = composition(vf[r], f);\n            }\n            l >>= 1;\n            r\
+    \ >>= 1;\n        }\n        recul_above(l0);\n        recul_above(r0);\n    }\n\
+    \    S get(ll x) {\n        x += n;\n        ll maxi = bit_length(x) - 1;\n  \
+    \      for(ll i = maxi; i > 0; i--) {\n            propagate_at(x >> i);\n   \
+    \     }\n        return mapping(vf[x], v[x]);\n    }\n    void set(ll x, S s)\
+    \ {\n        x += n;\n        propagate_above(x);\n        v[x] = s;\n       \
+    \ vf[x] = id();\n        recul_above(x);\n    }\n    S prod(ll l, ll r) {\n  \
+    \      l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0\
+    \ = r / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
+    \        S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1)\
+    \ {\n                sl = op(sl, mapping(vf[l], v[l]));\n                l++;\n\
+    \            }\n            if(r & 1) {\n                r--;\n              \
+    \  sr = op(mapping(vf[r], v[r]), sr);\n            }\n            l >>= 1;\n \
+    \           r >>= 1;\n        }\n        return op(sl, sr);\n    }\n\n  private:\n\
+    \    S eval_at(ll x) { return mapping(vf[x], v[x]); }\n    void propagate_at(ll\
+    \ x) {\n        v[x] = mapping(vf[x], v[x]);\n        vf[x << 1] = composition(vf[x\
+    \ << 1], vf[x]);\n        vf[x << 1 | 1] = composition(vf[x << 1 | 1], vf[x]);\n\
+    \        vf[x] = id();\n    }\n    ll bit_length(unsigned long long x) { return\
+    \ 64 - countl_zero(x); }\n    void propagate_above(ll x) {\n        ll maxi =\
+    \ bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n            propagate_at(x\
+    \ >> i);\n        }\n        return;\n    }\n    void recul_above(ll x) {\n  \
+    \      while(x > 1) {\n            x >>= 1;\n            v[x] = op(eval_at(x <<\
+    \ 1), eval_at(x << 1 | 1));\n        }\n    }\n};\n"
+  code: "#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S, S), S (*e)(),\
+    \ class F, S (*mapping)(F, S),\n          F (*composition)(F, F), F (*id)()>\n\
+    struct lazy_segtree {\n    vector<S> v;\n    vector<F> vf;\n    ll n;\n    lazy_segtree(ll\
+    \ n)\n        : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};\n\
+    \    lazy_segtree(vector<S> v_)\n        : n(v_.size()), vf(vector<F>(2 * n, id())),\
+    \ v(vector<S>(2 * n, e())) {\n        rep(i, n) { v[i + n] = v_[i]; }\n      \
+    \  for(ll i = n - 1; i > 0; i--) {\n            v[i] = op(v[i << 1], v[i << 1\
+    \ | 1]);\n        }\n    }\n    void apply(ll l, ll r, F f) {\n        l += n;\n\
+    \        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 = r / (r & -r)\
+    \ - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n        while(l\
+    \ < r) {\n            if(l & 1) {\n                vf[l] = composition(vf[l],\
+    \ f);\n                l++;\n            }\n            if(r & 1) {\n        \
+    \        r--;\n                vf[r] = composition(vf[r], f);\n            }\n\
+    \            l >>= 1;\n            r >>= 1;\n        }\n        recul_above(l0);\n\
+    \        recul_above(r0);\n    }\n    S get(ll x) {\n        x += n;\n       \
+    \ ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n     \
+    \       propagate_at(x >> i);\n        }\n        return mapping(vf[x], v[x]);\n\
+    \    }\n    void set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n\
+    \        v[x] = s;\n        vf[x] = id();\n        recul_above(x);\n    }\n  \
+    \  S prod(ll l, ll r) {\n        l += n;\n        r += n;\n        ll l0 = l /\
+    \ (l & -l);\n        ll r0 = r / (r & -r) - 1;\n        propagate_above(l0);\n\
+    \        propagate_above(r0);\n        S sl = e(), sr = e();\n        while(l\
+    \ < r) {\n            if(l & 1) {\n                sl = op(sl, mapping(vf[l],\
+    \ v[l]));\n                l++;\n            }\n            if(r & 1) {\n    \
+    \            r--;\n                sr = op(mapping(vf[r], v[r]), sr);\n      \
+    \      }\n            l >>= 1;\n            r >>= 1;\n        }\n        return\
+    \ op(sl, sr);\n    }\n\n  private:\n    S eval_at(ll x) { return mapping(vf[x],\
+    \ v[x]); }\n    void propagate_at(ll x) {\n        v[x] = mapping(vf[x], v[x]);\n\
+    \        vf[x << 1] = composition(vf[x << 1], vf[x]);\n        vf[x << 1 | 1]\
+    \ = composition(vf[x << 1 | 1], vf[x]);\n        vf[x] = id();\n    }\n    ll\
+    \ bit_length(unsigned long long x) { return 64 - countl_zero(x); }\n    void propagate_above(ll\
+    \ x) {\n        ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0;\
+    \ i--) {\n            propagate_at(x >> i);\n        }\n        return;\n    }\n\
+    \    void recul_above(ll x) {\n        while(x > 1) {\n            x >>= 1;\n\
+    \            v[x] = op(eval_at(x << 1), eval_at(x << 1 | 1));\n        }\n   \
+    \ }\n};"
+  dependsOn:
+  - template.hpp
+  isVerificationFile: false
+  path: data_structure/lazy_segtree.hpp
+  requiredBy: []
+  timestamp: '2024-10-18 23:31:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/yukicoder/230.test.cpp
+documentation_of: data_structure/lazy_segtree.hpp
+layout: document
+redirect_from:
+- /library/data_structure/lazy_segtree.hpp
+- /library/data_structure/lazy_segtree.hpp.html
+title: data_structure/lazy_segtree.hpp
+---

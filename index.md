@@ -3,6 +3,9 @@ data:
   libraryCategories:
   - name: data_structure
     pages:
+    - icon: ':x:'
+      path: data_structure/lazy_segtree.hpp
+      title: data_structure/lazy_segtree.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
@@ -18,7 +21,7 @@ data:
       title: poly/bostan_mori.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
   - name: test/atcoder
@@ -67,5 +70,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/sample/many_aplusb.test.cpp
       title: test/library_checker/sample/many_aplusb.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':x:'
+      path: test/yukicoder/230.test.cpp
+      title: test/yukicoder/230.test.cpp
 layout: toppage
 ---
