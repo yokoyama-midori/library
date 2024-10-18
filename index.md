@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: data_structure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
     - icon: ':heavy_check_mark:'
@@ -16,7 +16,7 @@ data:
       title: math/matrix.hpp
   - name: poly
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: poly/bostan_mori.hpp
       title: poly/bostan_mori.hpp
   - name: .
@@ -59,23 +59,23 @@ data:
       title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - name: test/library_checker/other
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - name: test/library_checker/sample
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/sample/aplusb.test.cpp
       title: test/library_checker/sample/aplusb.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/sample/many_aplusb.test.cpp
       title: test/library_checker/sample/many_aplusb.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/12.test.cpp
       title: test/yukicoder/12.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/230.test.cpp
       title: test/yukicoder/230.test.cpp
 layout: toppage

@@ -9,12 +9,12 @@ data:
     path: test/atcoder/tdpc_fibonacci.test_.cpp
     title: test/atcoder/tdpc_fibonacci.test_.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -93,7 +93,7 @@ data:
   requiredBy:
   - test/atcoder/tdpc_fibonacci.test_.cpp
   timestamp: '2024-10-18 23:31:12+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
 documentation_of: poly/bostan_mori.hpp

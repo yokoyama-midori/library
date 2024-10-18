@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
   - icon: ':question:'

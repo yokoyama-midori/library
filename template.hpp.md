@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/lazy_segtree.hpp
     title: data_structure/lazy_segtree.hpp
   - icon: ':heavy_check_mark:'
@@ -11,7 +11,7 @@ data:
   - icon: ':question:'
     path: math/matrix.hpp
     title: math/matrix.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
   - icon: ':warning:'
@@ -39,19 +39,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
     title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/aplusb.test.cpp
     title: test/library_checker/sample/aplusb.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/many_aplusb.test.cpp
     title: test/library_checker/sample/many_aplusb.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/12.test.cpp
     title: test/yukicoder/12.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
   _isVerificationFailed: true
