@@ -63,12 +63,12 @@ data:
     \n\ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n\
     \          F (*composition)(F, F), F (*id)()>\nstruct lazy_segtree {\n    vector<S>\
     \ v;\n    vector<F> vf;\n    ll n;\n    lazy_segtree(ll n)\n        : n(n), v(vector<S>(2\
-    \ * n, e())), vf(vector<F>(2 * n, id())) {};\n    lazy_segtree(vector<S> v_)\n\
-    \        : n(v_.size()), vf(vector<F>(2 * n, id())), v(vector<S>(2 * n, e()))\
-    \ {\n        rep(i, n) { v[i + n] = v_[i]; }\n        for(ll i = n - 1; i > 0;\
-    \ i--) {\n            v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n\
-    \    void apply(ll l, ll r, F f) {\n        l += n;\n        r += n;\n       \
-    \ ll l0 = l / (l & -l);\n        ll r0 = r / (r & -r) - 1;\n        propagate_above(l0);\n\
+    \ * n, e())), vf(vector<F>(2 * n, id())) {};\n    lazy_segtree(vector<S> v_) :\
+    \ n(v_.size()) {\n        vf = vector<F>(2 * n, id());\n        v = vector<S>(2\
+    \ * n, e());\n        rep(i, n) { v[i + n] = v_[i]; }\n        for(ll i = n -\
+    \ 1; i > 0; i--) {\n            v[i] = op(v[i << 1], v[i << 1 | 1]);\n       \
+    \ }\n    }\n    void apply(ll l, ll r, F f) {\n        l += n;\n        r += n;\n\
+    \        ll l0 = l / (l & -l);\n        ll r0 = r / (r & -r) - 1;\n        propagate_above(l0);\n\
     \        propagate_above(r0);\n        while(l < r) {\n            if(l & 1) {\n\
     \                vf[l] = composition(vf[l], f);\n                l++;\n      \
     \      }\n            if(r & 1) {\n                r--;\n                vf[r]\
@@ -99,13 +99,13 @@ data:
     \ class F, S (*mapping)(F, S),\n          F (*composition)(F, F), F (*id)()>\n\
     struct lazy_segtree {\n    vector<S> v;\n    vector<F> vf;\n    ll n;\n    lazy_segtree(ll\
     \ n)\n        : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};\n\
-    \    lazy_segtree(vector<S> v_)\n        : n(v_.size()), vf(vector<F>(2 * n, id())),\
-    \ v(vector<S>(2 * n, e())) {\n        rep(i, n) { v[i + n] = v_[i]; }\n      \
-    \  for(ll i = n - 1; i > 0; i--) {\n            v[i] = op(v[i << 1], v[i << 1\
-    \ | 1]);\n        }\n    }\n    void apply(ll l, ll r, F f) {\n        l += n;\n\
-    \        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 = r / (r & -r)\
-    \ - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n        while(l\
-    \ < r) {\n            if(l & 1) {\n                vf[l] = composition(vf[l],\
+    \    lazy_segtree(vector<S> v_) : n(v_.size()) {\n        vf = vector<F>(2 * n,\
+    \ id());\n        v = vector<S>(2 * n, e());\n        rep(i, n) { v[i + n] = v_[i];\
+    \ }\n        for(ll i = n - 1; i > 0; i--) {\n            v[i] = op(v[i << 1],\
+    \ v[i << 1 | 1]);\n        }\n    }\n    void apply(ll l, ll r, F f) {\n     \
+    \   l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 = r\
+    \ / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
+    \        while(l < r) {\n            if(l & 1) {\n                vf[l] = composition(vf[l],\
     \ f);\n                l++;\n            }\n            if(r & 1) {\n        \
     \        r--;\n                vf[r] = composition(vf[r], f);\n            }\n\
     \            l >>= 1;\n            r >>= 1;\n        }\n        recul_above(l0);\n\
@@ -136,7 +136,7 @@ data:
   isVerificationFile: false
   path: data_structure/lazy_segtree.hpp
   requiredBy: []
-  timestamp: '2024-10-18 23:31:12+09:00'
+  timestamp: '2024-10-19 00:06:05+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/230.test.cpp
