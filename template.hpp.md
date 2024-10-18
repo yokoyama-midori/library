@@ -8,7 +8,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
   - icon: ':heavy_check_mark:'
@@ -33,7 +33,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq.test.cpp
     title: test/library_checker/data_structure/staticrmq.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/matrix_product.test.cpp
     title: test/library_checker/linear_algebra/matrix_product.test.cpp
   - icon: ':heavy_check_mark:'
@@ -54,9 +54,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -163,7 +163,7 @@ data:
   - data_structure/lazy_segtree.hpp
   - data_structure/segtree.hpp
   timestamp: '2024-10-18 23:31:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp

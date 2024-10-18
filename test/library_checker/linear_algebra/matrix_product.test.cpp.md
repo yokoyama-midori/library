@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/matrix_product
@@ -99,16 +99,14 @@ data:
     \nvoid solve() {\n    LL(n, m, k);\n    Matrix<mint> a(n, m), b(m, k);\n    rep(i,\
     \ n) rep(j, m) {\n        LL(p);\n        a[i][j] = p;\n    }\n    rep(i, m) rep(j,\
     \ k) {\n        LL(p);\n        b[i][j] = p;\n    }\n    auto c = a * b;\n   \
-    \ debug(a.height, a.width, b.height, b.width);\n    debug(c.height, c.width);\n\
-    \    c.show();\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \ c.show();\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n#include\
     \ \"math/matrix.hpp\"\n#include \"template.hpp\"\n#include <atcoder/modint>\n\
     using namespace atcoder;\nusing mint = modint998244353;\n\nvoid solve() {\n  \
     \  LL(n, m, k);\n    Matrix<mint> a(n, m), b(m, k);\n    rep(i, n) rep(j, m) {\n\
     \        LL(p);\n        a[i][j] = p;\n    }\n    rep(i, m) rep(j, k) {\n    \
-    \    LL(p);\n        b[i][j] = p;\n    }\n    auto c = a * b;\n    debug(a.height,\
-    \ a.width, b.height, b.width);\n    debug(c.height, c.width);\n    c.show();\n\
+    \    LL(p);\n        b[i][j] = p;\n    }\n    auto c = a * b;\n    c.show();\n\
     }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
   dependsOn:
@@ -117,8 +115,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/linear_algebra/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2024-10-18 23:31:12+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-19 02:17:00+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/linear_algebra/matrix_product.test.cpp
 layout: document

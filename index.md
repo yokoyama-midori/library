@@ -11,7 +11,7 @@ data:
       title: data_structure/segtree.hpp
   - name: math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/matrix.hpp
       title: math/matrix.hpp
   - name: poly
@@ -21,7 +21,7 @@ data:
       title: poly/bostan_mori.hpp
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.hpp
       title: template.hpp
   - name: test/atcoder
@@ -51,7 +51,7 @@ data:
       title: test/library_checker/data_structure/staticrmq.test.cpp
   - name: test/library_checker/linear_algebra
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/linear_algebra/matrix_product.test.cpp
       title: test/library_checker/linear_algebra/matrix_product.test.cpp
     - icon: ':heavy_check_mark:'
