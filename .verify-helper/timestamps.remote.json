@@ -2,6 +2,7 @@
 "test/atcoder/practice2_j.test.cpp": "2024-10-18 23:31:12 +0900",
 "test/library_checker/data_structure/point_add_range_sum.test.cpp": "2024-10-18 23:31:12 +0900",
 "test/library_checker/data_structure/point_set_range_composite.test.cpp": "2024-10-18 23:31:12 +0900",
+"test/library_checker/data_structure/range_affine_point_get.test.cpp": "2024-10-19 17:39:57 +0900",
 "test/library_checker/data_structure/range_affine_range_sum.test.cpp": "2024-10-19 17:18:34 +0900",
 "test/library_checker/data_structure/static_range_sum.test.cpp": "2024-10-18 23:31:12 +0900",
 "test/library_checker/data_structure/staticrmq.test.cpp": "2024-10-18 23:31:12 +0900",
