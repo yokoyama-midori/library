@@ -28,6 +28,9 @@ data:
     path: test/library_checker/data_structure/point_set_range_composite.test.cpp
     title: test/library_checker/data_structure/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_affine_point_get.test.cpp
+    title: test/library_checker/data_structure/range_affine_point_get.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
     title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -171,6 +174,7 @@ data:
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/static_range_sum.test.cpp
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
