@@ -2,40 +2,36 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: data_structure/lazy_segtree.hpp
+    title: data_structure/lazy_segtree.hpp
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/range_affine_point_get.test.cpp
-    title: test/library_checker/data_structure/range_affine_point_get.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
-    title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/range_set_range_composite.test.cpp
-    title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/230.test.cpp
-    title: test/yukicoder/230.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define\
-    \ CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \"\
-    : \" << x1 << endl\n#define debug_2(x1, x2)                                  \
-    \                      \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \"\
-    : \" << x2 << endl\n#define debug_3(x1, x2, x3)                              \
-    \                      \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \"\
-    : \" << x2 << \", \" #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1,\
-    \ x2, x3, x4)                                                \\\n    cout << #x1\
-    \ << \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n\
-    \         << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2,\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/range_set_range_composite
+    links:
+    - https://judge.yosupo.jp/problem/range_set_range_composite
+  bundledCode: "#line 1 \"test/library_checker/data_structure/range_set_range_composite.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/range_set_range_composite\"\
+    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0,\
+    \ a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 <<\
+    \ endl\n#define debug_2(x1, x2)                                              \
+    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
+    \ endl\n#define debug_3(x1, x2, x3)                                          \
+    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
+    \ \", \" #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1, x2,\
+    \ x3, x4)                                                \\\n    cout << #x1 <<\
+    \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
+    \        << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2,\
     \ x3, x4, x5)                                            \\\n    cout << #x1 <<\
     \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
     \        << x3 << \", \" #x4 << \": \" << x4 << \", \" #x5 << \": \" << x5 <<\
@@ -105,61 +101,55 @@ data:
     \ bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n            propagate_at(x\
     \ >> i);\n        }\n        return;\n    }\n    void recul_above(ll x) {\n  \
     \      while(x > 1) {\n            x >>= 1;\n            v[x] = op(eval_at(x <<\
-    \ 1), eval_at(x << 1 | 1));\n        }\n    }\n};\n"
-  code: "#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S, S), S (*e)(),\
-    \ class F, S (*mapping)(F, S),\n          F (*composition)(F, F), F (*id)()>\n\
-    \        //   composition(f,g)(x) = f\u2218g(x) = f(g(x))\n        // acl\u3068\
-    \u540C\u3058\u3001maspy\u3055\u3093\u8A18\u4E8B\u3068\u9006\nstruct lazy_segtree\
-    \ {\n    vector<S> v;\n    vector<F> vf;\n    ll n;\n    lazy_segtree(ll n)\n\
-    \        : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};\n  \
-    \  lazy_segtree(vector<S> v_) : n(v_.size()) {\n        vf = vector<F>(2 * n,\
-    \ id());\n        v = vector<S>(2 * n, e());\n        rep(i, n) { v[i + n] = v_[i];\
-    \ }\n        for(ll i = n - 1; i > 0; i--) {\n            v[i] = op(v[i << 1],\
-    \ v[i << 1 | 1]);\n        }\n    }\n    void apply(ll l, ll r, F f) {\n     \
-    \   l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 = r\
-    \ / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
-    \        while(l < r) {\n            if(l & 1) {\n                vf[l] = composition(f,\
-    \ vf[l]);\n                l++;\n            }\n            if(r & 1) {\n    \
-    \            r--;\n                vf[r] = composition(f, vf[r]);\n          \
-    \  }\n            l >>= 1;\n            r >>= 1;\n        }\n        recul_above(l0);\n\
-    \        recul_above(r0);\n    }\n    S get(ll x) {\n        x += n;\n       \
-    \ ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n     \
-    \       propagate_at(x >> i);\n        }\n        return mapping(vf[x], v[x]);\n\
-    \    }\n    void set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n\
-    \        v[x] = s;\n        vf[x] = id();\n        recul_above(x);\n    }\n  \
-    \  S prod(ll l, ll r) {\n        l += n;\n        r += n;\n        ll l0 = l /\
-    \ (l & -l);\n        ll r0 = r / (r & -r) - 1;\n        propagate_above(l0);\n\
-    \        propagate_above(r0);\n        S sl = e(), sr = e();\n        while(l\
-    \ < r) {\n            if(l & 1) {\n                sl = op(sl, mapping(vf[l],\
-    \ v[l]));\n                l++;\n            }\n            if(r & 1) {\n    \
-    \            r--;\n                sr = op(mapping(vf[r], v[r]), sr);\n      \
-    \      }\n            l >>= 1;\n            r >>= 1;\n        }\n        return\
-    \ op(sl, sr);\n    }\n\n  private:\n    S eval_at(ll x) { return mapping(vf[x],\
-    \ v[x]); }\n    void propagate_at(ll x) {\n        v[x] = mapping(vf[x], v[x]);\n\
-    \        vf[x << 1] = composition(vf[x], vf[x << 1]);\n        vf[x << 1 | 1]\
-    \ = composition(vf[x], vf[x << 1 | 1]);\n        vf[x] = id();\n    }\n    ll\
-    \ bit_length(unsigned long long x) { return 64 - countl_zero(x); }\n    void propagate_above(ll\
-    \ x) {\n        ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0;\
-    \ i--) {\n            propagate_at(x >> i);\n        }\n        return;\n    }\n\
-    \    void recul_above(ll x) {\n        while(x > 1) {\n            x >>= 1;\n\
-    \            v[x] = op(eval_at(x << 1), eval_at(x << 1 | 1));\n        }\n   \
-    \ }\n};"
+    \ 1), eval_at(x << 1 | 1));\n        }\n    }\n};\n#line 4 \"test/library_checker/data_structure/range_set_range_composite.test.cpp\"\
+    \n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\nstruct S\
+    \ {\n    mint b, c;\n    ll sz;\n};\nS e() { return S(1, 0, 0); };\nS op(S g,\
+    \ S f) { return S(f.b * g.b, f.b * g.c + f.c, g.sz + f.sz); }\nstruct F {\n  \
+    \  bool used;\n    mint b, c;\n};\nS mapping(F f, S s) {\n    if(!f.used)\n  \
+    \      return s;\n    S res(e());\n    S ff(f.b, f.c);\n    ll sz = s.sz;\n  \
+    \  while(sz) {\n        if(sz & 1) {\n            res = op(res, ff);\n       \
+    \ }\n        ff = op(ff, ff);\n        sz >>= 1;\n    }\n    res.sz = s.sz;\n\
+    \    return S(res);\n}\nF composition(F f, F g) {\n    if(!f.used)\n        return\
+    \ g;\n    return f;\n}\nF id() { return F(false, 0, 0); }\n\nvoid solve() {\n\
+    \    LL(n, q);\n    lazy_segtree<S, op, e, F, mapping, composition, id> seg(n);\n\
+    \    rep(i, n) {\n        LL(b, c);\n        seg.set(i, S(b, c, 1));\n    }\n\
+    \    rep(_, q) {\n        LL(flag, l, r);\n        if(flag == 0) {\n         \
+    \   LL(b, c);\n            seg.apply(l, r, F(true, b, c));\n        } else {\n\
+    \            LL(x);\n            S p = seg.prod(l, r);\n            mint ans =\
+    \ p.b * x + p.c;\n            print(ans.val());\n        }\n    }\n}\nint main()\
+    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
+    }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_set_range_composite\"\
+    \n#include \"data_structure/lazy_segtree.hpp\"\n#include \"template.hpp\"\n#include\
+    \ <atcoder/modint>\nusing mint = atcoder::modint998244353;\nstruct S {\n    mint\
+    \ b, c;\n    ll sz;\n};\nS e() { return S(1, 0, 0); };\nS op(S g, S f) { return\
+    \ S(f.b * g.b, f.b * g.c + f.c, g.sz + f.sz); }\nstruct F {\n    bool used;\n\
+    \    mint b, c;\n};\nS mapping(F f, S s) {\n    if(!f.used)\n        return s;\n\
+    \    S res(e());\n    S ff(f.b, f.c);\n    ll sz = s.sz;\n    while(sz) {\n  \
+    \      if(sz & 1) {\n            res = op(res, ff);\n        }\n        ff = op(ff,\
+    \ ff);\n        sz >>= 1;\n    }\n    res.sz = s.sz;\n    return S(res);\n}\n\
+    F composition(F f, F g) {\n    if(!f.used)\n        return g;\n    return f;\n\
+    }\nF id() { return F(false, 0, 0); }\n\nvoid solve() {\n    LL(n, q);\n    lazy_segtree<S,\
+    \ op, e, F, mapping, composition, id> seg(n);\n    rep(i, n) {\n        LL(b,\
+    \ c);\n        seg.set(i, S(b, c, 1));\n    }\n    rep(_, q) {\n        LL(flag,\
+    \ l, r);\n        if(flag == 0) {\n            LL(b, c);\n            seg.apply(l,\
+    \ r, F(true, b, c));\n        } else {\n            LL(x);\n            S p =\
+    \ seg.prod(l, r);\n            mint ans = p.b * x + p.c;\n            print(ans.val());\n\
+    \        }\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
   dependsOn:
+  - data_structure/lazy_segtree.hpp
   - template.hpp
-  isVerificationFile: false
-  path: data_structure/lazy_segtree.hpp
+  isVerificationFile: true
+  path: test/library_checker/data_structure/range_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 17:18:30+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/data_structure/range_affine_range_sum.test.cpp
-  - test/library_checker/data_structure/range_affine_point_get.test.cpp
-  - test/library_checker/data_structure/range_set_range_composite.test.cpp
-  - test/yukicoder/230.test.cpp
-documentation_of: data_structure/lazy_segtree.hpp
+  timestamp: '2024-10-19 19:45:06+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/library_checker/data_structure/range_set_range_composite.test.cpp
 layout: document
 redirect_from:
-- /library/data_structure/lazy_segtree.hpp
-- /library/data_structure/lazy_segtree.hpp.html
-title: data_structure/lazy_segtree.hpp
+- /verify/test/library_checker/data_structure/range_set_range_composite.test.cpp
+- /verify/test/library_checker/data_structure/range_set_range_composite.test.cpp.html
+title: test/library_checker/data_structure/range_set_range_composite.test.cpp
 ---
