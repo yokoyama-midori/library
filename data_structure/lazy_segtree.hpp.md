@@ -7,6 +7,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
+    title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
   _isVerificationFailed: false
@@ -61,18 +64,20 @@ data:
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"data_structure/lazy_segtree.hpp\"\
     \n\ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n\
-    \          F (*composition)(F, F), F (*id)()>\nstruct lazy_segtree {\n    vector<S>\
-    \ v;\n    vector<F> vf;\n    ll n;\n    lazy_segtree(ll n)\n        : n(n), v(vector<S>(2\
-    \ * n, e())), vf(vector<F>(2 * n, id())) {};\n    lazy_segtree(vector<S> v_) :\
-    \ n(v_.size()) {\n        vf = vector<F>(2 * n, id());\n        v = vector<S>(2\
-    \ * n, e());\n        rep(i, n) { v[i + n] = v_[i]; }\n        for(ll i = n -\
-    \ 1; i > 0; i--) {\n            v[i] = op(v[i << 1], v[i << 1 | 1]);\n       \
-    \ }\n    }\n    void apply(ll l, ll r, F f) {\n        l += n;\n        r += n;\n\
-    \        ll l0 = l / (l & -l);\n        ll r0 = r / (r & -r) - 1;\n        propagate_above(l0);\n\
+    \          F (*composition)(F, F), F (*id)()>\n        //   composition(f,g)(x)\
+    \ = f\u2218g(x) = f(g(x))\n        // acl\u3068\u540C\u3058\u3001maspy\u3055\u3093\
+    \u8A18\u4E8B\u3068\u9006\nstruct lazy_segtree {\n    vector<S> v;\n    vector<F>\
+    \ vf;\n    ll n;\n    lazy_segtree(ll n)\n        : n(n), v(vector<S>(2 * n, e())),\
+    \ vf(vector<F>(2 * n, id())) {};\n    lazy_segtree(vector<S> v_) : n(v_.size())\
+    \ {\n        vf = vector<F>(2 * n, id());\n        v = vector<S>(2 * n, e());\n\
+    \        rep(i, n) { v[i + n] = v_[i]; }\n        for(ll i = n - 1; i > 0; i--)\
+    \ {\n            v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void\
+    \ apply(ll l, ll r, F f) {\n        l += n;\n        r += n;\n        ll l0 =\
+    \ l / (l & -l);\n        ll r0 = r / (r & -r) - 1;\n        propagate_above(l0);\n\
     \        propagate_above(r0);\n        while(l < r) {\n            if(l & 1) {\n\
-    \                vf[l] = composition(vf[l], f);\n                l++;\n      \
+    \                vf[l] = composition(f, vf[l]);\n                l++;\n      \
     \      }\n            if(r & 1) {\n                r--;\n                vf[r]\
-    \ = composition(vf[r], f);\n            }\n            l >>= 1;\n            r\
+    \ = composition(f, vf[r]);\n            }\n            l >>= 1;\n            r\
     \ >>= 1;\n        }\n        recul_above(l0);\n        recul_above(r0);\n    }\n\
     \    S get(ll x) {\n        x += n;\n        ll maxi = bit_length(x) - 1;\n  \
     \      for(ll i = maxi; i > 0; i--) {\n            propagate_at(x >> i);\n   \
@@ -87,8 +92,8 @@ data:
     \  sr = op(mapping(vf[r], v[r]), sr);\n            }\n            l >>= 1;\n \
     \           r >>= 1;\n        }\n        return op(sl, sr);\n    }\n\n  private:\n\
     \    S eval_at(ll x) { return mapping(vf[x], v[x]); }\n    void propagate_at(ll\
-    \ x) {\n        v[x] = mapping(vf[x], v[x]);\n        vf[x << 1] = composition(vf[x\
-    \ << 1], vf[x]);\n        vf[x << 1 | 1] = composition(vf[x << 1 | 1], vf[x]);\n\
+    \ x) {\n        v[x] = mapping(vf[x], v[x]);\n        vf[x << 1] = composition(vf[x],\
+    \ vf[x << 1]);\n        vf[x << 1 | 1] = composition(vf[x], vf[x << 1 | 1]);\n\
     \        vf[x] = id();\n    }\n    ll bit_length(unsigned long long x) { return\
     \ 64 - countl_zero(x); }\n    void propagate_above(ll x) {\n        ll maxi =\
     \ bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n            propagate_at(x\
@@ -97,18 +102,20 @@ data:
     \ 1), eval_at(x << 1 | 1));\n        }\n    }\n};\n"
   code: "#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S, S), S (*e)(),\
     \ class F, S (*mapping)(F, S),\n          F (*composition)(F, F), F (*id)()>\n\
-    struct lazy_segtree {\n    vector<S> v;\n    vector<F> vf;\n    ll n;\n    lazy_segtree(ll\
-    \ n)\n        : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};\n\
-    \    lazy_segtree(vector<S> v_) : n(v_.size()) {\n        vf = vector<F>(2 * n,\
+    \        //   composition(f,g)(x) = f\u2218g(x) = f(g(x))\n        // acl\u3068\
+    \u540C\u3058\u3001maspy\u3055\u3093\u8A18\u4E8B\u3068\u9006\nstruct lazy_segtree\
+    \ {\n    vector<S> v;\n    vector<F> vf;\n    ll n;\n    lazy_segtree(ll n)\n\
+    \        : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};\n  \
+    \  lazy_segtree(vector<S> v_) : n(v_.size()) {\n        vf = vector<F>(2 * n,\
     \ id());\n        v = vector<S>(2 * n, e());\n        rep(i, n) { v[i + n] = v_[i];\
     \ }\n        for(ll i = n - 1; i > 0; i--) {\n            v[i] = op(v[i << 1],\
     \ v[i << 1 | 1]);\n        }\n    }\n    void apply(ll l, ll r, F f) {\n     \
     \   l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 = r\
     \ / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
-    \        while(l < r) {\n            if(l & 1) {\n                vf[l] = composition(vf[l],\
-    \ f);\n                l++;\n            }\n            if(r & 1) {\n        \
-    \        r--;\n                vf[r] = composition(vf[r], f);\n            }\n\
-    \            l >>= 1;\n            r >>= 1;\n        }\n        recul_above(l0);\n\
+    \        while(l < r) {\n            if(l & 1) {\n                vf[l] = composition(f,\
+    \ vf[l]);\n                l++;\n            }\n            if(r & 1) {\n    \
+    \            r--;\n                vf[r] = composition(f, vf[r]);\n          \
+    \  }\n            l >>= 1;\n            r >>= 1;\n        }\n        recul_above(l0);\n\
     \        recul_above(r0);\n    }\n    S get(ll x) {\n        x += n;\n       \
     \ ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n     \
     \       propagate_at(x >> i);\n        }\n        return mapping(vf[x], v[x]);\n\
@@ -123,8 +130,8 @@ data:
     \      }\n            l >>= 1;\n            r >>= 1;\n        }\n        return\
     \ op(sl, sr);\n    }\n\n  private:\n    S eval_at(ll x) { return mapping(vf[x],\
     \ v[x]); }\n    void propagate_at(ll x) {\n        v[x] = mapping(vf[x], v[x]);\n\
-    \        vf[x << 1] = composition(vf[x << 1], vf[x]);\n        vf[x << 1 | 1]\
-    \ = composition(vf[x << 1 | 1], vf[x]);\n        vf[x] = id();\n    }\n    ll\
+    \        vf[x << 1] = composition(vf[x], vf[x << 1]);\n        vf[x << 1 | 1]\
+    \ = composition(vf[x], vf[x << 1 | 1]);\n        vf[x] = id();\n    }\n    ll\
     \ bit_length(unsigned long long x) { return 64 - countl_zero(x); }\n    void propagate_above(ll\
     \ x) {\n        ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0;\
     \ i--) {\n            propagate_at(x >> i);\n        }\n        return;\n    }\n\
@@ -136,9 +143,10 @@ data:
   isVerificationFile: false
   path: data_structure/lazy_segtree.hpp
   requiredBy: []
-  timestamp: '2024-10-19 00:06:05+09:00'
+  timestamp: '2024-10-19 17:18:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - test/yukicoder/230.test.cpp
 documentation_of: data_structure/lazy_segtree.hpp
 layout: document

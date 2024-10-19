@@ -14,11 +14,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/230
+    PROBLEM: https://judge.yosupo.jp/problem/range_affine_range_sum
     links:
-    - https://yukicoder.me/problems/no/230
-  bundledCode: "#line 1 \"test/yukicoder/230.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/230\"\
-    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    - https://judge.yosupo.jp/problem/range_affine_range_sum
+  bundledCode: "#line 1 \"test/library_checker/data_structure/range_affine_range_sum.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\n\
+    #line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
     \ methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0,\
@@ -100,55 +101,45 @@ data:
     \ bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n            propagate_at(x\
     \ >> i);\n        }\n        return;\n    }\n    void recul_above(ll x) {\n  \
     \      while(x > 1) {\n            x >>= 1;\n            v[x] = op(eval_at(x <<\
-    \ 1), eval_at(x << 1 | 1));\n        }\n    }\n};\n#line 4 \"test/yukicoder/230.test.cpp\"\
-    \nstruct S {\n    ll a, b, sz;\n};\nstruct F {\n    ll f;\n    // 0 e,1 a,2 b\n\
-    };\nS op(S s, S t) { return S(s.a + t.a, s.b + t.b, s.sz + t.sz); }\nS mapping(F\
-    \ f, S s) {\n    if(f.f == 0) {\n        return s;\n    } else if(f.f == 1) {\n\
-    \        return S(s.sz, 0, s.sz);\n    } else {\n        return S(0, s.sz, s.sz);\n\
-    \    }\n}\nF composition(F f, F g) {\n    if(f.f == 0) {\n        return g;\n\
-    \    } else\n        return f;\n}\nS e() { return S(0, 0, 0); }\nF id() { return\
-    \ F(0); }\nvoid solve() {\n    LL(n, q);\n    lazy_segtree<S, op, e, F, mapping,\
-    \ composition, id> seg(\n        vector<S>(n, S(0, 0, 1)));\n    ll ans_a = 0,\
-    \ ans_b = 0;\n    // rep(i, n) { seg.set(i, S(0, 0, 1)); }\n    rep(_, q) {\n\
-    \        LL(x, l, r);\n        if(x == 0) {\n            S res = seg.prod(l, r\
-    \ + 1);\n            if(res.a > res.b) {\n                ans_a += res.a;\n  \
-    \          } else if(res.a < res.b) {\n                ans_b += res.b;\n     \
-    \       }\n        } else if(x == 1) {\n            seg.apply(l, r + 1, F(1));\n\
-    \        } else {\n            seg.apply(l, r + 1, F(2));\n        }\n    }\n\
-    \    {\n        S res = seg.prod(0, n);\n        ans_a += res.a;\n        ans_b\
-    \ += res.b;\n    }\n    print(ans_a, ans_b);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \ 1), eval_at(x << 1 | 1));\n        }\n    }\n};\n#line 4 \"test/library_checker/data_structure/range_affine_range_sum.test.cpp\"\
+    \n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\nstruct S\
+    \ {\n    mint a, sz;\n};\nS e() { return S(0, 0); };\nS op(S a, S b) { return\
+    \ S(a.a + b.a, a.sz + b.sz); }\nstruct F {\n    mint b, c;\n};\nS mapping(F f,\
+    \ S s) { return S(f.b * s.a + s.sz * f.c, s.sz); }\nF composition(F f, F g) {\
+    \ return F(f.b * g.b, f.b * g.c + f.c); }\nF id() { return F(1, 0); }\n\nvoid\
+    \ solve() {\n    LL(n, q);\n    lazy_segtree<S, op, e, F, mapping, composition,\
+    \ id> seg(n);\n    rep(i, n) {\n        LL(a);\n        seg.set(i, S(a, 1));\n\
+    \    }\n    rep(_, q) {\n        LL(flag, l, r);\n        if(flag == 0) {\n  \
+    \          LL(b, c);\n            seg.apply(l, r, F(b, c));\n        } else {\n\
+    \            print(seg.prod(l, r).a.val());\n        }\n    }\n}\nint main() {\n\
+    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
+    }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
+    \n#include \"data_structure/lazy_segtree.hpp\"\n#include \"template.hpp\"\n#include\
+    \ <atcoder/modint>\nusing mint = atcoder::modint998244353;\nstruct S {\n    mint\
+    \ a, sz;\n};\nS e() { return S(0, 0); };\nS op(S a, S b) { return S(a.a + b.a,\
+    \ a.sz + b.sz); }\nstruct F {\n    mint b, c;\n};\nS mapping(F f, S s) { return\
+    \ S(f.b * s.a + s.sz * f.c, s.sz); }\nF composition(F f, F g) { return F(f.b *\
+    \ g.b, f.b * g.c + f.c); }\nF id() { return F(1, 0); }\n\nvoid solve() {\n   \
+    \ LL(n, q);\n    lazy_segtree<S, op, e, F, mapping, composition, id> seg(n);\n\
+    \    rep(i, n) {\n        LL(a);\n        seg.set(i, S(a, 1));\n    }\n    rep(_,\
+    \ q) {\n        LL(flag, l, r);\n        if(flag == 0) {\n            LL(b, c);\n\
+    \            seg.apply(l, r, F(b, c));\n        } else {\n            print(seg.prod(l,\
+    \ r).a.val());\n        }\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/230\"\n#include \"data_structure/lazy_segtree.hpp\"\
-    \n#include \"template.hpp\"\nstruct S {\n    ll a, b, sz;\n};\nstruct F {\n  \
-    \  ll f;\n    // 0 e,1 a,2 b\n};\nS op(S s, S t) { return S(s.a + t.a, s.b + t.b,\
-    \ s.sz + t.sz); }\nS mapping(F f, S s) {\n    if(f.f == 0) {\n        return s;\n\
-    \    } else if(f.f == 1) {\n        return S(s.sz, 0, s.sz);\n    } else {\n \
-    \       return S(0, s.sz, s.sz);\n    }\n}\nF composition(F f, F g) {\n    if(f.f\
-    \ == 0) {\n        return g;\n    } else\n        return f;\n}\nS e() { return\
-    \ S(0, 0, 0); }\nF id() { return F(0); }\nvoid solve() {\n    LL(n, q);\n    lazy_segtree<S,\
-    \ op, e, F, mapping, composition, id> seg(\n        vector<S>(n, S(0, 0, 1)));\n\
-    \    ll ans_a = 0, ans_b = 0;\n    // rep(i, n) { seg.set(i, S(0, 0, 1)); }\n\
-    \    rep(_, q) {\n        LL(x, l, r);\n        if(x == 0) {\n            S res\
-    \ = seg.prod(l, r + 1);\n            if(res.a > res.b) {\n                ans_a\
-    \ += res.a;\n            } else if(res.a < res.b) {\n                ans_b +=\
-    \ res.b;\n            }\n        } else if(x == 1) {\n            seg.apply(l,\
-    \ r + 1, F(1));\n        } else {\n            seg.apply(l, r + 1, F(2));\n  \
-    \      }\n    }\n    {\n        S res = seg.prod(0, n);\n        ans_a += res.a;\n\
-    \        ans_b += res.b;\n    }\n    print(ans_a, ans_b);\n}\nint main() {\n \
-    \   ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n}\n"
   dependsOn:
   - data_structure/lazy_segtree.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/yukicoder/230.test.cpp
+  path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 17:18:30+09:00'
+  timestamp: '2024-10-19 17:18:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yukicoder/230.test.cpp
+documentation_of: test/library_checker/data_structure/range_affine_range_sum.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/230.test.cpp
-- /verify/test/yukicoder/230.test.cpp.html
-title: test/yukicoder/230.test.cpp
+- /verify/test/library_checker/data_structure/range_affine_range_sum.test.cpp
+- /verify/test/library_checker/data_structure/range_affine_range_sum.test.cpp.html
+title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
 ---
