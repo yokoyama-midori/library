@@ -2,6 +2,8 @@
 
 template <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),
           F (*composition)(F, F), F (*id)()>
+        //   composition(f,g)(x) = f∘g(x) = f(g(x))
+        // aclと同じ、maspyさん記事と逆
 struct lazy_segtree {
     vector<S> v;
     vector<F> vf;
@@ -25,12 +27,12 @@ struct lazy_segtree {
         propagate_above(r0);
         while(l < r) {
             if(l & 1) {
-                vf[l] = composition(vf[l], f);
+                vf[l] = composition(f, vf[l]);
                 l++;
             }
             if(r & 1) {
                 r--;
-                vf[r] = composition(vf[r], f);
+                vf[r] = composition(f, vf[r]);
             }
             l >>= 1;
             r >>= 1;
@@ -80,8 +82,8 @@ struct lazy_segtree {
     S eval_at(ll x) { return mapping(vf[x], v[x]); }
     void propagate_at(ll x) {
         v[x] = mapping(vf[x], v[x]);
-        vf[x << 1] = composition(vf[x << 1], vf[x]);
-        vf[x << 1 | 1] = composition(vf[x << 1 | 1], vf[x]);
+        vf[x << 1] = composition(vf[x], vf[x << 1]);
+        vf[x << 1 | 1] = composition(vf[x], vf[x << 1 | 1]);
         vf[x] = id();
     }
     ll bit_length(unsigned long long x) { return 64 - countl_zero(x); }

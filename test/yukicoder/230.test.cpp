@@ -19,10 +19,10 @@ S mapping(F f, S s) {
     }
 }
 F composition(F f, F g) {
-    if(g.f == 0) {
-        return f;
-    } else
+    if(f.f == 0) {
         return g;
+    } else
+        return f;
 }
 S e() { return S(0, 0, 0); }
 F id() { return F(0); }
