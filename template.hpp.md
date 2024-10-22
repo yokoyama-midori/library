@@ -9,11 +9,17 @@ data:
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
   - icon: ':heavy_check_mark:'
+    path: math/factorial.hpp
+    title: math/factorial.hpp
+  - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
   - icon: ':heavy_check_mark:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
+  - icon: ':heavy_check_mark:'
+    path: poly/shift_of_sampling_points.hpp
+    title: poly/shift_of_sampling_points.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/practice2_j.test.cpp
@@ -48,6 +54,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
+    title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/aplusb.test.cpp
     title: test/library_checker/sample/aplusb.test.cpp
@@ -163,8 +172,10 @@ data:
   isVerificationFile: false
   path: template.hpp
   requiredBy:
+  - poly/shift_of_sampling_points.hpp
   - poly/bostan_mori.hpp
   - math/matrix.hpp
+  - math/factorial.hpp
   - data_structure/lazy_segtree.hpp
   - data_structure/segtree.hpp
   timestamp: '2024-10-18 23:31:12+09:00'
@@ -182,6 +193,7 @@ data:
   - test/library_checker/sample/many_aplusb.test.cpp
   - test/library_checker/linear_algebra/matrix_product.test.cpp
   - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/atcoder/practice2_j.test.cpp
   - test/yukicoder/230.test.cpp
   - test/yukicoder/12.test.cpp
