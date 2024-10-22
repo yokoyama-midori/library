@@ -81,7 +81,7 @@ data:
     \ int i) {\n        if(n < 0 || i < 0 || n < i) {\n            return T(0);\n\
     \        }\n        ensure(n);\n        return fac[n] * fac_inv[n - i];\n    }\n\
     \n  private:\n    vector<T> fac, fac_inv;\n};\n#line 3 \"poly/shift_of_sampling_points.hpp\"\
-    \n// https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp\n\
+    \n#include <atcoder/convolution>\n// https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp\n\
     template <class Mint>\nvector<Mint> shift_of_sampling_points(const vector<Mint>\
     \ &f, const int m,\n                                      const int c) {\n   \
     \ factorial<Mint> fac;\n    const int n = f.size();\n    auto a = [&] {\n    \
@@ -98,7 +98,8 @@ data:
     \ m) { f2[i] = fac.inv(i); }\n        return convolution(f1, f2);\n    }();\n\
     \    vector<Mint> res(m);\n    rep(i, m) { res[i] = fac[i] * fc[i]; }\n    return\
     \ res;\n}\n"
-  code: "#pragma once\n#include \"math/factorial.hpp\"\n// https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp\n\
+  code: "#pragma once\n#include \"math/factorial.hpp\"\n#include <atcoder/convolution>\n\
+    // https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp\n\
     template <class Mint>\nvector<Mint> shift_of_sampling_points(const vector<Mint>\
     \ &f, const int m,\n                                      const int c) {\n   \
     \ factorial<Mint> fac;\n    const int n = f.size();\n    auto a = [&] {\n    \
@@ -121,7 +122,7 @@ data:
   isVerificationFile: false
   path: poly/shift_of_sampling_points.hpp
   requiredBy: []
-  timestamp: '2024-10-23 04:38:48+09:00'
+  timestamp: '2024-10-23 04:52:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp

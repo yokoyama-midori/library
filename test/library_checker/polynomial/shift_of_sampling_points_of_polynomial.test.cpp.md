@@ -23,27 +23,27 @@ data:
   bundledCode: "#line 1 \"test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp\"\
     \n#define PROBLEM                                                            \
     \    \\\n    \"https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial\"\
-    \n#include <atcoder/convolution>\n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\n\
-    #line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
-    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
-    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
-    \ methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0,\
-    \ a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 <<\
-    \ endl\n#define debug_2(x1, x2)                                              \
-    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
-    \ endl\n#define debug_3(x1, x2, x3)                                          \
-    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
-    \ \", \" #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1, x2,\
-    \ x3, x4)                                                \\\n    cout << #x1 <<\
-    \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
-    \        << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2,\
-    \ x3, x4, x5)                                            \\\n    cout << #x1 <<\
-    \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
-    \        << x3 << \", \" #x4 << \": \" << x4 << \", \" #x5 << \": \" << x5 <<\
-    \ endl\n#ifdef LOCAL\n#define debug(...)                                     \
-    \                        \\\n    CHOOSE((__VA_ARGS__, debug_5, debug_4, debug_3,\
-    \ debug_2, debug_1, ~))      \\\n    (__VA_ARGS__)\n#else\n#define debug(...)\n\
-    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    \n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\n#line 2 \"\
+    template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\"\
+    )\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing\
+    \ namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n\
+    // usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0, a1, a2,\
+    \ a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 << endl\n\
+    #define debug_2(x1, x2)                                                      \
+    \  \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 << endl\n\
+    #define debug_3(x1, x2, x3)                                                  \
+    \  \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \"\
+    \ #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1, x2, x3, x4)\
+    \                                                \\\n    cout << #x1 << \": \"\
+    \ << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n        \
+    \ << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2, x3, x4,\
+    \ x5)                                            \\\n    cout << #x1 << \": \"\
+    \ << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n        \
+    \ << x3 << \", \" #x4 << \": \" << x4 << \", \" #x5 << \": \" << x5 << endl\n\
+    #ifdef LOCAL\n#define debug(...)                                             \
+    \                \\\n    CHOOSE((__VA_ARGS__, debug_5, debug_4, debug_3, debug_2,\
+    \ debug_1, ~))      \\\n    (__VA_ARGS__)\n#else\n#define debug(...)\n#endif\n\
+    \nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -87,7 +87,7 @@ data:
     \ int i) {\n        if(n < 0 || i < 0 || n < i) {\n            return T(0);\n\
     \        }\n        ensure(n);\n        return fac[n] * fac_inv[n - i];\n    }\n\
     \n  private:\n    vector<T> fac, fac_inv;\n};\n#line 3 \"poly/shift_of_sampling_points.hpp\"\
-    \n// https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp\n\
+    \n#include <atcoder/convolution>\n// https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp\n\
     template <class Mint>\nvector<Mint> shift_of_sampling_points(const vector<Mint>\
     \ &f, const int m,\n                                      const int c) {\n   \
     \ factorial<Mint> fac;\n    const int n = f.size();\n    auto a = [&] {\n    \
@@ -103,7 +103,7 @@ data:
     \ f2(m);\n        rep(i, n) { f1[i] = b[n - 1 - i] * fac.inv(i); }\n        rep(i,\
     \ m) { f2[i] = fac.inv(i); }\n        return convolution(f1, f2);\n    }();\n\
     \    vector<Mint> res(m);\n    rep(i, m) { res[i] = fac[i] * fc[i]; }\n    return\
-    \ res;\n}\n#line 8 \"test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp\"\
+    \ res;\n}\n#line 7 \"test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp\"\
     \n\nvoid solve() {\n    LL(n, m, c);\n    vector<mint> f(n);\n    rep(i, n) {\n\
     \        LL(fi);\n        f[i] = fi;\n    }\n    auto res = shift_of_sampling_points(f,\
     \ m, c);\n    rep(i, m) cout << res[i].val() << \" \";\n    cout << endl;\n}\n\
@@ -111,13 +111,13 @@ data:
     \   solve();\n}\n"
   code: "#define PROBLEM                                                         \
     \       \\\n    \"https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial\"\
-    \n#include <atcoder/convolution>\n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\n\
-    #include \"poly/shift_of_sampling_points.hpp\"\n#include \"template.hpp\"\n\n\
-    void solve() {\n    LL(n, m, c);\n    vector<mint> f(n);\n    rep(i, n) {\n  \
-    \      LL(fi);\n        f[i] = fi;\n    }\n    auto res = shift_of_sampling_points(f,\
-    \ m, c);\n    rep(i, m) cout << res[i].val() << \" \";\n    cout << endl;\n}\n\
-    int main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n \
-    \   solve();\n}\n"
+    \n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\n#include\
+    \ \"poly/shift_of_sampling_points.hpp\"\n#include \"template.hpp\"\n\nvoid solve()\
+    \ {\n    LL(n, m, c);\n    vector<mint> f(n);\n    rep(i, n) {\n        LL(fi);\n\
+    \        f[i] = fi;\n    }\n    auto res = shift_of_sampling_points(f, m, c);\n\
+    \    rep(i, m) cout << res[i].val() << \" \";\n    cout << endl;\n}\nint main()\
+    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
+    }\n"
   dependsOn:
   - poly/shift_of_sampling_points.hpp
   - math/factorial.hpp
@@ -125,7 +125,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   requiredBy: []
-  timestamp: '2024-10-23 04:38:48+09:00'
+  timestamp: '2024-10-23 04:52:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
