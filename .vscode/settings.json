@@ -18,6 +18,8 @@
     "tuple": "cpp",
     "utility": "cpp",
     "variant": "cpp",
-    "bit": "cpp"
+    "bit": "cpp",
+    "math": "cpp",
+    "algorithm": "cpp"
   },
 }
