@@ -2,7 +2,7 @@
 #include "math/factorial.hpp"
 // https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp
 template <class Mint>
-vector<Mint> shift_of_sampling_points(const vector<Mint> f, const int m,
+vector<Mint> shift_of_sampling_points(const vector<Mint> &f, const int m,
                                       const int c) {
     factorial<Mint> fac;
     const int n = f.size();
