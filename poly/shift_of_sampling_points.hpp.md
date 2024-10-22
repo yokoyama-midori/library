@@ -83,13 +83,13 @@ data:
     \n  private:\n    vector<T> fac, fac_inv;\n};\n#line 3 \"poly/shift_of_sampling_points.hpp\"\
     \n// https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp\n\
     template <class Mint>\nvector<Mint> shift_of_sampling_points(const vector<Mint>\
-    \ f, const int m,\n                                      const int c) {\n    factorial<Mint>\
-    \ fac;\n    const int n = f.size();\n    auto a = [&] {\n        vector<Mint>\
-    \ a1(n), a2(n);\n        rep(i, n) {\n            a1[i] = f[i] * fac.inv(i);\n\
-    \            a2[i] = ((i & 1) ? -1 : 1) * fac.inv(i);\n        }\n        auto\
-    \ a = convolution(a1, a2);\n        a.resize(n);\n        return a;\n    }();\n\
-    \    vector<Mint> a_(n);\n    rep(i, n) { a_[i] = a[n - 1 - i] * fac[n - 1 - i];\
-    \ }\n    vector<Mint> b2 = [&] {\n        // b2[i] = c*(c-1)*...*(c-i+1)/i!\n\
+    \ &f, const int m,\n                                      const int c) {\n   \
+    \ factorial<Mint> fac;\n    const int n = f.size();\n    auto a = [&] {\n    \
+    \    vector<Mint> a1(n), a2(n);\n        rep(i, n) {\n            a1[i] = f[i]\
+    \ * fac.inv(i);\n            a2[i] = ((i & 1) ? -1 : 1) * fac.inv(i);\n      \
+    \  }\n        auto a = convolution(a1, a2);\n        a.resize(n);\n        return\
+    \ a;\n    }();\n    vector<Mint> a_(n);\n    rep(i, n) { a_[i] = a[n - 1 - i]\
+    \ * fac[n - 1 - i]; }\n    vector<Mint> b2 = [&] {\n        // b2[i] = c*(c-1)*...*(c-i+1)/i!\n\
     \        vector<Mint> b2(n);\n        Mint ci = 1;\n        b2[0] = ci;\n    \
     \    for(int i = 1; i < n; i++) {\n            ci *= c - i + 1;\n            b2[i]\
     \ = ci * fac.inv(i);\n        }\n        return b2;\n    }();\n    auto b = convolution(a_,\
@@ -100,13 +100,13 @@ data:
     \ res;\n}\n"
   code: "#pragma once\n#include \"math/factorial.hpp\"\n// https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp\n\
     template <class Mint>\nvector<Mint> shift_of_sampling_points(const vector<Mint>\
-    \ f, const int m,\n                                      const int c) {\n    factorial<Mint>\
-    \ fac;\n    const int n = f.size();\n    auto a = [&] {\n        vector<Mint>\
-    \ a1(n), a2(n);\n        rep(i, n) {\n            a1[i] = f[i] * fac.inv(i);\n\
-    \            a2[i] = ((i & 1) ? -1 : 1) * fac.inv(i);\n        }\n        auto\
-    \ a = convolution(a1, a2);\n        a.resize(n);\n        return a;\n    }();\n\
-    \    vector<Mint> a_(n);\n    rep(i, n) { a_[i] = a[n - 1 - i] * fac[n - 1 - i];\
-    \ }\n    vector<Mint> b2 = [&] {\n        // b2[i] = c*(c-1)*...*(c-i+1)/i!\n\
+    \ &f, const int m,\n                                      const int c) {\n   \
+    \ factorial<Mint> fac;\n    const int n = f.size();\n    auto a = [&] {\n    \
+    \    vector<Mint> a1(n), a2(n);\n        rep(i, n) {\n            a1[i] = f[i]\
+    \ * fac.inv(i);\n            a2[i] = ((i & 1) ? -1 : 1) * fac.inv(i);\n      \
+    \  }\n        auto a = convolution(a1, a2);\n        a.resize(n);\n        return\
+    \ a;\n    }();\n    vector<Mint> a_(n);\n    rep(i, n) { a_[i] = a[n - 1 - i]\
+    \ * fac[n - 1 - i]; }\n    vector<Mint> b2 = [&] {\n        // b2[i] = c*(c-1)*...*(c-i+1)/i!\n\
     \        vector<Mint> b2(n);\n        Mint ci = 1;\n        b2[0] = ci;\n    \
     \    for(int i = 1; i < n; i++) {\n            ci *= c - i + 1;\n            b2[i]\
     \ = ci * fac.inv(i);\n        }\n        return b2;\n    }();\n    auto b = convolution(a_,\
@@ -121,7 +121,7 @@ data:
   isVerificationFile: false
   path: poly/shift_of_sampling_points.hpp
   requiredBy: []
-  timestamp: '2024-10-23 04:35:48+09:00'
+  timestamp: '2024-10-23 04:38:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
