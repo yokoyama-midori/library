@@ -5,6 +5,8 @@
 template <class Mint>
 vector<Mint> shift_of_sampling_points(const vector<Mint> &f, const int m,
                                       const int c) {
+    // n次未満の多項式fのn個の点f(0),...,f(n-1)に対して
+    // f(c),...,f(c+m-1)を計算
     factorial<Mint> fac;
     const int n = f.size();
     auto a = [&] {
