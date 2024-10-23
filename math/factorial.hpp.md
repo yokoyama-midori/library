@@ -6,9 +6,15 @@ data:
     title: template.hpp
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: math/factorial_large.hpp
+    title: math/factorial_large.hpp
+  - icon: ':heavy_check_mark:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+    title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
     title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
@@ -104,9 +110,11 @@ data:
   path: math/factorial.hpp
   requiredBy:
   - poly/shift_of_sampling_points.hpp
+  - math/factorial_large.hpp
   timestamp: '2024-10-23 04:35:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
 documentation_of: math/factorial.hpp
 layout: document

@@ -5,25 +5,21 @@ data:
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':heavy_check_mark:'
+    path: poly/shift_of_sampling_points.hpp
+    title: poly/shift_of_sampling_points.hpp
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: math/factorial_large.hpp
-    title: math/factorial_large.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
-    title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links:
-    - https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp
+    links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -105,43 +101,66 @@ data:
     \ f2(m);\n        rep(i, n) { f1[i] = b[n - 1 - i] * fac.inv(i); }\n        rep(i,\
     \ m) { f2[i] = fac.inv(i); }\n        return convolution(f1, f2);\n    }();\n\
     \    vector<Mint> res(m);\n    rep(i, m) { res[i] = fac[i] * fc[i]; }\n    return\
-    \ res;\n}\n"
-  code: "#pragma once\n#include \"math/factorial.hpp\"\n#include <atcoder/convolution>\n\
-    // https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp\n\
-    template <class Mint>\nvector<Mint> shift_of_sampling_points(const vector<Mint>\
-    \ &f, const int m,\n                                      const int c) {\n   \
-    \ // n\u6B21\u672A\u6E80\u306E\u591A\u9805\u5F0Ff\u306En\u500B\u306E\u70B9f(0),...,f(n-1)\u306B\
-    \u5BFE\u3057\u3066\n    // f(c),...,f(c+m-1)\u3092\u8A08\u7B97\n    factorial<Mint>\
-    \ fac;\n    const int n = f.size();\n    auto a = [&] {\n        vector<Mint>\
-    \ a1(n), a2(n);\n        rep(i, n) {\n            a1[i] = f[i] * fac.inv(i);\n\
-    \            a2[i] = ((i & 1) ? -1 : 1) * fac.inv(i);\n        }\n        auto\
-    \ a = convolution(a1, a2);\n        a.resize(n);\n        return a;\n    }();\n\
-    \    vector<Mint> a_(n);\n    rep(i, n) { a_[i] = a[n - 1 - i] * fac[n - 1 - i];\
-    \ }\n    vector<Mint> b2 = [&] {\n        // b2[i] = c*(c-1)*...*(c-i+1)/i!\n\
-    \        vector<Mint> b2(n);\n        Mint ci = 1;\n        b2[0] = ci;\n    \
-    \    for(int i = 1; i < n; i++) {\n            ci *= c - i + 1;\n            b2[i]\
-    \ = ci * fac.inv(i);\n        }\n        return b2;\n    }();\n    auto b = convolution(a_,\
-    \ b2);\n    vector<Mint> fc = [&] {\n        vector<Mint> f1(n);\n        vector<Mint>\
-    \ f2(m);\n        rep(i, n) { f1[i] = b[n - 1 - i] * fac.inv(i); }\n        rep(i,\
-    \ m) { f2[i] = fac.inv(i); }\n        return convolution(f1, f2);\n    }();\n\
-    \    vector<Mint> res(m);\n    rep(i, m) { res[i] = fac[i] * fc[i]; }\n    return\
-    \ res;\n}\n"
+    \ res;\n}\n#line 4 \"math/factorial_large.hpp\"\n#include <atcoder/modint>\ntemplate\
+    \ <class mint> struct factorial_large {\n    const ll K = 9;\n    // const ll\
+    \ K = 2;\n    vector<vector<mint>> f;\n    vector<mint> g;\n    factorial_large()\
+    \ {\n        // f_i(x) = (2^i x + 1) * ... * (2^i x + 2^i - 1)\n        // f_i(0)\
+    \ , ... , f_i(2^i - 1) \u306E\u5024\u304C\u5206\u304B\u308C\u3070\u30B7\u30D5\u30C8\
+    \u3067\u304D\u308B\n        f = vector(K + 1, vector<mint>());\n        f[0] =\
+    \ {1};\n        // f_0(x) = 1\n        rep(i, K) {\n            // cul f_(i+1)\n\
+    \            ll ti = 1LL << i;\n            auto f1 = shift_of_sampling_points<mint>(f[i],\
+    \ 3 * ti, ti);\n            f[i].insert(f[i].end(), all(f1));\n            //\
+    \ debug(i, f[i].size());\n            f[i + 1].resize(2 * ti);\n            rep(j,\
+    \ 2 * ti) {\n                f[i + 1][j] = f[i][2 * j] * f[i][2 * j + 1] * ti\
+    \ * (2 * j + 1);\n            }\n            // if(i <= 3) {\n            // \
+    \    rep(j, ti) cout << f[i][j].val() << \" \";\n            //     cout << endl;\n\
+    \            // }\n        }\n        // g_i = (i*2^K)!\n        {\n         \
+    \   ll sz = ll(mint::mod()) / (1LL << K) + 1;\n            auto g1 = shift_of_sampling_points(f[K],\
+    \ sz - 1, 0);\n            g.resize(sz);\n            g[0] = 1;\n            mint\
+    \ tK = 1 << K;\n            for(int i = 1; i < sz; i++) {\n                g[i]\
+    \ = g[i - 1] * g1[i - 1] * tK * i;\n            }\n        }\n    }\n    mint\
+    \ fac(ll n) {\n        if(n >= mint::mod())\n            return 0;\n        ll\
+    \ r = n / (1LL << K);\n        ll q = n - (1LL << K) * r;\n        mint res =\
+    \ g[r];\n        for(ll i = (1LL << K) * r + 1; i <= n; i++) {\n            res\
+    \ *= i;\n        }\n        return res;\n    }\n};\n"
+  code: "#pragma once\n#include \"poly/shift_of_sampling_points.hpp\"\n#include \"\
+    template.hpp\"\n#include <atcoder/modint>\ntemplate <class mint> struct factorial_large\
+    \ {\n    const ll K = 9;\n    // const ll K = 2;\n    vector<vector<mint>> f;\n\
+    \    vector<mint> g;\n    factorial_large() {\n        // f_i(x) = (2^i x + 1)\
+    \ * ... * (2^i x + 2^i - 1)\n        // f_i(0) , ... , f_i(2^i - 1) \u306E\u5024\
+    \u304C\u5206\u304B\u308C\u3070\u30B7\u30D5\u30C8\u3067\u304D\u308B\n        f\
+    \ = vector(K + 1, vector<mint>());\n        f[0] = {1};\n        // f_0(x) = 1\n\
+    \        rep(i, K) {\n            // cul f_(i+1)\n            ll ti = 1LL << i;\n\
+    \            auto f1 = shift_of_sampling_points<mint>(f[i], 3 * ti, ti);\n   \
+    \         f[i].insert(f[i].end(), all(f1));\n            // debug(i, f[i].size());\n\
+    \            f[i + 1].resize(2 * ti);\n            rep(j, 2 * ti) {\n        \
+    \        f[i + 1][j] = f[i][2 * j] * f[i][2 * j + 1] * ti * (2 * j + 1);\n   \
+    \         }\n            // if(i <= 3) {\n            //     rep(j, ti) cout <<\
+    \ f[i][j].val() << \" \";\n            //     cout << endl;\n            // }\n\
+    \        }\n        // g_i = (i*2^K)!\n        {\n            ll sz = ll(mint::mod())\
+    \ / (1LL << K) + 1;\n            auto g1 = shift_of_sampling_points(f[K], sz -\
+    \ 1, 0);\n            g.resize(sz);\n            g[0] = 1;\n            mint tK\
+    \ = 1 << K;\n            for(int i = 1; i < sz; i++) {\n                g[i] =\
+    \ g[i - 1] * g1[i - 1] * tK * i;\n            }\n        }\n    }\n    mint fac(ll\
+    \ n) {\n        if(n >= mint::mod())\n            return 0;\n        ll r = n\
+    \ / (1LL << K);\n        ll q = n - (1LL << K) * r;\n        mint res = g[r];\n\
+    \        for(ll i = (1LL << K) * r + 1; i <= n; i++) {\n            res *= i;\n\
+    \        }\n        return res;\n    }\n};"
   dependsOn:
+  - poly/shift_of_sampling_points.hpp
   - math/factorial.hpp
   - template.hpp
   isVerificationFile: false
-  path: poly/shift_of_sampling_points.hpp
-  requiredBy:
-  - math/factorial_large.hpp
+  path: math/factorial_large.hpp
+  requiredBy: []
   timestamp: '2024-10-23 22:32:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
-documentation_of: poly/shift_of_sampling_points.hpp
+documentation_of: math/factorial_large.hpp
 layout: document
 redirect_from:
-- /library/poly/shift_of_sampling_points.hpp
-- /library/poly/shift_of_sampling_points.hpp.html
-title: poly/shift_of_sampling_points.hpp
+- /library/math/factorial_large.hpp
+- /library/math/factorial_large.hpp.html
+title: math/factorial_large.hpp
 ---

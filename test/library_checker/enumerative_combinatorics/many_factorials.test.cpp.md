@@ -5,6 +5,9 @@ data:
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':heavy_check_mark:'
+    path: math/factorial_large.hpp
+    title: math/factorial_large.hpp
+  - icon: ':heavy_check_mark:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   - icon: ':heavy_check_mark:'
@@ -17,33 +20,32 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial
+    PROBLEM: https://judge.yosupo.jp/problem/many_factorials
     links:
-    - https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial
-  bundledCode: "#line 1 \"test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp\"\
-    \n#define PROBLEM                                                            \
-    \    \\\n    \"https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial\"\
-    \n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\n#line 2 \"\
-    template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\"\
-    )\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n\
-    // usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0, a1, a2,\
-    \ a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 << endl\n\
-    #define debug_2(x1, x2)                                                      \
-    \  \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 << endl\n\
-    #define debug_3(x1, x2, x3)                                                  \
-    \  \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \"\
-    \ #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1, x2, x3, x4)\
-    \                                                \\\n    cout << #x1 << \": \"\
-    \ << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n        \
-    \ << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2, x3, x4,\
-    \ x5)                                            \\\n    cout << #x1 << \": \"\
-    \ << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n        \
-    \ << x3 << \", \" #x4 << \": \" << x4 << \", \" #x5 << \": \" << x5 << endl\n\
-    #ifdef LOCAL\n#define debug(...)                                             \
-    \                \\\n    CHOOSE((__VA_ARGS__, debug_5, debug_4, debug_3, debug_2,\
-    \ debug_1, ~))      \\\n    (__VA_ARGS__)\n#else\n#define debug(...)\n#endif\n\
-    \nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    - https://judge.yosupo.jp/problem/many_factorials
+    - https://suisen-kyopro.hatenablog.com/entry/2023/11/22/201600#:~:text=%E3%81%93%E3%81%A8%E3%81%8C%E3%81%82%E3%82%8B-,%E6%96%B9%E6%B3%95%E2%91%A1,-(
+  bundledCode: "#line 1 \"test/library_checker/enumerative_combinatorics/many_factorials.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/many_factorials\"\n// https://suisen-kyopro.hatenablog.com/entry/2023/11/22/201600#:~:text=%E3%81%93%E3%81%A8%E3%81%8C%E3%81%82%E3%82%8B-,%E6%96%B9%E6%B3%95%E2%91%A1,-(\n\
+    #line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0,\
+    \ a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) cout << #x1 << \": \" << x1 <<\
+    \ endl\n#define debug_2(x1, x2)                                              \
+    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
+    \ endl\n#define debug_3(x1, x2, x3)                                          \
+    \          \\\n    cout << #x1 << \": \" << x1 << \", \" #x2 << \": \" << x2 <<\
+    \ \", \" #x3 << \": \"    \\\n         << x3 << endl\n#define debug_4(x1, x2,\
+    \ x3, x4)                                                \\\n    cout << #x1 <<\
+    \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
+    \        << x3 << \", \" #x4 << \": \" << x4 << endl\n#define debug_5(x1, x2,\
+    \ x3, x4, x5)                                            \\\n    cout << #x1 <<\
+    \ \": \" << x1 << \", \" #x2 << \": \" << x2 << \", \" #x3 << \": \"    \\\n \
+    \        << x3 << \", \" #x4 << \": \" << x4 << \", \" #x5 << \": \" << x5 <<\
+    \ endl\n#ifdef LOCAL\n#define debug(...)                                     \
+    \                        \\\n    CHOOSE((__VA_ARGS__, debug_5, debug_4, debug_3,\
+    \ debug_2, debug_1, ~))      \\\n    (__VA_ARGS__)\n#else\n#define debug(...)\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -105,35 +107,51 @@ data:
     \ f2(m);\n        rep(i, n) { f1[i] = b[n - 1 - i] * fac.inv(i); }\n        rep(i,\
     \ m) { f2[i] = fac.inv(i); }\n        return convolution(f1, f2);\n    }();\n\
     \    vector<Mint> res(m);\n    rep(i, m) { res[i] = fac[i] * fc[i]; }\n    return\
-    \ res;\n}\n#line 7 \"test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp\"\
-    \n\nvoid solve() {\n    LL(n, m, c);\n    vector<mint> f(n);\n    rep(i, n) {\n\
-    \        LL(fi);\n        f[i] = fi;\n    }\n    auto res = shift_of_sampling_points(f,\
-    \ m, c);\n    rep(i, m) cout << res[i].val() << \" \";\n    cout << endl;\n}\n\
-    int main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n \
-    \   solve();\n}\n"
-  code: "#define PROBLEM                                                         \
-    \       \\\n    \"https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial\"\
-    \n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\n#include\
-    \ \"poly/shift_of_sampling_points.hpp\"\n#include \"template.hpp\"\n\nvoid solve()\
-    \ {\n    LL(n, m, c);\n    vector<mint> f(n);\n    rep(i, n) {\n        LL(fi);\n\
-    \        f[i] = fi;\n    }\n    auto res = shift_of_sampling_points(f, m, c);\n\
-    \    rep(i, m) cout << res[i].val() << \" \";\n    cout << endl;\n}\nint main()\
-    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
-    }\n"
+    \ res;\n}\n#line 4 \"math/factorial_large.hpp\"\n#include <atcoder/modint>\ntemplate\
+    \ <class mint> struct factorial_large {\n    const ll K = 9;\n    // const ll\
+    \ K = 2;\n    vector<vector<mint>> f;\n    vector<mint> g;\n    factorial_large()\
+    \ {\n        // f_i(x) = (2^i x + 1) * ... * (2^i x + 2^i - 1)\n        // f_i(0)\
+    \ , ... , f_i(2^i - 1) \u306E\u5024\u304C\u5206\u304B\u308C\u3070\u30B7\u30D5\u30C8\
+    \u3067\u304D\u308B\n        f = vector(K + 1, vector<mint>());\n        f[0] =\
+    \ {1};\n        // f_0(x) = 1\n        rep(i, K) {\n            // cul f_(i+1)\n\
+    \            ll ti = 1LL << i;\n            auto f1 = shift_of_sampling_points<mint>(f[i],\
+    \ 3 * ti, ti);\n            f[i].insert(f[i].end(), all(f1));\n            //\
+    \ debug(i, f[i].size());\n            f[i + 1].resize(2 * ti);\n            rep(j,\
+    \ 2 * ti) {\n                f[i + 1][j] = f[i][2 * j] * f[i][2 * j + 1] * ti\
+    \ * (2 * j + 1);\n            }\n            // if(i <= 3) {\n            // \
+    \    rep(j, ti) cout << f[i][j].val() << \" \";\n            //     cout << endl;\n\
+    \            // }\n        }\n        // g_i = (i*2^K)!\n        {\n         \
+    \   ll sz = ll(mint::mod()) / (1LL << K) + 1;\n            auto g1 = shift_of_sampling_points(f[K],\
+    \ sz - 1, 0);\n            g.resize(sz);\n            g[0] = 1;\n            mint\
+    \ tK = 1 << K;\n            for(int i = 1; i < sz; i++) {\n                g[i]\
+    \ = g[i - 1] * g1[i - 1] * tK * i;\n            }\n        }\n    }\n    mint\
+    \ fac(ll n) {\n        if(n >= mint::mod())\n            return 0;\n        ll\
+    \ r = n / (1LL << K);\n        ll q = n - (1LL << K) * r;\n        mint res =\
+    \ g[r];\n        for(ll i = (1LL << K) * r + 1; i <= n; i++) {\n            res\
+    \ *= i;\n        }\n        return res;\n    }\n};\n#line 5 \"test/library_checker/enumerative_combinatorics/many_factorials.test.cpp\"\
+    \nfactorial_large<atcoder::modint998244353> fac;\nvoid solve() {\n    LL(n);\n\
+    \    print(fac.fac(n).val());\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    LL(t);\n    rep(_, t) solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/many_factorials\"\n// https://suisen-kyopro.hatenablog.com/entry/2023/11/22/201600#:~:text=%E3%81%93%E3%81%A8%E3%81%8C%E3%81%82%E3%82%8B-,%E6%96%B9%E6%B3%95%E2%91%A1,-(\n\
+    #include \"math/factorial_large.hpp\"\n#include <atcoder/modint>\nfactorial_large<atcoder::modint998244353>\
+    \ fac;\nvoid solve() {\n    LL(n);\n    print(fac.fac(n).val());\n}\nint main()\
+    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    LL(t);\n\
+    \    rep(_, t) solve();\n}\n"
   dependsOn:
+  - math/factorial_large.hpp
   - poly/shift_of_sampling_points.hpp
   - math/factorial.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
+  path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   requiredBy: []
   timestamp: '2024-10-23 22:32:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
+documentation_of: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
-- /verify/test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp.html
-title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
+- /verify/test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+- /verify/test/library_checker/enumerative_combinatorics/many_factorials.test.cpp.html
+title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
 ---

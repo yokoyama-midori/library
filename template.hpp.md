@@ -12,6 +12,9 @@ data:
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':heavy_check_mark:'
+    path: math/factorial_large.hpp
+    title: math/factorial_large.hpp
+  - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
   - icon: ':heavy_check_mark:'
@@ -45,6 +48,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq.test.cpp
     title: test/library_checker/data_structure/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+    title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/matrix_product.test.cpp
     title: test/library_checker/linear_algebra/matrix_product.test.cpp
@@ -176,11 +182,13 @@ data:
   - poly/bostan_mori.hpp
   - math/matrix.hpp
   - math/factorial.hpp
+  - math/factorial_large.hpp
   - data_structure/lazy_segtree.hpp
   - data_structure/segtree.hpp
   timestamp: '2024-10-18 23:31:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp

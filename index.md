@@ -15,6 +15,9 @@ data:
       path: math/factorial.hpp
       title: math/factorial.hpp
     - icon: ':heavy_check_mark:'
+      path: math/factorial_large.hpp
+      title: math/factorial_large.hpp
+    - icon: ':heavy_check_mark:'
       path: math/matrix.hpp
       title: math/matrix.hpp
   - name: poly
@@ -59,6 +62,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/staticrmq.test.cpp
       title: test/library_checker/data_structure/staticrmq.test.cpp
+  - name: test/library_checker/enumerative_combinatorics
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+      title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - name: test/library_checker/linear_algebra
     pages:
     - icon: ':heavy_check_mark:'
