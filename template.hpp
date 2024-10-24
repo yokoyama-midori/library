@@ -79,7 +79,7 @@ typename enable_if<is_container<Container>::value>::type print(const Container& 
         for (; it != prev(x.end()); ++it) {
             cout << *it << " ";
         }
-        cout << *it << endl;  // 最後の要素を出力して改行
+        cout << *it << "\n";  // 最後の要素を出力して改行
     }
 }
 #define INT(...)                                                               \
