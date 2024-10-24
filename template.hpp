@@ -68,11 +68,18 @@ template <class T, class... Ts> void print(const T &a, const Ts &...b) {
     (cout << ... << (cout << ' ', b));
     cout << '\n';
 }
-template <class T> void print(vector<T> &x) {
-    if(x.size()) {
-        for(ll i = 0; i < x.size(); i++) {
-            cout << x[i] << " \n"[i + 1 == x.size()];
+template <class Container, typename = void>
+struct is_container : std::false_type {};
+template <class Container>
+struct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()), decltype(std::declval<Container>().end())>> : std::true_type {};
+template <class Container>
+typename enable_if<is_container<Container>::value>::type print(const Container& x) {
+    if (!x.empty()) {
+        auto it = x.begin();
+        for (; it != prev(x.end()); ++it) {
+            cout << *it << " ";
         }
+        cout << *it << endl;  // 最後の要素を出力して改行
     }
 }
 #define INT(...)                                                               \
