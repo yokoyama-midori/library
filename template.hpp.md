@@ -21,6 +21,9 @@ data:
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
   - icon: ':heavy_check_mark:'
+    path: poly/poly_taylor_shift.hpp
+    title: poly taylor shift
+  - icon: ':heavy_check_mark:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   _extendedVerifiedWith:
@@ -60,6 +63,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+    title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
     title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
@@ -198,6 +204,7 @@ data:
   requiredBy:
   - poly/shift_of_sampling_points.hpp
   - poly/bostan_mori.hpp
+  - poly/poly_taylor_shift.hpp
   - math/matrix.hpp
   - math/factorial.hpp
   - math/factorial_large.hpp
@@ -220,6 +227,7 @@ data:
   - test/library_checker/linear_algebra/matrix_product.test.cpp
   - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
+  - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - test/atcoder/practice2_j.test.cpp
   - test/yukicoder/230.test.cpp
   - test/yukicoder/12.test.cpp

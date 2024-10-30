@@ -26,6 +26,9 @@ data:
       path: poly/bostan_mori.hpp
       title: poly/bostan_mori.hpp
     - icon: ':heavy_check_mark:'
+      path: poly/poly_taylor_shift.hpp
+      title: poly taylor shift
+    - icon: ':heavy_check_mark:'
       path: poly/shift_of_sampling_points.hpp
       title: poly/shift_of_sampling_points.hpp
   - name: .
@@ -82,6 +85,9 @@ data:
       title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - name: test/library_checker/polynomial
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+      title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
       title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp

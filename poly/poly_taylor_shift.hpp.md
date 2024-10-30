@@ -2,39 +2,31 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: math/factorial.hpp
+    title: math/factorial.hpp
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: math/factorial_large.hpp
-    title: math/factorial_large.hpp
-  - icon: ':heavy_check_mark:'
-    path: poly/poly_taylor_shift.hpp
-    title: poly taylor shift
-  - icon: ':heavy_check_mark:'
-    path: poly/shift_of_sampling_points.hpp
-    title: poly/shift_of_sampling_points.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-    title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
-    title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
-    - https://suisen-cp.github.io/cp-library-cpp/library/math/factorial.hpp
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://drken1215.hatenablog.com/entry/2023/09/08/003100
+    - https://maspypy.github.io/library/poly/poly_taylor_shift.hpp
+    - https://x.com/risujiroh/status/1215710785000751104?s=20
+  bundledCode: "#line 1 \"poly/poly_taylor_shift.hpp\"\n// https://drken1215.hatenablog.com/entry/2023/09/08/003100\n\
+    // https://maspypy.github.io/library/poly/poly_taylor_shift.hpp\n// https://x.com/risujiroh/status/1215710785000751104?s=20\n\
+    #line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
+    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -101,42 +93,37 @@ data:
     \        return fac[n] * fac_inv[i] * fac_inv[n - i];\n    }\n    T perm(int n,\
     \ int i) {\n        if(n < 0 || i < 0 || n < i) {\n            return T(0);\n\
     \        }\n        ensure(n);\n        return fac[n] * fac_inv[n - i];\n    }\n\
-    \n  private:\n    vector<T> fac, fac_inv;\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://suisen-cp.github.io/cp-library-cpp/library/math/factorial.hpp\n\
-    template <class T> struct factorial {\n    factorial() {};\n    void ensure(const\
-    \ int n) {\n        int sz = size(fac);\n        if(sz > n) {\n            return;\n\
-    \        }\n        int new_sz = max(2 * sz, n + 1);\n        fac.resize(new_sz),\
-    \ fac_inv.resize(new_sz);\n        for(int i = sz; i < new_sz; i++) {\n      \
-    \      if(i == 0) {\n                fac[i] = 1;\n                continue;\n\
-    \            }\n            fac[i] = fac[i - 1] * i;\n        }\n        fac_inv[new_sz\
-    \ - 1] = T(1) / fac[new_sz - 1];\n        for(int i = new_sz - 2; i >= sz; i--)\
-    \ {\n            fac_inv[i] = fac_inv[i + 1] * (i + 1);\n        }\n        return;\n\
-    \    }\n    T get(int i) {\n        ensure(i);\n        return fac[i];\n    }\n\
-    \    T operator[](int i) { return get(i); }\n    T inv(int i) {\n        ensure(i);\n\
-    \        return fac_inv[i];\n    }\n    T binom(int n, int i) {\n        if(n\
-    \ < 0 || i < 0 || n < i) {\n            return T(0);\n        }\n        ensure(n);\n\
-    \        return fac[n] * fac_inv[i] * fac_inv[n - i];\n    }\n    T perm(int n,\
-    \ int i) {\n        if(n < 0 || i < 0 || n < i) {\n            return T(0);\n\
-    \        }\n        ensure(n);\n        return fac[n] * fac_inv[n - i];\n    }\n\
-    \n  private:\n    vector<T> fac, fac_inv;\n};"
+    \n  private:\n    vector<T> fac, fac_inv;\n};\n#line 6 \"poly/poly_taylor_shift.hpp\"\
+    \n#include <atcoder/convolution>\n#include <atcoder/modint>\ntemplate <class mint>\
+    \ vector<mint> poly_taylor_shift(vector<mint> f, mint c) {\n    factorial<mint>\
+    \ fac;\n    ll n = ssize(f);\n    fac.ensure(n);\n    rep(i, n) { f[i] *= fac[i];\
+    \ }\n    vector<mint> d = [&] {\n        vector<mint> d(n);\n        mint c_pow\
+    \ = 1;\n        rep(i, n) {\n            d[i] = c_pow * fac.inv(i);\n        \
+    \    c_pow *= c;\n        }\n        return d;\n    }();\n    reverse(all(f));\n\
+    \    f = convolution(f, d);\n    f.resize(n);\n    reverse(all(f));\n    rep(i,\
+    \ n) f[i] *= fac.inv(i);\n    return f;\n}\n"
+  code: "// https://drken1215.hatenablog.com/entry/2023/09/08/003100\n// https://maspypy.github.io/library/poly/poly_taylor_shift.hpp\n\
+    // https://x.com/risujiroh/status/1215710785000751104?s=20\n#include \"math/factorial.hpp\"\
+    \n#include \"template.hpp\"\n#include <atcoder/convolution>\n#include <atcoder/modint>\n\
+    template <class mint> vector<mint> poly_taylor_shift(vector<mint> f, mint c) {\n\
+    \    factorial<mint> fac;\n    ll n = ssize(f);\n    fac.ensure(n);\n    rep(i,\
+    \ n) { f[i] *= fac[i]; }\n    vector<mint> d = [&] {\n        vector<mint> d(n);\n\
+    \        mint c_pow = 1;\n        rep(i, n) {\n            d[i] = c_pow * fac.inv(i);\n\
+    \            c_pow *= c;\n        }\n        return d;\n    }();\n    reverse(all(f));\n\
+    \    f = convolution(f, d);\n    f.resize(n);\n    reverse(all(f));\n    rep(i,\
+    \ n) f[i] *= fac.inv(i);\n    return f;\n}"
   dependsOn:
+  - math/factorial.hpp
   - template.hpp
   isVerificationFile: false
-  path: math/factorial.hpp
-  requiredBy:
-  - poly/shift_of_sampling_points.hpp
-  - poly/poly_taylor_shift.hpp
-  - math/factorial_large.hpp
-  timestamp: '2024-10-24 17:39:29+09:00'
+  path: poly/poly_taylor_shift.hpp
+  requiredBy: []
+  timestamp: '2024-10-30 17:37:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-documentation_of: math/factorial.hpp
+documentation_of: poly/poly_taylor_shift.hpp
 layout: document
-redirect_from:
-- /library/math/factorial.hpp
-- /library/math/factorial.hpp.html
-title: math/factorial.hpp
+title: poly taylor shift
 ---
+テスト
