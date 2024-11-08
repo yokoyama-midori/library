@@ -2,11 +2,11 @@
 #include "math/pollard_rho.hpp"
 void solve() {
     LL(a, b);
-    auto div = divisors(a);
-    set<ll> s(all(div));
     ll ans = 0;
-    for(auto &x : divisors(b)) {
-        ans += s.count(x);
+    for(auto &x : divisors(a)) {
+        if(x % b == 0) {
+            ans++;
+        }
     }
     print(ans);
 }
