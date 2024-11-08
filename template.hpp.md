@@ -93,9 +93,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/12.test.cpp
     title: test/yukicoder/12.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/2051.test.cpp
+    title: test/yukicoder/2051.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/888.test.cpp
+    title: test/yukicoder/888.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -251,6 +257,8 @@ data:
   - test/atcoder/practice2_j.test.cpp
   - test/yukicoder/230.test.cpp
   - test/yukicoder/12.test.cpp
+  - test/yukicoder/888.test.cpp
+  - test/yukicoder/2051.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:

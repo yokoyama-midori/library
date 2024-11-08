@@ -15,6 +15,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/2051.test.cpp
+    title: test/yukicoder/2051.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/888.test.cpp
+    title: test/yukicoder/888.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -158,6 +164,8 @@ data:
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/atcoder/abc180_c.test.cpp
+  - test/yukicoder/888.test.cpp
+  - test/yukicoder/2051.test.cpp
 documentation_of: math/pollard_rho.hpp
 layout: document
 redirect_from:

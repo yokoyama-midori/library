@@ -121,8 +121,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/12.test.cpp
       title: test/yukicoder/12.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/2051.test.cpp
+      title: test/yukicoder/2051.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/230.test.cpp
       title: test/yukicoder/230.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/888.test.cpp
+      title: test/yukicoder/888.test.cpp
 layout: toppage
 ---
