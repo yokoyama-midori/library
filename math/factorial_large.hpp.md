@@ -111,42 +111,37 @@ data:
     \ m) { f2[i] = fac.inv(i); }\n        return convolution(f1, f2);\n    }();\n\
     \    vector<Mint> res(m);\n    rep(i, m) { res[i] = fac[i] * fc[i]; }\n    return\
     \ res;\n}\n#line 4 \"math/factorial_large.hpp\"\n#include <atcoder/modint>\ntemplate\
-    \ <class mint> struct factorial_large {\n    const ll K = 9;\n    // const ll\
-    \ K = 2;\n    vector<vector<mint>> f;\n    vector<mint> g;\n    factorial_large()\
-    \ {\n        // f_i(x) = (2^i x + 1) * ... * (2^i x + 2^i - 1)\n        // f_i(0)\
-    \ , ... , f_i(2^i - 1) \u306E\u5024\u304C\u5206\u304B\u308C\u3070\u30B7\u30D5\u30C8\
-    \u3067\u304D\u308B\n        f = vector(K + 1, vector<mint>());\n        f[0] =\
-    \ {1};\n        // f_0(x) = 1\n        rep(i, K) {\n            // cul f_(i+1)\n\
-    \            ll ti = 1LL << i;\n            auto f1 = shift_of_sampling_points<mint>(f[i],\
-    \ 3 * ti, ti);\n            f[i].insert(f[i].end(), all(f1));\n            //\
-    \ debug(i, f[i].size());\n            f[i + 1].resize(2 * ti);\n            rep(j,\
-    \ 2 * ti) {\n                f[i + 1][j] = f[i][2 * j] * f[i][2 * j + 1] * ti\
-    \ * (2 * j + 1);\n            }\n            // if(i <= 3) {\n            // \
-    \    rep(j, ti) cout << f[i][j].val() << \" \";\n            //     cout << endl;\n\
-    \            // }\n        }\n        // g_i = (i*2^K)!\n        {\n         \
-    \   ll sz = ll(mint::mod()) / (1LL << K) + 1;\n            auto g1 = shift_of_sampling_points(f[K],\
-    \ sz - 1, 0);\n            g.resize(sz);\n            g[0] = 1;\n            mint\
-    \ tK = 1 << K;\n            for(int i = 1; i < sz; i++) {\n                g[i]\
-    \ = g[i - 1] * g1[i - 1] * tK * i;\n            }\n        }\n    }\n    mint\
-    \ fac(ll n) {\n        if(n >= mint::mod())\n            return 0;\n        ll\
-    \ r = n / (1LL << K);\n        ll q = n - (1LL << K) * r;\n        mint res =\
-    \ g[r];\n        for(ll i = (1LL << K) * r + 1; i <= n; i++) {\n            res\
-    \ *= i;\n        }\n        return res;\n    }\n};\n"
+    \ <class mint> struct factorial_large {\n    const ll K = 9;\n    vector<vector<mint>>\
+    \ f;\n    vector<mint> g;\n    factorial_large() {\n        // f_i(x) = (2^i x\
+    \ + 1) * ... * (2^i x + 2^i - 1)\n        // f_i(0) , ... , f_i(2^i - 1) \u306E\
+    \u5024\u304C\u5206\u304B\u308C\u3070\u30B7\u30D5\u30C8\u3067\u304D\u308B\n   \
+    \     f = vector(K + 1, vector<mint>());\n        f[0] = {1};\n        // f_0(x)\
+    \ = 1\n        rep(i, K) {\n            // cul f_(i+1)\n            ll ti = 1LL\
+    \ << i;\n            auto f1 = shift_of_sampling_points<mint>(f[i], 3 * ti, ti);\n\
+    \            f[i].insert(f[i].end(), all(f1));\n            f[i + 1].resize(2\
+    \ * ti);\n            rep(j, 2 * ti) {\n                f[i + 1][j] = f[i][2 *\
+    \ j] * f[i][2 * j + 1] * ti * (2 * j + 1);\n            }\n        }\n       \
+    \ // g_i = (i*2^K)!\n        {\n            ll sz = ll(mint::mod()) / (1LL <<\
+    \ K) + 1;\n            auto g1 = shift_of_sampling_points(f[K], sz - 1, 0);\n\
+    \            g.resize(sz);\n            g[0] = 1;\n            mint tK = 1 <<\
+    \ K;\n            for(int i = 1; i < sz; i++) {\n                g[i] = g[i -\
+    \ 1] * g1[i - 1] * tK * i;\n            }\n        }\n    }\n    mint fac(ll n)\
+    \ {\n        if(n >= mint::mod())\n            return 0;\n        ll r = n / (1LL\
+    \ << K);\n        ll q = n - (1LL << K) * r;\n        mint res = g[r];\n     \
+    \   for(ll i = (1LL << K) * r + 1; i <= n; i++) {\n            res *= i;\n   \
+    \     }\n        return res;\n    }\n};\n"
   code: "#pragma once\n#include \"poly/shift_of_sampling_points.hpp\"\n#include \"\
     template.hpp\"\n#include <atcoder/modint>\ntemplate <class mint> struct factorial_large\
-    \ {\n    const ll K = 9;\n    // const ll K = 2;\n    vector<vector<mint>> f;\n\
-    \    vector<mint> g;\n    factorial_large() {\n        // f_i(x) = (2^i x + 1)\
-    \ * ... * (2^i x + 2^i - 1)\n        // f_i(0) , ... , f_i(2^i - 1) \u306E\u5024\
-    \u304C\u5206\u304B\u308C\u3070\u30B7\u30D5\u30C8\u3067\u304D\u308B\n        f\
-    \ = vector(K + 1, vector<mint>());\n        f[0] = {1};\n        // f_0(x) = 1\n\
-    \        rep(i, K) {\n            // cul f_(i+1)\n            ll ti = 1LL << i;\n\
-    \            auto f1 = shift_of_sampling_points<mint>(f[i], 3 * ti, ti);\n   \
-    \         f[i].insert(f[i].end(), all(f1));\n            // debug(i, f[i].size());\n\
-    \            f[i + 1].resize(2 * ti);\n            rep(j, 2 * ti) {\n        \
-    \        f[i + 1][j] = f[i][2 * j] * f[i][2 * j + 1] * ti * (2 * j + 1);\n   \
-    \         }\n            // if(i <= 3) {\n            //     rep(j, ti) cout <<\
-    \ f[i][j].val() << \" \";\n            //     cout << endl;\n            // }\n\
-    \        }\n        // g_i = (i*2^K)!\n        {\n            ll sz = ll(mint::mod())\
+    \ {\n    const ll K = 9;\n    vector<vector<mint>> f;\n    vector<mint> g;\n \
+    \   factorial_large() {\n        // f_i(x) = (2^i x + 1) * ... * (2^i x + 2^i\
+    \ - 1)\n        // f_i(0) , ... , f_i(2^i - 1) \u306E\u5024\u304C\u5206\u304B\u308C\
+    \u3070\u30B7\u30D5\u30C8\u3067\u304D\u308B\n        f = vector(K + 1, vector<mint>());\n\
+    \        f[0] = {1};\n        // f_0(x) = 1\n        rep(i, K) {\n           \
+    \ // cul f_(i+1)\n            ll ti = 1LL << i;\n            auto f1 = shift_of_sampling_points<mint>(f[i],\
+    \ 3 * ti, ti);\n            f[i].insert(f[i].end(), all(f1));\n            f[i\
+    \ + 1].resize(2 * ti);\n            rep(j, 2 * ti) {\n                f[i + 1][j]\
+    \ = f[i][2 * j] * f[i][2 * j + 1] * ti * (2 * j + 1);\n            }\n       \
+    \ }\n        // g_i = (i*2^K)!\n        {\n            ll sz = ll(mint::mod())\
     \ / (1LL << K) + 1;\n            auto g1 = shift_of_sampling_points(f[K], sz -\
     \ 1, 0);\n            g.resize(sz);\n            g[0] = 1;\n            mint tK\
     \ = 1 << K;\n            for(int i = 1; i < sz; i++) {\n                g[i] =\
@@ -162,7 +157,7 @@ data:
   isVerificationFile: false
   path: math/factorial_large.hpp
   requiredBy: []
-  timestamp: '2024-10-24 17:39:29+09:00'
+  timestamp: '2024-11-09 02:38:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
