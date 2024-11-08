@@ -8,22 +8,26 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/atcoder/abc180_c.test.cpp
+    title: test/atcoder/abc180_c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/number_theory/factorize.test.cpp
+    title: test/library_checker/number_theory/factorize.test.cpp
+  _isVerificationFailed: true
+  _pathExtension: hpp
+  _verificationStatusIcon: ':question:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/primality_test
     links:
-    - https://judge.yosupo.jp/problem/primality_test
-  bundledCode: "#line 1 \"test/library_checker/number_theory/primality_test.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#line 2\
-    \ \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
-    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
-    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
-    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
-    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://manabitimes.jp/math/1192
+    - https://nyaannyaan.github.io/library/prime/fast-factorize.hpp
+    - https://wacchoz.hatenablog.com/entry/2019/01/05/230128
+  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
+    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
+    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
+    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -93,28 +97,71 @@ data:
     \ a : vl{2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {\n            if(n\
     \ == a) {\n                return true;\n            }\n            if(!check(a))\
     \ {\n                return false;\n            }\n        }\n        return true;\n\
-    \    }\n}\n#line 4 \"test/library_checker/number_theory/primality_test.test.cpp\"\
-    \nvoid solve() {\n    LL(n);\n    rep(_, n) {\n        LL(a);\n        print(is_prime(a)\
-    \ ? \"Yes\" : \"No\");\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#include\
-    \ \"template.hpp\"\n#include \"math/miller_rabin.hpp\"\nvoid solve() {\n    LL(n);\n\
-    \    rep(_, n) {\n        LL(a);\n        print(is_prime(a) ? \"Yes\" : \"No\"\
-    );\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}\n"
+    \    }\n}\n#line 3 \"math/pollard_rho.hpp\"\n// https://manabitimes.jp/math/1192\n\
+    // https://wacchoz.hatenablog.com/entry/2019/01/05/230128\n// https://nyaannyaan.github.io/library/prime/fast-factorize.hpp\n\
+    namespace fast_factorize {\nll pollard_rho(ll n) {\n    // n\u306E\u7D20\u56E0\
+    \u6570\u3092\uFF11\u3064\u8FD4\u3059\n    // 1\u306B\u306F1\u3092\u8FD4\u3059\n\
+    \    if(n == 1) {\n        return 1;\n    }\n    if(~n & 1) {\n        return\
+    \ 2;\n    }\n    if(is_prime(n)) {\n        return n;\n    }\n    ll r = 1;\n\
+    \    auto f = [&n, &r](ll m) { return ((__int128)m * m + r) % n; };\n    ll x\
+    \ = 1, y = f(x);\n    while(1) {\n        ll g = gcd(n, abs(x - y));\n       \
+    \ if(1 < g and g < n) {\n            return pollard_rho(g);\n        } else if(g\
+    \ == 1) {\n            x = f(x);\n            y = f(f(y));\n        } else {\n\
+    \            r = rand() % (n - 2) + 2;\n            x = 1;\n            y = f(x);\n\
+    \        }\n    }\n}\nvl inner_factorize(ll n) {\n    vl res;\n    if(n == 1)\
+    \ {\n        return res;\n    }\n    while(n > 1 and !is_prime(n)) {\n       \
+    \ ll p = pollard_rho(n);\n        while(n % p == 0) {\n            res.push_back(p);\n\
+    \            n /= p;\n        }\n    }\n    if(n > 1) {\n        res.push_back(n);\n\
+    \    }\n    return res;\n}\nvl factorize(ll n) {\n    auto res = inner_factorize(n);\n\
+    \    sort(all(res));\n    return res;\n}\nmap<ll, ll> factor_count(ll n) {\n \
+    \   auto res = inner_factorize(n);\n    map<ll, ll> mp;\n    for(auto &x : res)\
+    \ {\n        mp[x]++;\n    }\n    return mp;\n}\nvl divisors(ll n) {\n    vl res\
+    \ = {1};\n    auto mp = factor_count(n);\n    for(auto [p, cnt] : mp) {\n    \
+    \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
+    \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
+    \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
+    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
+    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n"
+  code: "#pragma once\n#include \"math/miller_rabin.hpp\"\n// https://manabitimes.jp/math/1192\n\
+    // https://wacchoz.hatenablog.com/entry/2019/01/05/230128\n// https://nyaannyaan.github.io/library/prime/fast-factorize.hpp\n\
+    namespace fast_factorize {\nll pollard_rho(ll n) {\n    // n\u306E\u7D20\u56E0\
+    \u6570\u3092\uFF11\u3064\u8FD4\u3059\n    // 1\u306B\u306F1\u3092\u8FD4\u3059\n\
+    \    if(n == 1) {\n        return 1;\n    }\n    if(~n & 1) {\n        return\
+    \ 2;\n    }\n    if(is_prime(n)) {\n        return n;\n    }\n    ll r = 1;\n\
+    \    auto f = [&n, &r](ll m) { return ((__int128)m * m + r) % n; };\n    ll x\
+    \ = 1, y = f(x);\n    while(1) {\n        ll g = gcd(n, abs(x - y));\n       \
+    \ if(1 < g and g < n) {\n            return pollard_rho(g);\n        } else if(g\
+    \ == 1) {\n            x = f(x);\n            y = f(f(y));\n        } else {\n\
+    \            r = rand() % (n - 2) + 2;\n            x = 1;\n            y = f(x);\n\
+    \        }\n    }\n}\nvl inner_factorize(ll n) {\n    vl res;\n    if(n == 1)\
+    \ {\n        return res;\n    }\n    while(n > 1 and !is_prime(n)) {\n       \
+    \ ll p = pollard_rho(n);\n        while(n % p == 0) {\n            res.push_back(p);\n\
+    \            n /= p;\n        }\n    }\n    if(n > 1) {\n        res.push_back(n);\n\
+    \    }\n    return res;\n}\nvl factorize(ll n) {\n    auto res = inner_factorize(n);\n\
+    \    sort(all(res));\n    return res;\n}\nmap<ll, ll> factor_count(ll n) {\n \
+    \   auto res = inner_factorize(n);\n    map<ll, ll> mp;\n    for(auto &x : res)\
+    \ {\n        mp[x]++;\n    }\n    return mp;\n}\nvl divisors(ll n) {\n    vl res\
+    \ = {1};\n    auto mp = factor_count(n);\n    for(auto [p, cnt] : mp) {\n    \
+    \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
+    \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
+    \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
+    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
+    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n"
   dependsOn:
-  - template.hpp
   - math/miller_rabin.hpp
-  isVerificationFile: true
-  path: test/library_checker/number_theory/primality_test.test.cpp
+  - template.hpp
+  isVerificationFile: false
+  path: math/pollard_rho.hpp
   requiredBy: []
-  timestamp: '2024-11-09 04:31:42+09:00'
-  verificationStatus: TEST_ACCEPTED
-  verifiedWith: []
-documentation_of: test/library_checker/number_theory/primality_test.test.cpp
+  timestamp: '2024-11-09 06:28:06+09:00'
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/library_checker/number_theory/factorize.test.cpp
+  - test/atcoder/abc180_c.test.cpp
+documentation_of: math/pollard_rho.hpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/number_theory/primality_test.test.cpp
-- /verify/test/library_checker/number_theory/primality_test.test.cpp.html
-title: test/library_checker/number_theory/primality_test.test.cpp
+- /library/math/pollard_rho.hpp
+- /library/math/pollard_rho.hpp.html
+title: math/pollard_rho.hpp
 ---

@@ -5,21 +5,23 @@ data:
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
   - icon: ':question:'
+    path: math/pollard_rho.hpp
+    title: math/pollard_rho.hpp
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/primality_test
+    PROBLEM: https://atcoder.jp/contests/abc180/tasks/abc180_c
     links:
-    - https://judge.yosupo.jp/problem/primality_test
-  bundledCode: "#line 1 \"test/library_checker/number_theory/primality_test.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#line 2\
-    \ \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    - https://atcoder.jp/contests/abc180/tasks/abc180_c
+  bundledCode: "#line 1 \"test/atcoder/abc180_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc180/tasks/abc180_c\"\
+    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
     \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
@@ -93,28 +95,52 @@ data:
     \ a : vl{2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {\n            if(n\
     \ == a) {\n                return true;\n            }\n            if(!check(a))\
     \ {\n                return false;\n            }\n        }\n        return true;\n\
-    \    }\n}\n#line 4 \"test/library_checker/number_theory/primality_test.test.cpp\"\
-    \nvoid solve() {\n    LL(n);\n    rep(_, n) {\n        LL(a);\n        print(is_prime(a)\
-    \ ? \"Yes\" : \"No\");\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#include\
-    \ \"template.hpp\"\n#include \"math/miller_rabin.hpp\"\nvoid solve() {\n    LL(n);\n\
-    \    rep(_, n) {\n        LL(a);\n        print(is_prime(a) ? \"Yes\" : \"No\"\
-    );\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}\n"
+    \    }\n}\n#line 3 \"math/pollard_rho.hpp\"\n// https://manabitimes.jp/math/1192\n\
+    // https://wacchoz.hatenablog.com/entry/2019/01/05/230128\n// https://nyaannyaan.github.io/library/prime/fast-factorize.hpp\n\
+    namespace fast_factorize {\nll pollard_rho(ll n) {\n    // n\u306E\u7D20\u56E0\
+    \u6570\u3092\uFF11\u3064\u8FD4\u3059\n    // 1\u306B\u306F1\u3092\u8FD4\u3059\n\
+    \    if(n == 1) {\n        return 1;\n    }\n    if(~n & 1) {\n        return\
+    \ 2;\n    }\n    if(is_prime(n)) {\n        return n;\n    }\n    ll r = 1;\n\
+    \    auto f = [&n, &r](ll m) { return ((__int128)m * m + r) % n; };\n    ll x\
+    \ = 1, y = f(x);\n    while(1) {\n        ll g = gcd(n, abs(x - y));\n       \
+    \ if(1 < g and g < n) {\n            return pollard_rho(g);\n        } else if(g\
+    \ == 1) {\n            x = f(x);\n            y = f(f(y));\n        } else {\n\
+    \            r = rand() % (n - 2) + 2;\n            x = 1;\n            y = f(x);\n\
+    \        }\n    }\n}\nvl inner_factorize(ll n) {\n    vl res;\n    if(n == 1)\
+    \ {\n        return res;\n    }\n    while(n > 1 and !is_prime(n)) {\n       \
+    \ ll p = pollard_rho(n);\n        while(n % p == 0) {\n            res.push_back(p);\n\
+    \            n /= p;\n        }\n    }\n    if(n > 1) {\n        res.push_back(n);\n\
+    \    }\n    return res;\n}\nvl factorize(ll n) {\n    auto res = inner_factorize(n);\n\
+    \    sort(all(res));\n    return res;\n}\nmap<ll, ll> factor_count(ll n) {\n \
+    \   auto res = inner_factorize(n);\n    map<ll, ll> mp;\n    for(auto &x : res)\
+    \ {\n        mp[x]++;\n    }\n    return mp;\n}\nvl divisors(ll n) {\n    vl res\
+    \ = {1};\n    auto mp = factor_count(n);\n    for(auto [p, cnt] : mp) {\n    \
+    \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
+    \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
+    \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
+    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
+    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n#line 3 \"\
+    test/atcoder/abc180_c.test.cpp\"\nvoid solve() {\n    LL(n);\n    auto ans = divisors(n);\n\
+    \    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    ll t = 1;\n    rep(_, t) solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc180/tasks/abc180_c\"\n#include\
+    \ \"math/pollard_rho.hpp\"\nvoid solve() {\n    LL(n);\n    auto ans = divisors(n);\n\
+    \    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    ll t = 1;\n    rep(_, t) solve();\n}\n"
   dependsOn:
-  - template.hpp
+  - math/pollard_rho.hpp
   - math/miller_rabin.hpp
+  - template.hpp
   isVerificationFile: true
-  path: test/library_checker/number_theory/primality_test.test.cpp
+  path: test/atcoder/abc180_c.test.cpp
   requiredBy: []
-  timestamp: '2024-11-09 04:31:42+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-09 06:28:06+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/number_theory/primality_test.test.cpp
+documentation_of: test/atcoder/abc180_c.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/number_theory/primality_test.test.cpp
-- /verify/test/library_checker/number_theory/primality_test.test.cpp.html
-title: test/library_checker/number_theory/primality_test.test.cpp
+- /verify/test/atcoder/abc180_c.test.cpp
+- /verify/test/atcoder/abc180_c.test.cpp.html
+title: test/atcoder/abc180_c.test.cpp
 ---

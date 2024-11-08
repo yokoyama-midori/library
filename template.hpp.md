@@ -17,9 +17,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
+  - icon: ':question:'
+    path: math/pollard_rho.hpp
+    title: math/pollard_rho.hpp
   - icon: ':heavy_check_mark:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
@@ -30,6 +33,9 @@ data:
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/atcoder/abc180_c.test.cpp
+    title: test/atcoder/abc180_c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
@@ -64,6 +70,9 @@ data:
     path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
     title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/number_theory/factorize.test.cpp
+    title: test/library_checker/number_theory/factorize.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primality_test.test.cpp
     title: test/library_checker/number_theory/primality_test.test.cpp
   - icon: ':heavy_check_mark:'
@@ -87,9 +96,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -212,14 +221,16 @@ data:
   - poly/bostan_mori.hpp
   - poly/poly_taylor_shift.hpp
   - math/matrix.hpp
+  - math/pollard_rho.hpp
   - math/factorial.hpp
   - math/factorial_large.hpp
   - math/miller_rabin.hpp
   - data_structure/lazy_segtree.hpp
   - data_structure/segtree.hpp
   timestamp: '2024-10-24 17:39:29+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
@@ -236,6 +247,7 @@ data:
   - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  - test/atcoder/abc180_c.test.cpp
   - test/atcoder/practice2_j.test.cpp
   - test/yukicoder/230.test.cpp
   - test/yukicoder/12.test.cpp
