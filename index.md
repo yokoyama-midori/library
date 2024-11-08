@@ -20,6 +20,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/matrix.hpp
       title: math/matrix.hpp
+    - icon: ':heavy_check_mark:'
+      path: math/miller_rabin.hpp
+      title: math/miller_rabin.hpp
   - name: poly
     pages:
     - icon: ':heavy_check_mark:'
@@ -78,6 +81,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
       title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - name: test/library_checker/number_theory
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/primality_test.test.cpp
+      title: test/library_checker/number_theory/primality_test.test.cpp
   - name: test/library_checker/other
     pages:
     - icon: ':heavy_check_mark:'

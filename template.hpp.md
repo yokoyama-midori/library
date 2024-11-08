@@ -18,6 +18,9 @@ data:
     path: math/matrix.hpp
     title: math/matrix.hpp
   - icon: ':heavy_check_mark:'
+    path: math/miller_rabin.hpp
+    title: math/miller_rabin.hpp
+  - icon: ':heavy_check_mark:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
   - icon: ':heavy_check_mark:'
@@ -60,6 +63,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
     title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/number_theory/primality_test.test.cpp
+    title: test/library_checker/number_theory/primality_test.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
@@ -208,11 +214,13 @@ data:
   - math/matrix.hpp
   - math/factorial.hpp
   - math/factorial_large.hpp
+  - math/miller_rabin.hpp
   - data_structure/lazy_segtree.hpp
   - data_structure/segtree.hpp
   timestamp: '2024-10-24 17:39:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/number_theory/primality_test.test.cpp
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
