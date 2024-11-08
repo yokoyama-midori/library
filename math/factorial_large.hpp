@@ -4,7 +4,6 @@
 #include <atcoder/modint>
 template <class mint> struct factorial_large {
     const ll K = 9;
-    // const ll K = 2;
     vector<vector<mint>> f;
     vector<mint> g;
     factorial_large() {
@@ -18,15 +17,10 @@ template <class mint> struct factorial_large {
             ll ti = 1LL << i;
             auto f1 = shift_of_sampling_points<mint>(f[i], 3 * ti, ti);
             f[i].insert(f[i].end(), all(f1));
-            // debug(i, f[i].size());
             f[i + 1].resize(2 * ti);
             rep(j, 2 * ti) {
                 f[i + 1][j] = f[i][2 * j] * f[i][2 * j + 1] * ti * (2 * j + 1);
             }
-            // if(i <= 3) {
-            //     rep(j, ti) cout << f[i][j].val() << " ";
-            //     cout << endl;
-            // }
         }
         // g_i = (i*2^K)!
         {
