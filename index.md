@@ -20,10 +20,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/matrix.hpp
       title: math/matrix.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/miller_rabin.hpp
       title: math/miller_rabin.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/pollard_rho.hpp
       title: math/pollard_rho.hpp
   - name: poly
@@ -39,13 +39,13 @@ data:
       title: poly/shift_of_sampling_points.hpp
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.hpp
       title: template.hpp
   verificationCategories:
   - name: test/atcoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/atcoder/abc180_c.test.cpp
       title: test/atcoder/abc180_c.test.cpp
     - icon: ':heavy_check_mark:'

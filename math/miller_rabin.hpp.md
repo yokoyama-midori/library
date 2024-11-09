@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/abc180_c.test.cpp
     title: test/atcoder/abc180_c.test.cpp
   - icon: ':heavy_check_mark:'
@@ -24,9 +24,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://drken1215.hatenablog.com/entry/2023/05/23/233000
@@ -132,7 +132,7 @@ data:
   requiredBy:
   - math/pollard_rho.hpp
   timestamp: '2024-11-09 04:31:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp

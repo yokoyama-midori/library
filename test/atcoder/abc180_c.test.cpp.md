@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc180/tasks/abc180_c
@@ -121,12 +121,12 @@ data:
     \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
     \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n#line 3 \"\
     test/atcoder/abc180_c.test.cpp\"\nvoid solve() {\n    LL(n);\n    auto ans = divisors(n);\n\
-    \    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    ll t = 1;\n    rep(_, t) solve();\n}\n"
+    \    for(auto &x : ans)\n        cout << x << \"\\n\";\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    ll t = 1;\n    rep(_, t) solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc180/tasks/abc180_c\"\n#include\
     \ \"math/pollard_rho.hpp\"\nvoid solve() {\n    LL(n);\n    auto ans = divisors(n);\n\
-    \    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    ll t = 1;\n    rep(_, t) solve();\n}\n"
+    \    for(auto &x : ans)\n        cout << x << \"\\n\";\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    ll t = 1;\n    rep(_, t) solve();\n}\n"
   dependsOn:
   - math/pollard_rho.hpp
   - math/miller_rabin.hpp
@@ -134,8 +134,8 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc180_c.test.cpp
   requiredBy: []
-  timestamp: '2024-11-09 06:28:06+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-09 19:01:14+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc180_c.test.cpp
 layout: document

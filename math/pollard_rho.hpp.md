@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/abc180_c.test.cpp
     title: test/atcoder/abc180_c.test.cpp
   - icon: ':heavy_check_mark:'
@@ -21,9 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://manabitimes.jp/math/1192
@@ -160,7 +160,7 @@ data:
   path: math/pollard_rho.hpp
   requiredBy: []
   timestamp: '2024-11-09 06:28:06+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/atcoder/abc180_c.test.cpp
