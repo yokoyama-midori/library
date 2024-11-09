@@ -3,7 +3,8 @@
 void solve() {
     LL(n);
     auto ans = divisors(n);
-    print(ans);
+    for(auto &x : ans)
+        cout << x << "\n";
 }
 int main() {
     ios::sync_with_stdio(false);
