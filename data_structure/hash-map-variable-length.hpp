@@ -33,7 +33,15 @@ template <class Val> struct HashMap {
         ll i = index(key);
         return used[i];
     }
-
+    vector<pair<ll, Val>> enumerate() {
+        vector<pair<ll, Val>> res;
+        rep(i, sz) {
+            if(used[i]) {
+                res.push_back({keys[i], vals[i]});
+            }
+        }
+        return res;
+    }
   private:
     int hash(ll x) {
         // https://judge.yosupo.jp/submission/186759
