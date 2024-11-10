@@ -40,6 +40,9 @@ data:
     path: test/atcoder/abc180_c.test.cpp
     title: test/atcoder/abc180_c.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/atcoder/abc235_c.test.cpp
+    title: test/atcoder/abc235_c.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
   - icon: ':heavy_check_mark:'
@@ -262,6 +265,7 @@ data:
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - test/atcoder/abc180_c.test.cpp
+  - test/atcoder/abc235_c.test.cpp
   - test/atcoder/practice2_j.test.cpp
   - test/yukicoder/230.test.cpp
   - test/yukicoder/12.test.cpp
