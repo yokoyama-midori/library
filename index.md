@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: data_structure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: data_structure/hash-map-variable-length.hpp
       title: data_structure/hash-map-variable-length.hpp
     - icon: ':heavy_check_mark:'
@@ -42,7 +42,7 @@ data:
       title: poly/shift_of_sampling_points.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
   verificationCategories:
@@ -130,6 +130,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/12.test.cpp
       title: test/yukicoder/12.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/1634.test.cpp
+      title: test/yukicoder/1634.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/2051.test.cpp
       title: test/yukicoder/2051.test.cpp
