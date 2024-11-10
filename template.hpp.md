@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: data_structure/hash-map-variable-length.hpp
+    title: data_structure/hash-map-variable-length.hpp
+  - icon: ':heavy_check_mark:'
     path: data_structure/lazy_segtree.hpp
     title: data_structure/lazy_segtree.hpp
   - icon: ':heavy_check_mark:'
@@ -39,6 +42,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/associative_array.test.cpp
+    title: test/library_checker/data_structure/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_add_range_sum.test.cpp
     title: test/library_checker/data_structure/point_add_range_sum.test.cpp
@@ -231,6 +237,7 @@ data:
   - math/factorial.hpp
   - math/factorial_large.hpp
   - math/miller_rabin.hpp
+  - data_structure/hash-map-variable-length.hpp
   - data_structure/lazy_segtree.hpp
   - data_structure/segtree.hpp
   timestamp: '2024-10-24 17:39:29+09:00'
@@ -246,6 +253,7 @@ data:
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/data_structure/static_range_sum.test.cpp
+  - test/library_checker/data_structure/associative_array.test.cpp
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp

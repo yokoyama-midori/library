@@ -4,6 +4,9 @@ data:
   - name: data_structure
     pages:
     - icon: ':heavy_check_mark:'
+      path: data_structure/hash-map-variable-length.hpp
+      title: data_structure/hash-map-variable-length.hpp
+    - icon: ':heavy_check_mark:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
     - icon: ':heavy_check_mark:'
@@ -53,6 +56,9 @@ data:
       title: test/atcoder/practice2_j.test.cpp
   - name: test/library_checker/data_structure
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/associative_array.test.cpp
+      title: test/library_checker/data_structure/associative_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_add_range_sum.test.cpp
       title: test/library_checker/data_structure/point_add_range_sum.test.cpp
