@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/associative_array.test.cpp
     title: test/library_checker/data_structure/associative_array.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1634.test.cpp
     title: test/yukicoder/1634.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://judge.yosupo.jp/submission/186759
@@ -85,7 +85,10 @@ data:
     \        ll i = index(key);\n        if(!used[i]) {\n            used[i] = true;\n\
     \            keys[i] = key;\n            cnt++;\n        }\n        return vals[i];\n\
     \    }\n    bool contains(const ll &key) {\n        ll i = index(key);\n     \
-    \   return used[i];\n    }\n\n  private:\n    int hash(ll x) {\n        // https://judge.yosupo.jp/submission/186759\n\
+    \   return used[i];\n    }\n    vector<pair<ll, Val>> enumerate() {\n        vector<pair<ll,\
+    \ Val>> res;\n        rep(i, sz) {\n            if(used[i]) {\n              \
+    \  res.push_back({keys[i], vals[i]});\n            }\n        }\n        return\
+    \ res;\n    }\n  private:\n    int hash(ll x) {\n        // https://judge.yosupo.jp/submission/186759\n\
     \        static const ll r =\n            std::chrono::steady_clock::now().time_since_epoch().count();\n\
     \        x += r;\n        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;\n        x\
     \ = (x ^ (x >> 27)) * 0x94d049bb133111eb;\n        return (x ^ (x >> 31)) & mask;\n\
@@ -108,9 +111,12 @@ data:
     \           reallocate();\n        }\n        ll i = index(key);\n        if(!used[i])\
     \ {\n            used[i] = true;\n            keys[i] = key;\n            cnt++;\n\
     \        }\n        return vals[i];\n    }\n    bool contains(const ll &key) {\n\
-    \        ll i = index(key);\n        return used[i];\n    }\n\n  private:\n  \
-    \  int hash(ll x) {\n        // https://judge.yosupo.jp/submission/186759\n  \
-    \      static const ll r =\n            std::chrono::steady_clock::now().time_since_epoch().count();\n\
+    \        ll i = index(key);\n        return used[i];\n    }\n    vector<pair<ll,\
+    \ Val>> enumerate() {\n        vector<pair<ll, Val>> res;\n        rep(i, sz)\
+    \ {\n            if(used[i]) {\n                res.push_back({keys[i], vals[i]});\n\
+    \            }\n        }\n        return res;\n    }\n  private:\n    int hash(ll\
+    \ x) {\n        // https://judge.yosupo.jp/submission/186759\n        static const\
+    \ ll r =\n            std::chrono::steady_clock::now().time_since_epoch().count();\n\
     \        x += r;\n        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;\n        x\
     \ = (x ^ (x >> 27)) * 0x94d049bb133111eb;\n        return (x ^ (x >> 31)) & mask;\n\
     \    }\n    int index(const ll &key) {\n        ll i = hash(key);\n        while(used[i]\
@@ -128,8 +134,8 @@ data:
   isVerificationFile: false
   path: data_structure/hash-map-variable-length.hpp
   requiredBy: []
-  timestamp: '2024-11-11 06:01:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-11-11 08:42:50+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/associative_array.test.cpp
   - test/atcoder/abc235_c.test.cpp
