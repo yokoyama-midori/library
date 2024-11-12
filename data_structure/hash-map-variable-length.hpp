@@ -18,7 +18,7 @@ template <class Val> struct HashMap {
     }
 
     Val &operator[](const ll &key) {
-        if(cnt * 2 > sz) {
+        if(cnt * 2 >= sz) {
             reallocate();
         }
         ll i = index(key);
