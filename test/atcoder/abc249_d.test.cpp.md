@@ -2,41 +2,33 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: data_structure/hash-map-variable-length.hpp
+    title: data_structure/hash-map-variable-length.hpp
+  - icon: ':heavy_check_mark:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
+  - icon: ':heavy_check_mark:'
+    path: math/pollard_rho.hpp
+    title: math/pollard_rho.hpp
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/atcoder/abc180_c.test.cpp
-    title: test/atcoder/abc180_c.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/atcoder/abc249_d.test.cpp
-    title: test/atcoder/abc249_d.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/factorize.test.cpp
-    title: test/library_checker/number_theory/factorize.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/2051.test.cpp
-    title: test/yukicoder/2051.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/888.test.cpp
-    title: test/yukicoder/888.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://atcoder.jp/contests/abc249/tasks/abc249_d
     links:
-    - https://manabitimes.jp/math/1192
-    - https://nyaannyaan.github.io/library/prime/fast-factorize.hpp
-    - https://wacchoz.hatenablog.com/entry/2019/01/05/230128
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://atcoder.jp/contests/abc249/tasks/abc249_d
+  bundledCode: "#line 1 \"test/atcoder/abc249_d.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc249/tasks/abc249_d\"\
+    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
+    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -86,7 +78,34 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/miller_rabin.hpp\"\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/hash-map-variable-length.hpp\"\
+    \ntemplate <class Val> struct HashMap {\n    int sz, mask, cnt;\n    vector<bool>\
+    \ used;\n    vector<ll> keys;\n    vector<Val> vals;\n    HashMap(int n = 1) {\n\
+    \        sz = 1;\n        while(sz < 2 * n) {\n            sz <<= 1;\n       \
+    \ }\n        mask = sz - 1;\n        cnt = 0;\n        keys.resize(sz);\n    \
+    \    vals.resize(sz);\n        used.resize(sz);\n    }\n\n    Val &operator[](const\
+    \ ll &key) {\n        if(cnt * 2 >= sz) {\n            reallocate();\n       \
+    \ }\n        ll i = index(key);\n        if(!used[i]) {\n            used[i] =\
+    \ true;\n            keys[i] = key;\n            cnt++;\n        }\n        return\
+    \ vals[i];\n    }\n    bool contains(const ll &key) {\n        ll i = index(key);\n\
+    \        return used[i];\n    }\n    vector<pair<ll, Val>> enumerate() {\n   \
+    \     vector<pair<ll, Val>> res;\n        rep(i, sz) {\n            if(used[i])\
+    \ {\n                res.push_back({keys[i], vals[i]});\n            }\n     \
+    \   }\n        return res;\n    }\n  private:\n    int hash(ll x) {\n        //\
+    \ https://judge.yosupo.jp/submission/186759\n        static const ll r =\n   \
+    \         std::chrono::steady_clock::now().time_since_epoch().count();\n     \
+    \   x += r;\n        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;\n        x = (x\
+    \ ^ (x >> 27)) * 0x94d049bb133111eb;\n        return (x ^ (x >> 31)) & mask;\n\
+    \    }\n    int index(const ll &key) {\n        ll i = hash(key);\n        while(used[i]\
+    \ and keys[i] != key) {\n            i = (i + 1) & mask;\n        }\n        return\
+    \ i;\n    }\n    void reallocate() {\n        ll old_sz = sz;\n        sz <<=\
+    \ 1;\n        mask = sz - 1;\n        cnt = 0;\n\n        vector<ll> old_keys;\n\
+    \        vector<Val> old_vals;\n        vector<bool> old_used;\n        keys.swap(old_keys);\n\
+    \        vals.swap(old_vals);\n        used.swap(old_used);\n        keys.resize(sz);\n\
+    \        vals.resize(sz);\n        used.resize(sz);\n\n        rep(i, old_sz)\
+    \ {\n            if(old_used[i]) {\n                ll key = old_keys[i];\n  \
+    \              Val val = old_vals[i];\n                (*this)[key] = val;\n \
+    \           }\n        }\n        return;\n    }\n};\n#line 3 \"math/miller_rabin.hpp\"\
     \n// https://drken1215.hatenablog.com/entry/2023/05/23/233000\n// todo \u30E2\u30F3\
     \u30B4\u30E1\u30EA\u4E57\u7B97\nbool is_prime(ll n) {\n    auto pow_mod = [&n](__int128\
     \ a, ll d) {\n        __int128 res = 1;\n        while(d) {\n            if(d\
@@ -130,50 +149,38 @@ data:
     \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
     \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
     \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
-    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n"
-  code: "#pragma once\n#include \"math/miller_rabin.hpp\"\n// https://manabitimes.jp/math/1192\n\
-    // https://wacchoz.hatenablog.com/entry/2019/01/05/230128\n// https://nyaannyaan.github.io/library/prime/fast-factorize.hpp\n\
-    namespace fast_factorize {\nll pollard_rho(ll n) {\n    // n\u306E\u7D20\u56E0\
-    \u6570\u3092\uFF11\u3064\u8FD4\u3059\n    // 1\u306B\u306F1\u3092\u8FD4\u3059\n\
-    \    if(n == 1) {\n        return 1;\n    }\n    if(~n & 1) {\n        return\
-    \ 2;\n    }\n    if(is_prime(n)) {\n        return n;\n    }\n    ll r = 1;\n\
-    \    auto f = [&n, &r](ll m) { return ((__int128)m * m + r) % n; };\n    ll x\
-    \ = 1, y = f(x);\n    while(1) {\n        ll g = gcd(n, abs(x - y));\n       \
-    \ if(1 < g and g < n) {\n            return pollard_rho(g);\n        } else if(g\
-    \ == 1) {\n            x = f(x);\n            y = f(f(y));\n        } else {\n\
-    \            r = rand() % (n - 2) + 2;\n            x = 1;\n            y = f(x);\n\
-    \        }\n    }\n}\nvl inner_factorize(ll n) {\n    vl res;\n    if(n == 1)\
-    \ {\n        return res;\n    }\n    while(n > 1 and !is_prime(n)) {\n       \
-    \ ll p = pollard_rho(n);\n        while(n % p == 0) {\n            res.push_back(p);\n\
-    \            n /= p;\n        }\n    }\n    if(n > 1) {\n        res.push_back(n);\n\
-    \    }\n    return res;\n}\nvl factorize(ll n) {\n    auto res = inner_factorize(n);\n\
-    \    sort(all(res));\n    return res;\n}\nmap<ll, ll> factor_count(ll n) {\n \
-    \   auto res = inner_factorize(n);\n    map<ll, ll> mp;\n    for(auto &x : res)\
-    \ {\n        mp[x]++;\n    }\n    return mp;\n}\nvl divisors(ll n) {\n    vl res\
-    \ = {1};\n    auto mp = factor_count(n);\n    for(auto [p, cnt] : mp) {\n    \
-    \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
-    \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
-    \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
-    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
-    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n"
+    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n#line 5 \"\
+    test/atcoder/abc249_d.test.cpp\"\nvoid solve() {\n    LL(n);\n    HashMap<ll>\
+    \ mp;\n    rep(i, n) {\n        LL(a);\n        mp[a]++;\n    }\n    ll ans =\
+    \ 0;\n    for(auto [key, val] : mp.enumerate()) {\n        for(auto j : divisors(key))\
+    \ {\n            ll k = key / j;\n            if(!mp.contains(j) or !mp.contains(k))\n\
+    \                continue;\n            ans += val * mp[j] * mp[k];\n        }\n\
+    \    }\n    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n \
+    \   std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc249/tasks/abc249_d\"\n#include\
+    \ \"data_structure/hash-map-variable-length.hpp\"\n#include \"math/pollard_rho.hpp\"\
+    \n#include \"template.hpp\"\nvoid solve() {\n    LL(n);\n    HashMap<ll> mp;\n\
+    \    rep(i, n) {\n        LL(a);\n        mp[a]++;\n    }\n    ll ans = 0;\n \
+    \   for(auto [key, val] : mp.enumerate()) {\n        for(auto j : divisors(key))\
+    \ {\n            ll k = key / j;\n            if(!mp.contains(j) or !mp.contains(k))\n\
+    \                continue;\n            ans += val * mp[j] * mp[k];\n        }\n\
+    \    }\n    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n \
+    \   std::cin.tie(nullptr);\n    solve();\n}"
   dependsOn:
-  - math/miller_rabin.hpp
+  - data_structure/hash-map-variable-length.hpp
   - template.hpp
-  isVerificationFile: false
-  path: math/pollard_rho.hpp
+  - math/pollard_rho.hpp
+  - math/miller_rabin.hpp
+  isVerificationFile: true
+  path: test/atcoder/abc249_d.test.cpp
   requiredBy: []
-  timestamp: '2024-11-09 06:28:06+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/number_theory/factorize.test.cpp
-  - test/atcoder/abc180_c.test.cpp
-  - test/atcoder/abc249_d.test.cpp
-  - test/yukicoder/888.test.cpp
-  - test/yukicoder/2051.test.cpp
-documentation_of: math/pollard_rho.hpp
+  timestamp: '2024-11-12 18:00:35+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/atcoder/abc249_d.test.cpp
 layout: document
 redirect_from:
-- /library/math/pollard_rho.hpp
-- /library/math/pollard_rho.hpp.html
-title: math/pollard_rho.hpp
+- /verify/test/atcoder/abc249_d.test.cpp
+- /verify/test/atcoder/abc249_d.test.cpp.html
+title: test/atcoder/abc249_d.test.cpp
 ---

@@ -13,6 +13,9 @@ data:
     path: test/atcoder/abc248_d.test.cpp
     title: test/atcoder/abc248_d.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/atcoder/abc249_d.test.cpp
+    title: test/atcoder/abc249_d.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/associative_array.test.cpp
     title: test/library_checker/data_structure/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
@@ -142,6 +145,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/associative_array.test.cpp
+  - test/atcoder/abc249_d.test.cpp
   - test/atcoder/abc248_d.test.cpp
   - test/atcoder/abc235_c.test.cpp
   - test/yukicoder/1634.test.cpp

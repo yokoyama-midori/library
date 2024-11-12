@@ -58,6 +58,9 @@ data:
       path: test/atcoder/abc248_d.test.cpp
       title: test/atcoder/abc248_d.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/atcoder/abc249_d.test.cpp
+      title: test/atcoder/abc249_d.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/atcoder/practice2_j.test.cpp
       title: test/atcoder/practice2_j.test.cpp
   - name: test/library_checker/data_structure

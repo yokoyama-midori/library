@@ -13,6 +13,9 @@ data:
     path: test/atcoder/abc180_c.test.cpp
     title: test/atcoder/abc180_c.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/atcoder/abc249_d.test.cpp
+    title: test/atcoder/abc249_d.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
   - icon: ':heavy_check_mark:'
@@ -137,6 +140,7 @@ data:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
   - test/atcoder/abc180_c.test.cpp
+  - test/atcoder/abc249_d.test.cpp
   - test/yukicoder/888.test.cpp
   - test/yukicoder/2051.test.cpp
 documentation_of: math/miller_rabin.hpp
