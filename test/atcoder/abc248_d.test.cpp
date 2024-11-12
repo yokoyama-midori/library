@@ -1,4 +1,4 @@
-#define PROBLEM "https://atcoder.jp/contests/abc248/editorial/3819"
+#define PROBLEM "https://atcoder.jp/contests/abc248/tasks/abc248_d"
 #include "data_structure/hash-map-variable-length.hpp"
 // segtree 改造
 // https://atcoder.jp/contests/abc248/editorial/3819
