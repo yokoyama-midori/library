@@ -9,17 +9,16 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/associative_array
+    PROBLEM: https://atcoder.jp/contests/abc248/editorial/3819
     links:
-    - https://judge.yosupo.jp/problem/associative_array
-  bundledCode: "#line 1 \"test/library_checker/data_structure/associative_array.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/associative_array\"\n#line\
-    \ 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    - https://atcoder.jp/contests/abc248/editorial/3819
+  bundledCode: "#line 1 \"test/atcoder/abc248_d.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc248/editorial/3819\"\
+    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
     \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
@@ -100,32 +99,68 @@ data:
     \        vals.resize(sz);\n        used.resize(sz);\n\n        rep(i, old_sz)\
     \ {\n            if(old_used[i]) {\n                ll key = old_keys[i];\n  \
     \              Val val = old_vals[i];\n                (*this)[key] = val;\n \
-    \           }\n        }\n        return;\n    }\n};\n#line 4 \"test/library_checker/data_structure/associative_array.test.cpp\"\
-    \nvoid solve() {\n    LL(q);\n    HashMap<ll> a(q);\n    // or HashMap<ll> a;\n\
-    \    rep(_, q) {\n        LL(flag, k);\n        if(flag == 0) {\n            LL(v);\n\
-    \            a[k] = v;\n        } else {\n            print(a[k]);\n        }\n\
-    \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/associative_array\"\n#include\
-    \ \"data_structure/hash-map-variable-length.hpp\"\n#include \"template.hpp\"\n\
-    void solve() {\n    LL(q);\n    HashMap<ll> a(q);\n    // or HashMap<ll> a;\n\
-    \    rep(_, q) {\n        LL(flag, k);\n        if(flag == 0) {\n            LL(v);\n\
-    \            a[k] = v;\n        } else {\n            print(a[k]);\n        }\n\
-    \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}"
+    \           }\n        }\n        return;\n    }\n};\n#line 3 \"test/atcoder/abc248_d.test.cpp\"\
+    \n// segtree \u6539\u9020\n// https://atcoder.jp/contests/abc248/editorial/3819\n\
+    template <class S, S (*op)(S, S), S (*e)()> struct segtree {\n    ll n;\n    vector<S>\
+    \ v;\n    segtree(ll n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const vector<S>\
+    \ &v_) : n(v_.size()) {\n        v = vector<S>(2 * n, e());\n        rep(i, n)\
+    \ v[n + i] = v_[i];\n        for(ll i = n - 1; i >= 0; i--) {\n            v[i]\
+    \ = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll x, S p) {\n\
+    \        assert(0 <= x && x < n);\n        x += n;\n        v[x] = p;\n      \
+    \  while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x << 1], v[x\
+    \ << 1 | 1]);\n        }\n    }\n    ll prod(ll l, ll r, ll x) {\n        assert(0\
+    \ <= l && l <= r && r <= n);\n        ll pl(0), pr(0);\n        l += n, r += n;\n\
+    \        while(l < r) {\n            if(l & 1) {\n                if(v[l].contains(x))\n\
+    \                    pl += v[l][x];\n            }\n            if(r & 1) {\n\
+    \                if(v[r - 1].contains(x))\n                    pr += v[r - 1][x];\n\
+    \            }\n            l = (l + 1) >> 1;\n            r >>= 1;\n        }\n\
+    \        return pl + pr;\n    }\n    S get(ll x) { return v[n + x]; }\n};\nusing\
+    \ S = HashMap<ll>;\nS op(S s, S t) {\n    if(t.sz > s.sz)\n        swap(s, t);\n\
+    \    for(auto [key, val] : t.enumerate()) {\n        s[key] += val;\n    }\n \
+    \   return s;\n};\nS e() { return S(); }\n\nvoid solve() {\n    LL(n);\n    Graph\
+    \ g(n);\n    vector<S> mp(n);\n    rep(i, n) {\n        LL(a);\n        mp[i][--a]\
+    \ = 1;\n    }\n    segtree<S, op, e> seg(mp);\n    LL(q);\n    rep(_, q) {\n \
+    \       LL(l, r, x);\n        l--, x--;\n        ll ans = seg.prod(l, r, x);\n\
+    \        print(ans);\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc248/editorial/3819\"\n#include\
+    \ \"data_structure/hash-map-variable-length.hpp\"\n// segtree \u6539\u9020\n//\
+    \ https://atcoder.jp/contests/abc248/editorial/3819\ntemplate <class S, S (*op)(S,\
+    \ S), S (*e)()> struct segtree {\n    ll n;\n    vector<S> v;\n    segtree(ll\
+    \ n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const vector<S> &v_) : n(v_.size())\
+    \ {\n        v = vector<S>(2 * n, e());\n        rep(i, n) v[n + i] = v_[i];\n\
+    \        for(ll i = n - 1; i >= 0; i--) {\n            v[i] = op(v[i << 1], v[i\
+    \ << 1 | 1]);\n        }\n    }\n    void set(ll x, S p) {\n        assert(0 <=\
+    \ x && x < n);\n        x += n;\n        v[x] = p;\n        while(x > 1) {\n \
+    \           x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n     \
+    \   }\n    }\n    ll prod(ll l, ll r, ll x) {\n        assert(0 <= l && l <= r\
+    \ && r <= n);\n        ll pl(0), pr(0);\n        l += n, r += n;\n        while(l\
+    \ < r) {\n            if(l & 1) {\n                if(v[l].contains(x))\n    \
+    \                pl += v[l][x];\n            }\n            if(r & 1) {\n    \
+    \            if(v[r - 1].contains(x))\n                    pr += v[r - 1][x];\n\
+    \            }\n            l = (l + 1) >> 1;\n            r >>= 1;\n        }\n\
+    \        return pl + pr;\n    }\n    S get(ll x) { return v[n + x]; }\n};\nusing\
+    \ S = HashMap<ll>;\nS op(S s, S t) {\n    if(t.sz > s.sz)\n        swap(s, t);\n\
+    \    for(auto [key, val] : t.enumerate()) {\n        s[key] += val;\n    }\n \
+    \   return s;\n};\nS e() { return S(); }\n\nvoid solve() {\n    LL(n);\n    Graph\
+    \ g(n);\n    vector<S> mp(n);\n    rep(i, n) {\n        LL(a);\n        mp[i][--a]\
+    \ = 1;\n    }\n    segtree<S, op, e> seg(mp);\n    LL(q);\n    rep(_, q) {\n \
+    \       LL(l, r, x);\n        l--, x--;\n        ll ans = seg.prod(l, r, x);\n\
+    \        print(ans);\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}"
   dependsOn:
   - data_structure/hash-map-variable-length.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/library_checker/data_structure/associative_array.test.cpp
+  path: test/atcoder/abc248_d.test.cpp
   requiredBy: []
-  timestamp: '2024-11-12 17:01:52+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-12 17:02:15+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/associative_array.test.cpp
+documentation_of: test/atcoder/abc248_d.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/data_structure/associative_array.test.cpp
-- /verify/test/library_checker/data_structure/associative_array.test.cpp.html
-title: test/library_checker/data_structure/associative_array.test.cpp
+- /verify/test/atcoder/abc248_d.test.cpp
+- /verify/test/atcoder/abc248_d.test.cpp.html
+title: test/atcoder/abc248_d.test.cpp
 ---

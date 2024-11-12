@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -9,15 +9,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc235_c.test.cpp
     title: test/atcoder/abc235_c.test.cpp
+  - icon: ':x:'
+    path: test/atcoder/abc248_d.test.cpp
+    title: test/atcoder/abc248_d.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/associative_array.test.cpp
     title: test/library_checker/data_structure/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1634.test.cpp
     title: test/yukicoder/1634.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://judge.yosupo.jp/submission/186759
@@ -81,17 +84,18 @@ data:
     \        sz = 1;\n        while(sz < 2 * n) {\n            sz <<= 1;\n       \
     \ }\n        mask = sz - 1;\n        cnt = 0;\n        keys.resize(sz);\n    \
     \    vals.resize(sz);\n        used.resize(sz);\n    }\n\n    Val &operator[](const\
-    \ ll &key) {\n        if(cnt * 2 > sz) {\n            reallocate();\n        }\n\
-    \        ll i = index(key);\n        if(!used[i]) {\n            used[i] = true;\n\
-    \            keys[i] = key;\n            cnt++;\n        }\n        return vals[i];\n\
-    \    }\n    bool contains(const ll &key) {\n        ll i = index(key);\n     \
-    \   return used[i];\n    }\n    vector<pair<ll, Val>> enumerate() {\n        vector<pair<ll,\
-    \ Val>> res;\n        rep(i, sz) {\n            if(used[i]) {\n              \
-    \  res.push_back({keys[i], vals[i]});\n            }\n        }\n        return\
-    \ res;\n    }\n  private:\n    int hash(ll x) {\n        // https://judge.yosupo.jp/submission/186759\n\
-    \        static const ll r =\n            std::chrono::steady_clock::now().time_since_epoch().count();\n\
-    \        x += r;\n        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;\n        x\
-    \ = (x ^ (x >> 27)) * 0x94d049bb133111eb;\n        return (x ^ (x >> 31)) & mask;\n\
+    \ ll &key) {\n        if(cnt * 2 >= sz) {\n            reallocate();\n       \
+    \ }\n        ll i = index(key);\n        if(!used[i]) {\n            used[i] =\
+    \ true;\n            keys[i] = key;\n            cnt++;\n        }\n        return\
+    \ vals[i];\n    }\n    bool contains(const ll &key) {\n        ll i = index(key);\n\
+    \        return used[i];\n    }\n    vector<pair<ll, Val>> enumerate() {\n   \
+    \     vector<pair<ll, Val>> res;\n        rep(i, sz) {\n            if(used[i])\
+    \ {\n                res.push_back({keys[i], vals[i]});\n            }\n     \
+    \   }\n        return res;\n    }\n  private:\n    int hash(ll x) {\n        //\
+    \ https://judge.yosupo.jp/submission/186759\n        static const ll r =\n   \
+    \         std::chrono::steady_clock::now().time_since_epoch().count();\n     \
+    \   x += r;\n        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;\n        x = (x\
+    \ ^ (x >> 27)) * 0x94d049bb133111eb;\n        return (x ^ (x >> 31)) & mask;\n\
     \    }\n    int index(const ll &key) {\n        ll i = hash(key);\n        while(used[i]\
     \ and keys[i] != key) {\n            i = (i + 1) & mask;\n        }\n        return\
     \ i;\n    }\n    void reallocate() {\n        ll old_sz = sz;\n        sz <<=\
@@ -107,8 +111,8 @@ data:
     \  vector<Val> vals;\n    HashMap(int n = 1) {\n        sz = 1;\n        while(sz\
     \ < 2 * n) {\n            sz <<= 1;\n        }\n        mask = sz - 1;\n     \
     \   cnt = 0;\n        keys.resize(sz);\n        vals.resize(sz);\n        used.resize(sz);\n\
-    \    }\n\n    Val &operator[](const ll &key) {\n        if(cnt * 2 > sz) {\n \
-    \           reallocate();\n        }\n        ll i = index(key);\n        if(!used[i])\
+    \    }\n\n    Val &operator[](const ll &key) {\n        if(cnt * 2 >= sz) {\n\
+    \            reallocate();\n        }\n        ll i = index(key);\n        if(!used[i])\
     \ {\n            used[i] = true;\n            keys[i] = key;\n            cnt++;\n\
     \        }\n        return vals[i];\n    }\n    bool contains(const ll &key) {\n\
     \        ll i = index(key);\n        return used[i];\n    }\n    vector<pair<ll,\
@@ -134,10 +138,11 @@ data:
   isVerificationFile: false
   path: data_structure/hash-map-variable-length.hpp
   requiredBy: []
-  timestamp: '2024-11-11 08:42:50+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-11-12 17:01:52+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/associative_array.test.cpp
+  - test/atcoder/abc248_d.test.cpp
   - test/atcoder/abc235_c.test.cpp
   - test/yukicoder/1634.test.cpp
 documentation_of: data_structure/hash-map-variable-length.hpp
