@@ -1,23 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/hash-map-variable-length.hpp
     title: data_structure/hash-map-variable-length.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/abc248/editorial/3819
+    PROBLEM: https://atcoder.jp/contests/abc248/tasks/abc248_d
     links:
     - https://atcoder.jp/contests/abc248/editorial/3819
-  bundledCode: "#line 1 \"test/atcoder/abc248_d.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc248/editorial/3819\"\
+    - https://atcoder.jp/contests/abc248/tasks/abc248_d
+  bundledCode: "#line 1 \"test/atcoder/abc248_d.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc248/tasks/abc248_d\"\
     \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -123,7 +124,7 @@ data:
     \       LL(l, r, x);\n        l--, x--;\n        ll ans = seg.prod(l, r, x);\n\
     \        print(ans);\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://atcoder.jp/contests/abc248/editorial/3819\"\n#include\
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc248/tasks/abc248_d\"\n#include\
     \ \"data_structure/hash-map-variable-length.hpp\"\n// segtree \u6539\u9020\n//\
     \ https://atcoder.jp/contests/abc248/editorial/3819\ntemplate <class S, S (*op)(S,\
     \ S), S (*e)()> struct segtree {\n    ll n;\n    vector<S> v;\n    segtree(ll\
@@ -154,8 +155,8 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc248_d.test.cpp
   requiredBy: []
-  timestamp: '2024-11-12 17:02:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-12 17:08:15+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc248_d.test.cpp
 layout: document

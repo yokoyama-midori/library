@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: data_structure
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/hash-map-variable-length.hpp
       title: data_structure/hash-map-variable-length.hpp
     - icon: ':heavy_check_mark:'
@@ -42,7 +42,7 @@ data:
       title: poly/shift_of_sampling_points.hpp
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.hpp
       title: template.hpp
   verificationCategories:
@@ -54,7 +54,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc235_c.test.cpp
       title: test/atcoder/abc235_c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/atcoder/abc248_d.test.cpp
       title: test/atcoder/abc248_d.test.cpp
     - icon: ':heavy_check_mark:'

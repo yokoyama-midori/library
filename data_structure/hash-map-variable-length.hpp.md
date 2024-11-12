@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -9,7 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc235_c.test.cpp
     title: test/atcoder/abc235_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/abc248_d.test.cpp
     title: test/atcoder/abc248_d.test.cpp
   - icon: ':heavy_check_mark:'
@@ -18,9 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1634.test.cpp
     title: test/yukicoder/1634.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://judge.yosupo.jp/submission/186759
@@ -139,7 +139,7 @@ data:
   path: data_structure/hash-map-variable-length.hpp
   requiredBy: []
   timestamp: '2024-11-12 17:01:52+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/associative_array.test.cpp
   - test/atcoder/abc248_d.test.cpp
