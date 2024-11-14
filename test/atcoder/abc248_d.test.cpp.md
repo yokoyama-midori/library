@@ -83,14 +83,16 @@ data:
     \ }\n        ll i = index(key);\n        if(!used[i]) {\n            used[i] =\
     \ true;\n            keys[i] = key;\n            cnt++;\n        }\n        return\
     \ vals[i];\n    }\n    bool contains(const ll &key) {\n        ll i = index(key);\n\
-    \        return used[i];\n    }\n    vector<pair<ll, Val>> enumerate() {\n   \
-    \     vector<pair<ll, Val>> res;\n        rep(i, sz) {\n            if(used[i])\
-    \ {\n                res.push_back({keys[i], vals[i]});\n            }\n     \
-    \   }\n        return res;\n    }\n  private:\n    int hash(ll x) {\n        //\
-    \ https://judge.yosupo.jp/submission/186759\n        static const ll r =\n   \
-    \         std::chrono::steady_clock::now().time_since_epoch().count();\n     \
-    \   x += r;\n        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;\n        x = (x\
-    \ ^ (x >> 27)) * 0x94d049bb133111eb;\n        return (x ^ (x >> 31)) & mask;\n\
+    \        return used[i];\n    }\n    // for(auto [key,val]:mp.enumerate()){}\n\
+    \    // \u307F\u305F\u3044\u306B\u66F8\u3044\u305F\u3068\u304D\u306Bval\u3092\u5909\
+    \u66F4\u3057\u305F\u3044\u304C\u3053\u306E\u66F8\u304D\u65B9\u3067\u3044\u3044\
+    ?\n    vector<pair<ll, Val &>> enumerate() {\n        vector<pair<ll, Val &>>\
+    \ res;\n        rep(i, sz) {\n            if(used[i]) {\n                res.push_back({keys[i],\
+    \ vals[i]});\n            }\n        }\n        return res;\n    }\n  private:\n\
+    \    int hash(ll x) {\n        // https://judge.yosupo.jp/submission/186759\n\
+    \        static const ll r =\n            std::chrono::steady_clock::now().time_since_epoch().count();\n\
+    \        x += r;\n        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;\n        x\
+    \ = (x ^ (x >> 27)) * 0x94d049bb133111eb;\n        return (x ^ (x >> 31)) & mask;\n\
     \    }\n    int index(const ll &key) {\n        ll i = hash(key);\n        while(used[i]\
     \ and keys[i] != key) {\n            i = (i + 1) & mask;\n        }\n        return\
     \ i;\n    }\n    void reallocate() {\n        ll old_sz = sz;\n        sz <<=\
@@ -155,7 +157,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc248_d.test.cpp
   requiredBy: []
-  timestamp: '2024-11-12 17:08:15+09:00'
+  timestamp: '2024-11-14 16:49:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc248_d.test.cpp
