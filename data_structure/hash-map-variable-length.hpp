@@ -33,8 +33,10 @@ template <class Val> struct HashMap {
         ll i = index(key);
         return used[i];
     }
-    vector<pair<ll, Val>> enumerate() {
-        vector<pair<ll, Val>> res;
+    // for(auto [key,val]:mp.enumerate()){}
+    // みたいに書いたときにvalを変更したいがこの書き方でいい?
+    vector<pair<ll, Val &>> enumerate() {
+        vector<pair<ll, Val &>> res;
         rep(i, sz) {
             if(used[i]) {
                 res.push_back({keys[i], vals[i]});
