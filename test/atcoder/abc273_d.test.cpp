@@ -73,7 +73,6 @@ void solve() {
         chmax(cs, 1LL);
         chmin(cs, w);
         chmin(rs, h);
-        debug(rs, cs);
         print(rs, cs);
     }
 }
