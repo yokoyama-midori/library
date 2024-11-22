@@ -12,6 +12,9 @@ data:
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
   - icon: ':heavy_check_mark:'
+    path: dp/cumulative-sum.hpp
+    title: dp/cumulative-sum.hpp
+  - icon: ':heavy_check_mark:'
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':heavy_check_mark:'
@@ -73,8 +76,11 @@ data:
     path: test/library_checker/data_structure/range_set_range_composite.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/static_range_sum.test.cpp
-    title: test/library_checker/data_structure/static_range_sum.test.cpp
+    path: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
+    title: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
+    title: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq.test.cpp
     title: test/library_checker/data_structure/staticrmq.test.cpp
@@ -255,6 +261,7 @@ data:
   - data_structure/hash-map-variable-length.hpp
   - data_structure/lazy_segtree.hpp
   - data_structure/segtree.hpp
+  - dp/cumulative-sum.hpp
   timestamp: '2024-10-24 17:39:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -264,10 +271,11 @@ data:
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
+  - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
-  - test/library_checker/data_structure/static_range_sum.test.cpp
   - test/library_checker/data_structure/associative_array.test.cpp
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/sample/aplusb.test.cpp

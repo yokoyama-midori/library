@@ -2,35 +2,28 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: dp/cumulative-sum.hpp
+    title: dp/cumulative-sum.hpp
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/atcoder/practice2_j.test.cpp
-    title: test/atcoder/practice2_j.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/point_add_range_sum.test.cpp
-    title: test/library_checker/data_structure/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/point_set_range_composite.test.cpp
-    title: test/library_checker/data_structure/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-    title: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/staticrmq.test.cpp
-    title: test/library_checker/data_structure/staticrmq.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
+    links:
+    - https://judge.yosupo.jp/problem/static_range_sum
+  bundledCode: "#line 1 \"test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#line\
+    \ 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
+    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -80,52 +73,43 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/segtree.hpp\"\
-    \n\ntemplate <class S, S (*op)(S, S), S (*e)()> struct segtree {\n    ll n;\n\
-    \    vector<S> v;\n    segtree(ll n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const\
-    \ vector<S> &v_) : n(v_.size()) {\n        v = vector<S>(2 * n, e());\n      \
-    \  rep(i, n) v[n + i] = v_[i];\n        for(ll i = n - 1; i >= 0; i--) {\n   \
-    \         v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll\
-    \ x, S p) {\n        assert(0 <= x && x < n);\n        x += n;\n        v[x] =\
-    \ p;\n        while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x\
-    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) {\n       \
-    \ assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n        l\
-    \ += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n           \
-    \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
-    \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
-    \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S,\
-    \ S), S (*e)()> struct segtree {\n    ll n;\n    vector<S> v;\n    segtree(ll\
-    \ n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const vector<S> &v_) : n(v_.size())\
-    \ {\n        v = vector<S>(2 * n, e());\n        rep(i, n) v[n + i] = v_[i];\n\
-    \        for(ll i = n - 1; i >= 0; i--) {\n            v[i] = op(v[i << 1], v[i\
-    \ << 1 | 1]);\n        }\n    }\n    void set(ll x, S p) {\n        assert(0 <=\
-    \ x && x < n);\n        x += n;\n        v[x] = p;\n        while(x > 1) {\n \
-    \           x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n     \
-    \   }\n    }\n    S prod(ll l, ll r) {\n        assert(0 <= l && l <= r && r <=\
-    \ n);\n        S pl(e()), pr(e());\n        l += n, r += n;\n        while(l <\
-    \ r) {\n            if(l & 1) {\n                pl = op(pl, v[l]);\n        \
-    \    }\n            if(r & 1) {\n                pr = op(v[r - 1], pr);\n    \
-    \        }\n            l = (l + 1) >> 1;\n            r >>= 1;\n        }\n \
-    \       return op(pl, pr);\n    }\n    S get(ll x) { return v[n + x]; }\n};"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"dp/cumulative-sum.hpp\"\
+    \n// https://ei1333.github.io/library/dp/cumulative-sum.hpp\ntemplate <class T>\
+    \ struct CumulativeSum {\n    bool is_built = false;\n    size_t sz;\n    vector<T>\
+    \ data;\n    CumulativeSum(size_t maxi) : sz(maxi + 1), data(maxi + 1, 0) {}\n\
+    \    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n        data[x]\
+    \ += dx;\n        is_built = false;\n    }\n    void build() {\n        is_built\
+    \ = true;\n        rep(i, sz - 1) { data[i + 1] += data[i]; }\n    }\n    T sum(ll\
+    \ r) {\n        // \u533A\u9593[0,r)\u306E\u548C\n        assert(0 <= r and r\
+    \ <= sz);\n        if(r == 0) {\n            return 0;\n        }\n        return\
+    \ data[r - 1];\n    }\n    T sum(ll l, ll r) {\n        // \u533A\u9593[l,r)\u306E\
+    \u548C\n        assert(0 <= l and l <= r and r <= sz);\n        return sum(r)\
+    \ - sum(l);\n    }\n};\n#line 4 \"test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp\"\
+    \nvoid solve() {\n    LL(n, q);\n    CumulativeSum<ll> cs(n);\n    rep(i, n) {\n\
+    \        LL(a);\n        cs.add(i, a);\n    }\n    cs.build();\n    rep(_, q)\
+    \ {\n        int l, r;\n        cin >> l >> r;\n        print(cs.sum(l, r));\n\
+    \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#include\
+    \ \"dp/cumulative-sum.hpp\"\n#include \"template.hpp\"\nvoid solve() {\n    LL(n,\
+    \ q);\n    CumulativeSum<ll> cs(n);\n    rep(i, n) {\n        LL(a);\n       \
+    \ cs.add(i, a);\n    }\n    cs.build();\n    rep(_, q) {\n        int l, r;\n\
+    \        cin >> l >> r;\n        print(cs.sum(l, r));\n    }\n}\nint main() {\n\
+    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
+    }\n"
   dependsOn:
+  - dp/cumulative-sum.hpp
   - template.hpp
-  isVerificationFile: false
-  path: data_structure/segtree.hpp
+  isVerificationFile: true
+  path: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-10-24 17:39:29+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/data_structure/point_add_range_sum.test.cpp
-  - test/library_checker/data_structure/point_set_range_composite.test.cpp
-  - test/library_checker/data_structure/staticrmq.test.cpp
-  - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-  - test/atcoder/practice2_j.test.cpp
-documentation_of: data_structure/segtree.hpp
+  timestamp: '2024-11-23 01:03:46+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
 layout: document
 redirect_from:
-- /library/data_structure/segtree.hpp
-- /library/data_structure/segtree.hpp.html
-title: data_structure/segtree.hpp
+- /verify/test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
+- /verify/test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp.html
+title: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
 ---

@@ -17,7 +17,7 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
     links:
     - https://judge.yosupo.jp/problem/static_range_sum
-  bundledCode: "#line 1 \"test/library_checker/data_structure/static_range_sum.test.cpp\"\
+  bundledCode: "#line 1 \"test/library_checker/data_structure/static_range_sum_segtree.test.cpp\"\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#line\
     \ 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
@@ -87,7 +87,7 @@ data:
     \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
     \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
     \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n#line 4 \"test/library_checker/data_structure/static_range_sum.test.cpp\"\
+    \ x) { return v[n + x]; }\n};\n#line 4 \"test/library_checker/data_structure/static_range_sum_segtree.test.cpp\"\
     \n\nll e() {\n    return 0;\n}\nll op(ll a, ll b) {\n    return a + b;\n}\nvoid\
     \ solve() {\n    LL(n, q);\n    vl a(n);\n    input(a);\n    segtree<ll, op, e>\
     \ seg(a);\n    rep(_, q) {\n        LL(l, r);\n        print(seg.prod(l, r));\n\
@@ -104,15 +104,15 @@ data:
   - data_structure/segtree.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/library_checker/data_structure/static_range_sum.test.cpp
+  path: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
   requiredBy: []
-  timestamp: '2024-10-24 17:39:29+09:00'
+  timestamp: '2024-11-23 01:03:46+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/static_range_sum.test.cpp
+documentation_of: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/data_structure/static_range_sum.test.cpp
-- /verify/test/library_checker/data_structure/static_range_sum.test.cpp.html
-title: test/library_checker/data_structure/static_range_sum.test.cpp
+- /verify/test/library_checker/data_structure/static_range_sum_segtree.test.cpp
+- /verify/test/library_checker/data_structure/static_range_sum_segtree.test.cpp.html
+title: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
 ---
