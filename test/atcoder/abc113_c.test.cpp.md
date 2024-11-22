@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/compress.hpp
     title: data_structure/compress.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/abc180/tasks/abc180_c
+    PROBLEM: https://atcoder.jp/contests/abc113/tasks/abc113_c
     links:
-    - https://atcoder.jp/contests/abc180/tasks/abc180_c
-  bundledCode: "#line 1 \"test/atcoder/abc113_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc180/tasks/abc180_c\"\
+    - https://atcoder.jp/contests/abc113/tasks/abc113_c
+  bundledCode: "#line 1 \"test/atcoder/abc113_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc113/tasks/abc113_c\"\
     \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -93,7 +93,7 @@ data:
     \ = make_str(p[i]);\n        ans += make_str(vc[p[i]].get(y[i]) + 1);\n      \
     \  cout << ans << \"\\n\";\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://atcoder.jp/contests/abc180/tasks/abc180_c\"\n#include\
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc113/tasks/abc113_c\"\n#include\
     \ \"data_structure/compress.hpp\"\nstring make_str(ll n) {\n    string suf = to_string(n);\n\
     \    string res;\n    rep(i, 6 - ssize(suf)) { res += '0'; }\n    res += suf;\n\
     \    return res;\n}\nvoid solve() {\n    LL(n, m);\n    vector<Compress<int>>\
@@ -108,8 +108,8 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc113_c.test.cpp
   requiredBy: []
-  timestamp: '2024-11-23 02:46:05+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-23 02:50:44+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc113_c.test.cpp
 layout: document
