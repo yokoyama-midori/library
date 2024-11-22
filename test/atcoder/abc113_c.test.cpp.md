@@ -1,26 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/miller_rabin.hpp
-    title: math/miller_rabin.hpp
-  - icon: ':heavy_check_mark:'
-    path: math/pollard_rho.hpp
-    title: math/pollard_rho.hpp
+  - icon: ':x:'
+    path: data_structure/compress.hpp
+    title: data_structure/compress.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc180/tasks/abc180_c
     links:
     - https://atcoder.jp/contests/abc180/tasks/abc180_c
-  bundledCode: "#line 1 \"test/atcoder/abc180_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc180/tasks/abc180_c\"\
+  bundledCode: "#line 1 \"test/atcoder/abc113_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc180/tasks/abc180_c\"\
     \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -75,72 +72,49 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/miller_rabin.hpp\"\
-    \n// https://drken1215.hatenablog.com/entry/2023/05/23/233000\n// todo \u30E2\u30F3\
-    \u30B4\u30E1\u30EA\u4E57\u7B97\nbool is_prime(ll n) {\n    auto pow_mod = [&n](__int128\
-    \ a, ll d) {\n        __int128 res = 1;\n        while(d) {\n            if(d\
-    \ & 1) {\n                res *= a;\n                if(res >= n)\n          \
-    \          res %= n;\n            }\n            a *= a;\n            if(a >=\
-    \ n)\n                a %= n;\n            d >>= 1;\n        }\n        return\
-    \ res;\n    };\n    if(n == 2 or n == 7 or n == 61) {\n        return true;\n\
-    \    }\n    if(n % 2 == 0 or n == 1) {\n        return false;\n    }\n    ll d\
-    \ = n - 1;\n    ll s = 0;\n    while(d % 2 == 0) {\n        d >>= 1;\n       \
-    \ s++;\n    }\n    auto check = [&](ll a) {\n        ll ad = pow_mod(a, d);\n\
-    \        if(ad == 1) {\n            return true;\n        }\n        rep(i, s)\
-    \ {\n            if(ad == n - 1) {\n                return true;\n           \
-    \ }\n            if(i < s - 1)\n                ad = pow_mod(ad, 2);\n       \
-    \ }\n        return false;\n    };\n    if(n < 4759123141) {\n        for(auto\
-    \ a : vl{2, 7, 61}) {\n            if(!check(a)) {\n                return false;\n\
-    \            }\n        }\n        return true;\n    } else {\n        for(auto\
-    \ a : vl{2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {\n            if(n\
-    \ == a) {\n                return true;\n            }\n            if(!check(a))\
-    \ {\n                return false;\n            }\n        }\n        return true;\n\
-    \    }\n}\n#line 3 \"math/pollard_rho.hpp\"\n// https://manabitimes.jp/math/1192\n\
-    // https://wacchoz.hatenablog.com/entry/2019/01/05/230128\n// https://nyaannyaan.github.io/library/prime/fast-factorize.hpp\n\
-    namespace fast_factorize {\nll pollard_rho(ll n) {\n    // n\u306E\u7D20\u56E0\
-    \u6570\u3092\uFF11\u3064\u8FD4\u3059\n    // 1\u306B\u306F1\u3092\u8FD4\u3059\n\
-    \    if(n == 1) {\n        return 1;\n    }\n    if(~n & 1) {\n        return\
-    \ 2;\n    }\n    if(is_prime(n)) {\n        return n;\n    }\n    ll r = 1;\n\
-    \    auto f = [&n, &r](ll m) { return ((__int128)m * m + r) % n; };\n    ll x\
-    \ = 1, y = f(x);\n    while(1) {\n        ll g = gcd(n, abs(x - y));\n       \
-    \ if(1 < g and g < n) {\n            return pollard_rho(g);\n        } else if(g\
-    \ == 1) {\n            x = f(x);\n            y = f(f(y));\n        } else {\n\
-    \            r = rand() % (n - 2) + 2;\n            x = 1;\n            y = f(x);\n\
-    \        }\n    }\n}\nvl inner_factorize(ll n) {\n    vl res;\n    if(n == 1)\
-    \ {\n        return res;\n    }\n    while(n > 1 and !is_prime(n)) {\n       \
-    \ ll p = pollard_rho(n);\n        while(n % p == 0) {\n            res.push_back(p);\n\
-    \            n /= p;\n        }\n    }\n    if(n > 1) {\n        res.push_back(n);\n\
-    \    }\n    return res;\n}\nvl factorize(ll n) {\n    auto res = inner_factorize(n);\n\
-    \    sort(all(res));\n    return res;\n}\nmap<ll, ll> factor_count(ll n) {\n \
-    \   auto res = inner_factorize(n);\n    map<ll, ll> mp;\n    for(auto &x : res)\
-    \ {\n        mp[x]++;\n    }\n    return mp;\n}\nvl divisors(ll n) {\n    vl res\
-    \ = {1};\n    auto mp = factor_count(n);\n    for(auto [p, cnt] : mp) {\n    \
-    \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
-    \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
-    \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
-    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
-    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n#line 3 \"\
-    test/atcoder/abc180_c.test.cpp\"\nvoid solve() {\n    LL(n);\n    auto ans = divisors(n);\n\
-    \    for(auto &x : ans)\n        cout << x << \"\\n\";\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    ll t = 1;\n    rep(_, t) solve();\n}\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/compress.hpp\"\
+    \n// https://ei1333.github.io/library/other/compress.hpp\ntemplate <class T> struct\
+    \ Compress {\n    bool is_built = false;\n    vector<T> data;\n    Compress()\
+    \ = default;\n    Compress(const vector<T> &v) { add(v); }\n    void add(const\
+    \ T &x) {\n        is_built = false;\n        data.push_back(x);\n    }\n    void\
+    \ add(const vector<T> &v) {\n        for(auto x : v)\n            add(x);\n  \
+    \  }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
+    \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
+    \    }\n    ll get(T &x) const {\n        assert(is_built);\n        ll res =\
+    \ lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
+    \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
+    \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
+    \  data[t];\n    }\n};\n#line 3 \"test/atcoder/abc113_c.test.cpp\"\nstring make_str(ll\
+    \ n) {\n    string suf = to_string(n);\n    string res;\n    rep(i, 6 - ssize(suf))\
+    \ { res += '0'; }\n    res += suf;\n    return res;\n}\nvoid solve() {\n    LL(n,\
+    \ m);\n    vector<Compress<int>> vc(n + 1);\n    vector<int> p(m), y(m);\n   \
+    \ rep(i, m) {\n        cin >> p[i] >> y[i];\n        vc[p[i]].add(y[i]);\n   \
+    \ }\n    rep(i, n + 1) { vc[i].build(); }\n    rep(i, m) {\n        string ans\
+    \ = make_str(p[i]);\n        ans += make_str(vc[p[i]].get(y[i]) + 1);\n      \
+    \  cout << ans << \"\\n\";\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc180/tasks/abc180_c\"\n#include\
-    \ \"math/pollard_rho.hpp\"\nvoid solve() {\n    LL(n);\n    auto ans = divisors(n);\n\
-    \    for(auto &x : ans)\n        cout << x << \"\\n\";\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    ll t = 1;\n    rep(_, t) solve();\n}\n"
+    \ \"data_structure/compress.hpp\"\nstring make_str(ll n) {\n    string suf = to_string(n);\n\
+    \    string res;\n    rep(i, 6 - ssize(suf)) { res += '0'; }\n    res += suf;\n\
+    \    return res;\n}\nvoid solve() {\n    LL(n, m);\n    vector<Compress<int>>\
+    \ vc(n + 1);\n    vector<int> p(m), y(m);\n    rep(i, m) {\n        cin >> p[i]\
+    \ >> y[i];\n        vc[p[i]].add(y[i]);\n    }\n    rep(i, n + 1) { vc[i].build();\
+    \ }\n    rep(i, m) {\n        string ans = make_str(p[i]);\n        ans += make_str(vc[p[i]].get(y[i])\
+    \ + 1);\n        cout << ans << \"\\n\";\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   dependsOn:
-  - math/pollard_rho.hpp
-  - math/miller_rabin.hpp
+  - data_structure/compress.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/atcoder/abc180_c.test.cpp
+  path: test/atcoder/abc113_c.test.cpp
   requiredBy: []
-  timestamp: '2024-11-09 19:01:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-23 02:46:05+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/atcoder/abc180_c.test.cpp
+documentation_of: test/atcoder/abc113_c.test.cpp
 layout: document
 redirect_from:
-- /verify/test/atcoder/abc180_c.test.cpp
-- /verify/test/atcoder/abc180_c.test.cpp.html
-title: test/atcoder/abc180_c.test.cpp
+- /verify/test/atcoder/abc113_c.test.cpp
+- /verify/test/atcoder/abc113_c.test.cpp.html
+title: test/atcoder/abc113_c.test.cpp
 ---

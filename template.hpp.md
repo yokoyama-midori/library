@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':x:'
+    path: data_structure/compress.hpp
+    title: data_structure/compress.hpp
   - icon: ':heavy_check_mark:'
     path: data_structure/hash-map-variable-length.hpp
     title: data_structure/hash-map-variable-length.hpp
@@ -39,6 +42,9 @@ data:
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/atcoder/abc113_c.test.cpp
+    title: test/atcoder/abc113_c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc180_c.test.cpp
     title: test/atcoder/abc180_c.test.cpp
@@ -129,9 +135,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -260,10 +266,11 @@ data:
   - math/miller_rabin.hpp
   - data_structure/hash-map-variable-length.hpp
   - data_structure/lazy_segtree.hpp
+  - data_structure/compress.hpp
   - data_structure/segtree.hpp
   - dp/cumulative-sum.hpp
   timestamp: '2024-10-24 17:39:29+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
@@ -286,6 +293,7 @@ data:
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - test/atcoder/abc180_c.test.cpp
   - test/atcoder/abc249_d.test.cpp
+  - test/atcoder/abc113_c.test.cpp
   - test/atcoder/abc248_d.test.cpp
   - test/atcoder/abc235_c.test.cpp
   - test/atcoder/abc273_d.test.cpp

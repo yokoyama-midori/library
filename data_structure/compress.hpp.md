@@ -1,29 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/miller_rabin.hpp
-    title: math/miller_rabin.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/atcoder/abc113_c.test.cpp
+    title: test/atcoder/abc113_c.test.cpp
+  _isVerificationFailed: true
+  _pathExtension: hpp
+  _verificationStatusIcon: ':x:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/primality_test
     links:
-    - https://judge.yosupo.jp/problem/primality_test
-  bundledCode: "#line 1 \"test/library_checker/number_theory/primality_test.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#line 2\
-    \ \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
-    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
-    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
-    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
-    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://ei1333.github.io/library/other/compress.hpp
+  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
+    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
+    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
+    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -73,48 +69,44 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/miller_rabin.hpp\"\
-    \n// https://drken1215.hatenablog.com/entry/2023/05/23/233000\n// todo \u30E2\u30F3\
-    \u30B4\u30E1\u30EA\u4E57\u7B97\nbool is_prime(ll n) {\n    auto pow_mod = [&n](__int128\
-    \ a, ll d) {\n        __int128 res = 1;\n        while(d) {\n            if(d\
-    \ & 1) {\n                res *= a;\n                if(res >= n)\n          \
-    \          res %= n;\n            }\n            a *= a;\n            if(a >=\
-    \ n)\n                a %= n;\n            d >>= 1;\n        }\n        return\
-    \ res;\n    };\n    if(n == 2 or n == 7 or n == 61) {\n        return true;\n\
-    \    }\n    if(n % 2 == 0 or n == 1) {\n        return false;\n    }\n    ll d\
-    \ = n - 1;\n    ll s = 0;\n    while(d % 2 == 0) {\n        d >>= 1;\n       \
-    \ s++;\n    }\n    auto check = [&](ll a) {\n        ll ad = pow_mod(a, d);\n\
-    \        if(ad == 1) {\n            return true;\n        }\n        rep(i, s)\
-    \ {\n            if(ad == n - 1) {\n                return true;\n           \
-    \ }\n            if(i < s - 1)\n                ad = pow_mod(ad, 2);\n       \
-    \ }\n        return false;\n    };\n    if(n < 4759123141) {\n        for(auto\
-    \ a : vl{2, 7, 61}) {\n            if(!check(a)) {\n                return false;\n\
-    \            }\n        }\n        return true;\n    } else {\n        for(auto\
-    \ a : vl{2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {\n            if(n\
-    \ == a) {\n                return true;\n            }\n            if(!check(a))\
-    \ {\n                return false;\n            }\n        }\n        return true;\n\
-    \    }\n}\n#line 4 \"test/library_checker/number_theory/primality_test.test.cpp\"\
-    \nvoid solve() {\n    LL(n);\n    rep(_, n) {\n        LL(a);\n        print(is_prime(a)\
-    \ ? \"Yes\" : \"No\");\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#include\
-    \ \"template.hpp\"\n#include \"math/miller_rabin.hpp\"\nvoid solve() {\n    LL(n);\n\
-    \    rep(_, n) {\n        LL(a);\n        print(is_prime(a) ? \"Yes\" : \"No\"\
-    );\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/compress.hpp\"\
+    \n// https://ei1333.github.io/library/other/compress.hpp\ntemplate <class T> struct\
+    \ Compress {\n    bool is_built = false;\n    vector<T> data;\n    Compress()\
+    \ = default;\n    Compress(const vector<T> &v) { add(v); }\n    void add(const\
+    \ T &x) {\n        is_built = false;\n        data.push_back(x);\n    }\n    void\
+    \ add(const vector<T> &v) {\n        for(auto x : v)\n            add(x);\n  \
+    \  }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
+    \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
+    \    }\n    ll get(T &x) const {\n        assert(is_built);\n        ll res =\
+    \ lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
+    \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
+    \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
+    \  data[t];\n    }\n};\n"
+  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/other/compress.hpp\n\
+    template <class T> struct Compress {\n    bool is_built = false;\n    vector<T>\
+    \ data;\n    Compress() = default;\n    Compress(const vector<T> &v) { add(v);\
+    \ }\n    void add(const T &x) {\n        is_built = false;\n        data.push_back(x);\n\
+    \    }\n    void add(const vector<T> &v) {\n        for(auto x : v)\n        \
+    \    add(x);\n    }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
+    \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
+    \    }\n    ll get(T &x) const {\n        assert(is_built);\n        ll res =\
+    \ lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
+    \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
+    \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
+    \  data[t];\n    }\n};"
   dependsOn:
   - template.hpp
-  - math/miller_rabin.hpp
-  isVerificationFile: true
-  path: test/library_checker/number_theory/primality_test.test.cpp
+  isVerificationFile: false
+  path: data_structure/compress.hpp
   requiredBy: []
-  timestamp: '2024-11-09 04:31:42+09:00'
-  verificationStatus: TEST_ACCEPTED
-  verifiedWith: []
-documentation_of: test/library_checker/number_theory/primality_test.test.cpp
+  timestamp: '2024-11-23 02:46:05+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/atcoder/abc113_c.test.cpp
+documentation_of: data_structure/compress.hpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/number_theory/primality_test.test.cpp
-- /verify/test/library_checker/number_theory/primality_test.test.cpp.html
-title: test/library_checker/number_theory/primality_test.test.cpp
+- /library/data_structure/compress.hpp
+- /library/data_structure/compress.hpp.html
+title: data_structure/compress.hpp
 ---

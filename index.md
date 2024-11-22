@@ -3,6 +3,9 @@ data:
   libraryCategories:
   - name: data_structure
     pages:
+    - icon: ':x:'
+      path: data_structure/compress.hpp
+      title: data_structure/compress.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/hash-map-variable-length.hpp
       title: data_structure/hash-map-variable-length.hpp
@@ -47,12 +50,15 @@ data:
       title: poly/shift_of_sampling_points.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
   verificationCategories:
   - name: test/atcoder
     pages:
+    - icon: ':x:'
+      path: test/atcoder/abc113_c.test.cpp
+      title: test/atcoder/abc113_c.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc180_c.test.cpp
       title: test/atcoder/abc180_c.test.cpp
