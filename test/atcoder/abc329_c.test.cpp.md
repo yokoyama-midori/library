@@ -14,15 +14,15 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/aplusb
+    PROBLEM: https://atcoder.jp/contests/abc329/tasks/abc329_c
     links:
-    - https://judge.yosupo.jp/problem/aplusb
-  bundledCode: "#line 1 \"test/my-test/run-length-encoding.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"template.hpp\"\n// #pragma\
-    \ GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"\
-    unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://atcoder.jp/contests/abc329/tasks/abc329_c
+  bundledCode: "#line 1 \"test/atcoder/abc329_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc329/tasks/abc329_c\"\
+    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
+    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -76,51 +76,31 @@ data:
     \ntemplate <class S>\nvector<pair<typename S::value_type, int>> RunLengthEncoding(S\
     \ &s) {\n    using C = S::value_type;\n    vector<pair<C, int>> res;\n    for(auto&&\
     \ c:s){\n        if(res.empty() or res.back().first != c){\n            res.emplace_back(c,0);\n\
-    \        }\n        res.back().second++;\n    }\n    return res;\n}\n#line 4 \"\
-    test/my-test/run-length-encoding.test.cpp\"\nvoid test() {\n    {\n        string\
-    \ s = \"\";\n        auto res = RunLengthEncoding(s);\n        assert(res.empty());\n\
-    \    }\n    {\n        string s = \"aabbCCabc\";\n        using p = pair<char,\
-    \ int>;\n        auto res = RunLengthEncoding(s);\n        vector<p> ans = {{'a',\
-    \ 2}, {'b', 2}, {'C', 2},\n                         {'a', 1}, {'b', 1}, {'c',\
-    \ 1}};\n        assert(res == ans);\n        s = \"ZZZZZZ\";\n        res = RunLengthEncoding(s);\n\
-    \        ans = {{'Z', 6}};\n        assert(res == ans);\n    }\n    {\n      \
-    \  vector<int> v = {1, 2, 3, 3, 4};\n        vector<pair<int, int>> ans = {{1,\
-    \ 1}, {2, 1}, {3, 2}, {4, 1}};\n        auto res = RunLengthEncoding(v);\n   \
-    \     assert(res == ans);\n    }\n    {\n        vl v = {1, 1, 2, 2, 3, 4, 5,\
-    \ 5, 5};\n        vector<pair<ll, int>> ans = {{1, 2}, {2, 2}, {3, 1}, {4, 1},\
-    \ {5, 3}};\n        auto res = RunLengthEncoding(v);\n        assert(res == ans);\n\
-    \    }\n}\nvoid solve() {\n    LL(a, b);\n    print(a + b);\n}\nint main() {\n\
-    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    test();\n \
-    \   solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"string/run-length-encoding.hpp\"\
-    \n#include \"template.hpp\"\nvoid test() {\n    {\n        string s = \"\";\n\
-    \        auto res = RunLengthEncoding(s);\n        assert(res.empty());\n    }\n\
-    \    {\n        string s = \"aabbCCabc\";\n        using p = pair<char, int>;\n\
-    \        auto res = RunLengthEncoding(s);\n        vector<p> ans = {{'a', 2},\
-    \ {'b', 2}, {'C', 2},\n                         {'a', 1}, {'b', 1}, {'c', 1}};\n\
-    \        assert(res == ans);\n        s = \"ZZZZZZ\";\n        res = RunLengthEncoding(s);\n\
-    \        ans = {{'Z', 6}};\n        assert(res == ans);\n    }\n    {\n      \
-    \  vector<int> v = {1, 2, 3, 3, 4};\n        vector<pair<int, int>> ans = {{1,\
-    \ 1}, {2, 1}, {3, 2}, {4, 1}};\n        auto res = RunLengthEncoding(v);\n   \
-    \     assert(res == ans);\n    }\n    {\n        vl v = {1, 1, 2, 2, 3, 4, 5,\
-    \ 5, 5};\n        vector<pair<ll, int>> ans = {{1, 2}, {2, 2}, {3, 1}, {4, 1},\
-    \ {5, 3}};\n        auto res = RunLengthEncoding(v);\n        assert(res == ans);\n\
-    \    }\n}\nvoid solve() {\n    LL(a, b);\n    print(a + b);\n}\nint main() {\n\
-    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    test();\n \
-    \   solve();\n}\n"
+    \        }\n        res.back().second++;\n    }\n    return res;\n}\n#line 3 \"\
+    test/atcoder/abc329_c.test.cpp\"\nvoid solve() {\n    LL(n);\n    STR(s);\n  \
+    \  vl cnt(26, 0);\n    auto rle = RunLengthEncoding(s);\n    for(auto [c, sz]\
+    \ : rle) {\n        chmax(cnt[c - 'a'], (ll)sz);\n    }\n    print(accumulate(all(cnt),\
+    \ 0LL));\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc329/tasks/abc329_c\"\n#include\
+    \ \"string/run-length-encoding.hpp\"\nvoid solve() {\n    LL(n);\n    STR(s);\n\
+    \    vl cnt(26, 0);\n    auto rle = RunLengthEncoding(s);\n    for(auto [c, sz]\
+    \ : rle) {\n        chmax(cnt[c - 'a'], (ll)sz);\n    }\n    print(accumulate(all(cnt),\
+    \ 0LL));\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
   dependsOn:
   - string/run-length-encoding.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/my-test/run-length-encoding.test.cpp
+  path: test/atcoder/abc329_c.test.cpp
   requiredBy: []
   timestamp: '2024-11-24 16:24:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/my-test/run-length-encoding.test.cpp
+documentation_of: test/atcoder/abc329_c.test.cpp
 layout: document
 redirect_from:
-- /verify/test/my-test/run-length-encoding.test.cpp
-- /verify/test/my-test/run-length-encoding.test.cpp.html
-title: test/my-test/run-length-encoding.test.cpp
+- /verify/test/atcoder/abc329_c.test.cpp
+- /verify/test/atcoder/abc329_c.test.cpp.html
+title: test/atcoder/abc329_c.test.cpp
 ---

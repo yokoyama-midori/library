@@ -7,6 +7,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/atcoder/abc329_c.test.cpp
+    title: test/atcoder/abc329_c.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
   _isVerificationFailed: false
@@ -14,12 +17,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"string/run-length-encoding.hpp\"\n// #pragma once\n#line\
-    \ 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
-    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
-    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
-    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
-    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
+    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
+    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
+    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -74,7 +76,7 @@ data:
     \ &s) {\n    using C = S::value_type;\n    vector<pair<C, int>> res;\n    for(auto&&\
     \ c:s){\n        if(res.empty() or res.back().first != c){\n            res.emplace_back(c,0);\n\
     \        }\n        res.back().second++;\n    }\n    return res;\n}\n"
-  code: "// #pragma once\n#include \"template.hpp\"\ntemplate <class S>\nvector<pair<typename\
+  code: "#pragma once\n#include \"template.hpp\"\ntemplate <class S>\nvector<pair<typename\
     \ S::value_type, int>> RunLengthEncoding(S &s) {\n    using C = S::value_type;\n\
     \    vector<pair<C, int>> res;\n    for(auto&& c:s){\n        if(res.empty() or\
     \ res.back().first != c){\n            res.emplace_back(c,0);\n        }\n   \
@@ -84,10 +86,11 @@ data:
   isVerificationFile: false
   path: string/run-length-encoding.hpp
   requiredBy: []
-  timestamp: '2024-11-24 16:16:14+09:00'
+  timestamp: '2024-11-24 16:24:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/my-test/run-length-encoding.test.cpp
+  - test/atcoder/abc329_c.test.cpp
 documentation_of: string/run-length-encoding.hpp
 layout: document
 redirect_from:
