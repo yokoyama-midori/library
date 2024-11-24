@@ -48,6 +48,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: poly/shift_of_sampling_points.hpp
       title: poly/shift_of_sampling_points.hpp
+  - name: string
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: string/run-length-encoding.hpp
+      title: string/run-length-encoding.hpp
   - name: .
     pages:
     - icon: ':heavy_check_mark:'
@@ -148,6 +153,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/sample/many_aplusb.test.cpp
       title: test/library_checker/sample/many_aplusb.test.cpp
+  - name: test/my-test
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/my-test/run-length-encoding.test.cpp
+      title: test/my-test/run-length-encoding.test.cpp
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'

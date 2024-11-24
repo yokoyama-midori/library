@@ -41,6 +41,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
+  - icon: ':heavy_check_mark:'
+    path: string/run-length-encoding.hpp
+    title: string/run-length-encoding.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc113_c.test.cpp
@@ -120,6 +123,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/many_aplusb.test.cpp
     title: test/library_checker/sample/many_aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/my-test/run-length-encoding.test.cpp
+    title: test/my-test/run-length-encoding.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/12.test.cpp
     title: test/yukicoder/12.test.cpp
@@ -268,6 +274,7 @@ data:
   - data_structure/lazy_segtree.hpp
   - data_structure/compress.hpp
   - data_structure/segtree.hpp
+  - string/run-length-encoding.hpp
   - dp/cumulative-sum.hpp
   timestamp: '2024-10-24 17:39:29+09:00'
   verificationStatus: LIBRARY_ALL_AC
@@ -291,6 +298,7 @@ data:
   - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  - test/my-test/run-length-encoding.test.cpp
   - test/atcoder/abc180_c.test.cpp
   - test/atcoder/abc249_d.test.cpp
   - test/atcoder/abc113_c.test.cpp
