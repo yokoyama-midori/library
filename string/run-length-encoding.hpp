@@ -1,4 +1,4 @@
-// #pragma once
+#pragma once
 #include "template.hpp"
 template <class S>
 vector<pair<typename S::value_type, int>> RunLengthEncoding(S &s) {
