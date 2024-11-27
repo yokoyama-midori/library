@@ -15,6 +15,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
+    - icon: ':heavy_check_mark:'
+      path: data_structure/slope-trick.hpp
+      title: data_structure/slope-trick.hpp
   - name: dp
     pages:
     - icon: ':heavy_check_mark:'
@@ -64,6 +67,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc113_c.test.cpp
       title: test/atcoder/abc113_c.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/atcoder/abc127_f.test.cpp
+      title: test/atcoder/abc127_f.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc180_c.test.cpp
       title: test/atcoder/abc180_c.test.cpp

@@ -15,6 +15,9 @@ data:
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
   - icon: ':heavy_check_mark:'
+    path: data_structure/slope-trick.hpp
+    title: data_structure/slope-trick.hpp
+  - icon: ':heavy_check_mark:'
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
   - icon: ':heavy_check_mark:'
@@ -48,6 +51,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc113_c.test.cpp
     title: test/atcoder/abc113_c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/atcoder/abc127_f.test.cpp
+    title: test/atcoder/abc127_f.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc180_c.test.cpp
     title: test/atcoder/abc180_c.test.cpp
@@ -273,6 +279,7 @@ data:
   - math/factorial.hpp
   - math/factorial_large.hpp
   - math/miller_rabin.hpp
+  - data_structure/slope-trick.hpp
   - data_structure/hash-map-variable-length.hpp
   - data_structure/lazy_segtree.hpp
   - data_structure/compress.hpp
@@ -308,6 +315,7 @@ data:
   - test/atcoder/abc248_d.test.cpp
   - test/atcoder/abc235_c.test.cpp
   - test/atcoder/abc273_d.test.cpp
+  - test/atcoder/abc127_f.test.cpp
   - test/atcoder/practice2_j.test.cpp
   - test/atcoder/abc329_c.test.cpp
   - test/yukicoder/230.test.cpp
