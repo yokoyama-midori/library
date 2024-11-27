@@ -1,24 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: data_structure/segtree.hpp
-    title: data_structure/segtree.hpp
+  - icon: ':question:'
+    path: data_structure/slope-trick.hpp
+    title: data_structure/slope-trick.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
+    PROBLEM: https://atcoder.jp/contests/arc070/tasks/arc070_c
     links:
-    - https://judge.yosupo.jp/problem/point_set_range_composite
-  bundledCode: "#line 1 \"test/library_checker/data_structure/point_set_range_composite.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
+    - https://atcoder.jp/contests/arc070/tasks/arc070_c
+  bundledCode: "#line 1 \"test/atcoder/arc070_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/arc070/tasks/arc070_c\"\
     \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -73,56 +72,60 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/segtree.hpp\"\
-    \n\ntemplate <class S, S (*op)(S, S), S (*e)()> struct segtree {\n    ll n;\n\
-    \    vector<S> v;\n    segtree(ll n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const\
-    \ vector<S> &v_) : n(v_.size()) {\n        v = vector<S>(2 * n, e());\n      \
-    \  rep(i, n) v[n + i] = v_[i];\n        for(ll i = n - 1; i >= 0; i--) {\n   \
-    \         v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll\
-    \ x, S p) {\n        assert(0 <= x && x < n);\n        x += n;\n        v[x] =\
-    \ p;\n        while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x\
-    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) {\n       \
-    \ assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n        l\
-    \ += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n           \
-    \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
-    \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
-    \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n#line 4 \"test/library_checker/data_structure/point_set_range_composite.test.cpp\"\
-    \n#include <atcoder/modint>\nusing namespace atcoder;\nusing mint = modint998244353;\n\
-    \nstruct S {\n    mint a, b;\n};\nS op(S fl,S fr){\n    S res;\n    res.a = fr.a\
-    \ * fl.a;\n    res.b = fr.a * fl.b + fr.b;\n    return res;\n}\nS e() { return\
-    \ S{1, 0}; }\nvoid solve() {\n    LL(n, q);\n    segtree<S, op, e> seg(n);\n \
-    \   rep(i, n) {\n        LL(a, b);\n        seg.set(i, S{a, b});\n    }\n    rep(_,\
-    \ q) {\n        LL(flag);\n        if(flag == 0) {\n            LL(p, c, d);\n\
-    \            seg.set(p, S{c, d});\n        } else {\n            LL(l, r, x);\n\
-    \            S p = seg.prod(l, r);\n            mint ans = p.a * x + p.b;\n  \
-    \          print(ans.val());\n        }\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/slope-trick.hpp\"\
+    \n// https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n// https://ei1333.github.io/library/structure/others/slope-trick.hpp\n\
+    struct SlopeTrick {\n    multiset<ll> L, R;\n    ll min_f;\n    ll add_L, add_R;\n\
+    \    SlopeTrick() {\n        L = {-inf};\n        R = {inf};\n        add_L =\
+    \ add_R = min_f = 0;\n    }\n    ll size() { return ssize(L) + ssize(R); }\n \
+    \   // add \\____\n    // f(x) <- f(x) + max(a-x,0)\n    void add_a_minus_x(ll\
+    \ a) {\n        ll r0 = *begin(R);\n        min_f += max(0LL, a - (r0 + add_R));\n\
+    \        R.insert(a - add_R);\n        auto itr = begin(R);\n        L.insert(*itr\
+    \ + add_R - add_L);\n        R.erase(itr);\n    }\n    // add ___/\n    // f(x)\
+    \ <- f(x) + max(x-a,0)\n    void add_x_minus_a(ll a) {\n        ll l0 = *L.rbegin();\n\
+    \        min_f += max(0LL, l0 + add_L - a);\n        L.insert(a - add_L);\n  \
+    \      auto itr = prev(end(L));\n        R.insert(*itr + add_L - add_R);\n   \
+    \     L.erase(itr);\n    }\n    // add \\/\n    // f(x) <- f(x) + |x-a|\n    void\
+    \ add_abs(ll a) {\n        add_a_minus_x(a);\n        add_x_minus_a(a);\n    }\n\
+    \    // f(x) <- f(x) + a\n    void add_all(ll a) { min_f += a; }\n    // f(x)\
+    \ = min_f \u3092\u3068\u308B\u9589\u533A\u9593[l,r]\n    P min_range() { return\
+    \ P(*rbegin(L) + add_L, *begin(R) + add_R); }\n    // f(x) <- f(x) + g(x)\n  \
+    \  void merge(SlopeTrick &g) {\n        min_f += g.min_f;\n        for(auto l\
+    \ : g.L) {\n            if(l == -inf)\n                continue;\n           \
+    \ add_a_minus_x(l + g.add_R);\n        }\n        for(auto r : g.R) {\n      \
+    \      if(r == inf)\n                continue;\n            add_x_minus_a(r +\
+    \ g.add_L);\n        }\n    }\n    // https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8#toc18:~:text=%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%80%82-,%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E6%9C%80%E5%B0%8F%E5%80%A4%E9%96%A2%E6%95%B0,-%EF%BC%9A\n\
+    \    // f(x) <- min[x-b <= y <= x-a]f(y)\n    // \\./ -> \\_/\n    void shift(ll\
+    \ a, ll b) {\n        assert(a <= b);\n        add_L += a;\n        add_R += b;\n\
+    \    }\n    // f(x) <- f(x-a)\n    void shift(ll a) { shift(a, a); }\n    ll get(ll\
+    \ a) {\n        ll res = min_f;\n        for(auto l : L) {\n            res +=\
+    \ max(0LL, l + add_L - a);\n        }\n        for(auto r : R) {\n           \
+    \ res += max(0LL, a - (r + add_R));\n        }\n        return res;\n    }\n \
+    \   // \\__/ -> \\___\n    // f(x) <- min[y<=x]f(y)\n    void clear_right() {\
+    \ R = {inf}; }\n    // \\__/ -> __/\n    // f(x) <- min[y>=x]f(y)\n    void clear_left()\
+    \ { L = {inf}; }\n};\n#line 3 \"test/atcoder/arc070_c.test.cpp\"\nvoid solve()\
+    \ {\n    LL(n);\n    SlopeTrick st;\n    while(n--) {\n        LL(l, r);\n   \
+    \     st.shift(-r, -l);\n        st.add_abs(0);\n        st.shift(l, r);\n   \
+    \ }\n    print(st.min_f);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
-    \n#include \"data_structure/segtree.hpp\"\n#include \"template.hpp\"\n#include\
-    \ <atcoder/modint>\nusing namespace atcoder;\nusing mint = modint998244353;\n\n\
-    struct S {\n    mint a, b;\n};\nS op(S fl,S fr){\n    S res;\n    res.a = fr.a\
-    \ * fl.a;\n    res.b = fr.a * fl.b + fr.b;\n    return res;\n}\nS e() { return\
-    \ S{1, 0}; }\nvoid solve() {\n    LL(n, q);\n    segtree<S, op, e> seg(n);\n \
-    \   rep(i, n) {\n        LL(a, b);\n        seg.set(i, S{a, b});\n    }\n    rep(_,\
-    \ q) {\n        LL(flag);\n        if(flag == 0) {\n            LL(p, c, d);\n\
-    \            seg.set(p, S{c, d});\n        } else {\n            LL(l, r, x);\n\
-    \            S p = seg.prod(l, r);\n            mint ans = p.a * x + p.b;\n  \
-    \          print(ans.val());\n        }\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/arc070/tasks/arc070_c\"\n#include\
+    \ \"data_structure/slope-trick.hpp\"\nvoid solve() {\n    LL(n);\n    SlopeTrick\
+    \ st;\n    while(n--) {\n        LL(l, r);\n        st.shift(-r, -l);\n      \
+    \  st.add_abs(0);\n        st.shift(l, r);\n    }\n    print(st.min_f);\n}\nint\
+    \ main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n   \
+    \ solve();\n}"
   dependsOn:
-  - data_structure/segtree.hpp
+  - data_structure/slope-trick.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/library_checker/data_structure/point_set_range_composite.test.cpp
+  path: test/atcoder/arc070_c.test.cpp
   requiredBy: []
-  timestamp: '2024-10-24 17:39:29+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-27 16:26:01+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/point_set_range_composite.test.cpp
+documentation_of: test/atcoder/arc070_c.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/data_structure/point_set_range_composite.test.cpp
-- /verify/test/library_checker/data_structure/point_set_range_composite.test.cpp.html
-title: test/library_checker/data_structure/point_set_range_composite.test.cpp
+- /verify/test/atcoder/arc070_c.test.cpp
+- /verify/test/atcoder/arc070_c.test.cpp.html
+title: test/atcoder/arc070_c.test.cpp
 ---

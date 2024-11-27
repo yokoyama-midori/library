@@ -14,7 +14,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/slope-trick.hpp
     title: data_structure/slope-trick.hpp
   - icon: ':heavy_check_mark:'
@@ -72,6 +72,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc329_c.test.cpp
     title: test/atcoder/abc329_c.test.cpp
+  - icon: ':x:'
+    path: test/atcoder/arc070_c.test.cpp
+    title: test/atcoder/arc070_c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
@@ -153,9 +156,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -290,7 +293,7 @@ data:
   - string/run-length-encoding.hpp
   - dp/cumulative-sum.hpp
   timestamp: '2024-10-24 17:39:29+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
@@ -321,6 +324,7 @@ data:
   - test/atcoder/abc127_f.test.cpp
   - test/atcoder/practice2_j.test.cpp
   - test/atcoder/abc329_c.test.cpp
+  - test/atcoder/arc070_c.test.cpp
   - test/yukicoder/230.test.cpp
   - test/yukicoder/12.test.cpp
   - test/yukicoder/1077.test.cpp

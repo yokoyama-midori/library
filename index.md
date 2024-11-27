@@ -15,7 +15,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: data_structure/slope-trick.hpp
       title: data_structure/slope-trick.hpp
   - name: dp
@@ -58,7 +58,7 @@ data:
       title: string/run-length-encoding.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
   verificationCategories:
@@ -88,6 +88,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc329_c.test.cpp
       title: test/atcoder/abc329_c.test.cpp
+    - icon: ':x:'
+      path: test/atcoder/arc070_c.test.cpp
+      title: test/atcoder/arc070_c.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/atcoder/practice2_j.test.cpp
       title: test/atcoder/practice2_j.test.cpp
