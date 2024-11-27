@@ -136,6 +136,9 @@ data:
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1077.test.cpp
+    title: test/yukicoder/1077.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/12.test.cpp
     title: test/yukicoder/12.test.cpp
   - icon: ':heavy_check_mark:'
@@ -320,6 +323,7 @@ data:
   - test/atcoder/abc329_c.test.cpp
   - test/yukicoder/230.test.cpp
   - test/yukicoder/12.test.cpp
+  - test/yukicoder/1077.test.cpp
   - test/yukicoder/888.test.cpp
   - test/yukicoder/2051.test.cpp
   - test/yukicoder/1634.test.cpp

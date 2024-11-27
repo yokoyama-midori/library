@@ -99,13 +99,15 @@ data:
     \    }\n    // f(x) <- f(x-a)\n    void shift(ll a) { shift(a, a); }\n    ll get(ll\
     \ a) {\n        ll res = min_f;\n        for(auto l : L) {\n            res +=\
     \ max(0LL, l + add_L - a);\n        }\n        for(auto r : R) {\n           \
-    \ res += max(0LL, a - (r + add_R));\n        }\n        return res;\n    }\n};\n\
-    #line 3 \"test/atcoder/abc127_f.test.cpp\"\nvoid solve() {\n    LL(q);\n    SlopeTrick\
-    \ st;\n    while(q--) {\n        LL(flag);\n        if(flag == 1) {\n        \
-    \    LL(a, b);\n            st.add_abs(a);\n            st.add_all(b);\n     \
-    \   } else {\n            print(st.min_range().first, st.min_f);\n        }\n\
-    \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}\n"
+    \ res += max(0LL, a - (r + add_R));\n        }\n        return res;\n    }\n \
+    \   // \\__/ -> \\___\n    // f(x) <- min[y<=x]f(y)\n    void clear_right() {\
+    \ R = {inf}; }\n    // \\__/ -> __/\n    // f(x) <- min[y>=x]f(y)\n    void clear_left()\
+    \ { L = {inf}; }\n};\n#line 3 \"test/atcoder/abc127_f.test.cpp\"\nvoid solve()\
+    \ {\n    LL(q);\n    SlopeTrick st;\n    while(q--) {\n        LL(flag);\n   \
+    \     if(flag == 1) {\n            LL(a, b);\n            st.add_abs(a);\n   \
+    \         st.add_all(b);\n        } else {\n            print(st.min_range().first,\
+    \ st.min_f);\n        }\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc127/tasks/abc127_f\"\n#include\
     \ \"data_structure/slope-trick.hpp\"\nvoid solve() {\n    LL(q);\n    SlopeTrick\
     \ st;\n    while(q--) {\n        LL(flag);\n        if(flag == 1) {\n        \
@@ -119,7 +121,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc127_f.test.cpp
   requiredBy: []
-  timestamp: '2024-11-27 15:18:47+09:00'
+  timestamp: '2024-11-27 16:07:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc127_f.test.cpp
