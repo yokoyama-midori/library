@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/slope-trick.hpp
     title: data_structure/slope-trick.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/arc070/tasks/arc070_c
+    PROBLEM: https://atcoder.jp/contests/arc070/tasks/arc070_e
     links:
-    - https://atcoder.jp/contests/arc070/tasks/arc070_c
-  bundledCode: "#line 1 \"test/atcoder/arc070_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/arc070/tasks/arc070_c\"\
+    - https://atcoder.jp/contests/arc070/tasks/arc070_e
+  bundledCode: "#line 1 \"test/atcoder/arc070_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/arc070/tasks/arc070_e\"\
     \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -107,7 +107,7 @@ data:
     \     st.shift(-r, -l);\n        st.add_abs(0);\n        st.shift(l, r);\n   \
     \ }\n    print(st.min_f);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://atcoder.jp/contests/arc070/tasks/arc070_c\"\n#include\
+  code: "#define PROBLEM \"https://atcoder.jp/contests/arc070/tasks/arc070_e\"\n#include\
     \ \"data_structure/slope-trick.hpp\"\nvoid solve() {\n    LL(n);\n    SlopeTrick\
     \ st;\n    while(n--) {\n        LL(l, r);\n        st.shift(-r, -l);\n      \
     \  st.add_abs(0);\n        st.shift(l, r);\n    }\n    print(st.min_f);\n}\nint\
@@ -119,8 +119,8 @@ data:
   isVerificationFile: true
   path: test/atcoder/arc070_c.test.cpp
   requiredBy: []
-  timestamp: '2024-11-27 16:26:01+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-11-27 16:30:26+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/arc070_c.test.cpp
 layout: document
