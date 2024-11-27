@@ -92,6 +92,9 @@ data:
       path: test/atcoder/arc070_c.test.cpp
       title: test/atcoder/arc070_c.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/atcoder/arc123_d.test.cpp
+      title: test/atcoder/arc123_d.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/atcoder/practice2_j.test.cpp
       title: test/atcoder/practice2_j.test.cpp
   - name: test/library_checker/data_structure

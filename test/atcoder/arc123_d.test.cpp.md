@@ -2,35 +2,27 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: data_structure/slope-trick.hpp
+    title: data_structure/slope-trick.hpp
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/atcoder/abc127_f.test.cpp
-    title: test/atcoder/abc127_f.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/atcoder/arc070_c.test.cpp
-    title: test/atcoder/arc070_c.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/atcoder/arc123_d.test.cpp
-    title: test/atcoder/arc123_d.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1077.test.cpp
-    title: test/yukicoder/1077.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://atcoder.jp/contests/arc123/tasks/arc123_d
     links:
-    - https://ei1333.github.io/library/structure/others/slope-trick.hpp
-    - https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8
-    - https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8#toc18:~:text=%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%80%82-,%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E6%9C%80%E5%B0%8F%E5%80%A4%E9%96%A2%E6%95%B0,-%EF%BC%9A
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://atcoder.jp/contests/arc123/tasks/arc123_d
+  bundledCode: "#line 1 \"test/atcoder/arc123_d.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/arc123/tasks/arc123_d\"\
+    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
+    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -110,54 +102,32 @@ data:
     \ res += max(0LL, a - (r + add_R));\n        }\n        return res;\n    }\n \
     \   // \\__/ -> \\___\n    // f(x) <- min[y<=x]f(y)\n    void clear_right() {\
     \ R = {inf}; }\n    // \\__/ -> __/\n    // f(x) <- min[y>=x]f(y)\n    void clear_left()\
-    \ { L = {inf}; }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
-    // https://ei1333.github.io/library/structure/others/slope-trick.hpp\nstruct SlopeTrick\
-    \ {\n    multiset<ll> L, R;\n    ll min_f;\n    ll add_L, add_R;\n    SlopeTrick()\
-    \ {\n        L = {-inf};\n        R = {inf};\n        add_L = add_R = min_f =\
-    \ 0;\n    }\n    ll size() { return ssize(L) + ssize(R); }\n    // add \\____\n\
-    \    // f(x) <- f(x) + max(a-x,0)\n    void add_a_minus_x(ll a) {\n        ll\
-    \ r0 = *begin(R);\n        min_f += max(0LL, a - (r0 + add_R));\n        R.insert(a\
-    \ - add_R);\n        auto itr = begin(R);\n        L.insert(*itr + add_R - add_L);\n\
-    \        R.erase(itr);\n    }\n    // add ___/\n    // f(x) <- f(x) + max(x-a,0)\n\
-    \    void add_x_minus_a(ll a) {\n        ll l0 = *L.rbegin();\n        min_f +=\
-    \ max(0LL, l0 + add_L - a);\n        L.insert(a - add_L);\n        auto itr =\
-    \ prev(end(L));\n        R.insert(*itr + add_L - add_R);\n        L.erase(itr);\n\
-    \    }\n    // add \\/\n    // f(x) <- f(x) + |x-a|\n    void add_abs(ll a) {\n\
-    \        add_a_minus_x(a);\n        add_x_minus_a(a);\n    }\n    // f(x) <- f(x)\
-    \ + a\n    void add_all(ll a) { min_f += a; }\n    // f(x) = min_f \u3092\u3068\
-    \u308B\u9589\u533A\u9593[l,r]\n    P min_range() { return P(*rbegin(L) + add_L,\
-    \ *begin(R) + add_R); }\n    // f(x) <- f(x) + g(x)\n    void merge(SlopeTrick\
-    \ &g) {\n        min_f += g.min_f;\n        for(auto l : g.L) {\n            if(l\
-    \ == -inf)\n                continue;\n            add_a_minus_x(l + g.add_R);\n\
-    \        }\n        for(auto r : g.R) {\n            if(r == inf)\n          \
-    \      continue;\n            add_x_minus_a(r + g.add_L);\n        }\n    }\n\
-    \    // https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8#toc18:~:text=%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%80%82-,%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E6%9C%80%E5%B0%8F%E5%80%A4%E9%96%A2%E6%95%B0,-%EF%BC%9A\n\
-    \    // f(x) <- min[x-b <= y <= x-a]f(y)\n    // \\./ -> \\_/\n    void shift(ll\
-    \ a, ll b) {\n        assert(a <= b);\n        add_L += a;\n        add_R += b;\n\
-    \    }\n    // f(x) <- f(x-a)\n    void shift(ll a) { shift(a, a); }\n    ll get(ll\
-    \ a) {\n        ll res = min_f;\n        for(auto l : L) {\n            res +=\
-    \ max(0LL, l + add_L - a);\n        }\n        for(auto r : R) {\n           \
-    \ res += max(0LL, a - (r + add_R));\n        }\n        return res;\n    }\n \
-    \   // \\__/ -> \\___\n    // f(x) <- min[y<=x]f(y)\n    void clear_right() {\
-    \ R = {inf}; }\n    // \\__/ -> __/\n    // f(x) <- min[y>=x]f(y)\n    void clear_left()\
-    \ { L = {inf}; }\n};"
+    \ { L = {inf}; }\n};\n#line 3 \"test/atcoder/arc123_d.test.cpp\"\nvoid solve()\
+    \ {\n    LL(n);\n    vl a(n + 1, 0);\n    rep1(i, n) cin >> a[i];\n    SlopeTrick\
+    \ st;\n    rep1(i, n) {\n        ll c = min(0LL, a[i - 1] - a[i]);\n        st.shift(-c);\n\
+    \        st.clear_right();\n        st.add_abs(0);\n        st.add_abs(a[i]);\n\
+    \    }\n    print(st.min_f);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/arc123/tasks/arc123_d\"\n#include\
+    \ \"data_structure/slope-trick.hpp\"\nvoid solve() {\n    LL(n);\n    vl a(n +\
+    \ 1, 0);\n    rep1(i, n) cin >> a[i];\n    SlopeTrick st;\n    rep1(i, n) {\n\
+    \        ll c = min(0LL, a[i - 1] - a[i]);\n        st.shift(-c);\n        st.clear_right();\n\
+    \        st.add_abs(0);\n        st.add_abs(a[i]);\n    }\n    print(st.min_f);\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}"
   dependsOn:
+  - data_structure/slope-trick.hpp
   - template.hpp
-  isVerificationFile: false
-  path: data_structure/slope-trick.hpp
+  isVerificationFile: true
+  path: test/atcoder/arc123_d.test.cpp
   requiredBy: []
-  timestamp: '2024-11-27 16:07:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/atcoder/abc127_f.test.cpp
-  - test/atcoder/arc070_c.test.cpp
-  - test/atcoder/arc123_d.test.cpp
-  - test/yukicoder/1077.test.cpp
-documentation_of: data_structure/slope-trick.hpp
+  timestamp: '2024-11-27 16:53:48+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/atcoder/arc123_d.test.cpp
 layout: document
 redirect_from:
-- /library/data_structure/slope-trick.hpp
-- /library/data_structure/slope-trick.hpp.html
-title: data_structure/slope-trick.hpp
+- /verify/test/atcoder/arc123_d.test.cpp
+- /verify/test/atcoder/arc123_d.test.cpp.html
+title: test/atcoder/arc123_d.test.cpp
 ---
