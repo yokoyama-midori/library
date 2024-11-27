@@ -76,4 +76,10 @@ struct SlopeTrick {
         }
         return res;
     }
+    // \__/ -> \___
+    // f(x) <- min[y<=x]f(y)
+    void clear_right() { R = {inf}; }
+    // \__/ -> __/
+    // f(x) <- min[y>=x]f(y)
+    void clear_left() { L = {inf}; }
 };
