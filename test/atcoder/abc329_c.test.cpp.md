@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
   - icon: ':question:'

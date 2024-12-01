@@ -18,12 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/arc123_d.test.cpp
     title: test/atcoder/arc123_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1077.test.cpp
     title: test/yukicoder/1077.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://ei1333.github.io/library/structure/others/slope-trick.hpp
@@ -152,7 +152,7 @@ data:
   path: data_structure/slope-trick.hpp
   requiredBy: []
   timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/atcoder/abc217_h.test.cpp
   - test/atcoder/abc127_f.test.cpp
