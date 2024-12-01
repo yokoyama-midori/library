@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/factorial_large.hpp
     title: math/factorial_large.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - icon: ':x:'
@@ -20,7 +20,7 @@ data:
     title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp
@@ -144,7 +144,7 @@ data:
   requiredBy:
   - math/factorial_large.hpp
   timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp

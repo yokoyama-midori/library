@@ -15,7 +15,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/arc070_c.test.cpp
     title: test/atcoder/arc070_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/arc123_d.test.cpp
     title: test/atcoder/arc123_d.test.cpp
   - icon: ':x:'

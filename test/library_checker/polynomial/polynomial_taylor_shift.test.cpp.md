@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':x:'

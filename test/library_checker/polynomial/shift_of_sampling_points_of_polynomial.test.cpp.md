@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   - icon: ':question:'

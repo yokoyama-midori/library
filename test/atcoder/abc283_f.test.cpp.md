@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: geometry/manhattan-mst.hpp
     title: geometry/manhattan-mst.hpp
   - icon: ':question:'
@@ -97,8 +97,9 @@ data:
     \ iota(all(I), 1);\n    input(p);\n    auto wxy = manhattan_mst<int>(I, p);\n\
     \    vector<int> ans(n, 1e9);\n    for(auto [w, x, y] : wxy) {\n        chmin(ans[x],\
     \ w);\n        chmin(ans[y], w);\n    }\n    rep(i, n) { cout << ans[i] << \"\
-    \ \"; }\n    // \u30AA\u30D7\u30B7\u30E7\u30F3\u304C\u3088\u304F\u5206\u304B\u3089\
-    \u306A\u3044\u306E\u3067\u3068\u308A\u3042\u3048\u305A\u4FEE\u6B63\n    // https://github.com/yokoyama-midori/library/actions/runs/12106843024/job/33753048069#step:7:1610\n\
+    \ \\n\"[i == n - 1]; }\n    // \u30AA\u30D7\u30B7\u30E7\u30F3\u304C\u3088\u304F\
+    \u5206\u304B\u3089\u306A\u3044\u306E\u3067\u3068\u308A\u3042\u3048\u305A\u4FEE\
+    \u6B63\n    // https://github.com/yokoyama-midori/library/actions/runs/12106843024/job/33753048069#step:7:1610\n\
     \    // Warning:  This was AC if spaces and newlines were ignored. Please use\n\
     \    // --ignore-spaces (-S) option or --ignore-spaces-and-newline (-N) option.\n\
     }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
@@ -108,9 +109,9 @@ data:
     \    vector<int> I(n), p(n);\n    iota(all(I), 1);\n    input(p);\n    auto wxy\
     \ = manhattan_mst<int>(I, p);\n    vector<int> ans(n, 1e9);\n    for(auto [w,\
     \ x, y] : wxy) {\n        chmin(ans[x], w);\n        chmin(ans[y], w);\n    }\n\
-    \    rep(i, n) { cout << ans[i] << \" \"; }\n    // \u30AA\u30D7\u30B7\u30E7\u30F3\
-    \u304C\u3088\u304F\u5206\u304B\u3089\u306A\u3044\u306E\u3067\u3068\u308A\u3042\
-    \u3048\u305A\u4FEE\u6B63\n    // https://github.com/yokoyama-midori/library/actions/runs/12106843024/job/33753048069#step:7:1610\n\
+    \    rep(i, n) { cout << ans[i] << \" \\n\"[i == n - 1]; }\n    // \u30AA\u30D7\
+    \u30B7\u30E7\u30F3\u304C\u3088\u304F\u5206\u304B\u3089\u306A\u3044\u306E\u3067\
+    \u3068\u308A\u3042\u3048\u305A\u4FEE\u6B63\n    // https://github.com/yokoyama-midori/library/actions/runs/12106843024/job/33753048069#step:7:1610\n\
     \    // Warning:  This was AC if spaces and newlines were ignored. Please use\n\
     \    // --ignore-spaces (-S) option or --ignore-spaces-and-newline (-N) option.\n\
     }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
@@ -121,7 +122,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc283_f.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2024-12-02 03:01:51+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/abc283_f.test.cpp

@@ -9,12 +9,12 @@ data:
   - icon: ':x:'
     path: test/atcoder/abc283_f.test.cpp
     title: test/atcoder/abc283_f.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/manhattanmst.test.cpp
     title: test/library_checker/geometry/manhattanmst.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -116,7 +116,7 @@ data:
   path: geometry/manhattan-mst.hpp
   requiredBy: []
   timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/geometry/manhattanmst.test.cpp
   - test/atcoder/abc283_f.test.cpp

@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/factorial_large.hpp
     title: math/factorial_large.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/many_factorials
@@ -154,7 +154,7 @@ data:
   path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   requiredBy: []
   timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
 layout: document

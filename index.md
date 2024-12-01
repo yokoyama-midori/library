@@ -9,10 +9,10 @@ data:
     - icon: ':question:'
       path: data_structure/hash-map-variable-length.hpp
       title: data_structure/hash-map-variable-length.hpp
-    - icon: ':x:'
+    - icon: ':question:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
     - icon: ':question:'
@@ -20,23 +20,23 @@ data:
       title: data_structure/slope-trick.hpp
   - name: dp
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dp/cumulative-sum.hpp
       title: dp/cumulative-sum.hpp
   - name: geometry
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: geometry/manhattan-mst.hpp
       title: geometry/manhattan-mst.hpp
   - name: math
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/factorial.hpp
       title: math/factorial.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/factorial_large.hpp
       title: math/factorial_large.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/matrix.hpp
       title: math/matrix.hpp
     - icon: ':question:'
@@ -53,7 +53,7 @@ data:
     - icon: ':x:'
       path: poly/poly_taylor_shift.hpp
       title: poly taylor shift
-    - icon: ':x:'
+    - icon: ':question:'
       path: poly/shift_of_sampling_points.hpp
       title: poly/shift_of_sampling_points.hpp
   - name: string
@@ -102,57 +102,57 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/arc070_c.test.cpp
       title: test/atcoder/arc070_c.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/atcoder/arc123_d.test.cpp
       title: test/atcoder/arc123_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/atcoder/practice2_j.test.cpp
       title: test/atcoder/practice2_j.test.cpp
   - name: test/library_checker/data_structure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/associative_array.test.cpp
       title: test/library_checker/data_structure/associative_array.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_add_range_sum.test.cpp
       title: test/library_checker/data_structure/point_add_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_set_range_composite.test.cpp
       title: test/library_checker/data_structure/point_set_range_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_affine_point_get.test.cpp
       title: test/library_checker/data_structure/range_affine_point_get.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
       title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_set_range_composite.test.cpp
       title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
       title: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
       title: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/staticrmq.test.cpp
       title: test/library_checker/data_structure/staticrmq.test.cpp
   - name: test/library_checker/enumerative_combinatorics
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
       title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - name: test/library_checker/geometry
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/geometry/manhattanmst.test.cpp
       title: test/library_checker/geometry/manhattanmst.test.cpp
   - name: test/library_checker/linear_algebra
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/linear_algebra/matrix_product.test.cpp
       title: test/library_checker/linear_algebra/matrix_product.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
       title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - name: test/library_checker/number_theory

@@ -6,12 +6,12 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
     title: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://ei1333.github.io/library/dp/cumulative-sum.hpp
@@ -99,7 +99,7 @@ data:
   path: dp/cumulative-sum.hpp
   requiredBy: []
   timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
 documentation_of: dp/cumulative-sum.hpp
