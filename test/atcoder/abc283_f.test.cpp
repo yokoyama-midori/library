@@ -12,7 +12,7 @@ void solve() {
         chmin(ans[x], w);
         chmin(ans[y], w);
     }
-    rep(i, n) { cout << ans[i] << " "; }
+    rep(i, n) { cout << ans[i] << " \n"[i == n - 1]; }
     // オプションがよく分からないのでとりあえず修正
     // https://github.com/yokoyama-midori/library/actions/runs/12106843024/job/33753048069#step:7:1610
     // Warning:  This was AC if spaces and newlines were ignored. Please use
