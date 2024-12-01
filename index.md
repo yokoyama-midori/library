@@ -25,7 +25,7 @@ data:
       title: dp/cumulative-sum.hpp
   - name: geometry
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: geometry/manhattan-mst.hpp
       title: geometry/manhattan-mst.hpp
   - name: math
@@ -63,7 +63,7 @@ data:
       title: string/run-length-encoding.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
   verificationCategories:
@@ -93,6 +93,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc273_d.test.cpp
       title: test/atcoder/abc273_d.test.cpp
+    - icon: ':x:'
+      path: test/atcoder/abc283_f.test.cpp
+      title: test/atcoder/abc283_f.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc329_c.test.cpp
       title: test/atcoder/abc329_c.test.cpp

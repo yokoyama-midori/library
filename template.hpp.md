@@ -20,7 +20,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: geometry/manhattan-mst.hpp
     title: geometry/manhattan-mst.hpp
   - icon: ':heavy_check_mark:'
@@ -75,6 +75,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc273_d.test.cpp
     title: test/atcoder/abc273_d.test.cpp
+  - icon: ':x:'
+    path: test/atcoder/abc283_f.test.cpp
+    title: test/atcoder/abc283_f.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc329_c.test.cpp
     title: test/atcoder/abc329_c.test.cpp
@@ -168,9 +171,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -306,7 +309,7 @@ data:
   - string/run-length-encoding.hpp
   - dp/cumulative-sum.hpp
   timestamp: '2024-10-24 17:39:29+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
@@ -332,6 +335,7 @@ data:
   - test/atcoder/abc180_c.test.cpp
   - test/atcoder/abc249_d.test.cpp
   - test/atcoder/abc217_h.test.cpp
+  - test/atcoder/abc283_f.test.cpp
   - test/atcoder/abc113_c.test.cpp
   - test/atcoder/abc248_d.test.cpp
   - test/atcoder/abc235_c.test.cpp

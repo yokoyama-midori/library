@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: data_structure/slope-trick.hpp
-    title: data_structure/slope-trick.hpp
+  - icon: ':question:'
+    path: geometry/manhattan-mst.hpp
+    title: geometry/manhattan-mst.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/abc217/tasks/abc217_h
+    PROBLEM: https://atcoder.jp/contests/abc283/tasks/abc283_f
     links:
-    - https://atcoder.jp/contests/abc217/tasks/abc217_h
-  bundledCode: "#line 1 \"test/atcoder/abc217_h.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc217/tasks/abc217_h\"\
+    - https://atcoder.jp/contests/abc283/tasks/abc283_f
+  bundledCode: "#line 1 \"test/atcoder/abc283_f.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc283/tasks/abc283_f\"\
     \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -72,65 +72,50 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/slope-trick.hpp\"\
-    \n// https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n// https://ei1333.github.io/library/structure/others/slope-trick.hpp\n\
-    struct SlopeTrick {\n    multiset<ll> L, R;\n    ll min_f;\n    ll add_L, add_R;\n\
-    \    SlopeTrick() {\n        L = {-inf};\n        R = {inf};\n        add_L =\
-    \ add_R = min_f = 0;\n    }\n    ll size() { return ssize(L) + ssize(R); }\n \
-    \   // add \\____\n    // f(x) <- f(x) + max(a-x,0)\n    void add_a_minus_x(ll\
-    \ a) {\n        ll r0 = *begin(R);\n        min_f += max(0LL, a - (r0 + add_R));\n\
-    \        R.insert(a - add_R);\n        auto itr = begin(R);\n        L.insert(*itr\
-    \ + add_R - add_L);\n        R.erase(itr);\n    }\n    // add ___/\n    // f(x)\
-    \ <- f(x) + max(x-a,0)\n    void add_x_minus_a(ll a) {\n        ll l0 = *L.rbegin();\n\
-    \        min_f += max(0LL, l0 + add_L - a);\n        L.insert(a - add_L);\n  \
-    \      auto itr = prev(end(L));\n        R.insert(*itr + add_L - add_R);\n   \
-    \     L.erase(itr);\n    }\n    // add \\/\n    // f(x) <- f(x) + |x-a|\n    void\
-    \ add_abs(ll a) {\n        add_a_minus_x(a);\n        add_x_minus_a(a);\n    }\n\
-    \    // f(x) <- f(x) + a\n    void add_all(ll a) { min_f += a; }\n    // f(x)\
-    \ = min_f \u3092\u3068\u308B\u9589\u533A\u9593[l,r]\n    P min_range() { return\
-    \ P(*rbegin(L) + add_L, *begin(R) + add_R); }\n    // f(x) <- f(x) + g(x)\n  \
-    \  void merge(SlopeTrick &g) {\n        min_f += g.min_f;\n        for(auto l\
-    \ : g.L) {\n            if(l == -inf)\n                continue;\n           \
-    \ add_a_minus_x(l + g.add_R);\n        }\n        for(auto r : g.R) {\n      \
-    \      if(r == inf)\n                continue;\n            add_x_minus_a(r +\
-    \ g.add_L);\n        }\n    }\n    // https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8#toc18:~:text=%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%80%82-,%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E6%9C%80%E5%B0%8F%E5%80%A4%E9%96%A2%E6%95%B0,-%EF%BC%9A\n\
-    \    // f(x) <- min[x-b <= y <= x-a]f(y)\n    // \\./ -> \\_/\n    void shift(ll\
-    \ a, ll b) {\n        assert(a <= b);\n        add_L += a;\n        add_R += b;\n\
-    \    }\n    // f(x) <- f(x-a)\n    void shift(ll a) { shift(a, a); }\n    ll get(ll\
-    \ a) {\n        ll res = min_f;\n        for(auto l : L) {\n            res +=\
-    \ max(0LL, l + add_L - a);\n        }\n        for(auto r : R) {\n           \
-    \ res += max(0LL, a - (r + add_R));\n        }\n        return res;\n    }\n \
-    \   // \\__/ -> \\___\n    // f(x) <- min[y<=x]f(y)\n    void clear_right() {\
-    \ R = {inf}; }\n    // \\__/ -> __/\n    // f(x) <- min[y>=x]f(y)\n    void clear_left()\
-    \ { L = {inf}; }\n};\n#line 3 \"test/atcoder/abc217_h.test.cpp\"\nvoid solve()\
-    \ {\n    LL(n);\n    vl t(n + 1), d(n + 1), x(n + 1);\n    rep1(i, n) cin >> t[i]\
-    \ >> d[i] >> x[i];\n    SlopeTrick st;\n    rep(i, 2 * n) st.add_abs(0);\n   \
-    \ rep1(i, n) {\n        ll dt = t[i] - t[i - 1];\n        st.shift(-dt, dt);\n\
-    \        if(d[i]) {\n            st.add_x_minus_a(x[i]);\n        } else {\n \
-    \           st.add_a_minus_x(x[i]);\n        }\n    }\n    print(st.min_f);\n\
-    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"geometry/manhattan-mst.hpp\"\
+    \n// Hai Zhou, Narendra Shenoy, and William Nicholls. 2001. Efficient minimum\n\
+    // spanning tree construction without Delaunay triangulation.\ntemplate <class\
+    \ T = long long>\nvector<tuple<T, int, int>> manhattan_mst(vector<T> &xs, vector<T>\
+    \ &ys) {\n    // O(N)\u500B\u306E\u6700\u5C0F\u5168\u57DF\u6728\u306E\u8FBA\u306E\
+    \u5019\u88DC{(\u91CD\u307F,i,j)}\n    assert(ssize(xs) == ssize(ys));\n    vector<tuple<T,\
+    \ int, int>> res;\n    int n = ssize(xs);\n    res.reserve(2 * n);\n    vector<int>\
+    \ ord(n);\n    iota(all(ord), 0);\n    auto cul = [&]() -> void {\n        map<T,\
+    \ int, greater<T>> mp;\n        for(auto i : ord) {\n            for(auto itr\
+    \ = mp.lower_bound(xs[i]); itr != end(mp);\n                itr = mp.erase(itr))\
+    \ {\n                int j = itr->second;\n                if(xs[j] - ys[j] <\
+    \ xs[i] - ys[i]) {\n                    break;\n                }\n          \
+    \      T dist = (ys[i] - ys[j]) + (xs[i] - xs[j]);\n                res.emplace_back(dist,\
+    \ i, j);\n            }\n            mp[xs[i]] = i;\n        }\n    };\n    rep(cnt,\
+    \ 4) {\n        if(cnt & 1) {\n            swap(xs, ys);\n        } else {\n \
+    \           if(cnt == 2) {\n                for(auto &&x : xs)\n             \
+    \       x *= -1;\n            }\n            sort(all(ord),\n                \
+    \ [&](int i, int j) { return xs[i] + ys[i] < xs[j] + ys[j]; });\n        }\n \
+    \       cul();\n    }\n    sort(all(res));\n    return res;\n}\n#line 3 \"test/atcoder/abc283_f.test.cpp\"\
+    \nvoid solve() {\n    int n;\n    cin >> n;\n    vector<int> I(n), p(n);\n   \
+    \ iota(all(I), 1);\n    input(p);\n    auto wxy = manhattan_mst<int>(I, p);\n\
+    \    vector<int> ans(n, 1e9);\n    for(auto [w, x, y] : wxy) {\n        chmin(ans[x],\
+    \ w);\n        chmin(ans[y], w);\n    }\n    print(ans);\n}\nint main() {\n  \
+    \  ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc283/tasks/abc283_f\"\n#include\
+    \ \"geometry/manhattan-mst.hpp\"\nvoid solve() {\n    int n;\n    cin >> n;\n\
+    \    vector<int> I(n), p(n);\n    iota(all(I), 1);\n    input(p);\n    auto wxy\
+    \ = manhattan_mst<int>(I, p);\n    vector<int> ans(n, 1e9);\n    for(auto [w,\
+    \ x, y] : wxy) {\n        chmin(ans[x], w);\n        chmin(ans[y], w);\n    }\n\
+    \    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
-  code: "#define PROBLEM \"https://atcoder.jp/contests/abc217/tasks/abc217_h\"\n#include\
-    \ \"data_structure/slope-trick.hpp\"\nvoid solve() {\n    LL(n);\n    vl t(n +\
-    \ 1), d(n + 1), x(n + 1);\n    rep1(i, n) cin >> t[i] >> d[i] >> x[i];\n    SlopeTrick\
-    \ st;\n    rep(i, 2 * n) st.add_abs(0);\n    rep1(i, n) {\n        ll dt = t[i]\
-    \ - t[i - 1];\n        st.shift(-dt, dt);\n        if(d[i]) {\n            st.add_x_minus_a(x[i]);\n\
-    \        } else {\n            st.add_a_minus_x(x[i]);\n        }\n    }\n   \
-    \ print(st.min_f);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}"
   dependsOn:
-  - data_structure/slope-trick.hpp
+  - geometry/manhattan-mst.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/atcoder/abc217_h.test.cpp
+  path: test/atcoder/abc283_f.test.cpp
   requiredBy: []
-  timestamp: '2024-11-27 17:22:58+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-12-02 00:39:15+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/atcoder/abc217_h.test.cpp
+documentation_of: test/atcoder/abc283_f.test.cpp
 layout: document
 redirect_from:
-- /verify/test/atcoder/abc217_h.test.cpp
-- /verify/test/atcoder/abc217_h.test.cpp.html
-title: test/atcoder/abc217_h.test.cpp
+- /verify/test/atcoder/abc283_f.test.cpp
+- /verify/test/atcoder/abc283_f.test.cpp.html
+title: test/atcoder/abc283_f.test.cpp
 ---
