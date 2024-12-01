@@ -68,6 +68,9 @@ template <class T, class... Ts> void print(const T &a, const Ts &...b) {
     (cout << ... << (cout << ' ', b));
     cout << '\n';
 }
+void print(const string &s) {
+    cout << s << '\n';
+}
 template <class Container, typename = void>
 struct is_container : std::false_type {};
 template <class Container>
