@@ -5,7 +5,9 @@ template <class T> struct Compress {
     bool is_built = false;
     vector<T> data;
     Compress() = default;
-    Compress(const vector<T> &v) { add(v); }
+    Compress(const vector<T> &v) {
+        add(v);
+    }
     void add(const T &x) {
         is_built = false;
         data.push_back(x);
@@ -19,7 +21,7 @@ template <class T> struct Compress {
         sort(data.begin(), data.end());
         data.erase(unique(data.begin(), data.end()), data.end());
     }
-    ll get(T &x) const {
+    ll get(const T &x) const {
         assert(is_built);
         ll res = lower_bound(data.begin(), data.end(), x) - data.begin();
         assert(data[res] == x);
@@ -29,5 +31,8 @@ template <class T> struct Compress {
         assert(is_built);
         assert(0 <= t and t < ssize(data));
         data[t];
+    }
+    ll size() {
+        return ssize(data);
     }
 };
