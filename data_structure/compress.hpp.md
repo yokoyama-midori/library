@@ -72,34 +72,35 @@ data:
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/compress.hpp\"\
     \n// https://ei1333.github.io/library/other/compress.hpp\ntemplate <class T> struct\
     \ Compress {\n    bool is_built = false;\n    vector<T> data;\n    Compress()\
-    \ = default;\n    Compress(const vector<T> &v) { add(v); }\n    void add(const\
-    \ T &x) {\n        is_built = false;\n        data.push_back(x);\n    }\n    void\
-    \ add(const vector<T> &v) {\n        for(auto x : v)\n            add(x);\n  \
-    \  }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
-    \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
-    \    }\n    ll get(T &x) const {\n        assert(is_built);\n        ll res =\
-    \ lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
-    \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
-    \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
-    \  data[t];\n    }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/other/compress.hpp\n\
-    template <class T> struct Compress {\n    bool is_built = false;\n    vector<T>\
-    \ data;\n    Compress() = default;\n    Compress(const vector<T> &v) { add(v);\
-    \ }\n    void add(const T &x) {\n        is_built = false;\n        data.push_back(x);\n\
+    \ = default;\n    Compress(const vector<T> &v) {\n        add(v);\n    }\n   \
+    \ void add(const T &x) {\n        is_built = false;\n        data.push_back(x);\n\
     \    }\n    void add(const vector<T> &v) {\n        for(auto x : v)\n        \
     \    add(x);\n    }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
     \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
-    \    }\n    ll get(T &x) const {\n        assert(is_built);\n        ll res =\
-    \ lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
+    \    }\n    ll get(const T &x) const {\n        assert(is_built);\n        ll\
+    \ res = lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
     \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
     \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
-    \  data[t];\n    }\n};"
+    \  data[t];\n    }\n    ll size() {\n        return ssize(data);\n    }\n};\n"
+  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/other/compress.hpp\n\
+    template <class T> struct Compress {\n    bool is_built = false;\n    vector<T>\
+    \ data;\n    Compress() = default;\n    Compress(const vector<T> &v) {\n     \
+    \   add(v);\n    }\n    void add(const T &x) {\n        is_built = false;\n  \
+    \      data.push_back(x);\n    }\n    void add(const vector<T> &v) {\n       \
+    \ for(auto x : v)\n            add(x);\n    }\n    void build() {\n        is_built\
+    \ = true;\n        sort(data.begin(), data.end());\n        data.erase(unique(data.begin(),\
+    \ data.end()), data.end());\n    }\n    ll get(const T &x) const {\n        assert(is_built);\n\
+    \        ll res = lower_bound(data.begin(), data.end(), x) - data.begin();\n \
+    \       assert(data[res] == x);\n        return res;\n    }\n    const T &operator[](size_t\
+    \ t) {\n        assert(is_built);\n        assert(0 <= t and t < ssize(data));\n\
+    \        data[t];\n    }\n    ll size() {\n        return ssize(data);\n    }\n\
+    };"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/compress.hpp
   requiredBy: []
-  timestamp: '2024-11-23 02:46:05+09:00'
+  timestamp: '2024-12-02 00:25:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/atcoder/abc113_c.test.cpp

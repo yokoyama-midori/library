@@ -21,6 +21,9 @@ data:
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
   - icon: ':heavy_check_mark:'
+    path: geometry/manhattan-mst.hpp
+    title: geometry/manhattan-mst.hpp
+  - icon: ':heavy_check_mark:'
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':heavy_check_mark:'
@@ -114,6 +117,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/geometry/manhattanmst.test.cpp
+    title: test/library_checker/geometry/manhattanmst.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/matrix_product.test.cpp
     title: test/library_checker/linear_algebra/matrix_product.test.cpp
@@ -296,6 +302,7 @@ data:
   - data_structure/lazy_segtree.hpp
   - data_structure/compress.hpp
   - data_structure/segtree.hpp
+  - geometry/manhattan-mst.hpp
   - string/run-length-encoding.hpp
   - dp/cumulative-sum.hpp
   timestamp: '2024-10-24 17:39:29+09:00'
@@ -313,6 +320,7 @@ data:
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/data_structure/associative_array.test.cpp
+  - test/library_checker/geometry/manhattanmst.test.cpp
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp

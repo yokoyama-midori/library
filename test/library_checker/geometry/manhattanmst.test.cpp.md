@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: data_structure/compress.hpp
-    title: data_structure/compress.hpp
+    path: geometry/manhattan-mst.hpp
+    title: geometry/manhattan-mst.hpp
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
@@ -14,18 +14,19 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/abc113/tasks/abc113_c
+    PROBLEM: https://judge.yosupo.jp/problem/manhattanmst
     links:
-    - https://atcoder.jp/contests/abc113/tasks/abc113_c
-  bundledCode: "#line 1 \"test/atcoder/abc113_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc113/tasks/abc113_c\"\
-    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
-    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
-    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
-    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
-    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
-    \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
-    \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
-    \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://judge.yosupo.jp/problem/manhattanmst
+  bundledCode: "#line 1 \"test/library_checker/geometry/manhattanmst.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/manhattanmst\"\n#line 2 \"template.hpp\"\
+    \n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
+    \ GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n//\
+    \ usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\u3046\u306B\
+    \u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream& os, const vector<T>&\
+    \ v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size(); ++i) {\n      \
+    \  os << v[i];\n        if (i < v.size() - 1) os << \", \";\n    }\n    os <<\
+    \ \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const T& var) {\n    os << var;\n    return os;\n}\n#define CHOOSE(a) CHOOSE2\
     \ a\n#define CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) { cout\
     \ << #x1 << \": \"; debug_print(cout, x1) << endl; }\n#define debug_2(x1, x2)\
@@ -72,49 +73,56 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/compress.hpp\"\
-    \n// https://ei1333.github.io/library/other/compress.hpp\ntemplate <class T> struct\
-    \ Compress {\n    bool is_built = false;\n    vector<T> data;\n    Compress()\
-    \ = default;\n    Compress(const vector<T> &v) {\n        add(v);\n    }\n   \
-    \ void add(const T &x) {\n        is_built = false;\n        data.push_back(x);\n\
-    \    }\n    void add(const vector<T> &v) {\n        for(auto x : v)\n        \
-    \    add(x);\n    }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
-    \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
-    \    }\n    ll get(const T &x) const {\n        assert(is_built);\n        ll\
-    \ res = lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
-    \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
-    \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
-    \  data[t];\n    }\n    ll size() {\n        return ssize(data);\n    }\n};\n\
-    #line 3 \"test/atcoder/abc113_c.test.cpp\"\nstring make_str(ll n) {\n    string\
-    \ suf = to_string(n);\n    string res;\n    rep(i, 6 - ssize(suf)) { res += '0';\
-    \ }\n    res += suf;\n    return res;\n}\nvoid solve() {\n    LL(n, m);\n    vector<Compress<int>>\
-    \ vc(n + 1);\n    vector<int> p(m), y(m);\n    rep(i, m) {\n        cin >> p[i]\
-    \ >> y[i];\n        vc[p[i]].add(y[i]);\n    }\n    rep(i, n + 1) { vc[i].build();\
-    \ }\n    rep(i, m) {\n        string ans = make_str(p[i]);\n        ans += make_str(vc[p[i]].get(y[i])\
-    \ + 1);\n        cout << ans << \"\\n\";\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://atcoder.jp/contests/abc113/tasks/abc113_c\"\n#include\
-    \ \"data_structure/compress.hpp\"\nstring make_str(ll n) {\n    string suf = to_string(n);\n\
-    \    string res;\n    rep(i, 6 - ssize(suf)) { res += '0'; }\n    res += suf;\n\
-    \    return res;\n}\nvoid solve() {\n    LL(n, m);\n    vector<Compress<int>>\
-    \ vc(n + 1);\n    vector<int> p(m), y(m);\n    rep(i, m) {\n        cin >> p[i]\
-    \ >> y[i];\n        vc[p[i]].add(y[i]);\n    }\n    rep(i, n + 1) { vc[i].build();\
-    \ }\n    rep(i, m) {\n        string ans = make_str(p[i]);\n        ans += make_str(vc[p[i]].get(y[i])\
-    \ + 1);\n        cout << ans << \"\\n\";\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"geometry/manhattan-mst.hpp\"\
+    \n// Hai Zhou, Narendra Shenoy, and William Nicholls. 2001. Efficient minimum\n\
+    // spanning tree construction without Delaunay triangulation.\ntemplate <class\
+    \ T = long long>\nvector<tuple<T, int, int>> manhattan_mst(vector<T> &xs, vector<T>\
+    \ &ys) {\n    // O(N)\u500B\u306E\u6700\u5C0F\u5168\u57DF\u6728\u306E\u8FBA\u306E\
+    \u5019\u88DC{(\u91CD\u307F,i,j)}\n    assert(ssize(xs) == ssize(ys));\n    vector<tuple<T,\
+    \ int, int>> res;\n    int n = ssize(xs);\n    res.reserve(2 * n);\n    vector<int>\
+    \ ord(n);\n    iota(all(ord), 0);\n    auto cul = [&]() -> void {\n        map<T,\
+    \ int, greater<T>> mp;\n        for(auto i : ord) {\n            for(auto itr\
+    \ = mp.lower_bound(xs[i]); itr != end(mp);\n                itr = mp.erase(itr))\
+    \ {\n                int j = itr->second;\n                if(xs[j] - ys[j] <\
+    \ xs[i] - ys[i]) {\n                    break;\n                }\n          \
+    \      T dist = (ys[i] - ys[j]) + (xs[i] - xs[j]);\n                res.emplace_back(dist,\
+    \ i, j);\n            }\n            mp[xs[i]] = i;\n        }\n    };\n    rep(cnt,\
+    \ 4) {\n        if(cnt & 1) {\n            swap(xs, ys);\n        } else {\n \
+    \           if(cnt == 2) {\n                for(auto &&x : xs)\n             \
+    \       x *= -1;\n            }\n            sort(all(ord),\n                \
+    \ [&](int i, int j) { return xs[i] + ys[i] < xs[j] + ys[j]; });\n        }\n \
+    \       cul();\n    }\n    sort(all(res));\n    return res;\n}\n#line 3 \"test/library_checker/geometry/manhattanmst.test.cpp\"\
+    \n#include <atcoder/dsu>\nvoid solve() {\n    LL(n);\n    vl xs(n), ys(n);\n \
+    \   rep(i, n) cin >> xs[i] >> ys[i];\n    const auto &dxy = manhattan_mst(xs,\
+    \ ys);\n    atcoder::dsu g(n);\n    ll w = 0;\n    vector<P> edge;\n    edge.reserve(n\
+    \ - 1);\n    for(auto &[d, i, j] : dxy) {\n        if(!g.same(i, j)) {\n     \
+    \       g.merge(i, j);\n            w += d;\n            edge.emplace_back(i,\
+    \ j);\n        }\n    }\n    print(w);\n    for(auto [i, j] : edge) {\n      \
+    \  print(i, j);\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n  \
+    \  std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/manhattanmst\"\n#include\
+    \ \"geometry/manhattan-mst.hpp\"\n#include <atcoder/dsu>\nvoid solve() {\n   \
+    \ LL(n);\n    vl xs(n), ys(n);\n    rep(i, n) cin >> xs[i] >> ys[i];\n    const\
+    \ auto &dxy = manhattan_mst(xs, ys);\n    atcoder::dsu g(n);\n    ll w = 0;\n\
+    \    vector<P> edge;\n    edge.reserve(n - 1);\n    for(auto &[d, i, j] : dxy)\
+    \ {\n        if(!g.same(i, j)) {\n            g.merge(i, j);\n            w +=\
+    \ d;\n            edge.emplace_back(i, j);\n        }\n    }\n    print(w);\n\
+    \    for(auto [i, j] : edge) {\n        print(i, j);\n    }\n}\nint main() {\n\
+    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
+    }\n"
   dependsOn:
-  - data_structure/compress.hpp
+  - geometry/manhattan-mst.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/atcoder/abc113_c.test.cpp
+  path: test/library_checker/geometry/manhattanmst.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 00:25:43+09:00'
+  timestamp: '2024-12-02 00:25:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/atcoder/abc113_c.test.cpp
+documentation_of: test/library_checker/geometry/manhattanmst.test.cpp
 layout: document
 redirect_from:
-- /verify/test/atcoder/abc113_c.test.cpp
-- /verify/test/atcoder/abc113_c.test.cpp.html
-title: test/atcoder/abc113_c.test.cpp
+- /verify/test/library_checker/geometry/manhattanmst.test.cpp
+- /verify/test/library_checker/geometry/manhattanmst.test.cpp.html
+title: test/library_checker/geometry/manhattanmst.test.cpp
 ---

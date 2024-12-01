@@ -23,6 +23,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/cumulative-sum.hpp
       title: dp/cumulative-sum.hpp
+  - name: geometry
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: geometry/manhattan-mst.hpp
+      title: geometry/manhattan-mst.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -134,6 +139,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
       title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+  - name: test/library_checker/geometry
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/geometry/manhattanmst.test.cpp
+      title: test/library_checker/geometry/manhattanmst.test.cpp
   - name: test/library_checker/linear_algebra
     pages:
     - icon: ':heavy_check_mark:'
