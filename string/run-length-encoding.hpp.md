@@ -6,7 +6,7 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/abc329_c.test.cpp
     title: test/atcoder/abc329_c.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/my-test/run-length-encoding.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -88,7 +88,7 @@ data:
   path: string/run-length-encoding.hpp
   requiredBy: []
   timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/my-test/run-length-encoding.test.cpp
   - test/atcoder/abc329_c.test.cpp

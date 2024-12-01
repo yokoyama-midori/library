@@ -5,7 +5,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/compress.hpp
     title: data_structure/compress.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: data_structure/hash-map-variable-length.hpp
     title: data_structure/hash-map-variable-length.hpp
   - icon: ':x:'
@@ -47,7 +47,7 @@ data:
   - icon: ':x:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
   _extendedVerifiedWith:
@@ -63,25 +63,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc217_h.test.cpp
     title: test/atcoder/abc217_h.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/abc235_c.test.cpp
     title: test/atcoder/abc235_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/abc248_d.test.cpp
     title: test/atcoder/abc248_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/abc249_d.test.cpp
     title: test/atcoder/abc249_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/abc273_d.test.cpp
     title: test/atcoder/abc273_d.test.cpp
   - icon: ':x:'
     path: test/atcoder/abc283_f.test.cpp
     title: test/atcoder/abc283_f.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/abc329_c.test.cpp
     title: test/atcoder/abc329_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/arc070_c.test.cpp
     title: test/atcoder/arc070_c.test.cpp
   - icon: ':x:'

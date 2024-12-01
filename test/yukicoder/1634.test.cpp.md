@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: data_structure/hash-map-variable-length.hpp
     title: data_structure/hash-map-variable-length.hpp
   - icon: ':question:'
