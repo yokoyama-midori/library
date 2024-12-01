@@ -6,15 +6,15 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc329_c.test.cpp
     title: test/atcoder/abc329_c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -52,16 +52,17 @@ data:
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
-    \    cout << '\\n';\n}\ntemplate <class Container, typename = void>\nstruct is_container\
-    \ : std::false_type {};\ntemplate <class Container>\nstruct is_container<Container,\
-    \ std::void_t<decltype(std::declval<Container>().begin()), decltype(std::declval<Container>().end())>>\
-    \ : std::true_type {};\ntemplate <class Container>\ntypename enable_if<is_container<Container>::value>::type\
-    \ print(const Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n\
-    \        for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \"\
-    ;\n        }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\
-    \u3092\u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)       \
-    \                                                        \\\n    int __VA_ARGS__;\
-    \                                                           \\\n    input(__VA_ARGS__)\n\
+    \    cout << '\\n';\n}\nvoid print(const string &s) {\n    cout << s << '\\n';\n\
+    }\ntemplate <class Container, typename = void>\nstruct is_container : std::false_type\
+    \ {};\ntemplate <class Container>\nstruct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()),\
+    \ decltype(std::declval<Container>().end())>> : std::true_type {};\ntemplate <class\
+    \ Container>\ntypename enable_if<is_container<Container>::value>::type print(const\
+    \ Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n     \
+    \   for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \";\n \
+    \       }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\u3092\
+    \u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)             \
+    \                                                  \\\n    int __VA_ARGS__;  \
+    \                                                         \\\n    input(__VA_ARGS__)\n\
     #define LL(...)                                                              \
     \  \\\n    long long __VA_ARGS__;                                            \
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
@@ -86,8 +87,8 @@ data:
   isVerificationFile: false
   path: string/run-length-encoding.hpp
   requiredBy: []
-  timestamp: '2024-11-24 16:24:59+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-12-02 02:31:35+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/my-test/run-length-encoding.test.cpp
   - test/atcoder/abc329_c.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/slope-trick.hpp
     title: data_structure/slope-trick.hpp
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/arc123/tasks/arc123_d
@@ -53,16 +53,17 @@ data:
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
-    \    cout << '\\n';\n}\ntemplate <class Container, typename = void>\nstruct is_container\
-    \ : std::false_type {};\ntemplate <class Container>\nstruct is_container<Container,\
-    \ std::void_t<decltype(std::declval<Container>().begin()), decltype(std::declval<Container>().end())>>\
-    \ : std::true_type {};\ntemplate <class Container>\ntypename enable_if<is_container<Container>::value>::type\
-    \ print(const Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n\
-    \        for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \"\
-    ;\n        }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\
-    \u3092\u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)       \
-    \                                                        \\\n    int __VA_ARGS__;\
-    \                                                           \\\n    input(__VA_ARGS__)\n\
+    \    cout << '\\n';\n}\nvoid print(const string &s) {\n    cout << s << '\\n';\n\
+    }\ntemplate <class Container, typename = void>\nstruct is_container : std::false_type\
+    \ {};\ntemplate <class Container>\nstruct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()),\
+    \ decltype(std::declval<Container>().end())>> : std::true_type {};\ntemplate <class\
+    \ Container>\ntypename enable_if<is_container<Container>::value>::type print(const\
+    \ Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n     \
+    \   for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \";\n \
+    \       }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\u3092\
+    \u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)             \
+    \                                                  \\\n    int __VA_ARGS__;  \
+    \                                                         \\\n    input(__VA_ARGS__)\n\
     #define LL(...)                                                              \
     \  \\\n    long long __VA_ARGS__;                                            \
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
@@ -121,8 +122,8 @@ data:
   isVerificationFile: true
   path: test/atcoder/arc123_d.test.cpp
   requiredBy: []
-  timestamp: '2024-11-27 16:53:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-12-02 02:31:35+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/arc123_d.test.cpp
 layout: document

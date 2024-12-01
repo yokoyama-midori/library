@@ -5,31 +5,31 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc180_c.test.cpp
     title: test/atcoder/abc180_c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc249_d.test.cpp
     title: test/atcoder/abc249_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/primality_test.test.cpp
     title: test/library_checker/number_theory/primality_test.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/2051.test.cpp
     title: test/yukicoder/2051.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://drken1215.hatenablog.com/entry/2023/05/23/233000
@@ -68,16 +68,17 @@ data:
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
-    \    cout << '\\n';\n}\ntemplate <class Container, typename = void>\nstruct is_container\
-    \ : std::false_type {};\ntemplate <class Container>\nstruct is_container<Container,\
-    \ std::void_t<decltype(std::declval<Container>().begin()), decltype(std::declval<Container>().end())>>\
-    \ : std::true_type {};\ntemplate <class Container>\ntypename enable_if<is_container<Container>::value>::type\
-    \ print(const Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n\
-    \        for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \"\
-    ;\n        }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\
-    \u3092\u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)       \
-    \                                                        \\\n    int __VA_ARGS__;\
-    \                                                           \\\n    input(__VA_ARGS__)\n\
+    \    cout << '\\n';\n}\nvoid print(const string &s) {\n    cout << s << '\\n';\n\
+    }\ntemplate <class Container, typename = void>\nstruct is_container : std::false_type\
+    \ {};\ntemplate <class Container>\nstruct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()),\
+    \ decltype(std::declval<Container>().end())>> : std::true_type {};\ntemplate <class\
+    \ Container>\ntypename enable_if<is_container<Container>::value>::type print(const\
+    \ Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n     \
+    \   for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \";\n \
+    \       }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\u3092\
+    \u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)             \
+    \                                                  \\\n    int __VA_ARGS__;  \
+    \                                                         \\\n    input(__VA_ARGS__)\n\
     #define LL(...)                                                              \
     \  \\\n    long long __VA_ARGS__;                                            \
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
@@ -134,8 +135,8 @@ data:
   path: math/miller_rabin.hpp
   requiredBy:
   - math/pollard_rho.hpp
-  timestamp: '2024-11-09 04:31:42+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-12-02 02:31:35+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp

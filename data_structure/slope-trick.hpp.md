@@ -12,18 +12,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc217_h.test.cpp
     title: test/atcoder/abc217_h.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/arc070_c.test.cpp
     title: test/atcoder/arc070_c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/arc123_d.test.cpp
     title: test/atcoder/arc123_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1077.test.cpp
     title: test/yukicoder/1077.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://ei1333.github.io/library/structure/others/slope-trick.hpp
@@ -64,16 +64,17 @@ data:
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
-    \    cout << '\\n';\n}\ntemplate <class Container, typename = void>\nstruct is_container\
-    \ : std::false_type {};\ntemplate <class Container>\nstruct is_container<Container,\
-    \ std::void_t<decltype(std::declval<Container>().begin()), decltype(std::declval<Container>().end())>>\
-    \ : std::true_type {};\ntemplate <class Container>\ntypename enable_if<is_container<Container>::value>::type\
-    \ print(const Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n\
-    \        for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \"\
-    ;\n        }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\
-    \u3092\u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)       \
-    \                                                        \\\n    int __VA_ARGS__;\
-    \                                                           \\\n    input(__VA_ARGS__)\n\
+    \    cout << '\\n';\n}\nvoid print(const string &s) {\n    cout << s << '\\n';\n\
+    }\ntemplate <class Container, typename = void>\nstruct is_container : std::false_type\
+    \ {};\ntemplate <class Container>\nstruct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()),\
+    \ decltype(std::declval<Container>().end())>> : std::true_type {};\ntemplate <class\
+    \ Container>\ntypename enable_if<is_container<Container>::value>::type print(const\
+    \ Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n     \
+    \   for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \";\n \
+    \       }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\u3092\
+    \u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)             \
+    \                                                  \\\n    int __VA_ARGS__;  \
+    \                                                         \\\n    input(__VA_ARGS__)\n\
     #define LL(...)                                                              \
     \  \\\n    long long __VA_ARGS__;                                            \
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
@@ -150,8 +151,8 @@ data:
   isVerificationFile: false
   path: data_structure/slope-trick.hpp
   requiredBy: []
-  timestamp: '2024-11-27 16:07:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-12-02 02:31:35+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/atcoder/abc217_h.test.cpp
   - test/atcoder/abc127_f.test.cpp

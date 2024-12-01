@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: geometry/manhattan-mst.hpp
     title: geometry/manhattan-mst.hpp
   - icon: ':question:'
@@ -17,6 +17,7 @@ data:
     PROBLEM: https://atcoder.jp/contests/abc283/tasks/abc283_f
     links:
     - https://atcoder.jp/contests/abc283/tasks/abc283_f
+    - https://github.com/yokoyama-midori/library/actions/runs/12106843024/job/33753048069#step:7:1610
   bundledCode: "#line 1 \"test/atcoder/abc283_f.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc283/tasks/abc283_f\"\
     \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
@@ -53,16 +54,17 @@ data:
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
-    \    cout << '\\n';\n}\ntemplate <class Container, typename = void>\nstruct is_container\
-    \ : std::false_type {};\ntemplate <class Container>\nstruct is_container<Container,\
-    \ std::void_t<decltype(std::declval<Container>().begin()), decltype(std::declval<Container>().end())>>\
-    \ : std::true_type {};\ntemplate <class Container>\ntypename enable_if<is_container<Container>::value>::type\
-    \ print(const Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n\
-    \        for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \"\
-    ;\n        }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\
-    \u3092\u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)       \
-    \                                                        \\\n    int __VA_ARGS__;\
-    \                                                           \\\n    input(__VA_ARGS__)\n\
+    \    cout << '\\n';\n}\nvoid print(const string &s) {\n    cout << s << '\\n';\n\
+    }\ntemplate <class Container, typename = void>\nstruct is_container : std::false_type\
+    \ {};\ntemplate <class Container>\nstruct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()),\
+    \ decltype(std::declval<Container>().end())>> : std::true_type {};\ntemplate <class\
+    \ Container>\ntypename enable_if<is_container<Container>::value>::type print(const\
+    \ Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n     \
+    \   for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \";\n \
+    \       }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\u3092\
+    \u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)             \
+    \                                                  \\\n    int __VA_ARGS__;  \
+    \                                                         \\\n    input(__VA_ARGS__)\n\
     #define LL(...)                                                              \
     \  \\\n    long long __VA_ARGS__;                                            \
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
@@ -94,14 +96,24 @@ data:
     \nvoid solve() {\n    int n;\n    cin >> n;\n    vector<int> I(n), p(n);\n   \
     \ iota(all(I), 1);\n    input(p);\n    auto wxy = manhattan_mst<int>(I, p);\n\
     \    vector<int> ans(n, 1e9);\n    for(auto [w, x, y] : wxy) {\n        chmin(ans[x],\
-    \ w);\n        chmin(ans[y], w);\n    }\n    print(ans);\n}\nint main() {\n  \
-    \  ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n}\n"
+    \ w);\n        chmin(ans[y], w);\n    }\n    rep(i, n) { cout << ans[i] << \"\
+    \ \"; }\n    // \u30AA\u30D7\u30B7\u30E7\u30F3\u304C\u3088\u304F\u5206\u304B\u3089\
+    \u306A\u3044\u306E\u3067\u3068\u308A\u3042\u3048\u305A\u4FEE\u6B63\n    // https://github.com/yokoyama-midori/library/actions/runs/12106843024/job/33753048069#step:7:1610\n\
+    \    // Warning:  This was AC if spaces and newlines were ignored. Please use\n\
+    \    // --ignore-spaces (-S) option or --ignore-spaces-and-newline (-N) option.\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc283/tasks/abc283_f\"\n#include\
     \ \"geometry/manhattan-mst.hpp\"\nvoid solve() {\n    int n;\n    cin >> n;\n\
     \    vector<int> I(n), p(n);\n    iota(all(I), 1);\n    input(p);\n    auto wxy\
     \ = manhattan_mst<int>(I, p);\n    vector<int> ans(n, 1e9);\n    for(auto [w,\
     \ x, y] : wxy) {\n        chmin(ans[x], w);\n        chmin(ans[y], w);\n    }\n\
-    \    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    rep(i, n) { cout << ans[i] << \" \"; }\n    // \u30AA\u30D7\u30B7\u30E7\u30F3\
+    \u304C\u3088\u304F\u5206\u304B\u3089\u306A\u3044\u306E\u3067\u3068\u308A\u3042\
+    \u3048\u305A\u4FEE\u6B63\n    // https://github.com/yokoyama-midori/library/actions/runs/12106843024/job/33753048069#step:7:1610\n\
+    \    // Warning:  This was AC if spaces and newlines were ignored. Please use\n\
+    \    // --ignore-spaces (-S) option or --ignore-spaces-and-newline (-N) option.\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
   dependsOn:
   - geometry/manhattan-mst.hpp
@@ -109,7 +121,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc283_f.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 00:39:15+09:00'
+  timestamp: '2024-12-02 02:31:35+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/abc283_f.test.cpp
