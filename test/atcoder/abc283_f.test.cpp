@@ -12,7 +12,11 @@ void solve() {
         chmin(ans[x], w);
         chmin(ans[y], w);
     }
-    print(ans);
+    rep(i, n) { cout << ans[i] << " "; }
+    // オプションがよく分からないのでとりあえず修正
+    // https://github.com/yokoyama-midori/library/actions/runs/12106843024/job/33753048069#step:7:1610
+    // Warning:  This was AC if spaces and newlines were ignored. Please use
+    // --ignore-spaces (-S) option or --ignore-spaces-and-newline (-N) option.
 }
 int main() {
     ios::sync_with_stdio(false);
