@@ -30,7 +30,7 @@ template <class T> struct Compress {
     const T &operator[](size_t t) {
         assert(is_built);
         assert(0 <= t and t < ssize(data));
-        data[t];
+        return data[t];
     }
     ll size() {
         return ssize(data);
