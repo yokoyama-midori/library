@@ -85,8 +85,8 @@ data:
     \ res = lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
     \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
     \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
-    \  data[t];\n    }\n    ll size() {\n        return ssize(data);\n    }\n};\n\
-    #line 3 \"test/atcoder/abc113_c.test.cpp\"\nstring make_str(ll n) {\n    string\
+    \  return data[t];\n    }\n    ll size() {\n        return ssize(data);\n    }\n\
+    };\n#line 3 \"test/atcoder/abc113_c.test.cpp\"\nstring make_str(ll n) {\n    string\
     \ suf = to_string(n);\n    string res;\n    rep(i, 6 - ssize(suf)) { res += '0';\
     \ }\n    res += suf;\n    return res;\n}\nvoid solve() {\n    LL(n, m);\n    vector<Compress<int>>\
     \ vc(n + 1);\n    vector<int> p(m), y(m);\n    rep(i, m) {\n        cin >> p[i]\
@@ -109,7 +109,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc113_c.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2024-12-03 17:41:14+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc113_c.test.cpp
