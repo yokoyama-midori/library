@@ -78,14 +78,16 @@ data:
     \n// https://ei1333.github.io/library/dp/cumulative-sum.hpp\ntemplate <class T>\
     \ struct CumulativeSum {\n    bool is_built = false;\n    size_t sz;\n    vector<T>\
     \ data;\n    CumulativeSum(size_t maxi) : sz(maxi + 1), data(maxi + 1, 0) {}\n\
-    \    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n        data[x]\
-    \ += dx;\n        is_built = false;\n    }\n    void build() {\n        is_built\
+    \    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n        data[x\
+    \ + 1] += dx;\n        is_built = false;\n    }\n    void build() {\n        is_built\
     \ = true;\n        rep(i, sz - 1) { data[i + 1] += data[i]; }\n    }\n    T sum(ll\
     \ r) {\n        // \u533A\u9593[0,r)\u306E\u548C\n        assert(0 <= r and r\
-    \ <= sz);\n        if(r == 0) {\n            return 0;\n        }\n        return\
-    \ data[r - 1];\n    }\n    T sum(ll l, ll r) {\n        // \u533A\u9593[l,r)\u306E\
-    \u548C\n        assert(0 <= l and l <= r and r <= sz);\n        return sum(r)\
-    \ - sum(l);\n    }\n};\n#line 4 \"test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp\"\
+    \ < sz);\n        return data[r];\n    }\n    T sum(ll l, ll r) {\n        //\
+    \ \u533A\u9593[l,r)\u306E\u548C\n        assert(0 <= l and l <= r and r < sz);\n\
+    \        return sum(r) - sum(l);\n    }\n    T all_sum() { return data.back();\
+    \ }\n    const T operator[](size_t t) {\n        // t \u306E\u5024\n        assert(0\
+    \ <= t and t < sz);\n        return data[t + 1] - data[t];\n    }\n};\n#line 4\
+    \ \"test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp\"\
     \nvoid solve() {\n    LL(n, q);\n    CumulativeSum<ll> cs(n);\n    rep(i, n) {\n\
     \        LL(a);\n        cs.add(i, a);\n    }\n    cs.build();\n    rep(_, q)\
     \ {\n        int l, r;\n        cin >> l >> r;\n        print(cs.sum(l, r));\n\
@@ -104,7 +106,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2024-12-04 17:02:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp

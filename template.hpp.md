@@ -82,6 +82,9 @@ data:
     path: test/atcoder/abc329_c.test.cpp
     title: test/atcoder/abc329_c.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/atcoder/abc373_e.test.cpp
+    title: test/atcoder/abc373_e.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/arc070_c.test.cpp
     title: test/atcoder/arc070_c.test.cpp
   - icon: ':heavy_check_mark:'
@@ -345,6 +348,7 @@ data:
   - test/atcoder/abc127_f.test.cpp
   - test/atcoder/practice2_j.test.cpp
   - test/atcoder/abc329_c.test.cpp
+  - test/atcoder/abc373_e.test.cpp
   - test/atcoder/arc070_c.test.cpp
   - test/atcoder/arc123_d.test.cpp
   - test/yukicoder/230.test.cpp

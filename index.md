@@ -100,6 +100,9 @@ data:
       path: test/atcoder/abc329_c.test.cpp
       title: test/atcoder/abc329_c.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/atcoder/abc373_e.test.cpp
+      title: test/atcoder/abc373_e.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/atcoder/arc070_c.test.cpp
       title: test/atcoder/arc070_c.test.cpp
     - icon: ':heavy_check_mark:'

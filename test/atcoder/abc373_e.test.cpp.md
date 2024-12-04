@@ -2,27 +2,27 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: dp/cumulative-sum.hpp
+    title: dp/cumulative-sum.hpp
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/atcoder/abc373_e.test.cpp
-    title: test/atcoder/abc373_e.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
-    title: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://atcoder.jp/contests/abc373/tasks/abc373_e
     links:
-    - https://ei1333.github.io/library/dp/cumulative-sum.hpp
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://atcoder.jp/contests/abc373/tasks/abc373_e
+  bundledCode: "#line 1 \"test/atcoder/abc373_e.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc373/tasks/abc373_e\"\
+    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
+    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -85,34 +85,61 @@ data:
     \ \u533A\u9593[l,r)\u306E\u548C\n        assert(0 <= l and l <= r and r < sz);\n\
     \        return sum(r) - sum(l);\n    }\n    T all_sum() { return data.back();\
     \ }\n    const T operator[](size_t t) {\n        // t \u306E\u5024\n        assert(0\
-    \ <= t and t < sz);\n        return data[t + 1] - data[t];\n    }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/dp/cumulative-sum.hpp\n\
-    template <class T> struct CumulativeSum {\n    bool is_built = false;\n    size_t\
-    \ sz;\n    vector<T> data;\n    CumulativeSum(size_t maxi) : sz(maxi + 1), data(maxi\
-    \ + 1, 0) {}\n    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n\
-    \        data[x + 1] += dx;\n        is_built = false;\n    }\n    void build()\
-    \ {\n        is_built = true;\n        rep(i, sz - 1) { data[i + 1] += data[i];\
-    \ }\n    }\n    T sum(ll r) {\n        // \u533A\u9593[0,r)\u306E\u548C\n    \
-    \    assert(0 <= r and r < sz);\n        return data[r];\n    }\n    T sum(ll\
-    \ l, ll r) {\n        // \u533A\u9593[l,r)\u306E\u548C\n        assert(0 <= l\
-    \ and l <= r and r < sz);\n        return sum(r) - sum(l);\n    }\n    T all_sum()\
-    \ { return data.back(); }\n    const T operator[](size_t t) {\n        // t \u306E\
-    \u5024\n        assert(0 <= t and t < sz);\n        return data[t + 1] - data[t];\n\
-    \    }\n};"
+    \ <= t and t < sz);\n        return data[t + 1] - data[t];\n    }\n};\n#line 4\
+    \ \"test/atcoder/abc373_e.test.cpp\"\nvoid solve() {\n    LL(n, m, k);\n    vl\
+    \ a(n), ord(n);\n    iota(all(ord), 0);\n    input(a);\n    sort(all(ord), [&a](ll\
+    \ i, ll j) { return a[i] < a[j]; });\n    CumulativeSum<ll> cs(n);\n    rep(i,\
+    \ n) { cs.add(i, a[ord[i]]); }\n    sort(all(a));\n    cs.build();\n    auto check\
+    \ = [&](ll i, ll plus) {\n        if(n == m)\n            return true;\n     \
+    \   ll x = cs[i] + plus;\n        ll cnt = upper_bound(all(a), x) - begin(a);\n\
+    \        // x+1 \u4EE5\u4E0A\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\u30B9\n     \
+    \   if(n - cnt >= m) {\n            return false;\n        }\n        if(i >=\
+    \ n - m) {\n            ll ness = cs.sum(0, n - m - 1) + (x + 1) * (cnt - (n -\
+    \ m - 1)) +\n                      cs.sum(cnt, n);\n            ness--;\n    \
+    \        return ness > k;\n        } else {\n            ll ness = cs.sum(0, n\
+    \ - m) + (x + 1) * (cnt - (n - m)) +\n                      cs.sum(cnt, n) + plus;\n\
+    \            return ness > k;\n        }\n    };\n    vl ans(n);\n    rep(i, n)\
+    \ {\n        if(!check(i, k - cs.all_sum())) {\n            ans[ord[i]] = -1;\n\
+    \            continue;\n        }\n        ll ok = k - cs.all_sum(), ng = -1;\n\
+    \        while(ok > ng + 1) {\n            ll mid = (ok + ng) / 2;\n         \
+    \   if(check(i, mid)) {\n                ok = mid;\n            } else\n     \
+    \           ng = mid;\n        }\n        ans[ord[i]] = ok;\n    }\n    print(ans);\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc373/tasks/abc373_e\"\n#include\
+    \ \"dp/cumulative-sum.hpp\"\n#include \"template.hpp\"\nvoid solve() {\n    LL(n,\
+    \ m, k);\n    vl a(n), ord(n);\n    iota(all(ord), 0);\n    input(a);\n    sort(all(ord),\
+    \ [&a](ll i, ll j) { return a[i] < a[j]; });\n    CumulativeSum<ll> cs(n);\n \
+    \   rep(i, n) { cs.add(i, a[ord[i]]); }\n    sort(all(a));\n    cs.build();\n\
+    \    auto check = [&](ll i, ll plus) {\n        if(n == m)\n            return\
+    \ true;\n        ll x = cs[i] + plus;\n        ll cnt = upper_bound(all(a), x)\
+    \ - begin(a);\n        // x+1 \u4EE5\u4E0A\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\
+    \u30B9\n        if(n - cnt >= m) {\n            return false;\n        }\n   \
+    \     if(i >= n - m) {\n            ll ness = cs.sum(0, n - m - 1) + (x + 1) *\
+    \ (cnt - (n - m - 1)) +\n                      cs.sum(cnt, n);\n            ness--;\n\
+    \            return ness > k;\n        } else {\n            ll ness = cs.sum(0,\
+    \ n - m) + (x + 1) * (cnt - (n - m)) +\n                      cs.sum(cnt, n) +\
+    \ plus;\n            return ness > k;\n        }\n    };\n    vl ans(n);\n   \
+    \ rep(i, n) {\n        if(!check(i, k - cs.all_sum())) {\n            ans[ord[i]]\
+    \ = -1;\n            continue;\n        }\n        ll ok = k - cs.all_sum(), ng\
+    \ = -1;\n        while(ok > ng + 1) {\n            ll mid = (ok + ng) / 2;\n \
+    \           if(check(i, mid)) {\n                ok = mid;\n            } else\n\
+    \                ng = mid;\n        }\n        ans[ord[i]] = ok;\n    }\n    print(ans);\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}"
   dependsOn:
+  - dp/cumulative-sum.hpp
   - template.hpp
-  isVerificationFile: false
-  path: dp/cumulative-sum.hpp
+  isVerificationFile: true
+  path: test/atcoder/abc373_e.test.cpp
   requiredBy: []
   timestamp: '2024-12-04 17:02:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
-  - test/atcoder/abc373_e.test.cpp
-documentation_of: dp/cumulative-sum.hpp
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/atcoder/abc373_e.test.cpp
 layout: document
 redirect_from:
-- /library/dp/cumulative-sum.hpp
-- /library/dp/cumulative-sum.hpp.html
-title: dp/cumulative-sum.hpp
+- /verify/test/atcoder/abc373_e.test.cpp
+- /verify/test/atcoder/abc373_e.test.cpp.html
+title: test/atcoder/abc373_e.test.cpp
 ---
