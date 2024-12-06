@@ -77,8 +77,8 @@ data:
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"geometry/manhattan-mst.hpp\"\
     \n// Hai Zhou, Narendra Shenoy, and William Nicholls. 2001. Efficient minimum\n\
     // spanning tree construction without Delaunay triangulation.\ntemplate <class\
-    \ T = long long>\nvector<tuple<T, int, int>> manhattan_mst(vector<T> &xs, vector<T>\
-    \ &ys) {\n    // O(N)\u500B\u306E\u6700\u5C0F\u5168\u57DF\u6728\u306E\u8FBA\u306E\
+    \ T = long long>\nvector<tuple<T, int, int>> manhattan_mst(vector<T> xs, vector<T>\
+    \ ys) {\n    // O(N)\u500B\u306E\u6700\u5C0F\u5168\u57DF\u6728\u306E\u8FBA\u306E\
     \u5019\u88DC{(\u91CD\u307F,i,j)}\n    assert(ssize(xs) == ssize(ys));\n    vector<tuple<T,\
     \ int, int>> res;\n    int n = ssize(xs);\n    res.reserve(2 * n);\n    vector<int>\
     \ ord(n);\n    iota(all(ord), 0);\n    auto cul = [&]() -> void {\n        map<T,\
@@ -122,7 +122,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc283_f.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 03:25:38+09:00'
+  timestamp: '2024-12-06 13:09:58+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc283_f.test.cpp
