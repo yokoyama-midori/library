@@ -24,6 +24,9 @@ data:
     path: geometry/manhattan-mst.hpp
     title: geometry/manhattan-mst.hpp
   - icon: ':heavy_check_mark:'
+    path: graph/chromatic-number.hpp
+    title: graph/chromatic-number.hpp
+  - icon: ':heavy_check_mark:'
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':heavy_check_mark:'
@@ -91,6 +94,9 @@ data:
     path: test/atcoder/arc123_d.test.cpp
     title: test/atcoder/arc123_d.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/atcoder/arc171_d.test.cpp
+    title: test/atcoder/arc171_d.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
   - icon: ':heavy_check_mark:'
@@ -126,6 +132,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/manhattanmst.test.cpp
     title: test/library_checker/geometry/manhattanmst.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/chromatic_number.test.cpp
+    title: test/library_checker/graph/chromatic_number.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/matrix_product.test.cpp
     title: test/library_checker/linear_algebra/matrix_product.test.cpp
@@ -313,6 +322,7 @@ data:
   - geometry/manhattan-mst.hpp
   - string/run-length-encoding.hpp
   - dp/cumulative-sum.hpp
+  - graph/chromatic-number.hpp
   timestamp: '2024-12-02 02:31:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -334,6 +344,7 @@ data:
   - test/library_checker/sample/many_aplusb.test.cpp
   - test/library_checker/linear_algebra/matrix_product.test.cpp
   - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - test/library_checker/graph/chromatic_number.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - test/my-test/run-length-encoding.test.cpp
@@ -342,6 +353,7 @@ data:
   - test/atcoder/abc217_h.test.cpp
   - test/atcoder/abc283_f.test.cpp
   - test/atcoder/abc113_c.test.cpp
+  - test/atcoder/arc171_d.test.cpp
   - test/atcoder/abc248_d.test.cpp
   - test/atcoder/abc235_c.test.cpp
   - test/atcoder/abc273_d.test.cpp

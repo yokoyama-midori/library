@@ -30,7 +30,7 @@ data:
       title: geometry/manhattan-mst.hpp
   - name: graph
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/chromatic-number.hpp
       title: graph/chromatic-number.hpp
   - name: math
@@ -113,7 +113,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/arc123_d.test.cpp
       title: test/atcoder/arc123_d.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/atcoder/arc171_d.test.cpp
       title: test/atcoder/arc171_d.test.cpp
     - icon: ':heavy_check_mark:'
@@ -160,7 +160,7 @@ data:
       title: test/library_checker/geometry/manhattanmst.test.cpp
   - name: test/library_checker/graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/chromatic_number.test.cpp
       title: test/library_checker/graph/chromatic_number.test.cpp
   - name: test/library_checker/linear_algebra
