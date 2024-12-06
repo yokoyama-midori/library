@@ -10,12 +10,13 @@ void solve() {
         cs.add(a, -1);
     }
     cs.build();
+    vl ans;
     rep1(i, 1e5) {
         if(cs.sum(i) == 0)
             break;
-        cout << cs.sum(i) << " ";
+        ans.push_back(cs.sum(i));
     }
-    print();
+    print(ans);
 }
 int main() {
     ios::sync_with_stdio(false);
