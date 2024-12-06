@@ -1,7 +1,7 @@
 #pragma once
 #include "template.hpp"
 // https://ei1333.github.io/library/dp/cumulative-sum.hpp
-template <class T> struct CumulativeSum {
+template <class T = long long> struct CumulativeSum {
     bool is_built = false;
     size_t sz;
     vector<T> data;
@@ -27,7 +27,7 @@ template <class T> struct CumulativeSum {
     }
     T all_sum() { return data.back(); }
     const T operator[](size_t t) {
-        // t の値
+        // "累積和をとる前の" t での値
         assert(0 <= t and t < sz);
         return data[t + 1] - data[t];
     }
