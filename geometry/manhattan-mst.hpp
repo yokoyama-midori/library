@@ -2,7 +2,7 @@
 // Hai Zhou, Narendra Shenoy, and William Nicholls. 2001. Efficient minimum
 // spanning tree construction without Delaunay triangulation.
 template <class T = long long>
-vector<tuple<T, int, int>> manhattan_mst(vector<T> &xs, vector<T> &ys) {
+vector<tuple<T, int, int>> manhattan_mst(vector<T> xs, vector<T> ys) {
     // O(N)個の最小全域木の辺の候補{(重み,i,j)}
     assert(ssize(xs) == ssize(ys));
     vector<tuple<T, int, int>> res;
