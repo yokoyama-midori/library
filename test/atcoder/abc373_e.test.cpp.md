@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -74,17 +74,18 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"dp/cumulative-sum.hpp\"\
-    \n// https://ei1333.github.io/library/dp/cumulative-sum.hpp\ntemplate <class T>\
-    \ struct CumulativeSum {\n    bool is_built = false;\n    size_t sz;\n    vector<T>\
-    \ data;\n    CumulativeSum(size_t maxi) : sz(maxi + 1), data(maxi + 1, 0) {}\n\
-    \    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n        data[x\
-    \ + 1] += dx;\n        is_built = false;\n    }\n    void build() {\n        is_built\
-    \ = true;\n        rep(i, sz - 1) { data[i + 1] += data[i]; }\n    }\n    T sum(ll\
-    \ r) {\n        // \u533A\u9593[0,r)\u306E\u548C\n        assert(0 <= r and r\
-    \ < sz);\n        return data[r];\n    }\n    T sum(ll l, ll r) {\n        //\
-    \ \u533A\u9593[l,r)\u306E\u548C\n        assert(0 <= l and l <= r and r < sz);\n\
-    \        return sum(r) - sum(l);\n    }\n    T all_sum() { return data.back();\
-    \ }\n    const T operator[](size_t t) {\n        // t \u306E\u5024\n        assert(0\
+    \n// https://ei1333.github.io/library/dp/cumulative-sum.hpp\ntemplate <class T\
+    \ = long long> struct CumulativeSum {\n    bool is_built = false;\n    size_t\
+    \ sz;\n    vector<T> data;\n    CumulativeSum(size_t maxi) : sz(maxi + 1), data(maxi\
+    \ + 1, 0) {}\n    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n\
+    \        data[x + 1] += dx;\n        is_built = false;\n    }\n    void build()\
+    \ {\n        is_built = true;\n        rep(i, sz - 1) { data[i + 1] += data[i];\
+    \ }\n    }\n    T sum(ll r) {\n        // \u533A\u9593[0,r)\u306E\u548C\n    \
+    \    assert(0 <= r and r < sz);\n        return data[r];\n    }\n    T sum(ll\
+    \ l, ll r) {\n        // \u533A\u9593[l,r)\u306E\u548C\n        assert(0 <= l\
+    \ and l <= r and r < sz);\n        return sum(r) - sum(l);\n    }\n    T all_sum()\
+    \ { return data.back(); }\n    const T operator[](size_t t) {\n        // \"\u7D2F\
+    \u7A4D\u548C\u3092\u3068\u308B\u524D\u306E\" t \u3067\u306E\u5024\n        assert(0\
     \ <= t and t < sz);\n        return data[t + 1] - data[t];\n    }\n};\n#line 4\
     \ \"test/atcoder/abc373_e.test.cpp\"\nvoid solve() {\n    LL(n, m, k);\n    vl\
     \ a(n), ord(n);\n    iota(all(ord), 0);\n    input(a);\n    sort(all(ord), [&a](ll\
@@ -133,7 +134,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc373_e.test.cpp
   requiredBy: []
-  timestamp: '2024-12-04 17:02:24+09:00'
+  timestamp: '2024-12-06 18:12:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc373_e.test.cpp

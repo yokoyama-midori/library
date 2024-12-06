@@ -20,7 +20,7 @@ data:
       title: data_structure/slope-trick.hpp
   - name: dp
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: dp/cumulative-sum.hpp
       title: dp/cumulative-sum.hpp
   - name: geometry
@@ -68,7 +68,7 @@ data:
       title: string/run-length-encoding.hpp
   - name: .
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
   verificationCategories:
@@ -219,6 +219,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/2051.test.cpp
       title: test/yukicoder/2051.test.cpp
+    - icon: ':x:'
+      path: test/yukicoder/2092.test.cpp
+      title: test/yukicoder/2092.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/230.test.cpp
       title: test/yukicoder/230.test.cpp

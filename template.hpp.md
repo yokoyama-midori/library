@@ -17,7 +17,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/slope-trick.hpp
     title: data_structure/slope-trick.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
   - icon: ':heavy_check_mark:'
@@ -177,15 +177,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/2051.test.cpp
     title: test/yukicoder/2051.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/2092.test.cpp
+    title: test/yukicoder/2092.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -324,7 +327,7 @@ data:
   - dp/cumulative-sum.hpp
   - graph/chromatic-number.hpp
   timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
@@ -369,6 +372,7 @@ data:
   - test/yukicoder/888.test.cpp
   - test/yukicoder/2051.test.cpp
   - test/yukicoder/1634.test.cpp
+  - test/yukicoder/2092.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:

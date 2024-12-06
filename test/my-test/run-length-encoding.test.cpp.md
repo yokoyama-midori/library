@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
