@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/slope-trick.hpp
     title: data_structure/slope-trick.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -103,7 +103,7 @@ data:
     \ res += max(0LL, a - (r + add_R));\n        }\n        return res;\n    }\n \
     \   // \\__/ -> \\___\n    // f(x) <- min[y<=x]f(y)\n    void clear_right() {\
     \ R = {inf}; }\n    // \\__/ -> __/\n    // f(x) <- min[y>=x]f(y)\n    void clear_left()\
-    \ { L = {inf}; }\n};\n#line 3 \"test/atcoder/arc123_d.test.cpp\"\nvoid solve()\
+    \ { L = {-inf}; }\n};\n#line 3 \"test/atcoder/arc123_d.test.cpp\"\nvoid solve()\
     \ {\n    LL(n);\n    vl a(n + 1, 0);\n    rep1(i, n) cin >> a[i];\n    SlopeTrick\
     \ st;\n    rep1(i, n) {\n        ll c = min(0LL, a[i - 1] - a[i]);\n        st.shift(-c);\n\
     \        st.clear_right();\n        st.add_abs(0);\n        st.add_abs(a[i]);\n\
@@ -122,7 +122,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/arc123_d.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2024-12-06 17:38:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/arc123_d.test.cpp

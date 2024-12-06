@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -18,12 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/arc123_d.test.cpp
     title: test/atcoder/arc123_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1077.test.cpp
     title: test/yukicoder/1077.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://ei1333.github.io/library/structure/others/slope-trick.hpp
@@ -114,7 +114,7 @@ data:
     \ res += max(0LL, a - (r + add_R));\n        }\n        return res;\n    }\n \
     \   // \\__/ -> \\___\n    // f(x) <- min[y<=x]f(y)\n    void clear_right() {\
     \ R = {inf}; }\n    // \\__/ -> __/\n    // f(x) <- min[y>=x]f(y)\n    void clear_left()\
-    \ { L = {inf}; }\n};\n"
+    \ { L = {-inf}; }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\n// https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8\n\
     // https://ei1333.github.io/library/structure/others/slope-trick.hpp\nstruct SlopeTrick\
     \ {\n    multiset<ll> L, R;\n    ll min_f;\n    ll add_L, add_R;\n    SlopeTrick()\
@@ -145,14 +145,14 @@ data:
     \ res += max(0LL, a - (r + add_R));\n        }\n        return res;\n    }\n \
     \   // \\__/ -> \\___\n    // f(x) <- min[y<=x]f(y)\n    void clear_right() {\
     \ R = {inf}; }\n    // \\__/ -> __/\n    // f(x) <- min[y>=x]f(y)\n    void clear_left()\
-    \ { L = {inf}; }\n};"
+    \ { L = {-inf}; }\n};"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/slope-trick.hpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-12-06 17:38:38+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/atcoder/abc217_h.test.cpp
   - test/atcoder/abc127_f.test.cpp
