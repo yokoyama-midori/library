@@ -1,4 +1,4 @@
-#include "/home/y_midori/cp/library/template.hpp"
+#include "template.hpp"
 // https://kokiymgch.hatenablog.com/entry/2018/01/27/235959
 // https://www.slideshare.net/wata_orz/ss-12131479
 // TODO ↓　hist辺りで何やってるか理解する
