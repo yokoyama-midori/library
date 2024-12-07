@@ -63,12 +63,12 @@ data:
       title: poly/shift_of_sampling_points.hpp
   - name: string
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: string/run-length-encoding.hpp
       title: string/run-length-encoding.hpp
   - name: .
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.hpp
       title: template.hpp
   verificationCategories:
@@ -205,7 +205,7 @@ data:
       title: test/library_checker/sample/many_aplusb.test.cpp
   - name: test/my-test
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/my-test/run-length-encoding.test.cpp
       title: test/my-test/run-length-encoding.test.cpp
   - name: test/yukicoder
