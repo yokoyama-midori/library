@@ -9,7 +9,7 @@ void test() {
     }
     {
         string s = "aabbCCabc";
-        using p = pair<char, int>;
+        using p = pair<char, ll>;
         auto res = RunLengthEncoding(s);
         vector<p> ans = {{'a', 2}, {'b', 2}, {'C', 2},
                          {'a', 1}, {'b', 1}, {'c', 1}};
@@ -21,13 +21,13 @@ void test() {
     }
     {
         vector<int> v = {1, 2, 3, 3, 4};
-        vector<pair<int, int>> ans = {{1, 1}, {2, 1}, {3, 2}, {4, 1}};
+        vector<pair<int, ll>> ans = {{1, 1}, {2, 1}, {3, 2}, {4, 1}};
         auto res = RunLengthEncoding(v);
         assert(res == ans);
     }
     {
         vl v = {1, 1, 2, 2, 3, 4, 5, 5, 5};
-        vector<pair<ll, int>> ans = {{1, 2}, {2, 2}, {3, 1}, {4, 1}, {5, 3}};
+        vector<pair<ll, ll>> ans = {{1, 2}, {2, 2}, {3, 1}, {4, 1}, {5, 3}};
         auto res = RunLengthEncoding(v);
         assert(res == ans);
     }
