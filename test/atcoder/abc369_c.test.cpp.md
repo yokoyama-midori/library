@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: data_structure/compress.hpp
-    title: data_structure/compress.hpp
+  - icon: ':question:'
+    path: string/run-length-encoding.hpp
+    title: string/run-length-encoding.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
@@ -14,10 +14,10 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/abc113/tasks/abc113_c
+    PROBLEM: https://atcoder.jp/contests/abc369/tasks/abc369_c
     links:
-    - https://atcoder.jp/contests/abc113/tasks/abc113_c
-  bundledCode: "#line 1 \"test/atcoder/abc113_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc113/tasks/abc113_c\"\
+    - https://atcoder.jp/contests/abc369/tasks/abc369_c
+  bundledCode: "#line 1 \"test/atcoder/abc369_c.test.cpp\"\n#define PROBLEM \"https://atcoder.jp/contests/abc369/tasks/abc369_c\"\
     \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -73,49 +73,37 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/compress.hpp\"\
-    \n// https://ei1333.github.io/library/other/compress.hpp\ntemplate <class T> struct\
-    \ Compress {\n    bool is_built = false;\n    vector<T> data;\n    Compress()\
-    \ = default;\n    Compress(const vector<T> &v) {\n        add(v);\n    }\n   \
-    \ void add(const T &x) {\n        is_built = false;\n        data.push_back(x);\n\
-    \    }\n    void add(const vector<T> &v) {\n        for(auto x : v)\n        \
-    \    add(x);\n    }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
-    \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
-    \    }\n    ll get(const T &x) const {\n        assert(is_built);\n        ll\
-    \ res = lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
-    \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
-    \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
-    \  return data[t];\n    }\n    ll size() {\n        return ssize(data);\n    }\n\
-    };\n#line 3 \"test/atcoder/abc113_c.test.cpp\"\nstring make_str(ll n) {\n    string\
-    \ suf = to_string(n);\n    string res;\n    rep(i, 6 - ssize(suf)) { res += '0';\
-    \ }\n    res += suf;\n    return res;\n}\nvoid solve() {\n    LL(n, m);\n    vector<Compress<int>>\
-    \ vc(n + 1);\n    vector<int> p(m), y(m);\n    rep(i, m) {\n        cin >> p[i]\
-    \ >> y[i];\n        vc[p[i]].add(y[i]);\n    }\n    rep(i, n + 1) { vc[i].build();\
-    \ }\n    rep(i, m) {\n        string ans = make_str(p[i]);\n        ans += make_str(vc[p[i]].get(y[i])\
-    \ + 1);\n        cout << ans << \"\\n\";\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://atcoder.jp/contests/abc113/tasks/abc113_c\"\n#include\
-    \ \"data_structure/compress.hpp\"\nstring make_str(ll n) {\n    string suf = to_string(n);\n\
-    \    string res;\n    rep(i, 6 - ssize(suf)) { res += '0'; }\n    res += suf;\n\
-    \    return res;\n}\nvoid solve() {\n    LL(n, m);\n    vector<Compress<int>>\
-    \ vc(n + 1);\n    vector<int> p(m), y(m);\n    rep(i, m) {\n        cin >> p[i]\
-    \ >> y[i];\n        vc[p[i]].add(y[i]);\n    }\n    rep(i, n + 1) { vc[i].build();\
-    \ }\n    rep(i, m) {\n        string ans = make_str(p[i]);\n        ans += make_str(vc[p[i]].get(y[i])\
-    \ + 1);\n        cout << ans << \"\\n\";\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"string/run-length-encoding.hpp\"\
+    \ntemplate <class S>\nvector<pair<typename S::value_type, ll>> RunLengthEncoding(S\
+    \ &s) {\n    using C = S::value_type;\n    vector<pair<C, ll>> res;\n    for(auto\
+    \ &&c : s) {\n        if(res.empty() or res.back().first != c) {\n           \
+    \ res.emplace_back(c, 0);\n        }\n        res.back().second++;\n    }\n  \
+    \  return res;\n}\n#line 4 \"test/atcoder/abc369_c.test.cpp\"\nvoid solve() {\n\
+    \    LL(n);\n    vl a(n);\n    input(a);\n    ll ans = n;\n    vl dif;\n    rep(i,\
+    \ n - 1) { dif.push_back(a[i + 1] - a[i]); }\n    auto enc = RunLengthEncoding(dif);\n\
+    \    for(auto [k, c] : enc) {\n        ans += c * (c + 1) / 2;\n    }\n    print(ans);\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/abc369/tasks/abc369_c\"\n#include\
+    \ \"string/run-length-encoding.hpp\"\n#include \"template.hpp\"\nvoid solve()\
+    \ {\n    LL(n);\n    vl a(n);\n    input(a);\n    ll ans = n;\n    vl dif;\n \
+    \   rep(i, n - 1) { dif.push_back(a[i + 1] - a[i]); }\n    auto enc = RunLengthEncoding(dif);\n\
+    \    for(auto [k, c] : enc) {\n        ans += c * (c + 1) / 2;\n    }\n    print(ans);\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}"
   dependsOn:
-  - data_structure/compress.hpp
+  - string/run-length-encoding.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/atcoder/abc113_c.test.cpp
+  path: test/atcoder/abc369_c.test.cpp
   requiredBy: []
-  timestamp: '2024-12-03 17:41:14+09:00'
+  timestamp: '2024-12-07 20:51:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/atcoder/abc113_c.test.cpp
+documentation_of: test/atcoder/abc369_c.test.cpp
 layout: document
 redirect_from:
-- /verify/test/atcoder/abc113_c.test.cpp
-- /verify/test/atcoder/abc113_c.test.cpp.html
-title: test/atcoder/abc113_c.test.cpp
+- /verify/test/atcoder/abc369_c.test.cpp
+- /verify/test/atcoder/abc369_c.test.cpp.html
+title: test/atcoder/abc369_c.test.cpp
 ---

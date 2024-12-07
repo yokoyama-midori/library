@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -74,15 +74,15 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"string/run-length-encoding.hpp\"\
-    \ntemplate <class S>\nvector<pair<typename S::value_type, int>> RunLengthEncoding(S\
-    \ &s) {\n    using C = S::value_type;\n    vector<pair<C, int>> res;\n    for(auto&&\
-    \ c:s){\n        if(res.empty() or res.back().first != c){\n            res.emplace_back(c,0);\n\
-    \        }\n        res.back().second++;\n    }\n    return res;\n}\n#line 3 \"\
-    test/atcoder/abc329_c.test.cpp\"\nvoid solve() {\n    LL(n);\n    STR(s);\n  \
-    \  vl cnt(26, 0);\n    auto rle = RunLengthEncoding(s);\n    for(auto [c, sz]\
-    \ : rle) {\n        chmax(cnt[c - 'a'], (ll)sz);\n    }\n    print(accumulate(all(cnt),\
-    \ 0LL));\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}\n"
+    \ntemplate <class S>\nvector<pair<typename S::value_type, ll>> RunLengthEncoding(S\
+    \ &s) {\n    using C = S::value_type;\n    vector<pair<C, ll>> res;\n    for(auto\
+    \ &&c : s) {\n        if(res.empty() or res.back().first != c) {\n           \
+    \ res.emplace_back(c, 0);\n        }\n        res.back().second++;\n    }\n  \
+    \  return res;\n}\n#line 3 \"test/atcoder/abc329_c.test.cpp\"\nvoid solve() {\n\
+    \    LL(n);\n    STR(s);\n    vl cnt(26, 0);\n    auto rle = RunLengthEncoding(s);\n\
+    \    for(auto [c, sz] : rle) {\n        chmax(cnt[c - 'a'], (ll)sz);\n    }\n\
+    \    print(accumulate(all(cnt), 0LL));\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc329/tasks/abc329_c\"\n#include\
     \ \"string/run-length-encoding.hpp\"\nvoid solve() {\n    LL(n);\n    STR(s);\n\
     \    vl cnt(26, 0);\n    auto rle = RunLengthEncoding(s);\n    for(auto [c, sz]\
@@ -95,7 +95,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc329_c.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2024-12-07 20:51:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc329_c.test.cpp

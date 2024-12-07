@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -10,11 +10,14 @@ data:
     path: test/atcoder/abc329_c.test.cpp
     title: test/atcoder/abc329_c.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/atcoder/abc369_c.test.cpp
+    title: test/atcoder/abc369_c.test.cpp
+  - icon: ':x:'
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -73,25 +76,27 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"string/run-length-encoding.hpp\"\
-    \ntemplate <class S>\nvector<pair<typename S::value_type, int>> RunLengthEncoding(S\
-    \ &s) {\n    using C = S::value_type;\n    vector<pair<C, int>> res;\n    for(auto&&\
-    \ c:s){\n        if(res.empty() or res.back().first != c){\n            res.emplace_back(c,0);\n\
-    \        }\n        res.back().second++;\n    }\n    return res;\n}\n"
+    \ntemplate <class S>\nvector<pair<typename S::value_type, ll>> RunLengthEncoding(S\
+    \ &s) {\n    using C = S::value_type;\n    vector<pair<C, ll>> res;\n    for(auto\
+    \ &&c : s) {\n        if(res.empty() or res.back().first != c) {\n           \
+    \ res.emplace_back(c, 0);\n        }\n        res.back().second++;\n    }\n  \
+    \  return res;\n}\n"
   code: "#pragma once\n#include \"template.hpp\"\ntemplate <class S>\nvector<pair<typename\
-    \ S::value_type, int>> RunLengthEncoding(S &s) {\n    using C = S::value_type;\n\
-    \    vector<pair<C, int>> res;\n    for(auto&& c:s){\n        if(res.empty() or\
-    \ res.back().first != c){\n            res.emplace_back(c,0);\n        }\n   \
-    \     res.back().second++;\n    }\n    return res;\n}"
+    \ S::value_type, ll>> RunLengthEncoding(S &s) {\n    using C = S::value_type;\n\
+    \    vector<pair<C, ll>> res;\n    for(auto &&c : s) {\n        if(res.empty()\
+    \ or res.back().first != c) {\n            res.emplace_back(c, 0);\n        }\n\
+    \        res.back().second++;\n    }\n    return res;\n}"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: string/run-length-encoding.hpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-12-07 20:51:51+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/my-test/run-length-encoding.test.cpp
   - test/atcoder/abc329_c.test.cpp
+  - test/atcoder/abc369_c.test.cpp
 documentation_of: string/run-length-encoding.hpp
 layout: document
 redirect_from:

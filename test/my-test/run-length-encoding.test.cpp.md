@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -74,25 +74,25 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"string/run-length-encoding.hpp\"\
-    \ntemplate <class S>\nvector<pair<typename S::value_type, int>> RunLengthEncoding(S\
-    \ &s) {\n    using C = S::value_type;\n    vector<pair<C, int>> res;\n    for(auto&&\
-    \ c:s){\n        if(res.empty() or res.back().first != c){\n            res.emplace_back(c,0);\n\
-    \        }\n        res.back().second++;\n    }\n    return res;\n}\n#line 4 \"\
-    test/my-test/run-length-encoding.test.cpp\"\nvoid test() {\n    {\n        string\
-    \ s = \"\";\n        auto res = RunLengthEncoding(s);\n        assert(res.empty());\n\
-    \    }\n    {\n        string s = \"aabbCCabc\";\n        using p = pair<char,\
-    \ int>;\n        auto res = RunLengthEncoding(s);\n        vector<p> ans = {{'a',\
-    \ 2}, {'b', 2}, {'C', 2},\n                         {'a', 1}, {'b', 1}, {'c',\
-    \ 1}};\n        assert(res == ans);\n        s = \"ZZZZZZ\";\n        res = RunLengthEncoding(s);\n\
-    \        ans = {{'Z', 6}};\n        assert(res == ans);\n    }\n    {\n      \
-    \  vector<int> v = {1, 2, 3, 3, 4};\n        vector<pair<int, int>> ans = {{1,\
-    \ 1}, {2, 1}, {3, 2}, {4, 1}};\n        auto res = RunLengthEncoding(v);\n   \
-    \     assert(res == ans);\n    }\n    {\n        vl v = {1, 1, 2, 2, 3, 4, 5,\
-    \ 5, 5};\n        vector<pair<ll, int>> ans = {{1, 2}, {2, 2}, {3, 1}, {4, 1},\
-    \ {5, 3}};\n        auto res = RunLengthEncoding(v);\n        assert(res == ans);\n\
-    \    }\n}\nvoid solve() {\n    LL(a, b);\n    print(a + b);\n}\nint main() {\n\
-    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    test();\n \
-    \   solve();\n}\n"
+    \ntemplate <class S>\nvector<pair<typename S::value_type, ll>> RunLengthEncoding(S\
+    \ &s) {\n    using C = S::value_type;\n    vector<pair<C, ll>> res;\n    for(auto\
+    \ &&c : s) {\n        if(res.empty() or res.back().first != c) {\n           \
+    \ res.emplace_back(c, 0);\n        }\n        res.back().second++;\n    }\n  \
+    \  return res;\n}\n#line 4 \"test/my-test/run-length-encoding.test.cpp\"\nvoid\
+    \ test() {\n    {\n        string s = \"\";\n        auto res = RunLengthEncoding(s);\n\
+    \        assert(res.empty());\n    }\n    {\n        string s = \"aabbCCabc\"\
+    ;\n        using p = pair<char, int>;\n        auto res = RunLengthEncoding(s);\n\
+    \        vector<p> ans = {{'a', 2}, {'b', 2}, {'C', 2},\n                    \
+    \     {'a', 1}, {'b', 1}, {'c', 1}};\n        assert(res == ans);\n        s =\
+    \ \"ZZZZZZ\";\n        res = RunLengthEncoding(s);\n        ans = {{'Z', 6}};\n\
+    \        assert(res == ans);\n    }\n    {\n        vector<int> v = {1, 2, 3,\
+    \ 3, 4};\n        vector<pair<int, int>> ans = {{1, 1}, {2, 1}, {3, 2}, {4, 1}};\n\
+    \        auto res = RunLengthEncoding(v);\n        assert(res == ans);\n    }\n\
+    \    {\n        vl v = {1, 1, 2, 2, 3, 4, 5, 5, 5};\n        vector<pair<ll, int>>\
+    \ ans = {{1, 2}, {2, 2}, {3, 1}, {4, 1}, {5, 3}};\n        auto res = RunLengthEncoding(v);\n\
+    \        assert(res == ans);\n    }\n}\nvoid solve() {\n    LL(a, b);\n    print(a\
+    \ + b);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    test();\n    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"string/run-length-encoding.hpp\"\
     \n#include \"template.hpp\"\nvoid test() {\n    {\n        string s = \"\";\n\
     \        auto res = RunLengthEncoding(s);\n        assert(res.empty());\n    }\n\
@@ -115,8 +115,8 @@ data:
   isVerificationFile: true
   path: test/my-test/run-length-encoding.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-12-07 20:51:51+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/my-test/run-length-encoding.test.cpp
 layout: document
