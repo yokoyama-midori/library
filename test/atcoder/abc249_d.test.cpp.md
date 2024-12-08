@@ -151,8 +151,8 @@ data:
     \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
     \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
     \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
-    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
-    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n#line 5 \"\
+    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::divisors;\nusing\
+    \ fast_factorize::factor_count;\nusing fast_factorize::factorize;\n#line 5 \"\
     test/atcoder/abc249_d.test.cpp\"\nvoid solve() {\n    LL(n);\n    HashMap<ll>\
     \ mp;\n    rep(i, n) {\n        LL(a);\n        mp[a]++;\n    }\n    ll ans =\
     \ 0;\n    for(auto [key, val] : mp.enumerate()) {\n        for(auto j : divisors(key))\
@@ -177,7 +177,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc249_d.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2024-12-08 11:15:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/atcoder/abc249_d.test.cpp

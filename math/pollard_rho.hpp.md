@@ -130,8 +130,8 @@ data:
     \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
     \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
     \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
-    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
-    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n"
+    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::divisors;\nusing\
+    \ fast_factorize::factor_count;\nusing fast_factorize::factorize;\n"
   code: "#pragma once\n#include \"math/miller_rabin.hpp\"\n// https://manabitimes.jp/math/1192\n\
     // https://wacchoz.hatenablog.com/entry/2019/01/05/230128\n// https://nyaannyaan.github.io/library/prime/fast-factorize.hpp\n\
     namespace fast_factorize {\nll pollard_rho(ll n) {\n    // n\u306E\u7D20\u56E0\
@@ -155,15 +155,15 @@ data:
     \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
     \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
     \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
-    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::factorize;\nusing\
-    \ fast_factorize::factor_count;\nusing fast_factorize::divisors;;\n"
+    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::divisors;\nusing\
+    \ fast_factorize::factor_count;\nusing fast_factorize::factorize;"
   dependsOn:
   - math/miller_rabin.hpp
   - template.hpp
   isVerificationFile: false
   path: math/pollard_rho.hpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2024-12-08 11:15:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
