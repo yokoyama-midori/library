@@ -80,6 +80,6 @@ vl divisors(ll n) {
     return res;
 }
 } // namespace fast_factorize
-using fast_factorize::factorize;
+using fast_factorize::divisors;
 using fast_factorize::factor_count;
-using fast_factorize::divisors;;
+using fast_factorize::factorize;
