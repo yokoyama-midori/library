@@ -13,6 +13,9 @@ data:
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
     - icon: ':heavy_check_mark:'
+      path: data_structure/segtree-beats.hpp
+      title: data_structure/segtree-beats.hpp
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
     - icon: ':heavy_check_mark:'
@@ -228,6 +231,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/230.test.cpp
       title: test/yukicoder/230.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/880.test.cpp
+      title: test/yukicoder/880.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/888.test.cpp
       title: test/yukicoder/888.test.cpp

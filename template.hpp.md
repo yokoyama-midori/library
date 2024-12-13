@@ -12,6 +12,9 @@ data:
     path: data_structure/lazy_segtree.hpp
     title: data_structure/lazy_segtree.hpp
   - icon: ':heavy_check_mark:'
+    path: data_structure/segtree-beats.hpp
+    title: data_structure/segtree-beats.hpp
+  - icon: ':heavy_check_mark:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
   - icon: ':heavy_check_mark:'
@@ -187,6 +190,9 @@ data:
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/880.test.cpp
+    title: test/yukicoder/880.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
   _isVerificationFailed: false
@@ -325,6 +331,7 @@ data:
   - data_structure/lazy_segtree.hpp
   - data_structure/compress.hpp
   - data_structure/segtree.hpp
+  - data_structure/segtree-beats.hpp
   - geometry/manhattan-mst.hpp
   - string/run-length-encoding.hpp
   - dp/cumulative-sum.hpp
@@ -371,6 +378,7 @@ data:
   - test/atcoder/abc369_c.test.cpp
   - test/atcoder/arc123_d.test.cpp
   - test/yukicoder/230.test.cpp
+  - test/yukicoder/880.test.cpp
   - test/yukicoder/12.test.cpp
   - test/yukicoder/1077.test.cpp
   - test/yukicoder/888.test.cpp
