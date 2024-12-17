@@ -22,9 +22,9 @@ template <class T> struct Compress {
         data.erase(unique(data.begin(), data.end()), data.end());
     }
     ll get(const T &x) const {
+        // x 以上となる最小のインデックスを返す
         assert(is_built);
         ll res = lower_bound(data.begin(), data.end(), x) - data.begin();
-        assert(data[res] == x);
         return res;
     }
     const T &operator[](size_t t) {
