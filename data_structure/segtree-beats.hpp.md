@@ -4,8 +4,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/range-chminmaxaddsum-segtree-beats.hpp
+    title: data_structure/range-chminmaxaddsum-segtree-beats.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
+    title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/880.test.cpp
     title: test/yukicoder/880.test.cpp
@@ -70,7 +76,7 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"data_structure/segtree-beats.hpp\"\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/segtree-beats.hpp\"\
     \n// https://rsm9.hatenablog.com/entry/2021/02/01/220408\n\ntemplate <class S,\
     \ S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n          F (*composition)(F,\
     \ F), F (*id)()>\n//   composition(f,g)(x) = f\u2218g(x) = f(g(x))\n// acl\u3068\
@@ -110,7 +116,7 @@ data:
     \       }\n        return;\n    }\n    void recul_above(ll x) {\n        while(x\
     \ > 1) {\n            x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n\
     \        }\n    }\n};\n"
-  code: "#include \"template.hpp\"\n// https://rsm9.hatenablog.com/entry/2021/02/01/220408\n\
+  code: "#pragma once\n#include \"template.hpp\"\n// https://rsm9.hatenablog.com/entry/2021/02/01/220408\n\
     \ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n \
     \         F (*composition)(F, F), F (*id)()>\n//   composition(f,g)(x) = f\u2218\
     g(x) = f(g(x))\n// acl\u3068\u540C\u3058\u3001maspy\u3055\u3093\u8A18\u4E8B\u3068\
@@ -153,10 +159,12 @@ data:
   - template.hpp
   isVerificationFile: false
   path: data_structure/segtree-beats.hpp
-  requiredBy: []
-  timestamp: '2024-12-13 18:40:17+09:00'
+  requiredBy:
+  - data_structure/range-chminmaxaddsum-segtree-beats.hpp
+  timestamp: '2024-12-17 16:58:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   - test/yukicoder/880.test.cpp
 documentation_of: data_structure/segtree-beats.hpp
 layout: document

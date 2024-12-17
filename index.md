@@ -13,6 +13,9 @@ data:
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
     - icon: ':heavy_check_mark:'
+      path: data_structure/range-chminmaxaddsum-segtree-beats.hpp
+      title: data_structure/range-chminmaxaddsum-segtree-beats.hpp
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree-beats.hpp
       title: data_structure/segtree-beats.hpp
     - icon: ':heavy_check_mark:'
@@ -142,6 +145,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
       title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
+      title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_set_range_composite.test.cpp
       title: test/library_checker/data_structure/range_set_range_composite.test.cpp

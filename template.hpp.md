@@ -12,6 +12,9 @@ data:
     path: data_structure/lazy_segtree.hpp
     title: data_structure/lazy_segtree.hpp
   - icon: ':heavy_check_mark:'
+    path: data_structure/range-chminmaxaddsum-segtree-beats.hpp
+    title: data_structure/range-chminmaxaddsum-segtree-beats.hpp
+  - icon: ':heavy_check_mark:'
     path: data_structure/segtree-beats.hpp
     title: data_structure/segtree-beats.hpp
   - icon: ':heavy_check_mark:'
@@ -120,6 +123,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
     title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
+    title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_set_range_composite.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite.test.cpp
@@ -327,6 +333,7 @@ data:
   - math/factorial_large.hpp
   - math/miller_rabin.hpp
   - data_structure/slope-trick.hpp
+  - data_structure/range-chminmaxaddsum-segtree-beats.hpp
   - data_structure/hash-map-variable-length.hpp
   - data_structure/lazy_segtree.hpp
   - data_structure/compress.hpp
@@ -344,6 +351,7 @@ data:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
+  - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
   - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp

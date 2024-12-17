@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: data_structure/range-chminmaxaddsum-segtree-beats.hpp
+    title: data_structure/range-chminmaxaddsum-segtree-beats.hpp
+  - icon: ':heavy_check_mark:'
     path: data_structure/segtree-beats.hpp
     title: data_structure/segtree-beats.hpp
   - icon: ':heavy_check_mark:'
@@ -14,10 +17,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/880
+    PROBLEM: https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
     links:
-    - https://yukicoder.me/problems/no/880
-  bundledCode: "#line 1 \"test/yukicoder/880.test.cpp\"\n#define PROBLEM \"https://yukicoder.me/problems/no/880\"\
+    - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
+  bundledCode: "#line 1 \"test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp\"\
+    \n#define PROBLEM                                                            \
+    \    \\\n    \"https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum\"\
     \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -112,75 +117,95 @@ data:
     \        for(ll i = maxi; i > 0; i--) {\n            propagate_at(x >> i);\n \
     \       }\n        return;\n    }\n    void recul_above(ll x) {\n        while(x\
     \ > 1) {\n            x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n\
-    \        }\n    }\n};\n#line 4 \"test/yukicoder/880.test.cpp\"\nstruct S {\n \
-    \   ll mini, maxi, lcm, num, sum;\n    bool fail;\n    S(ll a, ll num_ = 1)\n\
-    \        : mini(a), maxi(a), lcm(a), num(num_), sum(a * num_), fail(false) {};\n\
-    \    S() = default;\n};\nS e() { return S(0, 0); }\nS op(S a, S b) {\n    S res\
-    \ = e();\n    res.mini = min(a.mini, b.mini);\n    res.maxi = max(a.maxi, b.maxi);\n\
-    \    res.lcm = lcm(a.lcm, b.lcm);\n    if(a.lcm == inf or b.lcm == inf or\n  \
-    \     __int128_t(a.lcm) * b.lcm / (1 + gcd(a.lcm, b.lcm)) >= inf)\n        res.lcm\
-    \ = inf;\n    res.num = a.num + b.num;\n    res.sum = a.sum + b.sum;\n    res.fail\
-    \ = a.fail or b.fail;\n    return res;\n}\nstruct F {\n    // gcd\u3084\u3063\u3066\
-    assign\n    bool gcd_q, assing_q;\n    ll g, x;\n};\nS mapping(F f, S s) {\n \
-    \   if(s.fail) {\n        return s;\n    }\n    if(f.assing_q) {\n        return\
-    \ S(f.x, s.num);\n    }\n    if(f.gcd_q) {\n        if(s.mini == s.maxi) {\n \
-    \           ll val = gcd(s.mini, f.g);\n            return S(val, s.num);\n  \
-    \      }\n        if(f.g % s.lcm)\n            s.fail = true;\n    }\n    return\
-    \ s;\n}\nF id() { return F(false, false, 0, 0); }\nF composition(F f1, F f2) {\n\
-    \    if(f1.assing_q or (!f2.assing_q and !f2.gcd_q)) {\n        return f1;\n \
-    \   }\n    if(!f1.gcd_q) {\n        return f2;\n    }\n    if(f2.assing_q) {\n\
-    \        return F(false, true, 0, gcd(f1.g, f2.x));\n    }\n    f1.g = gcd(f1.g,\
-    \ f2.g);\n    return f1;\n}\nvoid solve() {\n    LL(n, q);\n    vector<S> a(n);\n\
-    \    rep(i, n) {\n        LL(ai);\n        a[i] = S(ai);\n    }\n    segtree_beats<S,\
-    \ op, e, F, mapping, composition, id> seg(a);\n    while(q--) {\n        LL(flag);\n\
-    \        LL(l, r);\n        l--;\n        if(flag == 1) {\n            LL(x);\n\
-    \            seg.apply(l, r, F(false, true, 0, x));\n        } else if(flag ==\
-    \ 2) {\n            LL(x);\n            seg.apply(l, r, F(true, false, x, 0));\n\
-    \        } else if(flag == 3) {\n            print(seg.prod(l, r).maxi);\n   \
-    \     } else {\n            print(seg.prod(l, r).sum);\n        }\n    }\n}\n\
-    int main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n \
-    \   ll t = 1;\n    rep(_, t) solve();\n}\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/880\"\n#include \"data_structure/segtree-beats.hpp\"\
-    \n#include \"template.hpp\"\nstruct S {\n    ll mini, maxi, lcm, num, sum;\n \
-    \   bool fail;\n    S(ll a, ll num_ = 1)\n        : mini(a), maxi(a), lcm(a),\
-    \ num(num_), sum(a * num_), fail(false) {};\n    S() = default;\n};\nS e() { return\
-    \ S(0, 0); }\nS op(S a, S b) {\n    S res = e();\n    res.mini = min(a.mini, b.mini);\n\
-    \    res.maxi = max(a.maxi, b.maxi);\n    res.lcm = lcm(a.lcm, b.lcm);\n    if(a.lcm\
-    \ == inf or b.lcm == inf or\n       __int128_t(a.lcm) * b.lcm / (1 + gcd(a.lcm,\
-    \ b.lcm)) >= inf)\n        res.lcm = inf;\n    res.num = a.num + b.num;\n    res.sum\
-    \ = a.sum + b.sum;\n    res.fail = a.fail or b.fail;\n    return res;\n}\nstruct\
-    \ F {\n    // gcd\u3084\u3063\u3066assign\n    bool gcd_q, assing_q;\n    ll g,\
-    \ x;\n};\nS mapping(F f, S s) {\n    if(s.fail) {\n        return s;\n    }\n\
-    \    if(f.assing_q) {\n        return S(f.x, s.num);\n    }\n    if(f.gcd_q) {\n\
-    \        if(s.mini == s.maxi) {\n            ll val = gcd(s.mini, f.g);\n    \
-    \        return S(val, s.num);\n        }\n        if(f.g % s.lcm)\n         \
-    \   s.fail = true;\n    }\n    return s;\n}\nF id() { return F(false, false, 0,\
-    \ 0); }\nF composition(F f1, F f2) {\n    if(f1.assing_q or (!f2.assing_q and\
-    \ !f2.gcd_q)) {\n        return f1;\n    }\n    if(!f1.gcd_q) {\n        return\
-    \ f2;\n    }\n    if(f2.assing_q) {\n        return F(false, true, 0, gcd(f1.g,\
-    \ f2.x));\n    }\n    f1.g = gcd(f1.g, f2.g);\n    return f1;\n}\nvoid solve()\
+    \        }\n    }\n};\n#line 3 \"data_structure/range-chminmaxaddsum-segtree-beats.hpp\"\
+    \nnamespace RangeChMinMaxAddSum {\nstruct S {\n    ll min, min2, max, max2;\n\
+    \    // min2,max2\u306F2\u756A\u76EE\u306E\u6700\u5C0F\u6700\u5927,\u4F46\u3057\
+    \u5024\u304C1\u7A2E\u985E\u306E\u3068\u304D\u306F\u5168\u90E8\u4E00\u81F4\u3055\
+    \u305B\u308B\n    // \u5024\u304C2\u7A2E\u985E\u306E\u3068\u304Dmin == max2 and\
+    \ max == min2\u3067\u3042\u308Amapping\u306E\u969B\u306F\u6CE8\u610F\u304C\u5FC5\
+    \u8981\n    ll sz, szmin, szmax, sum;\n    bool fail;\n    S(ll x, ll sz = 1)\n\
+    \        : min(x), min2(x), max(x), max2(x), sum(x * sz), sz(sz), fail(false),\n\
+    \          szmin(sz), szmax(sz) {};\n    S() = default;\n    bool operator==(const\
+    \ S &other) const {\n        return min == other.min and min2 == other.min2 and\
+    \ max == other.max and\n               max2 == other.max2 and sz == other.sz and\n\
+    \               szmin == other.szmin and szmax == other.szmax and\n          \
+    \     sum == other.sum;\n    }\n};\nS e() {\n    S res(0, 0);\n    res.min = res.min2\
+    \ = inf, res.max = res.max2 = -inf;\n    res.fail = false;\n    return res;\n\
+    };\nvoid chmin2(ll &m, ll &m2, ll val) {\n    if(val < m) {\n        m2 = m, m\
+    \ = val;\n    } else if(m < val and val < m2) {\n        m2 = val;\n    }\n}\n\
+    ll second_lowest(S &a, S &b) {\n    ll m = inf, m2 = inf;\n    chmin2(m, m2, a.min),\
+    \ chmin2(m, m2, a.min2), chmin2(m, m2, b.min),\n        chmin2(m, m2, b.min2);\n\
+    \    return (m2 == inf ? m : m2);\n}\nll second_heighest(S &a, S &b) {\n    ll\
+    \ m = inf, m2 = inf;\n    chmin2(m, m2, -a.max), chmin2(m, m2, -a.max2), chmin2(m,\
+    \ m2, -b.max),\n        chmin2(m, m2, -b.max2);\n    return (m2 == inf ? -m :\
+    \ -m2);\n}\nS op(S a, S b) {\n    if(a.fail)\n        return a;\n    if(b.fail)\n\
+    \        return b;\n    S res;\n    res.min = min(a.min, b.min);\n    res.max\
+    \ = max(a.max, b.max);\n    res.min2 = second_lowest(a, b);\n    res.max2 = second_heighest(a,\
+    \ b);\n    res.sum = a.sum + b.sum;\n    res.sz = a.sz + b.sz;\n    res.szmin\
+    \ = a.szmin * (a.min == res.min) + b.szmin * (b.min == res.min);\n    res.szmax\
+    \ = a.szmax * (a.max == res.max) + b.szmax * (b.max == res.max);\n    return res;\n\
+    }\nstruct F {\n    // min -> max -> add \u306E\u9806\n    ll min, max, add;\n\
+    \    bool operator==(const F &other) const {\n        return min == other.min\
+    \ && max == other.max && add == other.add;\n    }\n};\nF id() { return F(inf,\
+    \ -inf, 0); }\nS mapping(F f, S s) {\n    if(s.fail or f == id())\n        return\
+    \ s;\n    if(s.sz == 1) {\n        ll x = s.min;\n        chmin(x, f.min);\n \
+    \       chmax(x, f.max);\n        x += f.add;\n        return S(x, s.sz);\n  \
+    \  }\n    // f.min\n    if(f.min > s.max2) {\n        // f.min\u3092\u51E6\u7406\
+    \u3067\u304D\u308B\n        ll dif = min(0LL, f.min - s.max);\n        s.sum +=\
+    \ dif * s.szmax;\n        s.max += dif;\n        if(s.min2 + dif == s.max) {\n\
+    \            s.min2 = s.max;\n        }\n    } else if(f.min <= s.min) {\n   \
+    \     // \u5168\u90E8x\n        ll x = max(f.max, f.min) + f.add;\n        return\
+    \ S(x, s.sz);\n    } else {\n        s.fail = true;\n        return s;\n    }\n\
+    \    // f.max\n    if(f.max < s.min2) {\n        ll dif = max(0LL, f.max - s.min);\n\
+    \        s.sum += dif * s.szmin;\n        s.min += dif;\n        if(s.max2 + dif\
+    \ == s.min) {\n            s.max2 = s.min;\n        }\n    } else if(f.max >=\
+    \ s.max) {\n        return S(f.max + f.add, s.sz);\n    } else {\n        s.fail\
+    \ = true;\n        return s;\n    }\n    s.min += f.add, s.min2 += f.add, s.max\
+    \ += f.add, s.max2 += f.add;\n    s.sum += f.add * s.sz;\n    return s;\n}\nF\
+    \ composition(F f, F g) {\n    F res;\n    if(f == id())\n        return g;\n\
+    \    if(g == id())\n        return f;\n    res.min = min(g.min, f.min - g.add);\n\
+    \    res.max = max(g.max, f.max - g.add);\n    if(g.max >= f.min - g.add) {\n\
+    \        res.min = res.max = f.min - g.add;\n    }\n    if(f.max - g.add >= g.min)\
+    \ {\n        res.min = res.max = f.max - g.add;\n    }\n    res.add = f.add +\
+    \ g.add;\n    return res;\n}\nusing segtree = segtree_beats<S, op, e, F, mapping,\
+    \ composition, id>;\n} // namespace RangeChMinMaxAddSum\nusing RangeChMinMaxAddSum::F;\n\
+    using RangeChMinMaxAddSum::S;\nusing RangeChMinMaxAddSum::segtree;\n#line 4 \"\
+    test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp\"\
+    \nvoid solve() {\n    LL(n, q);\n    vector<S> a(n);\n    rep(i, n) {\n      \
+    \  LL(ai);\n        a[i] = S(ai, 1);\n    }\n    segtree seg(a);\n    rep(_, q)\
+    \ {\n        LL(flag, l, r);\n        if(flag == 0) {\n            LL(b);\n  \
+    \          seg.apply(l, r, F(b, -inf, 0));\n        } else if(flag == 1) {\n \
+    \           LL(b);\n            seg.apply(l, r, F(inf, b, 0));\n        } else\
+    \ if(flag == 2) {\n            LL(b);\n            seg.apply(l, r, F(inf, -inf,\
+    \ b));\n        } else {\n            print(seg.prod(l, r).sum);\n        }\n\
+    \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
+  code: "#define PROBLEM                                                         \
+    \       \\\n    \"https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum\"\
+    \n#include \"data_structure/range-chminmaxaddsum-segtree-beats.hpp\"\nvoid solve()\
     \ {\n    LL(n, q);\n    vector<S> a(n);\n    rep(i, n) {\n        LL(ai);\n  \
-    \      a[i] = S(ai);\n    }\n    segtree_beats<S, op, e, F, mapping, composition,\
-    \ id> seg(a);\n    while(q--) {\n        LL(flag);\n        LL(l, r);\n      \
-    \  l--;\n        if(flag == 1) {\n            LL(x);\n            seg.apply(l,\
-    \ r, F(false, true, 0, x));\n        } else if(flag == 2) {\n            LL(x);\n\
-    \            seg.apply(l, r, F(true, false, x, 0));\n        } else if(flag ==\
-    \ 3) {\n            print(seg.prod(l, r).maxi);\n        } else {\n          \
-    \  print(seg.prod(l, r).sum);\n        }\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    ll t = 1;\n    rep(_, t) solve();\n}\n"
+    \      a[i] = S(ai, 1);\n    }\n    segtree seg(a);\n    rep(_, q) {\n       \
+    \ LL(flag, l, r);\n        if(flag == 0) {\n            LL(b);\n            seg.apply(l,\
+    \ r, F(b, -inf, 0));\n        } else if(flag == 1) {\n            LL(b);\n   \
+    \         seg.apply(l, r, F(inf, b, 0));\n        } else if(flag == 2) {\n   \
+    \         LL(b);\n            seg.apply(l, r, F(inf, -inf, b));\n        } else\
+    \ {\n            print(seg.prod(l, r).sum);\n        }\n    }\n}\nint main() {\n\
+    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
+    }\n"
   dependsOn:
+  - data_structure/range-chminmaxaddsum-segtree-beats.hpp
   - data_structure/segtree-beats.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/yukicoder/880.test.cpp
+  path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   requiredBy: []
   timestamp: '2024-12-17 16:58:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/yukicoder/880.test.cpp
+documentation_of: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
 layout: document
 redirect_from:
-- /verify/test/yukicoder/880.test.cpp
-- /verify/test/yukicoder/880.test.cpp.html
-title: test/yukicoder/880.test.cpp
+- /verify/test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
+- /verify/test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp.html
+title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
 ---
