@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc113_c.test.cpp
     title: test/atcoder/abc113_c.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://ei1333.github.io/library/other/compress.hpp
@@ -78,12 +78,13 @@ data:
     \    }\n    void add(const vector<T> &v) {\n        for(auto x : v)\n        \
     \    add(x);\n    }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
     \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
-    \    }\n    ll get(const T &x) const {\n        assert(is_built);\n        ll\
-    \ res = lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
-    \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
-    \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
-    \  return data[t];\n    }\n    ll size() {\n        return ssize(data);\n    }\n\
-    };\n"
+    \    }\n    ll get(const T &x) const {\n        // x \u4EE5\u4E0A\u3068\u306A\u308B\
+    \u6700\u5C0F\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\u30B9\u3092\u8FD4\u3059\n   \
+    \     assert(is_built);\n        ll res = lower_bound(data.begin(), data.end(),\
+    \ x) - data.begin();\n        return res;\n    }\n    const T &operator[](size_t\
+    \ t) {\n        assert(is_built);\n        assert(0 <= t and t < ssize(data));\n\
+    \        return data[t];\n    }\n    ll size() {\n        return ssize(data);\n\
+    \    }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/other/compress.hpp\n\
     template <class T> struct Compress {\n    bool is_built = false;\n    vector<T>\
     \ data;\n    Compress() = default;\n    Compress(const vector<T> &v) {\n     \
@@ -91,9 +92,10 @@ data:
     \      data.push_back(x);\n    }\n    void add(const vector<T> &v) {\n       \
     \ for(auto x : v)\n            add(x);\n    }\n    void build() {\n        is_built\
     \ = true;\n        sort(data.begin(), data.end());\n        data.erase(unique(data.begin(),\
-    \ data.end()), data.end());\n    }\n    ll get(const T &x) const {\n        assert(is_built);\n\
-    \        ll res = lower_bound(data.begin(), data.end(), x) - data.begin();\n \
-    \       assert(data[res] == x);\n        return res;\n    }\n    const T &operator[](size_t\
+    \ data.end()), data.end());\n    }\n    ll get(const T &x) const {\n        //\
+    \ x \u4EE5\u4E0A\u3068\u306A\u308B\u6700\u5C0F\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\
+    \u30B9\u3092\u8FD4\u3059\n        assert(is_built);\n        ll res = lower_bound(data.begin(),\
+    \ data.end(), x) - data.begin();\n        return res;\n    }\n    const T &operator[](size_t\
     \ t) {\n        assert(is_built);\n        assert(0 <= t and t < ssize(data));\n\
     \        return data[t];\n    }\n    ll size() {\n        return ssize(data);\n\
     \    }\n};"
@@ -102,8 +104,8 @@ data:
   isVerificationFile: false
   path: data_structure/compress.hpp
   requiredBy: []
-  timestamp: '2024-12-03 17:41:14+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-12-18 01:36:01+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/atcoder/abc113_c.test.cpp
 documentation_of: data_structure/compress.hpp

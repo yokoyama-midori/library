@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/compress.hpp
     title: data_structure/compress.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc113/tasks/abc113_c
@@ -81,18 +81,20 @@ data:
     \    }\n    void add(const vector<T> &v) {\n        for(auto x : v)\n        \
     \    add(x);\n    }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
     \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
-    \    }\n    ll get(const T &x) const {\n        assert(is_built);\n        ll\
-    \ res = lower_bound(data.begin(), data.end(), x) - data.begin();\n        assert(data[res]\
-    \ == x);\n        return res;\n    }\n    const T &operator[](size_t t) {\n  \
-    \      assert(is_built);\n        assert(0 <= t and t < ssize(data));\n      \
-    \  return data[t];\n    }\n    ll size() {\n        return ssize(data);\n    }\n\
-    };\n#line 3 \"test/atcoder/abc113_c.test.cpp\"\nstring make_str(ll n) {\n    string\
-    \ suf = to_string(n);\n    string res;\n    rep(i, 6 - ssize(suf)) { res += '0';\
-    \ }\n    res += suf;\n    return res;\n}\nvoid solve() {\n    LL(n, m);\n    vector<Compress<int>>\
-    \ vc(n + 1);\n    vector<int> p(m), y(m);\n    rep(i, m) {\n        cin >> p[i]\
-    \ >> y[i];\n        vc[p[i]].add(y[i]);\n    }\n    rep(i, n + 1) { vc[i].build();\
-    \ }\n    rep(i, m) {\n        string ans = make_str(p[i]);\n        ans += make_str(vc[p[i]].get(y[i])\
-    \ + 1);\n        cout << ans << \"\\n\";\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    }\n    ll get(const T &x) const {\n        // x \u4EE5\u4E0A\u3068\u306A\u308B\
+    \u6700\u5C0F\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\u30B9\u3092\u8FD4\u3059\n   \
+    \     assert(is_built);\n        ll res = lower_bound(data.begin(), data.end(),\
+    \ x) - data.begin();\n        return res;\n    }\n    const T &operator[](size_t\
+    \ t) {\n        assert(is_built);\n        assert(0 <= t and t < ssize(data));\n\
+    \        return data[t];\n    }\n    ll size() {\n        return ssize(data);\n\
+    \    }\n};\n#line 3 \"test/atcoder/abc113_c.test.cpp\"\nstring make_str(ll n)\
+    \ {\n    string suf = to_string(n);\n    string res;\n    rep(i, 6 - ssize(suf))\
+    \ { res += '0'; }\n    res += suf;\n    return res;\n}\nvoid solve() {\n    LL(n,\
+    \ m);\n    vector<Compress<int>> vc(n + 1);\n    vector<int> p(m), y(m);\n   \
+    \ rep(i, m) {\n        cin >> p[i] >> y[i];\n        vc[p[i]].add(y[i]);\n   \
+    \ }\n    rep(i, n + 1) { vc[i].build(); }\n    rep(i, m) {\n        string ans\
+    \ = make_str(p[i]);\n        ans += make_str(vc[p[i]].get(y[i]) + 1);\n      \
+    \  cout << ans << \"\\n\";\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc113/tasks/abc113_c\"\n#include\
     \ \"data_structure/compress.hpp\"\nstring make_str(ll n) {\n    string suf = to_string(n);\n\
@@ -109,8 +111,8 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc113_c.test.cpp
   requiredBy: []
-  timestamp: '2024-12-03 17:41:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-12-18 01:36:01+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/abc113_c.test.cpp
 layout: document
