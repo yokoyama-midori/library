@@ -1,3 +1,4 @@
+#pragma once
 #include "template.hpp"
 // https://rsm9.hatenablog.com/entry/2021/02/01/220408
 
