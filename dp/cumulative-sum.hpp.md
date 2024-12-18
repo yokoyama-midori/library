@@ -6,7 +6,7 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc373_e.test.cpp
     title: test/atcoder/abc373_e.test.cpp
   - icon: ':heavy_check_mark:'
@@ -15,9 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/2092.test.cpp
     title: test/yukicoder/2092.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://ei1333.github.io/library/dp/cumulative-sum.hpp
@@ -80,37 +80,48 @@ data:
     \n// https://ei1333.github.io/library/dp/cumulative-sum.hpp\ntemplate <class T\
     \ = long long> struct CumulativeSum {\n    bool is_built = false;\n    size_t\
     \ sz;\n    vector<T> data;\n    CumulativeSum(size_t maxi) : sz(maxi + 1), data(maxi\
-    \ + 1, 0) {}\n    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n\
-    \        data[x + 1] += dx;\n        is_built = false;\n    }\n    void build()\
-    \ {\n        is_built = true;\n        rep(i, sz - 1) { data[i + 1] += data[i];\
-    \ }\n    }\n    T sum(ll r) {\n        // \u533A\u9593[0,r)\u306E\u548C\n    \
-    \    assert(0 <= r and r < sz);\n        return data[r];\n    }\n    T sum(ll\
-    \ l, ll r) {\n        // \u533A\u9593[l,r)\u306E\u548C\n        assert(0 <= l\
-    \ and l <= r and r < sz);\n        return sum(r) - sum(l);\n    }\n    T all_sum()\
-    \ { return data.back(); }\n    const T operator[](size_t t) {\n        // \"\u7D2F\
-    \u7A4D\u548C\u3092\u3068\u308B\u524D\u306E\" t \u3067\u306E\u5024\n        assert(0\
-    \ <= t and t < sz);\n        return data[t + 1] - data[t];\n    }\n};\n"
+    \ + 1, 0) {}\n    CumulativeSum(const vector<T> &v) : sz(v.size() + 1) {\n   \
+    \     data = {T(0)};\n        data.reserve(sz);\n        for(auto &&x : v) {\n\
+    \            data.push_back(data.back() + x);\n        }\n        is_built = true;\n\
+    \    }\n    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n \
+    \       data[x + 1] += dx;\n        is_built = false;\n    }\n    void build()\
+    \ {\n        if(is_built)\n            return;\n        is_built = true;\n   \
+    \     rep(i, sz - 1) { data[i + 1] += data[i]; }\n    }\n    T sum(ll r) {\n \
+    \       // \u533A\u9593[0,r)\u306E\u548C\n        assert(0 <= r and r < sz);\n\
+    \        assert(is_built);\n        return data[r];\n    }\n    T sum(ll l, ll\
+    \ r) {\n        // \u533A\u9593[l,r)\u306E\u548C\n        assert(is_built);\n\
+    \        assert(0 <= l and l <= r and r < sz);\n        return sum(r) - sum(l);\n\
+    \    }\n    T all_sum() {\n        assert(is_built);\n        return data.back();\n\
+    \    }\n    const T operator[](size_t t) {\n        // \"\u7D2F\u7A4D\u548C\u3092\
+    \u3068\u308B\u524D\u306E\" t \u3067\u306E\u5024\n        assert(0 <= t and t <\
+    \ sz);\n        assert(is_built);\n        return data[t + 1] - data[t];\n   \
+    \ }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/dp/cumulative-sum.hpp\n\
     template <class T = long long> struct CumulativeSum {\n    bool is_built = false;\n\
     \    size_t sz;\n    vector<T> data;\n    CumulativeSum(size_t maxi) : sz(maxi\
-    \ + 1), data(maxi + 1, 0) {}\n    void add(size_t x, T dx) {\n        assert(0\
-    \ <= x and x < sz);\n        data[x + 1] += dx;\n        is_built = false;\n \
-    \   }\n    void build() {\n        is_built = true;\n        rep(i, sz - 1) {\
-    \ data[i + 1] += data[i]; }\n    }\n    T sum(ll r) {\n        // \u533A\u9593\
-    [0,r)\u306E\u548C\n        assert(0 <= r and r < sz);\n        return data[r];\n\
-    \    }\n    T sum(ll l, ll r) {\n        // \u533A\u9593[l,r)\u306E\u548C\n  \
-    \      assert(0 <= l and l <= r and r < sz);\n        return sum(r) - sum(l);\n\
-    \    }\n    T all_sum() { return data.back(); }\n    const T operator[](size_t\
-    \ t) {\n        // \"\u7D2F\u7A4D\u548C\u3092\u3068\u308B\u524D\u306E\" t \u3067\
-    \u306E\u5024\n        assert(0 <= t and t < sz);\n        return data[t + 1] -\
-    \ data[t];\n    }\n};"
+    \ + 1), data(maxi + 1, 0) {}\n    CumulativeSum(const vector<T> &v) : sz(v.size()\
+    \ + 1) {\n        data = {T(0)};\n        data.reserve(sz);\n        for(auto\
+    \ &&x : v) {\n            data.push_back(data.back() + x);\n        }\n      \
+    \  is_built = true;\n    }\n    void add(size_t x, T dx) {\n        assert(0 <=\
+    \ x and x < sz);\n        data[x + 1] += dx;\n        is_built = false;\n    }\n\
+    \    void build() {\n        if(is_built)\n            return;\n        is_built\
+    \ = true;\n        rep(i, sz - 1) { data[i + 1] += data[i]; }\n    }\n    T sum(ll\
+    \ r) {\n        // \u533A\u9593[0,r)\u306E\u548C\n        assert(0 <= r and r\
+    \ < sz);\n        assert(is_built);\n        return data[r];\n    }\n    T sum(ll\
+    \ l, ll r) {\n        // \u533A\u9593[l,r)\u306E\u548C\n        assert(is_built);\n\
+    \        assert(0 <= l and l <= r and r < sz);\n        return sum(r) - sum(l);\n\
+    \    }\n    T all_sum() {\n        assert(is_built);\n        return data.back();\n\
+    \    }\n    const T operator[](size_t t) {\n        // \"\u7D2F\u7A4D\u548C\u3092\
+    \u3068\u308B\u524D\u306E\" t \u3067\u306E\u5024\n        assert(0 <= t and t <\
+    \ sz);\n        assert(is_built);\n        return data[t + 1] - data[t];\n   \
+    \ }\n};"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: dp/cumulative-sum.hpp
   requiredBy: []
-  timestamp: '2024-12-06 18:12:40+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-12-18 14:40:24+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
   - test/atcoder/abc373_e.test.cpp

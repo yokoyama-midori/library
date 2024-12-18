@@ -26,7 +26,7 @@ data:
       title: data_structure/slope-trick.hpp
   - name: dp
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: dp/cumulative-sum.hpp
       title: dp/cumulative-sum.hpp
   - name: geometry
@@ -113,7 +113,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc369_c.test.cpp
       title: test/atcoder/abc369_c.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/atcoder/abc373_e.test.cpp
       title: test/atcoder/abc373_e.test.cpp
     - icon: ':heavy_check_mark:'

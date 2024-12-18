@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc373/tasks/abc373_e
@@ -77,34 +77,39 @@ data:
     \n// https://ei1333.github.io/library/dp/cumulative-sum.hpp\ntemplate <class T\
     \ = long long> struct CumulativeSum {\n    bool is_built = false;\n    size_t\
     \ sz;\n    vector<T> data;\n    CumulativeSum(size_t maxi) : sz(maxi + 1), data(maxi\
-    \ + 1, 0) {}\n    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n\
-    \        data[x + 1] += dx;\n        is_built = false;\n    }\n    void build()\
-    \ {\n        is_built = true;\n        rep(i, sz - 1) { data[i + 1] += data[i];\
-    \ }\n    }\n    T sum(ll r) {\n        // \u533A\u9593[0,r)\u306E\u548C\n    \
-    \    assert(0 <= r and r < sz);\n        return data[r];\n    }\n    T sum(ll\
-    \ l, ll r) {\n        // \u533A\u9593[l,r)\u306E\u548C\n        assert(0 <= l\
-    \ and l <= r and r < sz);\n        return sum(r) - sum(l);\n    }\n    T all_sum()\
-    \ { return data.back(); }\n    const T operator[](size_t t) {\n        // \"\u7D2F\
-    \u7A4D\u548C\u3092\u3068\u308B\u524D\u306E\" t \u3067\u306E\u5024\n        assert(0\
-    \ <= t and t < sz);\n        return data[t + 1] - data[t];\n    }\n};\n#line 4\
-    \ \"test/atcoder/abc373_e.test.cpp\"\nvoid solve() {\n    LL(n, m, k);\n    vl\
-    \ a(n), ord(n);\n    iota(all(ord), 0);\n    input(a);\n    sort(all(ord), [&a](ll\
-    \ i, ll j) { return a[i] < a[j]; });\n    CumulativeSum<ll> cs(n);\n    rep(i,\
-    \ n) { cs.add(i, a[ord[i]]); }\n    sort(all(a));\n    cs.build();\n    auto check\
-    \ = [&](ll i, ll plus) {\n        if(n == m)\n            return true;\n     \
-    \   ll x = cs[i] + plus;\n        ll cnt = upper_bound(all(a), x) - begin(a);\n\
-    \        // x+1 \u4EE5\u4E0A\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\u30B9\n     \
-    \   if(n - cnt >= m) {\n            return false;\n        }\n        if(i >=\
-    \ n - m) {\n            ll ness = cs.sum(0, n - m - 1) + (x + 1) * (cnt - (n -\
-    \ m - 1)) +\n                      cs.sum(cnt, n);\n            ness--;\n    \
-    \        return ness > k;\n        } else {\n            ll ness = cs.sum(0, n\
-    \ - m) + (x + 1) * (cnt - (n - m)) +\n                      cs.sum(cnt, n) + plus;\n\
-    \            return ness > k;\n        }\n    };\n    vl ans(n);\n    rep(i, n)\
-    \ {\n        if(!check(i, k - cs.all_sum())) {\n            ans[ord[i]] = -1;\n\
-    \            continue;\n        }\n        ll ok = k - cs.all_sum(), ng = -1;\n\
-    \        while(ok > ng + 1) {\n            ll mid = (ok + ng) / 2;\n         \
-    \   if(check(i, mid)) {\n                ok = mid;\n            } else\n     \
-    \           ng = mid;\n        }\n        ans[ord[i]] = ok;\n    }\n    print(ans);\n\
+    \ + 1, 0) {}\n    CumulativeSum(const vector<T> &v) : sz(v.size() + 1) {\n   \
+    \     data = {T(0)};\n        data.reserve(sz);\n        for(auto &&x : v) {\n\
+    \            data.push_back(data.back() + x);\n        }\n        is_built = true;\n\
+    \    }\n    void add(size_t x, T dx) {\n        assert(0 <= x and x < sz);\n \
+    \       data[x + 1] += dx;\n        is_built = false;\n    }\n    void build()\
+    \ {\n        if(is_built)\n            return;\n        is_built = true;\n   \
+    \     rep(i, sz - 1) { data[i + 1] += data[i]; }\n    }\n    T sum(ll r) {\n \
+    \       // \u533A\u9593[0,r)\u306E\u548C\n        assert(0 <= r and r < sz);\n\
+    \        assert(is_built);\n        return data[r];\n    }\n    T sum(ll l, ll\
+    \ r) {\n        // \u533A\u9593[l,r)\u306E\u548C\n        assert(is_built);\n\
+    \        assert(0 <= l and l <= r and r < sz);\n        return sum(r) - sum(l);\n\
+    \    }\n    T all_sum() {\n        assert(is_built);\n        return data.back();\n\
+    \    }\n    const T operator[](size_t t) {\n        // \"\u7D2F\u7A4D\u548C\u3092\
+    \u3068\u308B\u524D\u306E\" t \u3067\u306E\u5024\n        assert(0 <= t and t <\
+    \ sz);\n        assert(is_built);\n        return data[t + 1] - data[t];\n   \
+    \ }\n};\n#line 4 \"test/atcoder/abc373_e.test.cpp\"\nvoid solve() {\n    LL(n,\
+    \ m, k);\n    vl a(n), ord(n);\n    iota(all(ord), 0);\n    input(a);\n    sort(all(ord),\
+    \ [&a](ll i, ll j) { return a[i] < a[j]; });\n    CumulativeSum<ll> cs(n);\n \
+    \   rep(i, n) { cs.add(i, a[ord[i]]); }\n    sort(all(a));\n    cs.build();\n\
+    \    auto check = [&](ll i, ll plus) {\n        if(n == m)\n            return\
+    \ true;\n        ll x = cs[i] + plus;\n        ll cnt = upper_bound(all(a), x)\
+    \ - begin(a);\n        // x+1 \u4EE5\u4E0A\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\
+    \u30B9\n        if(n - cnt >= m) {\n            return false;\n        }\n   \
+    \     if(i >= n - m) {\n            ll ness = cs.sum(0, n - m - 1) + (x + 1) *\
+    \ (cnt - (n - m - 1)) +\n                      cs.sum(cnt, n);\n            ness--;\n\
+    \            return ness > k;\n        } else {\n            ll ness = cs.sum(0,\
+    \ n - m) + (x + 1) * (cnt - (n - m)) +\n                      cs.sum(cnt, n) +\
+    \ plus;\n            return ness > k;\n        }\n    };\n    vl ans(n);\n   \
+    \ rep(i, n) {\n        if(!check(i, k - cs.all_sum())) {\n            ans[ord[i]]\
+    \ = -1;\n            continue;\n        }\n        ll ok = k - cs.all_sum(), ng\
+    \ = -1;\n        while(ok > ng + 1) {\n            ll mid = (ok + ng) / 2;\n \
+    \           if(check(i, mid)) {\n                ok = mid;\n            } else\n\
+    \                ng = mid;\n        }\n        ans[ord[i]] = ok;\n    }\n    print(ans);\n\
     }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc373/tasks/abc373_e\"\n#include\
@@ -134,8 +139,8 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc373_e.test.cpp
   requiredBy: []
-  timestamp: '2024-12-06 18:12:40+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-12-18 14:40:24+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/abc373_e.test.cpp
 layout: document
