@@ -56,6 +56,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/pollard_rho.hpp
       title: math/pollard_rho.hpp
+  - name: number-theory
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: number-theory/enumerate-primes.hpp
+      title: number-theory/enumerate-primes.hpp
   - name: poly
     pages:
     - icon: ':heavy_check_mark:'
@@ -185,6 +190,9 @@ data:
       title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - name: test/library_checker/number_theory
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/number_theory/enumerate_primes.test.cpp
+      title: test/library_checker/number_theory/enumerate_primes.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/factorize.test.cpp
       title: test/library_checker/number_theory/factorize.test.cpp

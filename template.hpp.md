@@ -48,6 +48,9 @@ data:
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
   - icon: ':heavy_check_mark:'
+    path: number-theory/enumerate-primes.hpp
+    title: number-theory/enumerate-primes.hpp
+  - icon: ':heavy_check_mark:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
   - icon: ':heavy_check_mark:'
@@ -153,6 +156,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
     title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/number_theory/enumerate_primes.test.cpp
+    title: test/library_checker/number_theory/enumerate_primes.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
@@ -332,6 +338,7 @@ data:
   - math/factorial.hpp
   - math/factorial_large.hpp
   - math/miller_rabin.hpp
+  - number-theory/enumerate-primes.hpp
   - data_structure/slope-trick.hpp
   - data_structure/range-chminmaxaddsum-segtree-beats.hpp
   - data_structure/hash-map-variable-length.hpp
@@ -346,6 +353,7 @@ data:
   timestamp: '2024-12-02 02:31:35+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/library_checker/number_theory/enumerate_primes.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
