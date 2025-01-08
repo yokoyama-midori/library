@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: number-theory/divisor-multiple-transform.hpp
     title: number-theory/divisor-multiple-transform.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number-theory/enumerate-primes.hpp
     title: number-theory/enumerate-primes.hpp
   - icon: ':question:'
@@ -12,12 +12,12 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/lcm_convolution.test.cpp
     title: test/library_checker/number_theory/lcm_convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -115,7 +115,7 @@ data:
   path: number-theory/lcm-convolution.hpp
   requiredBy: []
   timestamp: '2025-01-08 13:17:27+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/lcm_convolution.test.cpp
 documentation_of: number-theory/lcm-convolution.hpp

@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: number-theory/divisor-multiple-transform.hpp
     title: number-theory/divisor-multiple-transform.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number-theory/enumerate-primes.hpp
     title: number-theory/enumerate-primes.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: number-theory/gcd-convolution.hpp
     title: number-theory/gcd-convolution.hpp
   - icon: ':question:'
@@ -15,16 +15,16 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/primality_test
+    PROBLEM: https://judge.yosupo.jp/problem/gcd_convolution
     links:
-    - https://judge.yosupo.jp/problem/primality_test
+    - https://judge.yosupo.jp/problem/gcd_convolution
   bundledCode: "#line 1 \"test/library_checker/number_theory/gcd_convolution.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#line 2\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/gcd_convolution\"\n#line 2\
     \ \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -115,7 +115,7 @@ data:
     \ bi;\n    }\n    auto c = gcd_convolution(a, b);\n    rep1(i, n) {\n        cout\
     \ << c[i].val() << \" \\n\"[i == n];\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#include\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/gcd_convolution\"\n#include\
     \ \"number-theory/gcd-convolution.hpp\"\n#include \"template.hpp\"\n#include <atcoder/modint>\n\
     using mint = atcoder::modint998244353;\nvoid solve() {\n    LL(n);\n    vector<mint>\
     \ a(n + 1), b(n + 1);\n    rep1(i, n) {\n        LL(ai);\n        a[i] = ai;\n\
@@ -131,8 +131,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/number_theory/gcd_convolution.test.cpp
   requiredBy: []
-  timestamp: '2025-01-08 13:17:27+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-01-08 13:22:57+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/gcd_convolution.test.cpp
 layout: document

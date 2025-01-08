@@ -58,16 +58,16 @@ data:
       title: math/pollard_rho.hpp
   - name: number-theory
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: number-theory/divisor-multiple-transform.hpp
       title: number-theory/divisor-multiple-transform.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: number-theory/enumerate-primes.hpp
       title: number-theory/enumerate-primes.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: number-theory/gcd-convolution.hpp
       title: number-theory/gcd-convolution.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: number-theory/lcm-convolution.hpp
       title: number-theory/lcm-convolution.hpp
   - name: poly
@@ -205,10 +205,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/factorize.test.cpp
       title: test/library_checker/number_theory/factorize.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/gcd_convolution.test.cpp
       title: test/library_checker/number_theory/gcd_convolution.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/lcm_convolution.test.cpp
       title: test/library_checker/number_theory/lcm_convolution.test.cpp
     - icon: ':heavy_check_mark:'
