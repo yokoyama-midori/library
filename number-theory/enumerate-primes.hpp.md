@@ -4,14 +4,29 @@ data:
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: number-theory/divisor-multiple-transform.hpp
+    title: number-theory/divisor-multiple-transform.hpp
+  - icon: ':x:'
+    path: number-theory/gcd-convolution.hpp
+    title: number-theory/gcd-convolution.hpp
+  - icon: ':x:'
+    path: number-theory/lcm-convolution.hpp
+    title: number-theory/lcm-convolution.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/enumerate_primes.test.cpp
     title: test/library_checker/number_theory/enumerate_primes.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/library_checker/number_theory/gcd_convolution.test.cpp
+    title: test/library_checker/number_theory/gcd_convolution.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/number_theory/lcm_convolution.test.cpp
+    title: test/library_checker/number_theory/lcm_convolution.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://nyaannyaan.github.io/library/prime/prime-enumerate.hpp
@@ -83,7 +98,7 @@ data:
     \ = {2, 3};\n    for(int i = 1, p = 5, d = 4; p <= n; i++, p += d = 6 - d) {\n\
     \        if(sieve[i]) {\n            primes.emplace_back(p);\n        }\n    }\n\
     \    return primes;\n}\n"
-  code: "#pragma once;\n#include \"template.hpp\"\n// https://nyaannyaan.github.io/library/prime/prime-enumerate.hpp\n\
+  code: "#pragma once\n#include \"template.hpp\"\n// https://nyaannyaan.github.io/library/prime/prime-enumerate.hpp\n\
     template <class T = int> vector<T> enumerate_primes(int n) {\n    // Returns primes\
     \ less than or equal to n in ascending order\n    if(n < 2)\n        return {};\n\
     \    if(n < 3)\n        return {2};\n    vector<bool> sieve(n / 3 + 1, true);\n\
@@ -99,11 +114,16 @@ data:
   - template.hpp
   isVerificationFile: false
   path: number-theory/enumerate-primes.hpp
-  requiredBy: []
-  timestamp: '2025-01-08 01:23:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  requiredBy:
+  - number-theory/gcd-convolution.hpp
+  - number-theory/lcm-convolution.hpp
+  - number-theory/divisor-multiple-transform.hpp
+  timestamp: '2025-01-08 13:17:27+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/enumerate_primes.test.cpp
+  - test/library_checker/number_theory/gcd_convolution.test.cpp
+  - test/library_checker/number_theory/lcm_convolution.test.cpp
 documentation_of: number-theory/enumerate-primes.hpp
 layout: document
 redirect_from:

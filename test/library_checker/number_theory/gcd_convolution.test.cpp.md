@@ -1,25 +1,31 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':x:'
+    path: number-theory/divisor-multiple-transform.hpp
+    title: number-theory/divisor-multiple-transform.hpp
   - icon: ':question:'
     path: number-theory/enumerate-primes.hpp
     title: number-theory/enumerate-primes.hpp
+  - icon: ':x:'
+    path: number-theory/gcd-convolution.hpp
+    title: number-theory/gcd-convolution.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/enumerate_primes
+    PROBLEM: https://judge.yosupo.jp/problem/primality_test
     links:
-    - https://judge.yosupo.jp/problem/enumerate_primes
-  bundledCode: "#line 1 \"test/library_checker/number_theory/enumerate_primes.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_primes\"\n#line\
-    \ 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    - https://judge.yosupo.jp/problem/primality_test
+  bundledCode: "#line 1 \"test/library_checker/number_theory/gcd_convolution.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#line 2\
+    \ \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
     \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
@@ -86,32 +92,52 @@ data:
     \ p) {\n            sieve[q / 3] = false;\n        }\n    }\n    vector<T> primes\
     \ = {2, 3};\n    for(int i = 1, p = 5, d = 4; p <= n; i++, p += d = 6 - d) {\n\
     \        if(sieve[i]) {\n            primes.emplace_back(p);\n        }\n    }\n\
-    \    return primes;\n}\n#line 4 \"test/library_checker/number_theory/enumerate_primes.test.cpp\"\
-    \nvoid solve() {\n    LL(n, a, b);\n    auto primes = enumerate_primes(n);\n \
-    \   vector<int> ans;\n    for(int i = b; i < primes.size(); i += a) {\n      \
-    \  ans.emplace_back(primes[i]);\n    }\n    print(primes.size(), ans.size());\n\
-    \    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_primes\"\n#include\
-    \ \"number-theory/enumerate-primes.hpp\"\n#include \"template.hpp\"\nvoid solve()\
-    \ {\n    LL(n, a, b);\n    auto primes = enumerate_primes(n);\n    vector<int>\
-    \ ans;\n    for(int i = b; i < primes.size(); i += a) {\n        ans.emplace_back(primes[i]);\n\
-    \    }\n    print(primes.size(), ans.size());\n    print(ans);\n}\nint main()\
-    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
-    }\n"
+    \    return primes;\n}\n#line 4 \"number-theory/divisor-multiple-transform.hpp\"\
+    \ntemplate <class mint> void divisor_zeta(vector<mint> &a) {\n    // a = {0,a_1,...,a_n};\n\
+    \    int n = ssize(a) - 1;\n    for(auto &p : enumerate_primes(n)) {\n       \
+    \ for(int i = 1; i * p <= n; i++) {\n            a[i * p] += a[i];\n        }\n\
+    \    }\n}\ntemplate <class mint> void divisor_mebius(vector<mint> &a) {\n    int\
+    \ n = ssize(a) - 1;\n    for(auto &p : enumerate_primes(n)) {\n        for(int\
+    \ i = n / p; i > 0; i--) {\n            a[i * p] -= a[i];\n        }\n    }\n\
+    }\ntemplate <class mint> void multiple_zeta(vector<mint> &a) {\n    int n = ssize(a)\
+    \ - 1;\n    for(auto &p : enumerate_primes(n)) {\n        for(int i = n / p; i\
+    \ > 0; i--) {\n            a[i] += a[i * p];\n        }\n    }\n}\ntemplate <class\
+    \ mint> void multiple_mebius(vector<mint> &a) {\n    int n = ssize(a) - 1;\n \
+    \   for(auto &p : enumerate_primes(n)) {\n        for(int i = 1; i * p <= n; i++)\
+    \ {\n            a[i] -= a[i * p];\n        }\n    }\n}\n#line 3 \"number-theory/gcd-convolution.hpp\"\
+    \ntemplate <class T> vector<T> gcd_convolution(vector<T> a, vector<T> b) {\n \
+    \   assert(a.size() == b.size());\n    multiple_zeta(a);\n    multiple_zeta(b);\n\
+    \    rep(i, a.size()) a[i] *= b[i];\n    multiple_mebius(a);\n    return a;\n\
+    }\n#line 4 \"test/library_checker/number_theory/gcd_convolution.test.cpp\"\n#include\
+    \ <atcoder/modint>\nusing mint = atcoder::modint998244353;\nvoid solve() {\n \
+    \   LL(n);\n    vector<mint> a(n + 1), b(n + 1);\n    rep1(i, n) {\n        LL(ai);\n\
+    \        a[i] = ai;\n    }\n    rep1(i, n) {\n        LL(bi);\n        b[i] =\
+    \ bi;\n    }\n    auto c = gcd_convolution(a, b);\n    rep1(i, n) {\n        cout\
+    \ << c[i].val() << \" \\n\"[i == n];\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#include\
+    \ \"number-theory/gcd-convolution.hpp\"\n#include \"template.hpp\"\n#include <atcoder/modint>\n\
+    using mint = atcoder::modint998244353;\nvoid solve() {\n    LL(n);\n    vector<mint>\
+    \ a(n + 1), b(n + 1);\n    rep1(i, n) {\n        LL(ai);\n        a[i] = ai;\n\
+    \    }\n    rep1(i, n) {\n        LL(bi);\n        b[i] = bi;\n    }\n    auto\
+    \ c = gcd_convolution(a, b);\n    rep1(i, n) {\n        cout << c[i].val() <<\
+    \ \" \\n\"[i == n];\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   dependsOn:
+  - number-theory/gcd-convolution.hpp
+  - number-theory/divisor-multiple-transform.hpp
   - number-theory/enumerate-primes.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/library_checker/number_theory/enumerate_primes.test.cpp
+  path: test/library_checker/number_theory/gcd_convolution.test.cpp
   requiredBy: []
   timestamp: '2025-01-08 13:17:27+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/library_checker/number_theory/enumerate_primes.test.cpp
+documentation_of: test/library_checker/number_theory/gcd_convolution.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/number_theory/enumerate_primes.test.cpp
-- /verify/test/library_checker/number_theory/enumerate_primes.test.cpp.html
-title: test/library_checker/number_theory/enumerate_primes.test.cpp
+- /verify/test/library_checker/number_theory/gcd_convolution.test.cpp
+- /verify/test/library_checker/number_theory/gcd_convolution.test.cpp.html
+title: test/library_checker/number_theory/gcd_convolution.test.cpp
 ---

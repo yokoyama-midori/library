@@ -47,9 +47,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: number-theory/divisor-multiple-transform.hpp
+    title: number-theory/divisor-multiple-transform.hpp
+  - icon: ':question:'
     path: number-theory/enumerate-primes.hpp
     title: number-theory/enumerate-primes.hpp
+  - icon: ':x:'
+    path: number-theory/gcd-convolution.hpp
+    title: number-theory/gcd-convolution.hpp
+  - icon: ':x:'
+    path: number-theory/lcm-convolution.hpp
+    title: number-theory/lcm-convolution.hpp
   - icon: ':heavy_check_mark:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
@@ -162,6 +171,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/number_theory/gcd_convolution.test.cpp
+    title: test/library_checker/number_theory/gcd_convolution.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/number_theory/lcm_convolution.test.cpp
+    title: test/library_checker/number_theory/lcm_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primality_test.test.cpp
     title: test/library_checker/number_theory/primality_test.test.cpp
@@ -338,7 +353,10 @@ data:
   - math/factorial.hpp
   - math/factorial_large.hpp
   - math/miller_rabin.hpp
+  - number-theory/gcd-convolution.hpp
+  - number-theory/lcm-convolution.hpp
   - number-theory/enumerate-primes.hpp
+  - number-theory/divisor-multiple-transform.hpp
   - data_structure/slope-trick.hpp
   - data_structure/range-chminmaxaddsum-segtree-beats.hpp
   - data_structure/hash-map-variable-length.hpp
@@ -355,6 +373,8 @@ data:
   verifiedWith:
   - test/library_checker/number_theory/enumerate_primes.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
+  - test/library_checker/number_theory/gcd_convolution.test.cpp
+  - test/library_checker/number_theory/lcm_convolution.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
