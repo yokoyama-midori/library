@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 #include "template.hpp"
 // https://nyaannyaan.github.io/library/prime/prime-enumerate.hpp
 template <class T = int> vector<T> enumerate_primes(int n) {
