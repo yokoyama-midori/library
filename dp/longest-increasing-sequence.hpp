@@ -4,6 +4,9 @@ template <class T>
 vector<int> longest_increasing_sequence(const vector<T> &a,
                                         bool strong = true) {
     int n = ssize(a);
+    if(n == 0) {
+        return {};
+    }
     T infty = numeric_limits<T>::max();
     vector<T> dp(n, infty);
     vector<int> idx(n, -1);
