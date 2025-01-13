@@ -29,6 +29,9 @@ data:
     - icon: ':question:'
       path: dp/cumulative-sum.hpp
       title: dp/cumulative-sum.hpp
+    - icon: ':heavy_check_mark:'
+      path: dp/longest-increasing-sequence.hpp
+      title: dp/longest-increasing-sequence.hpp
   - name: geometry
     pages:
     - icon: ':heavy_check_mark:'
@@ -219,6 +222,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/other/longest_increasing_subsequence.test.cpp
+      title: test/library_checker/other/longest_increasing_subsequence.test.cpp
   - name: test/library_checker/polynomial
     pages:
     - icon: ':heavy_check_mark:'

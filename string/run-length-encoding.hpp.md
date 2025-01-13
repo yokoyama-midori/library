@@ -94,9 +94,9 @@ data:
   timestamp: '2024-12-07 20:51:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/my-test/run-length-encoding.test.cpp
   - test/atcoder/abc329_c.test.cpp
   - test/atcoder/abc369_c.test.cpp
+  - test/my-test/run-length-encoding.test.cpp
 documentation_of: string/run-length-encoding.hpp
 layout: document
 redirect_from:

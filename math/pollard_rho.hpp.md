@@ -169,8 +169,8 @@ data:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/atcoder/abc180_c.test.cpp
   - test/atcoder/abc249_d.test.cpp
-  - test/yukicoder/888.test.cpp
   - test/yukicoder/2051.test.cpp
+  - test/yukicoder/888.test.cpp
 documentation_of: math/pollard_rho.hpp
 layout: document
 redirect_from:

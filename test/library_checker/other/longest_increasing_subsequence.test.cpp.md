@@ -1,36 +1,29 @@
 ---
 data:
   _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: dp/longest-increasing-sequence.hpp
+    title: dp/longest-increasing-sequence.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/atcoder/practice2_j.test.cpp
-    title: test/atcoder/practice2_j.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/point_add_range_sum.test.cpp
-    title: test/library_checker/data_structure/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/point_set_range_composite.test.cpp
-    title: test/library_checker/data_structure/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-    title: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/staticrmq.test.cpp
-    title: test/library_checker/data_structure/staticrmq.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/longest_increasing_subsequence
+    links:
+    - https://judge.yosupo.jp/problem/longest_increasing_subsequence
+  bundledCode: "#line 1 \"test/library_checker/other/longest_increasing_subsequence.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/longest_increasing_subsequence\"\
+    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
+    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -81,52 +74,40 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/segtree.hpp\"\
-    \n\ntemplate <class S, S (*op)(S, S), S (*e)()> struct segtree {\n    ll n;\n\
-    \    vector<S> v;\n    segtree(ll n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const\
-    \ vector<S> &v_) : n(v_.size()) {\n        v = vector<S>(2 * n, e());\n      \
-    \  rep(i, n) v[n + i] = v_[i];\n        for(ll i = n - 1; i >= 0; i--) {\n   \
-    \         v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll\
-    \ x, S p) {\n        assert(0 <= x && x < n);\n        x += n;\n        v[x] =\
-    \ p;\n        while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x\
-    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) {\n       \
-    \ assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n        l\
-    \ += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n           \
-    \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
-    \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
-    \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S,\
-    \ S), S (*e)()> struct segtree {\n    ll n;\n    vector<S> v;\n    segtree(ll\
-    \ n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const vector<S> &v_) : n(v_.size())\
-    \ {\n        v = vector<S>(2 * n, e());\n        rep(i, n) v[n + i] = v_[i];\n\
-    \        for(ll i = n - 1; i >= 0; i--) {\n            v[i] = op(v[i << 1], v[i\
-    \ << 1 | 1]);\n        }\n    }\n    void set(ll x, S p) {\n        assert(0 <=\
-    \ x && x < n);\n        x += n;\n        v[x] = p;\n        while(x > 1) {\n \
-    \           x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n     \
-    \   }\n    }\n    S prod(ll l, ll r) {\n        assert(0 <= l && l <= r && r <=\
-    \ n);\n        S pl(e()), pr(e());\n        l += n, r += n;\n        while(l <\
-    \ r) {\n            if(l & 1) {\n                pl = op(pl, v[l]);\n        \
-    \    }\n            if(r & 1) {\n                pr = op(v[r - 1], pr);\n    \
-    \        }\n            l = (l + 1) >> 1;\n            r >>= 1;\n        }\n \
-    \       return op(pl, pr);\n    }\n    S get(ll x) { return v[n + x]; }\n};"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"dp/longest-increasing-sequence.hpp\"\
+    \ntemplate <class T>\nvector<int> longest_increasing_sequence(const vector<T>\
+    \ &a,\n                                        bool strong = true) {\n    int\
+    \ n = ssize(a);\n    T infty = numeric_limits<T>::max();\n    vector<T> dp(n,\
+    \ infty);\n    vector<int> idx(n, -1);\n    vector<int> previous(n, -1);\n   \
+    \ rep(i, n) {\n        int j =\n            (strong ? lower_bound(all(dp), a[i])\
+    \ : upper_bound(all(dp), a[i])) -\n            begin(dp);\n        dp[j] = a[i];\n\
+    \        idx[j] = i;\n        if(j)\n            previous[i] = idx[j - 1];\n \
+    \   }\n    vector<int> ans;\n    int now = n - 1;\n    while(dp[now] == infty)\n\
+    \        now--;\n    for(int i = idx[now]; i != -1; i = previous[i]) {\n     \
+    \   ans.push_back(i);\n    }\n    reverse(all(ans));\n    return ans;\n}\n#line\
+    \ 3 \"test/library_checker/other/longest_increasing_subsequence.test.cpp\"\nvoid\
+    \ solve() {\n    LL(n);\n    vector<int> a(n);\n    input(a);\n    vector<int>\
+    \ ans = longest_increasing_sequence(a);\n    print(ans.size());\n    print(ans);\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/longest_increasing_subsequence\"\
+    \n#include \"dp/longest-increasing-sequence.hpp\"\nvoid solve() {\n    LL(n);\n\
+    \    vector<int> a(n);\n    input(a);\n    vector<int> ans = longest_increasing_sequence(a);\n\
+    \    print(ans.size());\n    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   dependsOn:
+  - dp/longest-increasing-sequence.hpp
   - template.hpp
-  isVerificationFile: false
-  path: data_structure/segtree.hpp
+  isVerificationFile: true
+  path: test/library_checker/other/longest_increasing_subsequence.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/data_structure/staticrmq.test.cpp
-  - test/library_checker/data_structure/point_set_range_composite.test.cpp
-  - test/library_checker/data_structure/point_add_range_sum.test.cpp
-  - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-  - test/atcoder/practice2_j.test.cpp
-documentation_of: data_structure/segtree.hpp
+  timestamp: '2025-01-13 15:12:26+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/library_checker/other/longest_increasing_subsequence.test.cpp
 layout: document
 redirect_from:
-- /library/data_structure/segtree.hpp
-- /library/data_structure/segtree.hpp.html
-title: data_structure/segtree.hpp
+- /verify/test/library_checker/other/longest_increasing_subsequence.test.cpp
+- /verify/test/library_checker/other/longest_increasing_subsequence.test.cpp.html
+title: test/library_checker/other/longest_increasing_subsequence.test.cpp
 ---

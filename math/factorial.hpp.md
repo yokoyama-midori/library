@@ -125,15 +125,15 @@ data:
   isVerificationFile: false
   path: math/factorial.hpp
   requiredBy:
+  - math/factorial_large.hpp
   - poly/shift_of_sampling_points.hpp
   - poly/poly_taylor_shift.hpp
-  - math/factorial_large.hpp
   timestamp: '2024-12-02 02:31:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
 documentation_of: math/factorial.hpp
 layout: document
 redirect_from:

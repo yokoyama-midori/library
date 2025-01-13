@@ -157,9 +157,9 @@ data:
   timestamp: '2024-12-13 16:21:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/range_affine_range_sum.test.cpp
-  - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
+  - test/library_checker/data_structure/range_affine_point_get.test.cpp
+  - test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - test/yukicoder/230.test.cpp
 documentation_of: data_structure/lazy_segtree.hpp
 layout: document
