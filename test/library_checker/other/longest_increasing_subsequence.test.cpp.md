@@ -77,16 +77,16 @@ data:
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"dp/longest-increasing-sequence.hpp\"\
     \ntemplate <class T>\nvector<int> longest_increasing_sequence(const vector<T>\
     \ &a,\n                                        bool strong = true) {\n    int\
-    \ n = ssize(a);\n    T infty = numeric_limits<T>::max();\n    vector<T> dp(n,\
-    \ infty);\n    vector<int> idx(n, -1);\n    vector<int> previous(n, -1);\n   \
-    \ rep(i, n) {\n        int j =\n            (strong ? lower_bound(all(dp), a[i])\
-    \ : upper_bound(all(dp), a[i])) -\n            begin(dp);\n        dp[j] = a[i];\n\
-    \        idx[j] = i;\n        if(j)\n            previous[i] = idx[j - 1];\n \
-    \   }\n    vector<int> ans;\n    int now = n - 1;\n    while(dp[now] == infty)\n\
-    \        now--;\n    for(int i = idx[now]; i != -1; i = previous[i]) {\n     \
-    \   ans.push_back(i);\n    }\n    reverse(all(ans));\n    return ans;\n}\n#line\
-    \ 3 \"test/library_checker/other/longest_increasing_subsequence.test.cpp\"\nvoid\
-    \ solve() {\n    LL(n);\n    vector<int> a(n);\n    input(a);\n    vector<int>\
+    \ n = ssize(a);\n    if(n == 0) {\n        return {};\n    }\n    T infty = numeric_limits<T>::max();\n\
+    \    vector<T> dp(n, infty);\n    vector<int> idx(n, -1);\n    vector<int> previous(n,\
+    \ -1);\n    rep(i, n) {\n        int j =\n            (strong ? lower_bound(all(dp),\
+    \ a[i]) : upper_bound(all(dp), a[i])) -\n            begin(dp);\n        dp[j]\
+    \ = a[i];\n        idx[j] = i;\n        if(j)\n            previous[i] = idx[j\
+    \ - 1];\n    }\n    vector<int> ans;\n    int now = n - 1;\n    while(dp[now]\
+    \ == infty)\n        now--;\n    for(int i = idx[now]; i != -1; i = previous[i])\
+    \ {\n        ans.push_back(i);\n    }\n    reverse(all(ans));\n    return ans;\n\
+    }\n#line 3 \"test/library_checker/other/longest_increasing_subsequence.test.cpp\"\
+    \nvoid solve() {\n    LL(n);\n    vector<int> a(n);\n    input(a);\n    vector<int>\
     \ ans = longest_increasing_sequence(a);\n    print(ans.size());\n    print(ans);\n\
     }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
@@ -101,7 +101,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/other/longest_increasing_subsequence.test.cpp
   requiredBy: []
-  timestamp: '2025-01-13 15:12:26+09:00'
+  timestamp: '2025-01-13 15:18:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/other/longest_increasing_subsequence.test.cpp
