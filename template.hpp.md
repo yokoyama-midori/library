@@ -23,6 +23,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/slope-trick.hpp
     title: data_structure/slope-trick.hpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/splaytree.hpp
+    title: data_structure/splaytree.hpp
   - icon: ':question:'
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
@@ -127,6 +130,9 @@ data:
     path: test/library_checker/data_structure/associative_array.test.cpp
     title: test/library_checker/data_structure/associative_array.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
+    title: test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_add_range_sum.test.cpp
     title: test/library_checker/data_structure/point_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -142,8 +148,14 @@ data:
     path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
     title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_reverse_range_sum.test.cpp
+    title: test/library_checker/data_structure/range_reverse_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_set_range_composite.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
+    title: test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
     title: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
@@ -372,6 +384,7 @@ data:
   - data_structure/range-chminmaxaddsum-segtree-beats.hpp
   - data_structure/hash-map-variable-length.hpp
   - data_structure/slope-trick.hpp
+  - data_structure/splaytree.hpp
   - data_structure/segtree.hpp
   - graph/chromatic-number.hpp
   - geometry/manhattan-mst.hpp
@@ -396,12 +409,15 @@ data:
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   - test/library_checker/data_structure/associative_array.test.cpp
+  - test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
+  - test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
   - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
+  - test/library_checker/data_structure/range_reverse_range_sum.test.cpp
   - test/library_checker/graph/chromatic_number.test.cpp
   - test/library_checker/geometry/manhattanmst.test.cpp
   - test/atcoder/abc217_h.test.cpp
