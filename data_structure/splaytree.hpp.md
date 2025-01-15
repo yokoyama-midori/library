@@ -79,39 +79,39 @@ data:
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/splaytree.hpp\"\
     \ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n \
     \         F (*composition)(F, F), F (*id)()>\n//   composition(f,g)(x) = f\u2218\
-    g(x) = f(g(x))\nstruct SplayTree {\n    struct Node;\n    using pNode = unique_ptr<Node>;\n\
-    \    struct Node {\n        Node *left, *right, *parent;\n        S a, prod;\n\
-    \        F lazy;\n        int size;\n        bool rev;\n        Node()\n     \
-    \       : left(nullptr), right(nullptr), parent(nullptr), size(1), a(e()),\n \
-    \             prod(e()), lazy(id()), rev(false) {}\n        Node(const S &s)\n\
-    \            : left(nullptr), right(nullptr), parent(nullptr), size(1), a(s),\n\
-    \              prod(s), lazy(id()), rev(false) {}\n        int state() {\n   \
-    \         if(!this->parent)\n                return 0;\n            if(this->parent->left\
-    \ == this)\n                return 1;\n            if(this->parent->right == this)\n\
-    \                return 2;\n            return 0;\n        }\n        void apply(const\
-    \ F &f) {\n            a = mapping(f, a);\n            prod = mapping(f, prod);\n\
-    \            lazy = composition(f, lazy);\n        }\n        void reverse() {\n\
-    \            swap(left, right);\n            rev = !rev;\n        }\n        void\
-    \ push() {\n            if(lazy != id()) {\n                if(left)\n       \
-    \             left->apply(lazy);\n                if(right)\n                \
-    \    right->apply(lazy);\n                lazy = id();\n            }\n      \
-    \      if(rev) {\n                if(left)\n                    left->reverse();\n\
-    \                if(right)\n                    right->reverse();\n          \
-    \      rev = false;\n            }\n        }\n        void update() {\n     \
-    \       size = 1;\n            prod = a;\n            if(left) {\n           \
-    \     size += left->size;\n                prod = op(left->prod, prod);\n    \
-    \        }\n            if(right) {\n                size += right->size;\n  \
-    \              prod = op(prod, right->prod);\n            }\n        }\n    };\n\
-    \    void rotate(Node *me) {\n        Node *pp, *p, *c;\n        p = me->parent;\n\
-    \        pp = p->parent;\n        if(p->left == me) {\n            c = me->right;\n\
-    \            me->right = p;\n            p->left = c;\n        } else {\n    \
-    \        c = me->left;\n            me->left = p;\n            p->right = c;\n\
-    \        }\n        if(pp) {\n            if(pp->right == p) {\n             \
-    \   pp->right = me;\n            } else {\n                pp->left = me;\n  \
-    \          }\n        }\n        me->parent = pp;\n        p->parent = me;\n \
-    \       if(c) {\n            c->parent = p;\n        }\n    }\n    void push_from_root(Node\
-    \ *node) {\n        // \u6839\u304B\u3089\u30C8\u30C3\u30D7\u30C0\u30A6\u30F3\u306B\
-    push\n        // https://qiita.com/ngtkana/items/4d0b84d45210771aa074#32-%E3%81%99%E3%81%B9%E3%81%A6%E3%83%88%E3%83%83%E3%83%97%E3%83%80%E3%82%A6%E3%83%B3%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA%E3%81%AB-push\n\
+    g(x) = f(g(x))\nstruct SplayTree {\n  private:\n    struct Node;\n    using pNode\
+    \ = unique_ptr<Node>;\n    struct Node {\n        Node *left, *right, *parent;\n\
+    \        S a, prod;\n        F lazy;\n        int size;\n        bool rev;\n \
+    \       Node()\n            : left(nullptr), right(nullptr), parent(nullptr),\
+    \ size(1), a(e()),\n              prod(e()), lazy(id()), rev(false) {}\n     \
+    \   Node(const S &s)\n            : left(nullptr), right(nullptr), parent(nullptr),\
+    \ size(1), a(s),\n              prod(s), lazy(id()), rev(false) {}\n        int\
+    \ state() {\n            if(!this->parent)\n                return 0;\n      \
+    \      if(this->parent->left == this)\n                return 1;\n           \
+    \ if(this->parent->right == this)\n                return 2;\n            return\
+    \ 0;\n        }\n        void apply(const F &f) {\n            a = mapping(f,\
+    \ a);\n            prod = mapping(f, prod);\n            lazy = composition(f,\
+    \ lazy);\n        }\n        void reverse() {\n            swap(left, right);\n\
+    \            rev = !rev;\n        }\n        void push() {\n            if(lazy\
+    \ != id()) {\n                if(left)\n                    left->apply(lazy);\n\
+    \                if(right)\n                    right->apply(lazy);\n        \
+    \        lazy = id();\n            }\n            if(rev) {\n                if(left)\n\
+    \                    left->reverse();\n                if(right)\n           \
+    \         right->reverse();\n                rev = false;\n            }\n   \
+    \     }\n        void update() {\n            size = 1;\n            prod = a;\n\
+    \            if(left) {\n                size += left->size;\n               \
+    \ prod = op(left->prod, prod);\n            }\n            if(right) {\n     \
+    \           size += right->size;\n                prod = op(prod, right->prod);\n\
+    \            }\n        }\n    };\n    void rotate(Node *me) {\n        Node *pp,\
+    \ *p, *c;\n        p = me->parent;\n        pp = p->parent;\n        if(p->left\
+    \ == me) {\n            c = me->right;\n            me->right = p;\n         \
+    \   p->left = c;\n        } else {\n            c = me->left;\n            me->left\
+    \ = p;\n            p->right = c;\n        }\n        if(pp) {\n            if(pp->right\
+    \ == p) {\n                pp->right = me;\n            } else {\n           \
+    \     pp->left = me;\n            }\n        }\n        me->parent = pp;\n   \
+    \     p->parent = me;\n        if(c) {\n            c->parent = p;\n        }\n\
+    \    }\n    void push_from_root(Node *node) {\n        // \u6839\u304B\u3089\u30C8\
+    \u30C3\u30D7\u30C0\u30A6\u30F3\u306Bpush\n        // https://qiita.com/ngtkana/items/4d0b84d45210771aa074#32-%E3%81%99%E3%81%B9%E3%81%A6%E3%83%88%E3%83%83%E3%83%97%E3%83%80%E3%82%A6%E3%83%B3%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA%E3%81%AB-push\n\
     \        if(!node)\n            return;\n        if(node->parent)\n          \
     \  push_from_root(node->parent);\n        node->push();\n    }\n    void splay(Node\
     \ *me, bool push_from_root_done = false) {\n        if(push_from_root_done)\n\
@@ -144,7 +144,13 @@ data:
     \ Node *l = node->left, *r = node->right;\n        if(l)\n            l->parent\
     \ = nullptr;\n        if(r)\n            r->parent = nullptr;\n        node->left\
     \ = node->right = nullptr;\n        node->update();\n        return {merge(l,\
-    \ r), node};\n    }\n    vector<pNode> pool;\n    Node *root;\n    void insert_at(int\
+    \ r), node};\n    }\n    vector<pNode> pool;\n    Node *root;\n    void between(Node\
+    \ *&l_root, Node *&c_root, Node *&r_root, int l, int r) {\n        // c_root\u3092\
+    [l,r)\u306E\u90E8\u5206\u6728\u306E\u6839\u3068\u3057\u3066split\u3001l,r_root\u306F\
+    \u5DE6\u53F3\u306E\u6728\u306E\u6839\n        // \u547C\u3073\u51FA\u3057\u305F\
+    \u3042\u3068merge\u3057\u3066root\u3092\u304D\u3061\u3093\u3068\u66F4\u65B0\u3059\
+    \u308B\n        tie(c_root, r_root) = split(r, root);\n        tie(l_root, c_root)\
+    \ = split(l, c_root);\n        return;\n    }\n\n  public:\n    void insert_at(int\
     \ k, const S &s) {\n        pool.push_back(move(make_unique<Node>(s)));\n    \
     \    // \u2191move\u3044\u308B\uFF1F\n        Node *node = pool.back().get();\n\
     \        root = insert(k, node, root);\n    }\n    void remove_at(int k) {\n \
@@ -152,34 +158,28 @@ data:
     \u308C\u3066\u307E\u3059\u304C...\n    }\n    void set(int k, const S &s) {\n\
     \        root = splay_kth(k, root);\n        root->a = s;\n        root->update();\n\
     \    }\n    int size() { return root ? root->size : 0; }\n    S get(int k) {\n\
-    \        root = splay_kth(k, root);\n        return root->a;\n    }\n    void\
-    \ between(Node *&l_root, Node *&c_root, Node *&r_root, int l, int r) {\n     \
-    \   // c_root\u3092[l,r)\u306E\u90E8\u5206\u6728\u306E\u6839\u3068\u3057\u3066\
-    split\u3001l,r_root\u306F\u5DE6\u53F3\u306E\u6728\u306E\u6839\n        // \u547C\
-    \u3073\u51FA\u3057\u305F\u3042\u3068merge\u3057\u3066root\u3092\u304D\u3061\u3093\
-    \u3068\u66F4\u65B0\u3059\u308B\n        tie(c_root, r_root) = split(r, root);\n\
-    \        tie(l_root, c_root) = split(l, c_root);\n        return;\n    }\n   \
-    \ S prod(int l, int r) {\n        if(l == r)\n            return e();\n      \
-    \  Node *l_root, *c_root, *r_root;\n        between(l_root, c_root, r_root, l,\
-    \ r);\n        S res = c_root->prod;\n        root = merge(merge(l_root, c_root),\
-    \ r_root);\n        return res;\n    }\n    void reverse(int l, int r) {\n   \
-    \     if(l == r)\n            return;\n        Node *l_root, *c_root, *r_root;\n\
-    \        between(l_root, c_root, r_root, l, r);\n        c_root->reverse();\n\
-    \        root = merge(merge(l_root, c_root), r_root);\n    }\n    void apply(int\
-    \ l, int r, F f) {\n        if(l == r)\n            return;\n        Node *l_root,\
-    \ *c_root, *r_root;\n        between(l_root, c_root, r_root, l, r);\n        c_root->apply(f);\n\
-    \        root = merge(merge(l_root, c_root), r_root);\n    }\n\n    SplayTree()\
-    \ : root(nullptr) {}\n    SplayTree(const vector<S> &v) : root(nullptr) {\n  \
-    \      Node *prev = nullptr;\n        for(const auto &s : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n\
+    \        root = splay_kth(k, root);\n        return root->a;\n    }\n    S prod(int\
+    \ l, int r) {\n        if(l == r)\n            return e();\n        Node *l_root,\
+    \ *c_root, *r_root;\n        between(l_root, c_root, r_root, l, r);\n        S\
+    \ res = c_root->prod;\n        root = merge(merge(l_root, c_root), r_root);\n\
+    \        return res;\n    }\n    void reverse(int l, int r) {\n        if(l ==\
+    \ r)\n            return;\n        Node *l_root, *c_root, *r_root;\n        between(l_root,\
+    \ c_root, r_root, l, r);\n        c_root->reverse();\n        root = merge(merge(l_root,\
+    \ c_root), r_root);\n    }\n    void apply(int l, int r, F f) {\n        if(l\
+    \ == r)\n            return;\n        Node *l_root, *c_root, *r_root;\n      \
+    \  between(l_root, c_root, r_root, l, r);\n        c_root->apply(f);\n       \
+    \ root = merge(merge(l_root, c_root), r_root);\n    }\n\n    SplayTree() : root(nullptr)\
+    \ {}\n    SplayTree(const vector<S> &v) : root(nullptr) {\n        Node *prev\
+    \ = nullptr;\n        for(const auto &s : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n\
     \            Node *node = pool.back().get();\n            if(prev)\n         \
     \       prev->parent = node;\n            node->left = prev;\n            node->update();\n\
     \            root = prev = node;\n        }\n    }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\ntemplate <class S, S (*op)(S, S),\
     \ S (*e)(), class F, S (*mapping)(F, S),\n          F (*composition)(F, F), F\
     \ (*id)()>\n//   composition(f,g)(x) = f\u2218g(x) = f(g(x))\nstruct SplayTree\
-    \ {\n    struct Node;\n    using pNode = unique_ptr<Node>;\n    struct Node {\n\
-    \        Node *left, *right, *parent;\n        S a, prod;\n        F lazy;\n \
-    \       int size;\n        bool rev;\n        Node()\n            : left(nullptr),\
+    \ {\n  private:\n    struct Node;\n    using pNode = unique_ptr<Node>;\n    struct\
+    \ Node {\n        Node *left, *right, *parent;\n        S a, prod;\n        F\
+    \ lazy;\n        int size;\n        bool rev;\n        Node()\n            : left(nullptr),\
     \ right(nullptr), parent(nullptr), size(1), a(e()),\n              prod(e()),\
     \ lazy(id()), rev(false) {}\n        Node(const S &s)\n            : left(nullptr),\
     \ right(nullptr), parent(nullptr), size(1), a(s),\n              prod(s), lazy(id()),\
@@ -242,7 +242,13 @@ data:
     \ Node *l = node->left, *r = node->right;\n        if(l)\n            l->parent\
     \ = nullptr;\n        if(r)\n            r->parent = nullptr;\n        node->left\
     \ = node->right = nullptr;\n        node->update();\n        return {merge(l,\
-    \ r), node};\n    }\n    vector<pNode> pool;\n    Node *root;\n    void insert_at(int\
+    \ r), node};\n    }\n    vector<pNode> pool;\n    Node *root;\n    void between(Node\
+    \ *&l_root, Node *&c_root, Node *&r_root, int l, int r) {\n        // c_root\u3092\
+    [l,r)\u306E\u90E8\u5206\u6728\u306E\u6839\u3068\u3057\u3066split\u3001l,r_root\u306F\
+    \u5DE6\u53F3\u306E\u6728\u306E\u6839\n        // \u547C\u3073\u51FA\u3057\u305F\
+    \u3042\u3068merge\u3057\u3066root\u3092\u304D\u3061\u3093\u3068\u66F4\u65B0\u3059\
+    \u308B\n        tie(c_root, r_root) = split(r, root);\n        tie(l_root, c_root)\
+    \ = split(l, c_root);\n        return;\n    }\n\n  public:\n    void insert_at(int\
     \ k, const S &s) {\n        pool.push_back(move(make_unique<Node>(s)));\n    \
     \    // \u2191move\u3044\u308B\uFF1F\n        Node *node = pool.back().get();\n\
     \        root = insert(k, node, root);\n    }\n    void remove_at(int k) {\n \
@@ -250,25 +256,19 @@ data:
     \u308C\u3066\u307E\u3059\u304C...\n    }\n    void set(int k, const S &s) {\n\
     \        root = splay_kth(k, root);\n        root->a = s;\n        root->update();\n\
     \    }\n    int size() { return root ? root->size : 0; }\n    S get(int k) {\n\
-    \        root = splay_kth(k, root);\n        return root->a;\n    }\n    void\
-    \ between(Node *&l_root, Node *&c_root, Node *&r_root, int l, int r) {\n     \
-    \   // c_root\u3092[l,r)\u306E\u90E8\u5206\u6728\u306E\u6839\u3068\u3057\u3066\
-    split\u3001l,r_root\u306F\u5DE6\u53F3\u306E\u6728\u306E\u6839\n        // \u547C\
-    \u3073\u51FA\u3057\u305F\u3042\u3068merge\u3057\u3066root\u3092\u304D\u3061\u3093\
-    \u3068\u66F4\u65B0\u3059\u308B\n        tie(c_root, r_root) = split(r, root);\n\
-    \        tie(l_root, c_root) = split(l, c_root);\n        return;\n    }\n   \
-    \ S prod(int l, int r) {\n        if(l == r)\n            return e();\n      \
-    \  Node *l_root, *c_root, *r_root;\n        between(l_root, c_root, r_root, l,\
-    \ r);\n        S res = c_root->prod;\n        root = merge(merge(l_root, c_root),\
-    \ r_root);\n        return res;\n    }\n    void reverse(int l, int r) {\n   \
-    \     if(l == r)\n            return;\n        Node *l_root, *c_root, *r_root;\n\
-    \        between(l_root, c_root, r_root, l, r);\n        c_root->reverse();\n\
-    \        root = merge(merge(l_root, c_root), r_root);\n    }\n    void apply(int\
-    \ l, int r, F f) {\n        if(l == r)\n            return;\n        Node *l_root,\
-    \ *c_root, *r_root;\n        between(l_root, c_root, r_root, l, r);\n        c_root->apply(f);\n\
-    \        root = merge(merge(l_root, c_root), r_root);\n    }\n\n    SplayTree()\
-    \ : root(nullptr) {}\n    SplayTree(const vector<S> &v) : root(nullptr) {\n  \
-    \      Node *prev = nullptr;\n        for(const auto &s : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n\
+    \        root = splay_kth(k, root);\n        return root->a;\n    }\n    S prod(int\
+    \ l, int r) {\n        if(l == r)\n            return e();\n        Node *l_root,\
+    \ *c_root, *r_root;\n        between(l_root, c_root, r_root, l, r);\n        S\
+    \ res = c_root->prod;\n        root = merge(merge(l_root, c_root), r_root);\n\
+    \        return res;\n    }\n    void reverse(int l, int r) {\n        if(l ==\
+    \ r)\n            return;\n        Node *l_root, *c_root, *r_root;\n        between(l_root,\
+    \ c_root, r_root, l, r);\n        c_root->reverse();\n        root = merge(merge(l_root,\
+    \ c_root), r_root);\n    }\n    void apply(int l, int r, F f) {\n        if(l\
+    \ == r)\n            return;\n        Node *l_root, *c_root, *r_root;\n      \
+    \  between(l_root, c_root, r_root, l, r);\n        c_root->apply(f);\n       \
+    \ root = merge(merge(l_root, c_root), r_root);\n    }\n\n    SplayTree() : root(nullptr)\
+    \ {}\n    SplayTree(const vector<S> &v) : root(nullptr) {\n        Node *prev\
+    \ = nullptr;\n        for(const auto &s : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n\
     \            Node *node = pool.back().get();\n            if(prev)\n         \
     \       prev->parent = node;\n            node->left = prev;\n            node->update();\n\
     \            root = prev = node;\n        }\n    }\n};"
@@ -277,7 +277,7 @@ data:
   isVerificationFile: false
   path: data_structure/splaytree.hpp
   requiredBy: []
-  timestamp: '2025-01-16 02:25:00+09:00'
+  timestamp: '2025-01-16 02:30:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
