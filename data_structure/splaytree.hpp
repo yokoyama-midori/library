@@ -4,6 +4,7 @@ template <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),
           F (*composition)(F, F), F (*id)()>
 //   composition(f,g)(x) = f∘g(x) = f(g(x))
 struct SplayTree {
+  private:
     struct Node;
     using pNode = unique_ptr<Node>;
     struct Node {
@@ -178,6 +179,15 @@ struct SplayTree {
     }
     vector<pNode> pool;
     Node *root;
+    void between(Node *&l_root, Node *&c_root, Node *&r_root, int l, int r) {
+        // c_rootを[l,r)の部分木の根としてsplit、l,r_rootは左右の木の根
+        // 呼び出したあとmergeしてrootをきちんと更新する
+        tie(c_root, r_root) = split(r, root);
+        tie(l_root, c_root) = split(l, c_root);
+        return;
+    }
+
+  public:
     void insert_at(int k, const S &s) {
         pool.push_back(move(make_unique<Node>(s)));
         // ↑moveいる？
@@ -197,13 +207,6 @@ struct SplayTree {
     S get(int k) {
         root = splay_kth(k, root);
         return root->a;
-    }
-    void between(Node *&l_root, Node *&c_root, Node *&r_root, int l, int r) {
-        // c_rootを[l,r)の部分木の根としてsplit、l,r_rootは左右の木の根
-        // 呼び出したあとmergeしてrootをきちんと更新する
-        tie(c_root, r_root) = split(r, root);
-        tie(l_root, c_root) = split(l, c_root);
-        return;
     }
     S prod(int l, int r) {
         if(l == r)
