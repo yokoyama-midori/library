@@ -12,20 +12,12 @@ struct SplayTree {
         F lazy;
         int size;
         bool rev;
-        Node() {
-            left = right = parent = nullptr;
-            size = 1;
-            a = prod = e();
-            lazy = id();
-            rev = false;
-        }
-        Node(const S &s) {
-            left = right = parent = nullptr;
-            size = 1;
-            a = prod = s;
-            lazy = id();
-            rev = false;
-        }
+        Node()
+            : left(nullptr), right(nullptr), parent(nullptr), size(1), a(e()),
+              prod(e()), lazy(id()), rev(false) {}
+        Node(const S &s)
+            : left(nullptr), right(nullptr), parent(nullptr), size(1), a(s),
+              prod(s), lazy(id()), rev(false) {}
         int state() {
             if(!this->parent)
                 return 0;
