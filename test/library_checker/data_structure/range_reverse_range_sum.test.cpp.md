@@ -79,15 +79,14 @@ data:
     \         F (*composition)(F, F), F (*id)()>\n//   composition(f,g)(x) = f\u2218\
     g(x) = f(g(x))\nstruct SplayTree {\n    struct Node;\n    using pNode = unique_ptr<Node>;\n\
     \    struct Node {\n        Node *left, *right, *parent;\n        S a, prod;\n\
-    \        F lazy;\n        int size;\n        bool rev;\n        Node() {\n   \
-    \         left = right = parent = nullptr;\n            size = 1;\n          \
-    \  a = prod = e();\n            lazy = id();\n            rev = false;\n     \
-    \   }\n        Node(const S &s) {\n            left = right = parent = nullptr;\n\
-    \            size = 1;\n            a = prod = s;\n            lazy = id();\n\
-    \            rev = false;\n        }\n        int state() {\n            if(!this->parent)\n\
-    \                return 0;\n            if(this->parent->left == this)\n     \
-    \           return 1;\n            if(this->parent->right == this)\n         \
-    \       return 2;\n            return 0;\n        }\n        void apply(const\
+    \        F lazy;\n        int size;\n        bool rev;\n        Node()\n     \
+    \       : left(nullptr), right(nullptr), parent(nullptr), size(1), a(e()),\n \
+    \             prod(e()), lazy(id()), rev(false) {}\n        Node(const S &s)\n\
+    \            : left(nullptr), right(nullptr), parent(nullptr), size(1), a(s),\n\
+    \              prod(s), lazy(id()), rev(false) {}\n        int state() {\n   \
+    \         if(!this->parent)\n                return 0;\n            if(this->parent->left\
+    \ == this)\n                return 1;\n            if(this->parent->right == this)\n\
+    \                return 2;\n            return 0;\n        }\n        void apply(const\
     \ F &f) {\n            a = mapping(f, a);\n            prod = mapping(f, prod);\n\
     \            lazy = composition(f, lazy);\n        }\n        void reverse() {\n\
     \            swap(left, right);\n            rev = !rev;\n        }\n        void\
@@ -203,7 +202,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/range_reverse_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-01-16 02:16:38+09:00'
+  timestamp: '2025-01-16 02:25:00+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_reverse_range_sum.test.cpp

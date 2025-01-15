@@ -81,15 +81,14 @@ data:
     \         F (*composition)(F, F), F (*id)()>\n//   composition(f,g)(x) = f\u2218\
     g(x) = f(g(x))\nstruct SplayTree {\n    struct Node;\n    using pNode = unique_ptr<Node>;\n\
     \    struct Node {\n        Node *left, *right, *parent;\n        S a, prod;\n\
-    \        F lazy;\n        int size;\n        bool rev;\n        Node() {\n   \
-    \         left = right = parent = nullptr;\n            size = 1;\n          \
-    \  a = prod = e();\n            lazy = id();\n            rev = false;\n     \
-    \   }\n        Node(const S &s) {\n            left = right = parent = nullptr;\n\
-    \            size = 1;\n            a = prod = s;\n            lazy = id();\n\
-    \            rev = false;\n        }\n        int state() {\n            if(!this->parent)\n\
-    \                return 0;\n            if(this->parent->left == this)\n     \
-    \           return 1;\n            if(this->parent->right == this)\n         \
-    \       return 2;\n            return 0;\n        }\n        void apply(const\
+    \        F lazy;\n        int size;\n        bool rev;\n        Node()\n     \
+    \       : left(nullptr), right(nullptr), parent(nullptr), size(1), a(e()),\n \
+    \             prod(e()), lazy(id()), rev(false) {}\n        Node(const S &s)\n\
+    \            : left(nullptr), right(nullptr), parent(nullptr), size(1), a(s),\n\
+    \              prod(s), lazy(id()), rev(false) {}\n        int state() {\n   \
+    \         if(!this->parent)\n                return 0;\n            if(this->parent->left\
+    \ == this)\n                return 1;\n            if(this->parent->right == this)\n\
+    \                return 2;\n            return 0;\n        }\n        void apply(const\
     \ F &f) {\n            a = mapping(f, a);\n            prod = mapping(f, prod);\n\
     \            lazy = composition(f, lazy);\n        }\n        void reverse() {\n\
     \            swap(left, right);\n            rev = !rev;\n        }\n        void\
@@ -180,37 +179,37 @@ data:
     \ (*id)()>\n//   composition(f,g)(x) = f\u2218g(x) = f(g(x))\nstruct SplayTree\
     \ {\n    struct Node;\n    using pNode = unique_ptr<Node>;\n    struct Node {\n\
     \        Node *left, *right, *parent;\n        S a, prod;\n        F lazy;\n \
-    \       int size;\n        bool rev;\n        Node() {\n            left = right\
-    \ = parent = nullptr;\n            size = 1;\n            a = prod = e();\n  \
-    \          lazy = id();\n            rev = false;\n        }\n        Node(const\
-    \ S &s) {\n            left = right = parent = nullptr;\n            size = 1;\n\
-    \            a = prod = s;\n            lazy = id();\n            rev = false;\n\
-    \        }\n        int state() {\n            if(!this->parent)\n           \
-    \     return 0;\n            if(this->parent->left == this)\n                return\
-    \ 1;\n            if(this->parent->right == this)\n                return 2;\n\
-    \            return 0;\n        }\n        void apply(const F &f) {\n        \
-    \    a = mapping(f, a);\n            prod = mapping(f, prod);\n            lazy\
-    \ = composition(f, lazy);\n        }\n        void reverse() {\n            swap(left,\
-    \ right);\n            rev = !rev;\n        }\n        void push() {\n       \
-    \     if(lazy != id()) {\n                if(left)\n                    left->apply(lazy);\n\
-    \                if(right)\n                    right->apply(lazy);\n        \
-    \        lazy = id();\n            }\n            if(rev) {\n                if(left)\n\
-    \                    left->reverse();\n                if(right)\n           \
-    \         right->reverse();\n                rev = false;\n            }\n   \
-    \     }\n        void update() {\n            size = 1;\n            prod = a;\n\
-    \            if(left) {\n                size += left->size;\n               \
-    \ prod = op(left->prod, prod);\n            }\n            if(right) {\n     \
-    \           size += right->size;\n                prod = op(prod, right->prod);\n\
-    \            }\n        }\n    };\n    void rotate(Node *me) {\n        Node *pp,\
-    \ *p, *c;\n        p = me->parent;\n        pp = p->parent;\n        if(p->left\
-    \ == me) {\n            c = me->right;\n            me->right = p;\n         \
-    \   p->left = c;\n        } else {\n            c = me->left;\n            me->left\
-    \ = p;\n            p->right = c;\n        }\n        if(pp) {\n            if(pp->right\
-    \ == p) {\n                pp->right = me;\n            } else {\n           \
-    \     pp->left = me;\n            }\n        }\n        me->parent = pp;\n   \
-    \     p->parent = me;\n        if(c) {\n            c->parent = p;\n        }\n\
-    \    }\n    void push_from_root(Node *node) {\n        // \u6839\u304B\u3089\u30C8\
-    \u30C3\u30D7\u30C0\u30A6\u30F3\u306Bpush\n        // https://qiita.com/ngtkana/items/4d0b84d45210771aa074#32-%E3%81%99%E3%81%B9%E3%81%A6%E3%83%88%E3%83%83%E3%83%97%E3%83%80%E3%82%A6%E3%83%B3%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA%E3%81%AB-push\n\
+    \       int size;\n        bool rev;\n        Node()\n            : left(nullptr),\
+    \ right(nullptr), parent(nullptr), size(1), a(e()),\n              prod(e()),\
+    \ lazy(id()), rev(false) {}\n        Node(const S &s)\n            : left(nullptr),\
+    \ right(nullptr), parent(nullptr), size(1), a(s),\n              prod(s), lazy(id()),\
+    \ rev(false) {}\n        int state() {\n            if(!this->parent)\n      \
+    \          return 0;\n            if(this->parent->left == this)\n           \
+    \     return 1;\n            if(this->parent->right == this)\n               \
+    \ return 2;\n            return 0;\n        }\n        void apply(const F &f)\
+    \ {\n            a = mapping(f, a);\n            prod = mapping(f, prod);\n  \
+    \          lazy = composition(f, lazy);\n        }\n        void reverse() {\n\
+    \            swap(left, right);\n            rev = !rev;\n        }\n        void\
+    \ push() {\n            if(lazy != id()) {\n                if(left)\n       \
+    \             left->apply(lazy);\n                if(right)\n                \
+    \    right->apply(lazy);\n                lazy = id();\n            }\n      \
+    \      if(rev) {\n                if(left)\n                    left->reverse();\n\
+    \                if(right)\n                    right->reverse();\n          \
+    \      rev = false;\n            }\n        }\n        void update() {\n     \
+    \       size = 1;\n            prod = a;\n            if(left) {\n           \
+    \     size += left->size;\n                prod = op(left->prod, prod);\n    \
+    \        }\n            if(right) {\n                size += right->size;\n  \
+    \              prod = op(prod, right->prod);\n            }\n        }\n    };\n\
+    \    void rotate(Node *me) {\n        Node *pp, *p, *c;\n        p = me->parent;\n\
+    \        pp = p->parent;\n        if(p->left == me) {\n            c = me->right;\n\
+    \            me->right = p;\n            p->left = c;\n        } else {\n    \
+    \        c = me->left;\n            me->left = p;\n            p->right = c;\n\
+    \        }\n        if(pp) {\n            if(pp->right == p) {\n             \
+    \   pp->right = me;\n            } else {\n                pp->left = me;\n  \
+    \          }\n        }\n        me->parent = pp;\n        p->parent = me;\n \
+    \       if(c) {\n            c->parent = p;\n        }\n    }\n    void push_from_root(Node\
+    \ *node) {\n        // \u6839\u304B\u3089\u30C8\u30C3\u30D7\u30C0\u30A6\u30F3\u306B\
+    push\n        // https://qiita.com/ngtkana/items/4d0b84d45210771aa074#32-%E3%81%99%E3%81%B9%E3%81%A6%E3%83%88%E3%83%83%E3%83%97%E3%83%80%E3%82%A6%E3%83%B3%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA%E3%81%AB-push\n\
     \        if(!node)\n            return;\n        if(node->parent)\n          \
     \  push_from_root(node->parent);\n        node->push();\n    }\n    void splay(Node\
     \ *me, bool push_from_root_done = false) {\n        if(push_from_root_done)\n\
@@ -278,7 +277,7 @@ data:
   isVerificationFile: false
   path: data_structure/splaytree.hpp
   requiredBy: []
-  timestamp: '2025-01-16 02:16:38+09:00'
+  timestamp: '2025-01-16 02:25:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
