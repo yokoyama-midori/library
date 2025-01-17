@@ -47,10 +47,10 @@ data:
       title: graph/chromatic-number.hpp
   - name: math
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/factorial.hpp
       title: math/factorial.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/factorial_large.hpp
       title: math/factorial_large.hpp
     - icon: ':heavy_check_mark:'
@@ -84,7 +84,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: poly/poly_taylor_shift.hpp
       title: poly taylor shift
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: poly/shift_of_sampling_points.hpp
       title: poly/shift_of_sampling_points.hpp
   - name: string
@@ -278,7 +278,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/230.test.cpp
       title: test/yukicoder/230.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/3004.test.cpp
       title: test/yukicoder/3004.test.cpp
     - icon: ':heavy_check_mark:'
