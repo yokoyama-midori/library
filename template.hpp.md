@@ -38,10 +38,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/chromatic-number.hpp
     title: graph/chromatic-number.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/factorial_large.hpp
     title: math/factorial_large.hpp
   - icon: ':heavy_check_mark:'
@@ -71,7 +71,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: poly/poly_taylor_shift.hpp
     title: poly taylor shift
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   - icon: ':heavy_check_mark:'
@@ -234,6 +234,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
+  - icon: ':x:'
+    path: test/yukicoder/3004.test.cpp
+    title: test/yukicoder/3004.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/880.test.cpp
     title: test/yukicoder/880.test.cpp
@@ -438,6 +441,7 @@ data:
   - test/atcoder/abc249_d.test.cpp
   - test/my-test/run-length-encoding.test.cpp
   - test/yukicoder/1077.test.cpp
+  - test/yukicoder/3004.test.cpp
   - test/yukicoder/2051.test.cpp
   - test/yukicoder/12.test.cpp
   - test/yukicoder/230.test.cpp

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   - icon: ':question:'
@@ -15,9 +15,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/yukicoder/3004.test.cpp
+    title: test/yukicoder/3004.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -159,9 +162,10 @@ data:
   path: math/factorial_large.hpp
   requiredBy: []
   timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
+  - test/yukicoder/3004.test.cpp
 documentation_of: math/factorial_large.hpp
 layout: document
 redirect_from:

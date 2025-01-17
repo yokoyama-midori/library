@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/factorial_large.hpp
     title: math/factorial_large.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   - icon: ':question:'
