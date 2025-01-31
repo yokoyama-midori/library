@@ -1,4 +1,4 @@
-#define PLOBLEM "https://judge.yosupo.jp/problem/primitive_root"
+#define PROBLEM "https://judge.yosupo.jp/problem/primitive_root"
 #include "math/primitive-root.hpp"
 #include "template.hpp"
 void solve() {
