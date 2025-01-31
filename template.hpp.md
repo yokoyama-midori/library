@@ -50,9 +50,15 @@ data:
   - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
+  - icon: ':x:'
+    path: math/mod-pow.hpp
+    title: math/mod-pow.hpp
   - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
+  - icon: ':x:'
+    path: math/primitive-root.hpp
+    title: math/primitive-root.hpp
   - icon: ':heavy_check_mark:'
     path: number-theory/divisor-multiple-transform.hpp
     title: number-theory/divisor-multiple-transform.hpp
@@ -195,6 +201,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primality_test.test.cpp
     title: test/library_checker/number_theory/primality_test.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/number_theory/primitive_root.test.cpp
+    title: test/library_checker/number_theory/primitive_root.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
@@ -372,8 +381,10 @@ data:
   - math/factorial_large.hpp
   - math/matrix.hpp
   - math/miller_rabin.hpp
+  - math/mod-pow.hpp
   - math/pollard_rho.hpp
   - math/factorial.hpp
+  - math/primitive-root.hpp
   - geometry/manhattan-mst.hpp
   - graph/chromatic-number.hpp
   - data_structure/compress.hpp
@@ -424,6 +435,7 @@ data:
   - test/library_checker/number_theory/lcm_convolution.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
+  - test/library_checker/number_theory/primitive_root.test.cpp
   - test/library_checker/number_theory/gcd_convolution.test.cpp
   - test/library_checker/number_theory/enumerate_primes.test.cpp
   - test/yukicoder/3006.test.cpp

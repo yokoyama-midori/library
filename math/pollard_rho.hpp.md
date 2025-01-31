@@ -7,7 +7,10 @@ data:
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: math/primitive-root.hpp
+    title: math/primitive-root.hpp
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/atcoder/abc180_c.test.cpp
@@ -18,6 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/number_theory/primitive_root.test.cpp
+    title: test/library_checker/number_theory/primitive_root.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/2051.test.cpp
     title: test/yukicoder/2051.test.cpp
@@ -162,11 +168,13 @@ data:
   - template.hpp
   isVerificationFile: false
   path: math/pollard_rho.hpp
-  requiredBy: []
+  requiredBy:
+  - math/primitive-root.hpp
   timestamp: '2025-01-31 15:12:24+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
+  - test/library_checker/number_theory/primitive_root.test.cpp
   - test/yukicoder/2051.test.cpp
   - test/yukicoder/888.test.cpp
   - test/atcoder/abc249_d.test.cpp

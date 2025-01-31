@@ -59,9 +59,15 @@ data:
     - icon: ':question:'
       path: math/miller_rabin.hpp
       title: math/miller_rabin.hpp
+    - icon: ':x:'
+      path: math/mod-pow.hpp
+      title: math/mod-pow.hpp
     - icon: ':question:'
       path: math/pollard_rho.hpp
       title: math/pollard_rho.hpp
+    - icon: ':x:'
+      path: math/primitive-root.hpp
+      title: math/primitive-root.hpp
   - name: number-theory
     pages:
     - icon: ':heavy_check_mark:'
@@ -229,6 +235,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/primality_test.test.cpp
       title: test/library_checker/number_theory/primality_test.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/number_theory/primitive_root.test.cpp
+      title: test/library_checker/number_theory/primitive_root.test.cpp
   - name: test/library_checker/other
     pages:
     - icon: ':heavy_check_mark:'

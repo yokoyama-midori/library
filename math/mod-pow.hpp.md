@@ -5,40 +5,18 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
-    path: math/pollard_rho.hpp
-    title: math/pollard_rho.hpp
   - icon: ':x:'
     path: math/primitive-root.hpp
     title: math/primitive-root.hpp
   _extendedVerifiedWith:
   - icon: ':x:'
-    path: test/atcoder/abc180_c.test.cpp
-    title: test/atcoder/abc180_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc249_d.test.cpp
-    title: test/atcoder/abc249_d.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/factorize.test.cpp
-    title: test/library_checker/number_theory/factorize.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/primality_test.test.cpp
-    title: test/library_checker/number_theory/primality_test.test.cpp
-  - icon: ':x:'
     path: test/library_checker/number_theory/primitive_root.test.cpp
     title: test/library_checker/number_theory/primitive_root.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/2051.test.cpp
-    title: test/yukicoder/2051.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/888.test.cpp
-    title: test/yukicoder/888.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links:
-    - https://drken1215.hatenablog.com/entry/2023/05/23/233000
+    links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -94,68 +72,35 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/miller_rabin.hpp\"\
-    \n// https://drken1215.hatenablog.com/entry/2023/05/23/233000\n// todo \u30E2\u30F3\
-    \u30B4\u30E1\u30EA\u4E57\u7B97\nbool is_prime(ll n) {\n    auto pow_mod = [&n](__int128\
-    \ a, ll d) {\n        __int128 res = 1;\n        while(d) {\n            if(d\
-    \ & 1) {\n                res *= a;\n                if(res >= n)\n          \
-    \          res %= n;\n            }\n            a *= a;\n            if(a >=\
-    \ n)\n                a %= n;\n            d >>= 1;\n        }\n        return\
-    \ res;\n    };\n    if(n == 2 or n == 7 or n == 61) {\n        return true;\n\
-    \    }\n    if(n % 2 == 0 or n == 1) {\n        return false;\n    }\n    ll d\
-    \ = n - 1;\n    ll s = 0;\n    while(d % 2 == 0) {\n        d >>= 1;\n       \
-    \ s++;\n    }\n    auto check = [&](ll a) {\n        ll ad = pow_mod(a, d);\n\
-    \        if(ad == 1) {\n            return true;\n        }\n        rep(i, s)\
-    \ {\n            if(ad == n - 1) {\n                return true;\n           \
-    \ }\n            if(i < s - 1)\n                ad = pow_mod(ad, 2);\n       \
-    \ }\n        return false;\n    };\n    if(n < 4759123141) {\n        for(auto\
-    \ a : vl{2, 7, 61}) {\n            if(!check(a)) {\n                return false;\n\
-    \            }\n        }\n        return true;\n    } else {\n        for(auto\
-    \ a : vl{2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {\n            if(n\
-    \ == a) {\n                return true;\n            }\n            if(!check(a))\
-    \ {\n                return false;\n            }\n        }\n        return true;\n\
-    \    }\n}\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://drken1215.hatenablog.com/entry/2023/05/23/233000\n\
-    // todo \u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97\nbool is_prime(ll n) {\n  \
-    \  auto pow_mod = [&n](__int128 a, ll d) {\n        __int128 res = 1;\n      \
-    \  while(d) {\n            if(d & 1) {\n                res *= a;\n          \
-    \      if(res >= n)\n                    res %= n;\n            }\n          \
-    \  a *= a;\n            if(a >= n)\n                a %= n;\n            d >>=\
-    \ 1;\n        }\n        return res;\n    };\n    if(n == 2 or n == 7 or n ==\
-    \ 61) {\n        return true;\n    }\n    if(n % 2 == 0 or n == 1) {\n       \
-    \ return false;\n    }\n    ll d = n - 1;\n    ll s = 0;\n    while(d % 2 == 0)\
-    \ {\n        d >>= 1;\n        s++;\n    }\n    auto check = [&](ll a) {\n   \
-    \     ll ad = pow_mod(a, d);\n        if(ad == 1) {\n            return true;\n\
-    \        }\n        rep(i, s) {\n            if(ad == n - 1) {\n             \
-    \   return true;\n            }\n            if(i < s - 1)\n                ad\
-    \ = pow_mod(ad, 2);\n        }\n        return false;\n    };\n    if(n < 4759123141)\
-    \ {\n        for(auto a : vl{2, 7, 61}) {\n            if(!check(a)) {\n     \
-    \           return false;\n            }\n        }\n        return true;\n  \
-    \  } else {\n        for(auto a : vl{2, 325, 9375, 28178, 450775, 9780504, 1795265022})\
-    \ {\n            if(n == a) {\n                return true;\n            }\n \
-    \           if(!check(a)) {\n                return false;\n            }\n  \
-    \      }\n        return true;\n    }\n}"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"math/mod-pow.hpp\"\n\
+    int mod_pow(int x, ll n, int mod) {\n    assert(n >= 0);\n    ll res = 1, xpow\
+    \ = x;\n    while(n) {\n        if(n & 1) {\n            res = res * xpow % mod;\n\
+    \        }\n        xpow = xpow * xpow % mod;\n        n >>= 1;\n    }\n    return\
+    \ res;\n}\nll mod_pow_ll(ll x, ll n, ll mod) {\n    assert(n >= 0);\n    __int128\
+    \ res = 1, xpow = x;\n    while(n) {\n        if(n & 1) {\n            res = res\
+    \ * xpow % mod;\n        }\n        xpow = xpow * xpow % mod;\n        n >>= 1;\n\
+    \    }\n    return res;\n}\n"
+  code: "#include \"template.hpp\"\nint mod_pow(int x, ll n, int mod) {\n    assert(n\
+    \ >= 0);\n    ll res = 1, xpow = x;\n    while(n) {\n        if(n & 1) {\n   \
+    \         res = res * xpow % mod;\n        }\n        xpow = xpow * xpow % mod;\n\
+    \        n >>= 1;\n    }\n    return res;\n}\nll mod_pow_ll(ll x, ll n, ll mod)\
+    \ {\n    assert(n >= 0);\n    __int128 res = 1, xpow = x;\n    while(n) {\n  \
+    \      if(n & 1) {\n            res = res * xpow % mod;\n        }\n        xpow\
+    \ = xpow * xpow % mod;\n        n >>= 1;\n    }\n    return res;\n}"
   dependsOn:
   - template.hpp
   isVerificationFile: false
-  path: math/miller_rabin.hpp
+  path: math/mod-pow.hpp
   requiredBy:
-  - math/pollard_rho.hpp
   - math/primitive-root.hpp
-  timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2025-01-31 15:57:02+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/library_checker/number_theory/factorize.test.cpp
-  - test/library_checker/number_theory/primality_test.test.cpp
   - test/library_checker/number_theory/primitive_root.test.cpp
-  - test/yukicoder/2051.test.cpp
-  - test/yukicoder/888.test.cpp
-  - test/atcoder/abc249_d.test.cpp
-  - test/atcoder/abc180_c.test.cpp
-documentation_of: math/miller_rabin.hpp
+documentation_of: math/mod-pow.hpp
 layout: document
 redirect_from:
-- /library/math/miller_rabin.hpp
-- /library/math/miller_rabin.hpp.html
-title: math/miller_rabin.hpp
+- /library/math/mod-pow.hpp
+- /library/math/mod-pow.hpp.html
+title: math/mod-pow.hpp
 ---
