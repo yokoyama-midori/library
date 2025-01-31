@@ -50,13 +50,13 @@ data:
   - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
   - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/primitive-root.hpp
     title: math/primitive-root.hpp
   - icon: ':heavy_check_mark:'
@@ -201,7 +201,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primality_test.test.cpp
     title: test/library_checker/number_theory/primality_test.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primitive_root.test.cpp
     title: test/library_checker/number_theory/primitive_root.test.cpp
   - icon: ':heavy_check_mark:'

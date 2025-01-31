@@ -8,7 +8,7 @@ data:
   - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/primitive-root.hpp
     title: math/primitive-root.hpp
   _extendedVerifiedWith:
@@ -24,7 +24,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primality_test.test.cpp
     title: test/library_checker/number_theory/primality_test.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primitive_root.test.cpp
     title: test/library_checker/number_theory/primitive_root.test.cpp
   - icon: ':heavy_check_mark:'

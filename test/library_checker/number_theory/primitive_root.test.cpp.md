@@ -4,13 +4,13 @@ data:
   - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
   - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/primitive-root.hpp
     title: math/primitive-root.hpp
   - icon: ':question:'
@@ -18,15 +18,16 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/primitive_root
     links:
     - https://judge.yosupo.jp/problem/primitive_root
   bundledCode: "#line 1 \"test/library_checker/number_theory/primitive_root.test.cpp\"\
-    \n#define PLOBLEM \"https://judge.yosupo.jp/problem/primitive_root\"\n#line 2\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/primitive_root\"\n#line 2\
     \ \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
     using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
@@ -149,7 +150,7 @@ data:
     \    print(primitive_root(p));\n    } else {\n        print(primitive_root_ll(p));\n\
     \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    LL(t);\n    rep(_, t) solve();\n}\n"
-  code: "#define PLOBLEM \"https://judge.yosupo.jp/problem/primitive_root\"\n#include\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primitive_root\"\n#include\
     \ \"math/primitive-root.hpp\"\n#include \"template.hpp\"\nvoid solve() {\n   \
     \ LL(p);\n    if(p <= numeric_limits<int>::max()) {\n        print(primitive_root(p));\n\
     \    } else {\n        print(primitive_root_ll(p));\n    }\n}\nint main() {\n\
@@ -164,8 +165,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/number_theory/primitive_root.test.cpp
   requiredBy: []
-  timestamp: '2025-01-31 15:57:02+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-01-31 16:04:58+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/primitive_root.test.cpp
 layout: document
