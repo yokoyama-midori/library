@@ -9,7 +9,6 @@
 int mod_sqrt(int y, int p) {
     // return x (x^2 = y mod p)
     // なければ -1 を返す
-    debug(y, p);
     assert(0 <= y and y < p);
     if(p == 2 or y <= 1) {
         return y;
@@ -19,7 +18,7 @@ int mod_sqrt(int y, int p) {
     }
     int b, x2;
     while(1) {
-        b = rng(1, p - 1);
+        b = rng(1, p);
         x2 = ((ll)b * b - y) % p;
         if(x2 < 0)
             x2 += p;
