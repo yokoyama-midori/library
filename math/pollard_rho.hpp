@@ -72,7 +72,8 @@ vl divisors(ll n) {
             ll pi = p;
             rep(_, cnt) {
                 res.push_back(res[i] * pi);
-                pi *= p;
+                if(_ + 1 != cnt)
+                    pi *= p;
             }
         }
     }
