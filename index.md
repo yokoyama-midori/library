@@ -62,7 +62,7 @@ data:
     - icon: ':question:'
       path: math/mod-pow.hpp
       title: math/mod-pow.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/mod-sqrt.hpp
       title: math/mod-sqrt.hpp
     - icon: ':question:'
@@ -98,7 +98,7 @@ data:
       title: poly/shift_of_sampling_points.hpp
   - name: .
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: rng.hpp
       title: rng.hpp
     - icon: ':question:'
@@ -244,7 +244,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/primitive_root.test.cpp
       title: test/library_checker/number_theory/primitive_root.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/sqrt_mod.test.cpp
       title: test/library_checker/number_theory/sqrt_mod.test.cpp
   - name: test/library_checker/other

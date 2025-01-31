@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod-sqrt.hpp
     title: math/mod-sqrt.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: rng.hpp
     title: rng.hpp
   - icon: ':question:'
@@ -15,20 +15,20 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/primitive_root
+    PROBLEM: https://judge.yosupo.jp/problem/sqrt_mod
     links:
-    - https://judge.yosupo.jp/problem/primitive_root
+    - https://judge.yosupo.jp/problem/sqrt_mod
   bundledCode: "#line 1 \"test/library_checker/number_theory/sqrt_mod.test.cpp\"\n\
-    #define PROBLEM \"https://judge.yosupo.jp/problem/primitive_root\"\n#line 2 \"\
-    template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\"\
-    )\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing\
-    \ namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n\
-    // usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\u3046\u306B\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_mod\"\n#line 2 \"template.hpp\"\
+    \n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
+    \ GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n//\
+    \ usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\u3046\u306B\
     \u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream& os, const vector<T>&\
     \ v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size(); ++i) {\n      \
     \  os << v[i];\n        if (i < v.size() - 1) os << \", \";\n    }\n    os <<\
@@ -94,30 +94,30 @@ data:
     \                                .time_since_epoch())\n                      \
     \           .count()) *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n\
     \    return x_ ^= x_ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim)\
-    \ { return RNG_64() % lim; }\n\nll rng(ll l, ll r) { return l + RNG_64() % (r\
-    \ - l); }\n#line 5 \"math/mod-sqrt.hpp\"\n// Cipolla \u306E\u30A2\u30EB\u30B4\u30EA\
-    \u30BA\u30E0 O(log p)\n// https://suu-0313.hatenablog.com/entry/2021/10/01/024229\n\
+    \ { return RNG_64() % lim; }\n\nll rng(ll l, ll r) {\n    // [l,r)\n    return\
+    \ l + RNG_64() % (r - l);\n}\n#line 5 \"math/mod-sqrt.hpp\"\n// Cipolla \u306E\
+    \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0 O(log p)\n// https://suu-0313.hatenablog.com/entry/2021/10/01/024229\n\
     // https://37zigen.com/cipolla-algorithm/\n// https://maspypy.github.io/library/mod/mod_sqrt.hpp\n\
     int mod_sqrt(int y, int p) {\n    // return x (x^2 = y mod p)\n    // \u306A\u3051\
-    \u308C\u3070 -1 \u3092\u8FD4\u3059\n    debug(y, p);\n    assert(0 <= y and y\
-    \ < p);\n    if(p == 2 or y <= 1) {\n        return y;\n    }\n    if(mod_pow(y,\
-    \ (p - 1) / 2, p) != 1) {\n        return -1;\n    }\n    int b, x2;\n    while(1)\
-    \ {\n        b = rng(1, p - 1);\n        x2 = ((ll)b * b - y) % p;\n        if(x2\
-    \ < 0)\n            x2 += p;\n        if(mod_pow(x2, (p - 1) / 2, p) != 1)\n \
-    \           break;\n    }\n    if(x2 == 0)\n        return b;\n    int k = (p\
-    \ + 1) / 2;\n    ll f1 = 1, f2 = 0;\n    // (b + \u221Ax2)^k\n    ll pow1 = b,\
-    \ pow2 = 1;\n    while(k) {\n        // 2*int_max*int_max < ll_max\n        if(k\
-    \ & 1) {\n            tie(f1, f2) =\n                P{f1 * pow1 + f2 * pow2 %\
-    \ p * x2, f1 * pow2 + f2 * pow1};\n            f1 %= p, f2 %= p;\n        }\n\
-    \        tie(pow1, pow2) =\n            P{pow1 * pow1 + pow2 * pow2 % p * x2,\
-    \ 2 * pow1 % p * pow2};\n        pow1 %= p, pow2 %= p;\n        k >>= 1;\n   \
-    \ }\n    // assert(f2 == 0);\n    return f1;\n}\n#line 4 \"test/library_checker/number_theory/sqrt_mod.test.cpp\"\
-    \nvoid solve() {\n    INT(y, p);\n    print(mod_sqrt(y, p));\n}\nint main() {\n\
-    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    LL(t);\n  \
-    \  rep(_, t) solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primitive_root\"\n#include\
-    \ \"math/mod-sqrt.hpp\"\n#include \"template.hpp\"\nvoid solve() {\n    INT(y,\
-    \ p);\n    print(mod_sqrt(y, p));\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \u308C\u3070 -1 \u3092\u8FD4\u3059\n    assert(0 <= y and y < p);\n    if(p ==\
+    \ 2 or y <= 1) {\n        return y;\n    }\n    if(mod_pow(y, (p - 1) / 2, p)\
+    \ != 1) {\n        return -1;\n    }\n    int b, x2;\n    while(1) {\n       \
+    \ b = rng(1, p);\n        x2 = ((ll)b * b - y) % p;\n        if(x2 < 0)\n    \
+    \        x2 += p;\n        if(mod_pow(x2, (p - 1) / 2, p) != 1)\n            break;\n\
+    \    }\n    if(x2 == 0)\n        return b;\n    int k = (p + 1) / 2;\n    ll f1\
+    \ = 1, f2 = 0;\n    // (b + \u221Ax2)^k\n    ll pow1 = b, pow2 = 1;\n    while(k)\
+    \ {\n        // 2*int_max*int_max < ll_max\n        if(k & 1) {\n            tie(f1,\
+    \ f2) =\n                P{f1 * pow1 + f2 * pow2 % p * x2, f1 * pow2 + f2 * pow1};\n\
+    \            f1 %= p, f2 %= p;\n        }\n        tie(pow1, pow2) =\n       \
+    \     P{pow1 * pow1 + pow2 * pow2 % p * x2, 2 * pow1 % p * pow2};\n        pow1\
+    \ %= p, pow2 %= p;\n        k >>= 1;\n    }\n    // assert(f2 == 0);\n    return\
+    \ f1;\n}\n#line 4 \"test/library_checker/number_theory/sqrt_mod.test.cpp\"\nvoid\
+    \ solve() {\n    INT(y, p);\n    print(mod_sqrt(y, p));\n}\nint main() {\n   \
+    \ ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    LL(t);\n    rep(_,\
+    \ t) solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_mod\"\n#include \"\
+    math/mod-sqrt.hpp\"\n#include \"template.hpp\"\nvoid solve() {\n    INT(y, p);\n\
+    \    print(mod_sqrt(y, p));\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    LL(t);\n    rep(_, t) solve();\n}\n"
   dependsOn:
   - math/mod-sqrt.hpp
@@ -127,8 +127,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/number_theory/sqrt_mod.test.cpp
   requiredBy: []
-  timestamp: '2025-01-31 17:56:36+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-01-31 18:02:44+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/sqrt_mod.test.cpp
 layout: document

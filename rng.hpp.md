@@ -5,16 +5,16 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod-sqrt.hpp
     title: math/mod-sqrt.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/sqrt_mod.test.cpp
     title: test/library_checker/number_theory/sqrt_mod.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://maspypy.github.io/library/random/base.hpp
@@ -81,7 +81,8 @@ data:
     \             .time_since_epoch())\n                                 .count())\
     \ *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n    return x_ ^= x_\
     \ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim) { return RNG_64()\
-    \ % lim; }\n\nll rng(ll l, ll r) { return l + RNG_64() % (r - l); }\n"
+    \ % lim; }\n\nll rng(ll l, ll r) {\n    // [l,r)\n    return l + RNG_64() % (r\
+    \ - l);\n}\n"
   code: "#pragma once\n// https://maspypy.github.io/library/random/base.hpp\n#include\
     \ \"template.hpp\"\nunsigned long long RNG_64() {\n    static unsigned long long\
     \ x_ =\n        (unsigned long long)(chrono::duration_cast<chrono::nanoseconds>(\n\
@@ -89,16 +90,16 @@ data:
     \                                .time_since_epoch())\n                      \
     \           .count()) *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n\
     \    return x_ ^= x_ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim)\
-    \ { return RNG_64() % lim; }\n\nll rng(ll l, ll r) { return l + RNG_64() % (r\
-    \ - l); }"
+    \ { return RNG_64() % lim; }\n\nll rng(ll l, ll r) {\n    // [l,r)\n    return\
+    \ l + RNG_64() % (r - l);\n}"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: rng.hpp
   requiredBy:
   - math/mod-sqrt.hpp
-  timestamp: '2025-01-31 17:56:36+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2025-01-31 18:02:44+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/sqrt_mod.test.cpp
 documentation_of: rng.hpp
