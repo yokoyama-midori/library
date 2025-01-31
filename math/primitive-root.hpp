@@ -1,3 +1,4 @@
+#pragma once
 #include "math/mod-pow.hpp"
 #include "math/pollard_rho.hpp"
 int primitive_root(int p) {

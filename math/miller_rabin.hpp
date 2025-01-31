@@ -1,23 +1,9 @@
 #pragma once
+#include "math/mod-pow.hpp"
 #include "template.hpp"
 // https://drken1215.hatenablog.com/entry/2023/05/23/233000
 // todo モンゴメリ乗算
 bool is_prime(ll n) {
-    auto pow_mod = [&n](__int128 a, ll d) {
-        __int128 res = 1;
-        while(d) {
-            if(d & 1) {
-                res *= a;
-                if(res >= n)
-                    res %= n;
-            }
-            a *= a;
-            if(a >= n)
-                a %= n;
-            d >>= 1;
-        }
-        return res;
-    };
     if(n == 2 or n == 7 or n == 61) {
         return true;
     }
@@ -31,7 +17,7 @@ bool is_prime(ll n) {
         s++;
     }
     auto check = [&](ll a) {
-        ll ad = pow_mod(a, d);
+        ll ad = mod_pow_ll(a, d, n);
         if(ad == 1) {
             return true;
         }
@@ -40,7 +26,7 @@ bool is_prime(ll n) {
                 return true;
             }
             if(i < s - 1)
-                ad = pow_mod(ad, 2);
+                ad = mod_pow_ll(ad, 2, n);
         }
         return false;
     };

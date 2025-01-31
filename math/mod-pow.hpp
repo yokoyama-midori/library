@@ -1,3 +1,4 @@
+#pragma once
 #include "template.hpp"
 int mod_pow(int x, ll n, int mod) {
     assert(n >= 0);
