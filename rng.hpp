@@ -14,4 +14,7 @@ unsigned long long RNG_64() {
 
 unsigned long long RNG(unsigned long long lim) { return RNG_64() % lim; }
 
-ll rng(ll l, ll r) { return l + RNG_64() % (r - l); }
+ll rng(ll l, ll r) {
+    // [l,r)
+    return l + RNG_64() % (r - l);
+}
