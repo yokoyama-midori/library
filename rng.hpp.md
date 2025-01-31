@@ -5,53 +5,25 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
-    path: math/miller_rabin.hpp
-    title: math/miller_rabin.hpp
   - icon: ':x:'
     path: math/mod-sqrt.hpp
     title: math/mod-sqrt.hpp
-  - icon: ':question:'
-    path: math/pollard_rho.hpp
-    title: math/pollard_rho.hpp
-  - icon: ':heavy_check_mark:'
-    path: math/primitive-root.hpp
-    title: math/primitive-root.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/atcoder/abc180_c.test.cpp
-    title: test/atcoder/abc180_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc249_d.test.cpp
-    title: test/atcoder/abc249_d.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/factorize.test.cpp
-    title: test/library_checker/number_theory/factorize.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/primality_test.test.cpp
-    title: test/library_checker/number_theory/primality_test.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/primitive_root.test.cpp
-    title: test/library_checker/number_theory/primitive_root.test.cpp
   - icon: ':x:'
     path: test/library_checker/number_theory/sqrt_mod.test.cpp
     title: test/library_checker/number_theory/sqrt_mod.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/2051.test.cpp
-    title: test/yukicoder/2051.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/888.test.cpp
-    title: test/yukicoder/888.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    links:
+    - https://maspypy.github.io/library/random/base.hpp
+  bundledCode: "#line 2 \"rng.hpp\"\n// https://maspypy.github.io/library/random/base.hpp\n\
+    #line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
+    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -102,46 +74,37 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/mod-pow.hpp\"\n\
-    int mod_pow(int x, ll n, int mod) {\n    assert(n >= 0);\n    ll res = 1, xpow\
-    \ = x;\n    while(n) {\n        if(n & 1) {\n            res = res * xpow % mod;\n\
-    \        }\n        xpow = xpow * xpow % mod;\n        n >>= 1;\n    }\n    return\
-    \ res;\n}\nll mod_pow_ll(ll x, ll n, ll mod) {\n    assert(n >= 0);\n    __int128\
-    \ res = 1, xpow = x;\n    while(n) {\n        if(n & 1) {\n            res = res\
-    \ * xpow % mod;\n        }\n        xpow = xpow * xpow % mod;\n        n >>= 1;\n\
-    \    }\n    return res;\n}\n"
-  code: "#pragma once\n#include \"template.hpp\"\nint mod_pow(int x, ll n, int mod)\
-    \ {\n    assert(n >= 0);\n    ll res = 1, xpow = x;\n    while(n) {\n        if(n\
-    \ & 1) {\n            res = res * xpow % mod;\n        }\n        xpow = xpow\
-    \ * xpow % mod;\n        n >>= 1;\n    }\n    return res;\n}\nll mod_pow_ll(ll\
-    \ x, ll n, ll mod) {\n    assert(n >= 0);\n    __int128 res = 1, xpow = x;\n \
-    \   while(n) {\n        if(n & 1) {\n            res = res * xpow % mod;\n   \
-    \     }\n        xpow = xpow * xpow % mod;\n        n >>= 1;\n    }\n    return\
-    \ res;\n}"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 4 \"rng.hpp\"\nunsigned\
+    \ long long RNG_64() {\n    static unsigned long long x_ =\n        (unsigned\
+    \ long long)(chrono::duration_cast<chrono::nanoseconds>(\n                   \
+    \              chrono::high_resolution_clock::now()\n                        \
+    \             .time_since_epoch())\n                                 .count())\
+    \ *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n    return x_ ^= x_\
+    \ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim) { return RNG_64()\
+    \ % lim; }\n\nll rng(ll l, ll r) { return l + RNG_64() % (r - l); }\n"
+  code: "#pragma once\n// https://maspypy.github.io/library/random/base.hpp\n#include\
+    \ \"template.hpp\"\nunsigned long long RNG_64() {\n    static unsigned long long\
+    \ x_ =\n        (unsigned long long)(chrono::duration_cast<chrono::nanoseconds>(\n\
+    \                                 chrono::high_resolution_clock::now()\n     \
+    \                                .time_since_epoch())\n                      \
+    \           .count()) *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n\
+    \    return x_ ^= x_ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim)\
+    \ { return RNG_64() % lim; }\n\nll rng(ll l, ll r) { return l + RNG_64() % (r\
+    \ - l); }"
   dependsOn:
   - template.hpp
   isVerificationFile: false
-  path: math/mod-pow.hpp
+  path: rng.hpp
   requiredBy:
-  - math/miller_rabin.hpp
   - math/mod-sqrt.hpp
-  - math/pollard_rho.hpp
-  - math/primitive-root.hpp
   timestamp: '2025-01-31 17:56:36+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/number_theory/sqrt_mod.test.cpp
-  - test/library_checker/number_theory/factorize.test.cpp
-  - test/library_checker/number_theory/primality_test.test.cpp
-  - test/library_checker/number_theory/primitive_root.test.cpp
-  - test/yukicoder/2051.test.cpp
-  - test/yukicoder/888.test.cpp
-  - test/atcoder/abc249_d.test.cpp
-  - test/atcoder/abc180_c.test.cpp
-documentation_of: math/mod-pow.hpp
+documentation_of: rng.hpp
 layout: document
 redirect_from:
-- /library/math/mod-pow.hpp
-- /library/math/mod-pow.hpp.html
-title: math/mod-pow.hpp
+- /library/rng.hpp
+- /library/rng.hpp.html
+title: rng.hpp
 ---

@@ -5,6 +5,9 @@ data:
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
   - icon: ':question:'
+    path: math/mod-pow.hpp
+    title: math/mod-pow.hpp
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -74,24 +77,26 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/miller_rabin.hpp\"\
-    \n// https://drken1215.hatenablog.com/entry/2023/05/23/233000\n// todo \u30E2\u30F3\
-    \u30B4\u30E1\u30EA\u4E57\u7B97\nbool is_prime(ll n) {\n    auto pow_mod = [&n](__int128\
-    \ a, ll d) {\n        __int128 res = 1;\n        while(d) {\n            if(d\
-    \ & 1) {\n                res *= a;\n                if(res >= n)\n          \
-    \          res %= n;\n            }\n            a *= a;\n            if(a >=\
-    \ n)\n                a %= n;\n            d >>= 1;\n        }\n        return\
-    \ res;\n    };\n    if(n == 2 or n == 7 or n == 61) {\n        return true;\n\
-    \    }\n    if(n % 2 == 0 or n == 1) {\n        return false;\n    }\n    ll d\
-    \ = n - 1;\n    ll s = 0;\n    while(d % 2 == 0) {\n        d >>= 1;\n       \
-    \ s++;\n    }\n    auto check = [&](ll a) {\n        ll ad = pow_mod(a, d);\n\
-    \        if(ad == 1) {\n            return true;\n        }\n        rep(i, s)\
-    \ {\n            if(ad == n - 1) {\n                return true;\n           \
-    \ }\n            if(i < s - 1)\n                ad = pow_mod(ad, 2);\n       \
-    \ }\n        return false;\n    };\n    if(n < 4759123141) {\n        for(auto\
-    \ a : vl{2, 7, 61}) {\n            if(!check(a)) {\n                return false;\n\
-    \            }\n        }\n        return true;\n    } else {\n        for(auto\
-    \ a : vl{2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {\n            if(n\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/mod-pow.hpp\"\n\
+    int mod_pow(int x, ll n, int mod) {\n    assert(n >= 0);\n    ll res = 1, xpow\
+    \ = x;\n    while(n) {\n        if(n & 1) {\n            res = res * xpow % mod;\n\
+    \        }\n        xpow = xpow * xpow % mod;\n        n >>= 1;\n    }\n    return\
+    \ res;\n}\nll mod_pow_ll(ll x, ll n, ll mod) {\n    assert(n >= 0);\n    __int128\
+    \ res = 1, xpow = x;\n    while(n) {\n        if(n & 1) {\n            res = res\
+    \ * xpow % mod;\n        }\n        xpow = xpow * xpow % mod;\n        n >>= 1;\n\
+    \    }\n    return res;\n}\n#line 4 \"math/miller_rabin.hpp\"\n// https://drken1215.hatenablog.com/entry/2023/05/23/233000\n\
+    // todo \u30E2\u30F3\u30B4\u30E1\u30EA\u4E57\u7B97\nbool is_prime(ll n) {\n  \
+    \  if(n == 2 or n == 7 or n == 61) {\n        return true;\n    }\n    if(n %\
+    \ 2 == 0 or n == 1) {\n        return false;\n    }\n    ll d = n - 1;\n    ll\
+    \ s = 0;\n    while(d % 2 == 0) {\n        d >>= 1;\n        s++;\n    }\n   \
+    \ auto check = [&](ll a) {\n        ll ad = mod_pow_ll(a, d, n);\n        if(ad\
+    \ == 1) {\n            return true;\n        }\n        rep(i, s) {\n        \
+    \    if(ad == n - 1) {\n                return true;\n            }\n        \
+    \    if(i < s - 1)\n                ad = mod_pow_ll(ad, 2, n);\n        }\n  \
+    \      return false;\n    };\n    if(n < 4759123141) {\n        for(auto a : vl{2,\
+    \ 7, 61}) {\n            if(!check(a)) {\n                return false;\n    \
+    \        }\n        }\n        return true;\n    } else {\n        for(auto a\
+    \ : vl{2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {\n            if(n\
     \ == a) {\n                return true;\n            }\n            if(!check(a))\
     \ {\n                return false;\n            }\n        }\n        return true;\n\
     \    }\n}\n#line 4 \"test/library_checker/number_theory/primality_test.test.cpp\"\
@@ -106,10 +111,11 @@ data:
   dependsOn:
   - template.hpp
   - math/miller_rabin.hpp
+  - math/mod-pow.hpp
   isVerificationFile: true
   path: test/library_checker/number_theory/primality_test.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2025-01-31 17:56:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/primality_test.test.cpp

@@ -50,9 +50,12 @@ data:
   - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
+  - icon: ':x:'
+    path: math/mod-sqrt.hpp
+    title: math/mod-sqrt.hpp
   - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
@@ -80,6 +83,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
+  - icon: ':x:'
+    path: rng.hpp
+    title: rng.hpp
   - icon: ':heavy_check_mark:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
@@ -204,6 +210,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primitive_root.test.cpp
     title: test/library_checker/number_theory/primitive_root.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/number_theory/sqrt_mod.test.cpp
+    title: test/library_checker/number_theory/sqrt_mod.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
@@ -381,6 +390,7 @@ data:
   - math/factorial_large.hpp
   - math/matrix.hpp
   - math/miller_rabin.hpp
+  - math/mod-sqrt.hpp
   - math/mod-pow.hpp
   - math/pollard_rho.hpp
   - math/factorial.hpp
@@ -398,6 +408,7 @@ data:
   - poly/bostan_mori.hpp
   - poly/shift_of_sampling_points.hpp
   - poly/poly_taylor_shift.hpp
+  - rng.hpp
   - number-theory/lcm-convolution.hpp
   - number-theory/gcd-convolution.hpp
   - number-theory/enumerate-primes.hpp
@@ -433,6 +444,7 @@ data:
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp
   - test/library_checker/number_theory/lcm_convolution.test.cpp
+  - test/library_checker/number_theory/sqrt_mod.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
   - test/library_checker/number_theory/primitive_root.test.cpp

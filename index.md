@@ -59,9 +59,12 @@ data:
     - icon: ':question:'
       path: math/miller_rabin.hpp
       title: math/miller_rabin.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/mod-pow.hpp
       title: math/mod-pow.hpp
+    - icon: ':x:'
+      path: math/mod-sqrt.hpp
+      title: math/mod-sqrt.hpp
     - icon: ':question:'
       path: math/pollard_rho.hpp
       title: math/pollard_rho.hpp
@@ -93,16 +96,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: poly/shift_of_sampling_points.hpp
       title: poly/shift_of_sampling_points.hpp
+  - name: .
+    pages:
+    - icon: ':x:'
+      path: rng.hpp
+      title: rng.hpp
+    - icon: ':question:'
+      path: template.hpp
+      title: template.hpp
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
       path: string/run-length-encoding.hpp
       title: string/run-length-encoding.hpp
-  - name: .
-    pages:
-    - icon: ':question:'
-      path: template.hpp
-      title: template.hpp
   verificationCategories:
   - name: test/atcoder
     pages:
@@ -238,6 +244,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/primitive_root.test.cpp
       title: test/library_checker/number_theory/primitive_root.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/number_theory/sqrt_mod.test.cpp
+      title: test/library_checker/number_theory/sqrt_mod.test.cpp
   - name: test/library_checker/other
     pages:
     - icon: ':heavy_check_mark:'

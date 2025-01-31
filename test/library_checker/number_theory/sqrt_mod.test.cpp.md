@@ -2,59 +2,37 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: template.hpp
-    title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':question:'
-    path: math/miller_rabin.hpp
-    title: math/miller_rabin.hpp
+    path: math/mod-pow.hpp
+    title: math/mod-pow.hpp
   - icon: ':x:'
     path: math/mod-sqrt.hpp
     title: math/mod-sqrt.hpp
+  - icon: ':x:'
+    path: rng.hpp
+    title: rng.hpp
   - icon: ':question:'
-    path: math/pollard_rho.hpp
-    title: math/pollard_rho.hpp
-  - icon: ':heavy_check_mark:'
-    path: math/primitive-root.hpp
-    title: math/primitive-root.hpp
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/atcoder/abc180_c.test.cpp
-    title: test/atcoder/abc180_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc249_d.test.cpp
-    title: test/atcoder/abc249_d.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/factorize.test.cpp
-    title: test/library_checker/number_theory/factorize.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/primality_test.test.cpp
-    title: test/library_checker/number_theory/primality_test.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/primitive_root.test.cpp
-    title: test/library_checker/number_theory/primitive_root.test.cpp
-  - icon: ':x:'
-    path: test/library_checker/number_theory/sqrt_mod.test.cpp
-    title: test/library_checker/number_theory/sqrt_mod.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/2051.test.cpp
-    title: test/yukicoder/2051.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/888.test.cpp
-    title: test/yukicoder/888.test.cpp
+    path: template.hpp
+    title: template.hpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: true
-  _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _pathExtension: cpp
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
-    \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
-    \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
-    \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/primitive_root
+    links:
+    - https://judge.yosupo.jp/problem/primitive_root
+  bundledCode: "#line 1 \"test/library_checker/number_theory/sqrt_mod.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/primitive_root\"\n#line 2 \"\
+    template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\"\
+    )\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing\
+    \ namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n\
+    // usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\u3046\u306B\
+    \u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream& os, const vector<T>&\
+    \ v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size(); ++i) {\n      \
+    \  os << v[i];\n        if (i < v.size() - 1) os << \", \";\n    }\n    os <<\
+    \ \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const T& var) {\n    os << var;\n    return os;\n}\n#define CHOOSE(a) CHOOSE2\
     \ a\n#define CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) { cout\
     \ << #x1 << \": \"; debug_print(cout, x1) << endl; }\n#define debug_2(x1, x2)\
@@ -109,39 +87,53 @@ data:
     \ res;\n}\nll mod_pow_ll(ll x, ll n, ll mod) {\n    assert(n >= 0);\n    __int128\
     \ res = 1, xpow = x;\n    while(n) {\n        if(n & 1) {\n            res = res\
     \ * xpow % mod;\n        }\n        xpow = xpow * xpow % mod;\n        n >>= 1;\n\
-    \    }\n    return res;\n}\n"
-  code: "#pragma once\n#include \"template.hpp\"\nint mod_pow(int x, ll n, int mod)\
-    \ {\n    assert(n >= 0);\n    ll res = 1, xpow = x;\n    while(n) {\n        if(n\
-    \ & 1) {\n            res = res * xpow % mod;\n        }\n        xpow = xpow\
-    \ * xpow % mod;\n        n >>= 1;\n    }\n    return res;\n}\nll mod_pow_ll(ll\
-    \ x, ll n, ll mod) {\n    assert(n >= 0);\n    __int128 res = 1, xpow = x;\n \
-    \   while(n) {\n        if(n & 1) {\n            res = res * xpow % mod;\n   \
-    \     }\n        xpow = xpow * xpow % mod;\n        n >>= 1;\n    }\n    return\
-    \ res;\n}"
+    \    }\n    return res;\n}\n#line 2 \"rng.hpp\"\n// https://maspypy.github.io/library/random/base.hpp\n\
+    #line 4 \"rng.hpp\"\nunsigned long long RNG_64() {\n    static unsigned long long\
+    \ x_ =\n        (unsigned long long)(chrono::duration_cast<chrono::nanoseconds>(\n\
+    \                                 chrono::high_resolution_clock::now()\n     \
+    \                                .time_since_epoch())\n                      \
+    \           .count()) *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n\
+    \    return x_ ^= x_ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim)\
+    \ { return RNG_64() % lim; }\n\nll rng(ll l, ll r) { return l + RNG_64() % (r\
+    \ - l); }\n#line 5 \"math/mod-sqrt.hpp\"\n// Cipolla \u306E\u30A2\u30EB\u30B4\u30EA\
+    \u30BA\u30E0 O(log p)\n// https://suu-0313.hatenablog.com/entry/2021/10/01/024229\n\
+    // https://37zigen.com/cipolla-algorithm/\n// https://maspypy.github.io/library/mod/mod_sqrt.hpp\n\
+    int mod_sqrt(int y, int p) {\n    // return x (x^2 = y mod p)\n    // \u306A\u3051\
+    \u308C\u3070 -1 \u3092\u8FD4\u3059\n    debug(y, p);\n    assert(0 <= y and y\
+    \ < p);\n    if(p == 2 or y <= 1) {\n        return y;\n    }\n    if(mod_pow(y,\
+    \ (p - 1) / 2, p) != 1) {\n        return -1;\n    }\n    int b, x2;\n    while(1)\
+    \ {\n        b = rng(1, p - 1);\n        x2 = ((ll)b * b - y) % p;\n        if(x2\
+    \ < 0)\n            x2 += p;\n        if(mod_pow(x2, (p - 1) / 2, p) != 1)\n \
+    \           break;\n    }\n    if(x2 == 0)\n        return b;\n    int k = (p\
+    \ + 1) / 2;\n    ll f1 = 1, f2 = 0;\n    // (b + \u221Ax2)^k\n    ll pow1 = b,\
+    \ pow2 = 1;\n    while(k) {\n        // 2*int_max*int_max < ll_max\n        if(k\
+    \ & 1) {\n            tie(f1, f2) =\n                P{f1 * pow1 + f2 * pow2 %\
+    \ p * x2, f1 * pow2 + f2 * pow1};\n            f1 %= p, f2 %= p;\n        }\n\
+    \        tie(pow1, pow2) =\n            P{pow1 * pow1 + pow2 * pow2 % p * x2,\
+    \ 2 * pow1 % p * pow2};\n        pow1 %= p, pow2 %= p;\n        k >>= 1;\n   \
+    \ }\n    // assert(f2 == 0);\n    return f1;\n}\n#line 4 \"test/library_checker/number_theory/sqrt_mod.test.cpp\"\
+    \nvoid solve() {\n    INT(y, p);\n    print(mod_sqrt(y, p));\n}\nint main() {\n\
+    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    LL(t);\n  \
+    \  rep(_, t) solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primitive_root\"\n#include\
+    \ \"math/mod-sqrt.hpp\"\n#include \"template.hpp\"\nvoid solve() {\n    INT(y,\
+    \ p);\n    print(mod_sqrt(y, p));\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    LL(t);\n    rep(_, t) solve();\n}\n"
   dependsOn:
-  - template.hpp
-  isVerificationFile: false
-  path: math/mod-pow.hpp
-  requiredBy:
-  - math/miller_rabin.hpp
   - math/mod-sqrt.hpp
-  - math/pollard_rho.hpp
-  - math/primitive-root.hpp
+  - math/mod-pow.hpp
+  - template.hpp
+  - rng.hpp
+  isVerificationFile: true
+  path: test/library_checker/number_theory/sqrt_mod.test.cpp
+  requiredBy: []
   timestamp: '2025-01-31 17:56:36+09:00'
-  verificationStatus: LIBRARY_SOME_WA
-  verifiedWith:
-  - test/library_checker/number_theory/sqrt_mod.test.cpp
-  - test/library_checker/number_theory/factorize.test.cpp
-  - test/library_checker/number_theory/primality_test.test.cpp
-  - test/library_checker/number_theory/primitive_root.test.cpp
-  - test/yukicoder/2051.test.cpp
-  - test/yukicoder/888.test.cpp
-  - test/atcoder/abc249_d.test.cpp
-  - test/atcoder/abc180_c.test.cpp
-documentation_of: math/mod-pow.hpp
+  verificationStatus: TEST_WRONG_ANSWER
+  verifiedWith: []
+documentation_of: test/library_checker/number_theory/sqrt_mod.test.cpp
 layout: document
 redirect_from:
-- /library/math/mod-pow.hpp
-- /library/math/mod-pow.hpp.html
-title: math/mod-pow.hpp
+- /verify/test/library_checker/number_theory/sqrt_mod.test.cpp
+- /verify/test/library_checker/number_theory/sqrt_mod.test.cpp.html
+title: test/library_checker/number_theory/sqrt_mod.test.cpp
 ---
