@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
   - icon: ':question:'
@@ -119,13 +119,14 @@ data:
     \ = {1};\n    auto mp = factor_count(n);\n    for(auto [p, cnt] : mp) {\n    \
     \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
     \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
-    \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
-    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::divisors;\nusing\
-    \ fast_factorize::factor_count;\nusing fast_factorize::factorize;\n#line 4 \"\
-    test/library_checker/number_theory/factorize.test.cpp\"\nvoid solve() {\n    LL(n);\n\
-    \    if(n == 1) {\n        print(0);\n        return;\n    }\n    auto ans = factorize(n);\n\
-    \    cout << ssize(ans) << \" \";\n    print(ans);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    LL(t);\n    rep(_, t) solve();\n}\n"
+    \       if(_ + 1 != cnt)\n                    pi *= p;\n            }\n      \
+    \  }\n    }\n    sort(all(res));\n    return res;\n}\n} // namespace fast_factorize\n\
+    using fast_factorize::divisors;\nusing fast_factorize::factor_count;\nusing fast_factorize::factorize;\n\
+    #line 4 \"test/library_checker/number_theory/factorize.test.cpp\"\nvoid solve()\
+    \ {\n    LL(n);\n    if(n == 1) {\n        print(0);\n        return;\n    }\n\
+    \    auto ans = factorize(n);\n    cout << ssize(ans) << \" \";\n    print(ans);\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    LL(t);\n    rep(_, t) solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/factorize\"\n#include \"\
     math/pollard_rho.hpp\"\n#include \"template.hpp\"\nvoid solve() {\n    LL(n);\n\
     \    if(n == 1) {\n        print(0);\n        return;\n    }\n    auto ans = factorize(n);\n\
@@ -138,7 +139,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/number_theory/factorize.test.cpp
   requiredBy: []
-  timestamp: '2024-12-08 11:15:45+09:00'
+  timestamp: '2025-01-31 15:12:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/factorize.test.cpp

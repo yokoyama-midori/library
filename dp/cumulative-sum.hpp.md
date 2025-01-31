@@ -124,8 +124,8 @@ data:
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
-  - test/atcoder/abc373_e.test.cpp
   - test/yukicoder/2092.test.cpp
+  - test/atcoder/abc373_e.test.cpp
 documentation_of: dp/cumulative-sum.hpp
 layout: document
 redirect_from:

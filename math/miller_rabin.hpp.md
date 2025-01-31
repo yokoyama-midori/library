@@ -5,14 +5,14 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc180_c.test.cpp
     title: test/atcoder/abc180_c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc249_d.test.cpp
     title: test/atcoder/abc249_d.test.cpp
   - icon: ':heavy_check_mark:'
@@ -27,9 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://drken1215.hatenablog.com/entry/2023/05/23/233000
@@ -136,14 +136,14 @@ data:
   requiredBy:
   - math/pollard_rho.hpp
   timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
-  - test/atcoder/abc180_c.test.cpp
-  - test/atcoder/abc249_d.test.cpp
   - test/yukicoder/2051.test.cpp
   - test/yukicoder/888.test.cpp
+  - test/atcoder/abc249_d.test.cpp
+  - test/atcoder/abc180_c.test.cpp
 documentation_of: math/miller_rabin.hpp
 layout: document
 redirect_from:

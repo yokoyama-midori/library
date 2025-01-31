@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc180/tasks/abc180_c
@@ -118,12 +118,13 @@ data:
     \ = {1};\n    auto mp = factor_count(n);\n    for(auto [p, cnt] : mp) {\n    \
     \    ll sz = ssize(res);\n        rep(i, sz) {\n            ll pi = p;\n     \
     \       rep(_, cnt) {\n                res.push_back(res[i] * pi);\n         \
-    \       pi *= p;\n            }\n        }\n    }\n    sort(all(res));\n    return\
-    \ res;\n}\n} // namespace fast_factorize\nusing fast_factorize::divisors;\nusing\
-    \ fast_factorize::factor_count;\nusing fast_factorize::factorize;\n#line 3 \"\
-    test/atcoder/abc180_c.test.cpp\"\nvoid solve() {\n    LL(n);\n    auto ans = divisors(n);\n\
-    \    for(auto &x : ans)\n        cout << x << \"\\n\";\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    ll t = 1;\n    rep(_, t) solve();\n}\n"
+    \       if(_ + 1 != cnt)\n                    pi *= p;\n            }\n      \
+    \  }\n    }\n    sort(all(res));\n    return res;\n}\n} // namespace fast_factorize\n\
+    using fast_factorize::divisors;\nusing fast_factorize::factor_count;\nusing fast_factorize::factorize;\n\
+    #line 3 \"test/atcoder/abc180_c.test.cpp\"\nvoid solve() {\n    LL(n);\n    auto\
+    \ ans = divisors(n);\n    for(auto &x : ans)\n        cout << x << \"\\n\";\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    ll t = 1;\n    rep(_, t) solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc180/tasks/abc180_c\"\n#include\
     \ \"math/pollard_rho.hpp\"\nvoid solve() {\n    LL(n);\n    auto ans = divisors(n);\n\
     \    for(auto &x : ans)\n        cout << x << \"\\n\";\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
@@ -135,8 +136,8 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc180_c.test.cpp
   requiredBy: []
-  timestamp: '2024-12-08 11:15:45+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-01-31 15:12:24+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/abc180_c.test.cpp
 layout: document

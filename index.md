@@ -6,7 +6,7 @@ data:
     - icon: ':x:'
       path: data_structure/compress.hpp
       title: data_structure/compress.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: data_structure/hash-map-variable-length.hpp
       title: data_structure/hash-map-variable-length.hpp
     - icon: ':heavy_check_mark:'
@@ -56,10 +56,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/matrix.hpp
       title: math/matrix.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/miller_rabin.hpp
       title: math/miller_rabin.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/pollard_rho.hpp
       title: math/pollard_rho.hpp
   - name: number-theory
@@ -106,7 +106,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc127_f.test.cpp
       title: test/atcoder/abc127_f.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/atcoder/abc180_c.test.cpp
       title: test/atcoder/abc180_c.test.cpp
     - icon: ':heavy_check_mark:'
@@ -118,7 +118,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc248_d.test.cpp
       title: test/atcoder/abc248_d.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/atcoder/abc249_d.test.cpp
       title: test/atcoder/abc249_d.test.cpp
     - icon: ':heavy_check_mark:'
