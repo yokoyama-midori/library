@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/lazy_segtree.hpp
     title: data_structure/lazy_segtree.hpp
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/range_affine_point_get
@@ -93,38 +93,39 @@ data:
     \               apply_at(l, f);\n                l++;\n            }\n       \
     \     if(r & 1) {\n                r--;\n                apply_at(r, f);\n   \
     \         }\n            l >>= 1;\n            r >>= 1;\n        }\n        recul_above(l0);\n\
-    \        recul_above(r0);\n    }\n    S get(ll x) {\n        x += n;\n       \
-    \ ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n     \
-    \       propagate_at(x >> i);\n        }\n        return v[x];\n    }\n    void\
-    \ set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n        v[x]\
-    \ = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) {\n        l +=\
-    \ n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 = r / (r &\
-    \ -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n     \
-    \   S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1) {\n \
-    \               sl = op(sl, v[l]);\n                l++;\n            }\n    \
-    \        if(r & 1) {\n                r--;\n                sr = op(v[r], sr);\n\
-    \            }\n            l >>= 1;\n            r >>= 1;\n        }\n      \
-    \  return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f) {\n \
-    \       v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] = composition(f,\
-    \ vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x << 1, vf[x]);\n\
-    \        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n    }\n    ll bit_length(unsigned\
-    \ long long x) { return 64 - countl_zero(x); }\n    void propagate_above(ll x)\
-    \ {\n        ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--)\
-    \ {\n            propagate_at(x >> i);\n        }\n        return;\n    }\n  \
-    \  void recul_above(ll x) {\n        while(x > 1) {\n            x >>= 1;\n  \
-    \          v[x] = op(v[x << 1], v[x << 1 | 1]);\n        }\n    }\n};\n#line 6\
-    \ \"test/library_checker/data_structure/range_affine_point_get.test.cpp\"\n#include\
-    \ <atcoder/modint>\nusing mint = atcoder::modint998244353;\nstruct S {\n    mint\
-    \ a, sz;\n};\nS e() { return S(0, 0); };\nS op(S a, S b) { return S(a.a + b.a,\
-    \ a.sz + b.sz); }\nstruct F {\n    mint b, c;\n};\nS mapping(F f, S s) { return\
-    \ S(f.b * s.a + s.sz * f.c, s.sz); }\nF composition(F f, F g) { return F(f.b *\
-    \ g.b, f.b * g.c + f.c); }\nF id() { return F(1, 0); }\n\nvoid solve() {\n   \
-    \ LL(n, q);\n    lazy_segtree<S, op, e, F, mapping, composition, id> seg(n);\n\
-    \    rep(i, n) {\n        LL(a);\n        seg.set(i, S(a, 1));\n    }\n    rep(_,\
-    \ q) {\n        LL(flag);\n        if(flag == 0) {\n            LL(l, r, b, c);\n\
-    \            seg.apply(l, r, F(b, c));\n        } else {\n            LL(i);\n\
-    \            print(seg.get(i).a.val());\n        }\n    }\n}\nint main() {\n \
-    \   ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n}\n"
+    \        recul_above(r0);\n    }\n    S get(ll x) const {\n        x += n;\n \
+    \       ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n\
+    \            propagate_at(x >> i);\n        }\n        return v[x];\n    }\n \
+    \   void set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n    \
+    \    v[x] = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) const {\n\
+    \        l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0\
+    \ = r / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
+    \        S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1)\
+    \ {\n                sl = op(sl, v[l]);\n                l++;\n            }\n\
+    \            if(r & 1) {\n                r--;\n                sr = op(v[r],\
+    \ sr);\n            }\n            l >>= 1;\n            r >>= 1;\n        }\n\
+    \        return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f)\
+    \ {\n        v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] =\
+    \ composition(f, vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x\
+    \ << 1, vf[x]);\n        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n\
+    \    }\n    ll bit_length(unsigned long long x) const { return 64 - countl_zero(x);\
+    \ }\n    void propagate_above(ll x) {\n        ll maxi = bit_length(x) - 1;\n\
+    \        for(ll i = maxi; i > 0; i--) {\n            propagate_at(x >> i);\n \
+    \       }\n        return;\n    }\n    void recul_above(ll x) {\n        while(x\
+    \ > 1) {\n            x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n\
+    \        }\n    }\n};\n#line 6 \"test/library_checker/data_structure/range_affine_point_get.test.cpp\"\
+    \n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\nstruct S\
+    \ {\n    mint a, sz;\n};\nS e() { return S(0, 0); };\nS op(S a, S b) { return\
+    \ S(a.a + b.a, a.sz + b.sz); }\nstruct F {\n    mint b, c;\n};\nS mapping(F f,\
+    \ S s) { return S(f.b * s.a + s.sz * f.c, s.sz); }\nF composition(F f, F g) {\
+    \ return F(f.b * g.b, f.b * g.c + f.c); }\nF id() { return F(1, 0); }\n\nvoid\
+    \ solve() {\n    LL(n, q);\n    lazy_segtree<S, op, e, F, mapping, composition,\
+    \ id> seg(n);\n    rep(i, n) {\n        LL(a);\n        seg.set(i, S(a, 1));\n\
+    \    }\n    rep(_, q) {\n        LL(flag);\n        if(flag == 0) {\n        \
+    \    LL(l, r, b, c);\n            seg.apply(l, r, F(b, c));\n        } else {\n\
+    \            LL(i);\n            print(seg.get(i).a.val());\n        }\n    }\n\
+    }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_point_get\"\
     \n// \u53CC\u5BFE\u30BB\u30B0\u6728\u3067\u53EF\u80FD\u3001\u3001\u3060\u304C\u3068\
     \u308A\u3042\u3048\u305A\u9045\u5EF6\u30BB\u30B0\u6728\u3067\n// https://github.com/yosupo06/library-checker-problems/issues/778\n\
@@ -146,8 +147,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/range_affine_point_get.test.cpp
   requiredBy: []
-  timestamp: '2024-12-13 16:21:28+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-02-07 15:25:44+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_affine_point_get.test.cpp
 layout: document

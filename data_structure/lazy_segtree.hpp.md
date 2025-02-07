@@ -6,21 +6,21 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_affine_point_get.test.cpp
     title: test/library_checker/data_structure/range_affine_point_get.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
     title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/data_structure/range_set_range_composite.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -94,26 +94,27 @@ data:
     \               apply_at(l, f);\n                l++;\n            }\n       \
     \     if(r & 1) {\n                r--;\n                apply_at(r, f);\n   \
     \         }\n            l >>= 1;\n            r >>= 1;\n        }\n        recul_above(l0);\n\
-    \        recul_above(r0);\n    }\n    S get(ll x) {\n        x += n;\n       \
-    \ ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n     \
-    \       propagate_at(x >> i);\n        }\n        return v[x];\n    }\n    void\
-    \ set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n        v[x]\
-    \ = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) {\n        l +=\
-    \ n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 = r / (r &\
-    \ -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n     \
-    \   S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1) {\n \
-    \               sl = op(sl, v[l]);\n                l++;\n            }\n    \
-    \        if(r & 1) {\n                r--;\n                sr = op(v[r], sr);\n\
-    \            }\n            l >>= 1;\n            r >>= 1;\n        }\n      \
-    \  return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f) {\n \
-    \       v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] = composition(f,\
-    \ vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x << 1, vf[x]);\n\
-    \        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n    }\n    ll bit_length(unsigned\
-    \ long long x) { return 64 - countl_zero(x); }\n    void propagate_above(ll x)\
-    \ {\n        ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--)\
-    \ {\n            propagate_at(x >> i);\n        }\n        return;\n    }\n  \
-    \  void recul_above(ll x) {\n        while(x > 1) {\n            x >>= 1;\n  \
-    \          v[x] = op(v[x << 1], v[x << 1 | 1]);\n        }\n    }\n};\n"
+    \        recul_above(r0);\n    }\n    S get(ll x) const {\n        x += n;\n \
+    \       ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n\
+    \            propagate_at(x >> i);\n        }\n        return v[x];\n    }\n \
+    \   void set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n    \
+    \    v[x] = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) const {\n\
+    \        l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0\
+    \ = r / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
+    \        S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1)\
+    \ {\n                sl = op(sl, v[l]);\n                l++;\n            }\n\
+    \            if(r & 1) {\n                r--;\n                sr = op(v[r],\
+    \ sr);\n            }\n            l >>= 1;\n            r >>= 1;\n        }\n\
+    \        return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f)\
+    \ {\n        v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] =\
+    \ composition(f, vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x\
+    \ << 1, vf[x]);\n        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n\
+    \    }\n    ll bit_length(unsigned long long x) const { return 64 - countl_zero(x);\
+    \ }\n    void propagate_above(ll x) {\n        ll maxi = bit_length(x) - 1;\n\
+    \        for(ll i = maxi; i > 0; i--) {\n            propagate_at(x >> i);\n \
+    \       }\n        return;\n    }\n    void recul_above(ll x) {\n        while(x\
+    \ > 1) {\n            x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n\
+    \        }\n    }\n};\n"
   code: "#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S, S), S (*e)(),\
     \ class F, S (*mapping)(F, S),\n          F (*composition)(F, F), F (*id)()>\n\
     //   composition(f,g)(x) = f\u2218g(x) = f(g(x))\n// acl\u3068\u540C\u3058\u3001\
@@ -129,33 +130,34 @@ data:
     \                apply_at(l, f);\n                l++;\n            }\n      \
     \      if(r & 1) {\n                r--;\n                apply_at(r, f);\n  \
     \          }\n            l >>= 1;\n            r >>= 1;\n        }\n        recul_above(l0);\n\
-    \        recul_above(r0);\n    }\n    S get(ll x) {\n        x += n;\n       \
-    \ ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n     \
-    \       propagate_at(x >> i);\n        }\n        return v[x];\n    }\n    void\
-    \ set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n        v[x]\
-    \ = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) {\n        l +=\
-    \ n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 = r / (r &\
-    \ -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n     \
-    \   S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1) {\n \
-    \               sl = op(sl, v[l]);\n                l++;\n            }\n    \
-    \        if(r & 1) {\n                r--;\n                sr = op(v[r], sr);\n\
-    \            }\n            l >>= 1;\n            r >>= 1;\n        }\n      \
-    \  return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f) {\n \
-    \       v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] = composition(f,\
-    \ vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x << 1, vf[x]);\n\
-    \        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n    }\n    ll bit_length(unsigned\
-    \ long long x) { return 64 - countl_zero(x); }\n    void propagate_above(ll x)\
-    \ {\n        ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--)\
-    \ {\n            propagate_at(x >> i);\n        }\n        return;\n    }\n  \
-    \  void recul_above(ll x) {\n        while(x > 1) {\n            x >>= 1;\n  \
-    \          v[x] = op(v[x << 1], v[x << 1 | 1]);\n        }\n    }\n};"
+    \        recul_above(r0);\n    }\n    S get(ll x) const {\n        x += n;\n \
+    \       ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n\
+    \            propagate_at(x >> i);\n        }\n        return v[x];\n    }\n \
+    \   void set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n    \
+    \    v[x] = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) const {\n\
+    \        l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0\
+    \ = r / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
+    \        S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1)\
+    \ {\n                sl = op(sl, v[l]);\n                l++;\n            }\n\
+    \            if(r & 1) {\n                r--;\n                sr = op(v[r],\
+    \ sr);\n            }\n            l >>= 1;\n            r >>= 1;\n        }\n\
+    \        return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f)\
+    \ {\n        v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] =\
+    \ composition(f, vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x\
+    \ << 1, vf[x]);\n        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n\
+    \    }\n    ll bit_length(unsigned long long x) const { return 64 - countl_zero(x);\
+    \ }\n    void propagate_above(ll x) {\n        ll maxi = bit_length(x) - 1;\n\
+    \        for(ll i = maxi; i > 0; i--) {\n            propagate_at(x >> i);\n \
+    \       }\n        return;\n    }\n    void recul_above(ll x) {\n        while(x\
+    \ > 1) {\n            x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n\
+    \        }\n    }\n};"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/lazy_segtree.hpp
   requiredBy: []
-  timestamp: '2024-12-13 16:21:28+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-02-07 15:25:44+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
