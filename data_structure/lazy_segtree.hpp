@@ -54,7 +54,7 @@ struct lazy_segtree {
         v[x] = s;
         recul_above(x);
     }
-    S prod(ll l, ll r) const {
+    S prod(ll l, ll r) {
         l += n;
         r += n;
         ll l0 = l / (l & -l);
