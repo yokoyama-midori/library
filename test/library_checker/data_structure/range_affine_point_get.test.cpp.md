@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: data_structure/lazy_segtree.hpp
     title: data_structure/lazy_segtree.hpp
   - icon: ':question:'
@@ -97,9 +97,9 @@ data:
     \       ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n\
     \            propagate_at(x >> i);\n        }\n        return v[x];\n    }\n \
     \   void set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n    \
-    \    v[x] = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) const {\n\
-    \        l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0\
-    \ = r / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
+    \    v[x] = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) {\n   \
+    \     l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 =\
+    \ r / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
     \        S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1)\
     \ {\n                sl = op(sl, v[l]);\n                l++;\n            }\n\
     \            if(r & 1) {\n                r--;\n                sr = op(v[r],\
@@ -147,7 +147,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/range_affine_point_get.test.cpp
   requiredBy: []
-  timestamp: '2025-02-07 15:25:44+09:00'
+  timestamp: '2025-02-07 15:32:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_affine_point_get.test.cpp
