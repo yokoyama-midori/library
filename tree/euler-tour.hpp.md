@@ -99,36 +99,40 @@ data:
     \ LCA O(log N)\nnamespace et_internal {\nusing pii = pair<int, int>; // depth,vartex\n\
     pii op(pii a, pii b) {\n    if(a.first < b.first)\n        return a;\n    else\n\
     \        return b;\n}\npii e() { return pii(numeric_limits<int>::max(), -1); }\n\
-    using RMQ_seg = segtree<pii, op, e>;\n}; // namespace et_internal\ntemplate <class\
-    \ G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n  \
-    \  et_internal::RMQ_seg seg;\n    EulerTour(G &g, int root = 0)\n        : root(root),\
+    using RMQ_seg = segtree<pii, op, e>;\n}; // namespace et_internal\n\ntemplate\
+    \ <class G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n\
+    \    et_internal::RMQ_seg seg;\n    EulerTour(G &g, int root = 0)\n        : root(root),\
     \ id(0), in(g.size(), -1), out(g.size(), -1),\n          dep(g.size(), 0), seg(2\
     \ * g.size()) {\n        dfs(g, root, -1);\n    }\n    int lca(int x, int y) const\
     \ {\n        int ix = in[x], iy = in[y];\n        if(ix > iy)\n            swap(ix,\
-    \ iy);\n        return seg.prod(ix, iy + 1).second;\n    }\n\n  private:\n   \
-    \ void dfs(G &g, int now, int prev) {\n        seg.set(id, {dep[now], now});\n\
-    \        in[now] = id++;\n        for(auto nex : g[now]) {\n            if(nex\
-    \ == prev)\n                continue;\n            dep[nex] = dep[now] + 1;\n\
-    \            dfs(g, nex, now);\n        }\n        seg.set(id, {dep[now] - 1,\
-    \ prev});\n        out[now] = id++;\n    }\n};\n"
+    \ iy);\n        return seg.prod(ix, iy + 1).second;\n    }\n    int dist(int x,\
+    \ int y) const {\n        int l = lca(x, y);\n        return dep[x] + dep[y] -\
+    \ 2 * dep[l];\n    }\n\n  private:\n    void dfs(G &g, int now, int prev) {\n\
+    \        seg.set(id, {dep[now], now});\n        in[now] = id++;\n        for(auto\
+    \ nex : g[now]) {\n            if(nex == prev)\n                continue;\n  \
+    \          dep[nex] = dep[now] + 1;\n            dfs(g, nex, now);\n        }\n\
+    \        seg.set(id, {dep[now] - 1, prev});\n        out[now] = id++;\n    }\n\
+    };\n"
   code: "#pragma once\n#include \"data_structure/segtree.hpp\"\n#include \"template.hpp\"\
     \n// https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n// https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\
     // TODO \u9AD8\u901F\u306ARMQ e.g. sparse table\n// \u4ECA\u306E\u3068\u3053\u308D\
     \ LCA O(log N)\nnamespace et_internal {\nusing pii = pair<int, int>; // depth,vartex\n\
     pii op(pii a, pii b) {\n    if(a.first < b.first)\n        return a;\n    else\n\
     \        return b;\n}\npii e() { return pii(numeric_limits<int>::max(), -1); }\n\
-    using RMQ_seg = segtree<pii, op, e>;\n}; // namespace et_internal\ntemplate <class\
-    \ G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n  \
-    \  et_internal::RMQ_seg seg;\n    EulerTour(G &g, int root = 0)\n        : root(root),\
+    using RMQ_seg = segtree<pii, op, e>;\n}; // namespace et_internal\n\ntemplate\
+    \ <class G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n\
+    \    et_internal::RMQ_seg seg;\n    EulerTour(G &g, int root = 0)\n        : root(root),\
     \ id(0), in(g.size(), -1), out(g.size(), -1),\n          dep(g.size(), 0), seg(2\
     \ * g.size()) {\n        dfs(g, root, -1);\n    }\n    int lca(int x, int y) const\
     \ {\n        int ix = in[x], iy = in[y];\n        if(ix > iy)\n            swap(ix,\
-    \ iy);\n        return seg.prod(ix, iy + 1).second;\n    }\n\n  private:\n   \
-    \ void dfs(G &g, int now, int prev) {\n        seg.set(id, {dep[now], now});\n\
-    \        in[now] = id++;\n        for(auto nex : g[now]) {\n            if(nex\
-    \ == prev)\n                continue;\n            dep[nex] = dep[now] + 1;\n\
-    \            dfs(g, nex, now);\n        }\n        seg.set(id, {dep[now] - 1,\
-    \ prev});\n        out[now] = id++;\n    }\n};"
+    \ iy);\n        return seg.prod(ix, iy + 1).second;\n    }\n    int dist(int x,\
+    \ int y) const {\n        int l = lca(x, y);\n        return dep[x] + dep[y] -\
+    \ 2 * dep[l];\n    }\n\n  private:\n    void dfs(G &g, int now, int prev) {\n\
+    \        seg.set(id, {dep[now], now});\n        in[now] = id++;\n        for(auto\
+    \ nex : g[now]) {\n            if(nex == prev)\n                continue;\n  \
+    \          dep[nex] = dep[now] + 1;\n            dfs(g, nex, now);\n        }\n\
+    \        seg.set(id, {dep[now] - 1, prev});\n        out[now] = id++;\n    }\n\
+    };"
   dependsOn:
   - data_structure/segtree.hpp
   - template.hpp
@@ -136,7 +140,7 @@ data:
   path: tree/euler-tour.hpp
   requiredBy:
   - tree/auxiliary-tree.hpp
-  timestamp: '2025-02-07 18:26:22+09:00'
+  timestamp: '2025-02-08 00:23:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/tree/lca.test.cpp

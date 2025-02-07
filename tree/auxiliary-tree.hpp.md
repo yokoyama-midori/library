@@ -94,19 +94,20 @@ data:
     \ LCA O(log N)\nnamespace et_internal {\nusing pii = pair<int, int>; // depth,vartex\n\
     pii op(pii a, pii b) {\n    if(a.first < b.first)\n        return a;\n    else\n\
     \        return b;\n}\npii e() { return pii(numeric_limits<int>::max(), -1); }\n\
-    using RMQ_seg = segtree<pii, op, e>;\n}; // namespace et_internal\ntemplate <class\
-    \ G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n  \
-    \  et_internal::RMQ_seg seg;\n    EulerTour(G &g, int root = 0)\n        : root(root),\
+    using RMQ_seg = segtree<pii, op, e>;\n}; // namespace et_internal\n\ntemplate\
+    \ <class G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n\
+    \    et_internal::RMQ_seg seg;\n    EulerTour(G &g, int root = 0)\n        : root(root),\
     \ id(0), in(g.size(), -1), out(g.size(), -1),\n          dep(g.size(), 0), seg(2\
     \ * g.size()) {\n        dfs(g, root, -1);\n    }\n    int lca(int x, int y) const\
     \ {\n        int ix = in[x], iy = in[y];\n        if(ix > iy)\n            swap(ix,\
-    \ iy);\n        return seg.prod(ix, iy + 1).second;\n    }\n\n  private:\n   \
-    \ void dfs(G &g, int now, int prev) {\n        seg.set(id, {dep[now], now});\n\
-    \        in[now] = id++;\n        for(auto nex : g[now]) {\n            if(nex\
-    \ == prev)\n                continue;\n            dep[nex] = dep[now] + 1;\n\
-    \            dfs(g, nex, now);\n        }\n        seg.set(id, {dep[now] - 1,\
-    \ prev});\n        out[now] = id++;\n    }\n};\n#line 3 \"tree/auxiliary-tree.hpp\"\
-    \n// https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95\n\
+    \ iy);\n        return seg.prod(ix, iy + 1).second;\n    }\n    int dist(int x,\
+    \ int y) const {\n        int l = lca(x, y);\n        return dep[x] + dep[y] -\
+    \ 2 * dep[l];\n    }\n\n  private:\n    void dfs(G &g, int now, int prev) {\n\
+    \        seg.set(id, {dep[now], now});\n        in[now] = id++;\n        for(auto\
+    \ nex : g[now]) {\n            if(nex == prev)\n                continue;\n  \
+    \          dep[nex] = dep[now] + 1;\n            dfs(g, nex, now);\n        }\n\
+    \        seg.set(id, {dep[now] - 1, prev});\n        out[now] = id++;\n    }\n\
+    };\n#line 3 \"tree/auxiliary-tree.hpp\"\n// https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95\n\
     // https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp\ntemplate <class\
     \ G> struct AuxiliaryTree {\n    G g;\n    EulerTour<G> et;\n    AuxiliaryTree(G\
     \ &g) : g(g), et(g) {}\n    AuxiliaryTree(G &g, EulerTour<G> &et) : g(g), et(et)\
@@ -149,7 +150,7 @@ data:
   isVerificationFile: false
   path: tree/auxiliary-tree.hpp
   requiredBy: []
-  timestamp: '2025-02-07 18:26:22+09:00'
+  timestamp: '2025-02-08 00:23:28+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: tree/auxiliary-tree.hpp
@@ -160,9 +161,10 @@ title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F
 ---
 ## 問題例
 
-- [G - Sum of Tree Distance](https://atcoder.jp/contests/abc359/editorial/10259)
+- [ABC359 G - Sum of Tree Distance](https://atcoder.jp/contests/abc359/editorial/10259)
+- [Preserve Connectivity 競プロ典型 90 問](https://atcoder.jp/contests/typical90/tasks/typical90_ai)
 
 ## LINK
-- https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95
-- https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp
-- https://noshi91.github.io/algorithm-encyclopedia/auxiliary-tree
+- <https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95>
+- <https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp>
+- <https://noshi91.github.io/algorithm-encyclopedia/auxiliary-tree>
