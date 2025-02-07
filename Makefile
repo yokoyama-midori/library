@@ -9,4 +9,8 @@ template.hpp.gch: template.hpp
 clean:
 	rm -f template.hpp.gch
 
+serve:
+	oj-verify docs
+	cd .verify-helper/markdown/ && bundle exec jekyll serve --incremental
+
 .PHONY: all clean
