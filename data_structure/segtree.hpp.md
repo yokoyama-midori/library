@@ -5,6 +5,11 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: tree/auxiliary-tree.hpp
+    title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
+      \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
+      \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
   - icon: ':heavy_check_mark:'
     path: tree/euler-tour.hpp
     title: tree/euler-tour.hpp
@@ -122,6 +127,7 @@ data:
   isVerificationFile: false
   path: data_structure/segtree.hpp
   requiredBy:
+  - tree/auxiliary-tree.hpp
   - tree/euler-tour.hpp
   timestamp: '2025-02-07 15:18:13+09:00'
   verificationStatus: LIBRARY_SOME_WA

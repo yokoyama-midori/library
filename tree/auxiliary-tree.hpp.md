@@ -13,17 +13,15 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _pathExtension: hpp
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/lca
     links:
-    - https://judge.yosupo.jp/problem/lca
-  bundledCode: "#line 1 \"test/library_checker/tree/lca.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/lca\"\n#line 2 \"template.hpp\"\n// #pragma\
-    \ GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"\
-    unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
+    - https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp
+    - https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95
+  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
+    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
+    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
     // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
     \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
@@ -107,32 +105,64 @@ data:
     \        in[now] = id++;\n        for(auto nex : g[now]) {\n            if(nex\
     \ == prev)\n                continue;\n            dep[nex] = dep[now] + 1;\n\
     \            dfs(g, nex, now);\n        }\n        seg.set(id, {dep[now] - 1,\
-    \ prev});\n        out[now] = id++;\n    }\n};\n#line 3 \"test/library_checker/tree/lca.test.cpp\"\
-    \nvoid solve() {\n    INT(n, q);\n    vector<vector<int>> g(n);\n    rep(i, 1,\
-    \ n) {\n        INT(p);\n        g[p].push_back(i), g[i].push_back(p);\n    }\n\
-    \    EulerTour et(g);\n    while(q--) {\n        INT(x, y);\n        print(et.lca(x,\
-    \ y));\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include \"tree/euler-tour.hpp\"\
-    \nvoid solve() {\n    INT(n, q);\n    vector<vector<int>> g(n);\n    rep(i, 1,\
-    \ n) {\n        INT(p);\n        g[p].push_back(i), g[i].push_back(p);\n    }\n\
-    \    EulerTour et(g);\n    while(q--) {\n        INT(x, y);\n        print(et.lca(x,\
-    \ y));\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
-    \    solve();\n}"
+    \ prev});\n        out[now] = id++;\n    }\n};\n#line 3 \"tree/auxiliary-tree.hpp\"\
+    \n// https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95\n\
+    // https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp\ntemplate <class\
+    \ G> struct AuxiliaryTree {\n    G g;\n    EulerTour<G> et;\n    AuxiliaryTree(G\
+    \ &g) : g(g), et(g) {}\n    AuxiliaryTree(G &g, EulerTour<G> &et) : g(g), et(et)\
+    \ {}\n\n    // \u9802\u70B9\u96C6\u5408vs\u3092\u53D7\u3051\u53D6\u308A\n    //\
+    \ {aux tree,vs:aux tree\u306E\u9802\u70B9\u756A\u53F7->g\u3067\u306E\u9802\u70B9\
+    \u756A\u53F7}\u3092\u8FD4\u3059\n    // aux tree : \u89AA->\u5B50\u306E\u307F\u542B\
+    \u307E\u308C\u308B\n    // N = size(g),M=size(vs)\u3068\u3057\u3066\n    // O(M\
+    \ log N) \n    // LCA\u3092\u9AD8\u901F\u5316\u3059\u308C\u3070 O(M log M)\n \
+    \   template <class T> pair<vector<vector<T>>, vector<T>> get(vector<T> vs) {\n\
+    \        if(vs.empty())\n            return {};\n        auto comp = [&](T i,\
+    \ T j) { return et.in[i] < et.in[j]; };\n        sort(all(vs), comp);\n      \
+    \  for(int i = 1, sz = vs.size(); i < sz; i++) {\n            vs.push_back(et.lca(vs[i\
+    \ - 1], vs[i]));\n        }\n        sort(all(vs), comp);\n        vs.erase(unique(all(vs)),\
+    \ end(vs));\n        vector<vector<T>> aux(vs.size());\n        stack<T> st;\n\
+    \        st.push(0);\n        rep(i, 1, vs.size()) {\n            while(et.out[vs[st.top()]]\
+    \ < et.in[vs[i]]) {\n                st.pop();\n            }\n            aux[st.top()].push_back(i);\n\
+    \            st.push(i);\n        }\n        return {aux, vs};\n    }\n};\n"
+  code: "#pragma once\n#include \"tree/euler-tour.hpp\"\n// https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95\n\
+    // https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp\ntemplate <class\
+    \ G> struct AuxiliaryTree {\n    G g;\n    EulerTour<G> et;\n    AuxiliaryTree(G\
+    \ &g) : g(g), et(g) {}\n    AuxiliaryTree(G &g, EulerTour<G> &et) : g(g), et(et)\
+    \ {}\n\n    // \u9802\u70B9\u96C6\u5408vs\u3092\u53D7\u3051\u53D6\u308A\n    //\
+    \ {aux tree,vs:aux tree\u306E\u9802\u70B9\u756A\u53F7->g\u3067\u306E\u9802\u70B9\
+    \u756A\u53F7}\u3092\u8FD4\u3059\n    // aux tree : \u89AA->\u5B50\u306E\u307F\u542B\
+    \u307E\u308C\u308B\n    // N = size(g),M=size(vs)\u3068\u3057\u3066\n    // O(M\
+    \ log N) \n    // LCA\u3092\u9AD8\u901F\u5316\u3059\u308C\u3070 O(M log M)\n \
+    \   template <class T> pair<vector<vector<T>>, vector<T>> get(vector<T> vs) {\n\
+    \        if(vs.empty())\n            return {};\n        auto comp = [&](T i,\
+    \ T j) { return et.in[i] < et.in[j]; };\n        sort(all(vs), comp);\n      \
+    \  for(int i = 1, sz = vs.size(); i < sz; i++) {\n            vs.push_back(et.lca(vs[i\
+    \ - 1], vs[i]));\n        }\n        sort(all(vs), comp);\n        vs.erase(unique(all(vs)),\
+    \ end(vs));\n        vector<vector<T>> aux(vs.size());\n        stack<T> st;\n\
+    \        st.push(0);\n        rep(i, 1, vs.size()) {\n            while(et.out[vs[st.top()]]\
+    \ < et.in[vs[i]]) {\n                st.pop();\n            }\n            aux[st.top()].push_back(i);\n\
+    \            st.push(i);\n        }\n        return {aux, vs};\n    }\n};\n"
   dependsOn:
   - tree/euler-tour.hpp
   - data_structure/segtree.hpp
   - template.hpp
-  isVerificationFile: true
-  path: test/library_checker/tree/lca.test.cpp
+  isVerificationFile: false
+  path: tree/auxiliary-tree.hpp
   requiredBy: []
   timestamp: '2025-02-07 18:26:22+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/library_checker/tree/lca.test.cpp
+documentation_of: tree/auxiliary-tree.hpp
 layout: document
-redirect_from:
-- /verify/test/library_checker/tree/lca.test.cpp
-- /verify/test/library_checker/tree/lca.test.cpp.html
-title: test/library_checker/tree/lca.test.cpp
+title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\u5171\
+  \u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\u7E2E\u3057\
+  \u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
 ---
+## 問題例
+
+- [G - Sum of Tree Distance](https://atcoder.jp/contests/abc359/editorial/10259)
+
+## LINK
+- https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95
+- https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp
+- https://noshi91.github.io/algorithm-encyclopedia/auxiliary-tree

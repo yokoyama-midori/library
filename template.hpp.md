@@ -89,6 +89,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
+  - icon: ':warning:'
+    path: tree/auxiliary-tree.hpp
+    title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
+      \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
+      \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
   - icon: ':heavy_check_mark:'
     path: tree/euler-tour.hpp
     title: tree/euler-tour.hpp
@@ -421,6 +426,7 @@ data:
   - number-theory/divisor-multiple-transform.hpp
   - dp/longest-increasing-sequence.hpp
   - dp/cumulative-sum.hpp
+  - tree/auxiliary-tree.hpp
   - tree/euler-tour.hpp
   - string/run-length-encoding.hpp
   timestamp: '2024-12-02 02:31:35+09:00'
