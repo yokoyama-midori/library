@@ -18,7 +18,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/segtree-beats.hpp
       title: data_structure/segtree-beats.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
     - icon: ':heavy_check_mark:'
@@ -109,6 +109,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/run-length-encoding.hpp
       title: string/run-length-encoding.hpp
+  - name: tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: tree/euler-tour.hpp
+      title: tree/euler-tour.hpp
   verificationCategories:
   - name: test/atcoder
     pages:
@@ -124,16 +129,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/abc217_h.test.cpp
       title: test/atcoder/abc217_h.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/atcoder/abc235_c.test.cpp
       title: test/atcoder/abc235_c.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/atcoder/abc248_d.test.cpp
       title: test/atcoder/abc248_d.test.cpp
     - icon: ':x:'
       path: test/atcoder/abc249_d.test.cpp
       title: test/atcoder/abc249_d.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/atcoder/abc273_d.test.cpp
       title: test/atcoder/abc273_d.test.cpp
     - icon: ':heavy_check_mark:'
@@ -157,7 +162,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/atcoder/arc171_d.test.cpp
       title: test/atcoder/arc171_d.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/atcoder/practice2_j.test.cpp
       title: test/atcoder/practice2_j.test.cpp
   - name: test/library_checker/data_structure
@@ -271,6 +276,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/sample/many_aplusb.test.cpp
       title: test/library_checker/sample/many_aplusb.test.cpp
+  - name: test/library_checker/tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/lca.test.cpp
+      title: test/library_checker/tree/lca.test.cpp
   - name: test/my-test
     pages:
     - icon: ':heavy_check_mark:'

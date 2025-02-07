@@ -7,6 +7,9 @@ data:
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
+  - icon: ':heavy_check_mark:'
+    path: tree/euler-tour.hpp
+    title: tree/euler-tour.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -14,16 +17,15 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
+    PROBLEM: https://judge.yosupo.jp/problem/lca
     links:
-    - https://judge.yosupo.jp/problem/static_range_sum
-  bundledCode: "#line 1 \"test/library_checker/data_structure/static_range_sum_segtree.test.cpp\"\
-    \n#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#line\
-    \ 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
-    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
-    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
-    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
-    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://judge.yosupo.jp/problem/lca
+  bundledCode: "#line 1 \"test/library_checker/tree/lca.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/lca\"\n#line 2 \"template.hpp\"\n// #pragma\
+    \ GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"\
+    unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
+    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
+    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -88,32 +90,48 @@ data:
     \           pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n     \
     \           pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >>\
     \ 1;\n            r >>= 1;\n        }\n        return op(pl, pr);\n    }\n   \
-    \ S get(ll x) const { return v[n + x]; }\n};\n#line 4 \"test/library_checker/data_structure/static_range_sum_segtree.test.cpp\"\
-    \n\nll e() {\n    return 0;\n}\nll op(ll a, ll b) {\n    return a + b;\n}\nvoid\
-    \ solve() {\n    LL(n, q);\n    vl a(n);\n    input(a);\n    segtree<ll, op, e>\
-    \ seg(a);\n    rep(_, q) {\n        LL(l, r);\n        print(seg.prod(l, r));\n\
-    \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \ S get(ll x) const { return v[n + x]; }\n};\n#line 4 \"tree/euler-tour.hpp\"\n\
+    // https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n// https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\
+    // TODO \u9AD8\u901F\u306ARMQ e.g. sparse table\n// \u4ECA\u306E\u3068\u3053\u308D\
+    \ LCA O(log N)\nnamespace et_internal {\nusing pii = pair<int, int>; // depth,vartex\n\
+    pii op(pii a, pii b) {\n    if(a.first < b.first)\n        return a;\n    else\n\
+    \        return b;\n}\npii e() { return pii(numeric_limits<int>::max(), -1); }\n\
+    using RMQ_seg = segtree<pii, op, e>;\n}; // namespace et_internal\ntemplate <class\
+    \ G> struct EulerTour {\n    int root, id;\n    vector<int> in, out;\n    et_internal::RMQ_seg\
+    \ seg;\n    EulerTour(G &g, int root = 0)\n        : root(root), id(0), in(g.size(),\
+    \ -1), out(g.size(), -1),\n          seg(2 * g.size()) {\n        dfs(g, root,\
+    \ -1, 0);\n    }\n    int lca(int x, int y) const {\n        int ix = in[x], iy\
+    \ = in[y];\n        if(ix > iy)\n            swap(ix, iy);\n        return seg.prod(ix,\
+    \ iy + 1).second;\n    }\n\n  private:\n    void dfs(G &g, int now, int prev,\
+    \ int depth) {\n        seg.set(id, {depth, now});\n        in[now] = id++;\n\
+    \        for(auto nex : g[now]) {\n            if(nex == prev)\n             \
+    \   continue;\n            dfs(g, nex, now, depth + 1);\n        }\n        seg.set(id,\
+    \ {depth - 1, prev});\n        out[now] = id++;\n    }\n};\n#line 3 \"test/library_checker/tree/lca.test.cpp\"\
+    \nvoid solve() {\n    INT(n, q);\n    vector<vector<int>> g(n);\n    rep(i, 1,\
+    \ n) {\n        INT(p);\n        g[p].push_back(i), g[i].push_back(p);\n    }\n\
+    \    EulerTour et(g);\n    while(q--) {\n        INT(x, y);\n        print(et.lca(x,\
+    \ y));\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\n#include\
-    \ \"data_structure/segtree.hpp\"\n#include \"template.hpp\"\n\nll e() {\n    return\
-    \ 0;\n}\nll op(ll a, ll b) {\n    return a + b;\n}\nvoid solve() {\n    LL(n,\
-    \ q);\n    vl a(n);\n    input(a);\n    segtree<ll, op, e> seg(a);\n    rep(_,\
-    \ q) {\n        LL(l, r);\n        print(seg.prod(l, r));\n    }\n}\nint main()\
-    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
-    }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include \"tree/euler-tour.hpp\"\
+    \nvoid solve() {\n    INT(n, q);\n    vector<vector<int>> g(n);\n    rep(i, 1,\
+    \ n) {\n        INT(p);\n        g[p].push_back(i), g[i].push_back(p);\n    }\n\
+    \    EulerTour et(g);\n    while(q--) {\n        INT(x, y);\n        print(et.lca(x,\
+    \ y));\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}"
   dependsOn:
+  - tree/euler-tour.hpp
   - data_structure/segtree.hpp
   - template.hpp
   isVerificationFile: true
-  path: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
+  path: test/library_checker/tree/lca.test.cpp
   requiredBy: []
   timestamp: '2025-02-07 15:18:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
+documentation_of: test/library_checker/tree/lca.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-- /verify/test/library_checker/data_structure/static_range_sum_segtree.test.cpp.html
-title: test/library_checker/data_structure/static_range_sum_segtree.test.cpp
+- /verify/test/library_checker/tree/lca.test.cpp
+- /verify/test/library_checker/tree/lca.test.cpp.html
+title: test/library_checker/tree/lca.test.cpp
 ---

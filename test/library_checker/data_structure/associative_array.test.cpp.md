@@ -89,8 +89,8 @@ data:
     \u66F4\u3057\u305F\u3044\u304C\u3053\u306E\u66F8\u304D\u65B9\u3067\u3044\u3044\
     ?\n    vector<pair<ll, Val &>> enumerate() {\n        vector<pair<ll, Val &>>\
     \ res;\n        rep(i, sz) {\n            if(used[i]) {\n                res.push_back({keys[i],\
-    \ vals[i]});\n            }\n        }\n        return res;\n    }\n  private:\n\
-    \    int hash(ll x) {\n        // https://judge.yosupo.jp/submission/186759\n\
+    \ vals[i]});\n            }\n        }\n        return res;\n    }\n    int size()\
+    \ const { return cnt; }\n\n  private:\n    int hash(ll x) {\n        // https://judge.yosupo.jp/submission/186759\n\
     \        static const ll r =\n            std::chrono::steady_clock::now().time_since_epoch().count();\n\
     \        x += r;\n        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;\n        x\
     \ = (x ^ (x >> 27)) * 0x94d049bb133111eb;\n        return (x ^ (x >> 31)) & mask;\n\
@@ -122,7 +122,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/associative_array.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2025-02-07 15:18:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/associative_array.test.cpp

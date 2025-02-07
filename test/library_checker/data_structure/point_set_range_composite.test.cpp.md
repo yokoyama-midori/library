@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
   - icon: ':question:'
@@ -82,13 +82,13 @@ data:
     \         v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll\
     \ x, S p) {\n        assert(0 <= x && x < n);\n        x += n;\n        v[x] =\
     \ p;\n        while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x\
-    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) {\n       \
-    \ assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n        l\
-    \ += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n           \
-    \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
-    \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
-    \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n#line 4 \"test/library_checker/data_structure/point_set_range_composite.test.cpp\"\
+    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) const {\n \
+    \       assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n   \
+    \     l += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n     \
+    \           pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n     \
+    \           pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >>\
+    \ 1;\n            r >>= 1;\n        }\n        return op(pl, pr);\n    }\n   \
+    \ S get(ll x) const { return v[n + x]; }\n};\n#line 4 \"test/library_checker/data_structure/point_set_range_composite.test.cpp\"\
     \n#include <atcoder/modint>\nusing namespace atcoder;\nusing mint = modint998244353;\n\
     \nstruct S {\n    mint a, b;\n};\nS op(S fl,S fr){\n    S res;\n    res.a = fr.a\
     \ * fl.a;\n    res.b = fr.a * fl.b + fr.b;\n    return res;\n}\nS e() { return\
@@ -117,7 +117,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
+  timestamp: '2025-02-07 15:18:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/point_set_range_composite.test.cpp

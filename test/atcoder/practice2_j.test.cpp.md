@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/practice2/tasks/practice2_j
@@ -82,14 +82,14 @@ data:
     \         v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll\
     \ x, S p) {\n        assert(0 <= x && x < n);\n        x += n;\n        v[x] =\
     \ p;\n        while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x\
-    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) {\n       \
-    \ assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n        l\
-    \ += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n           \
-    \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
-    \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
-    \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n#line 3 \"test/atcoder/practice2_j.test.cpp\"\n\
-    \nll e() { return -1; }\nvoid solve() {\n    LL(n, q);\n    vl a(n);\n    input(a);\n\
+    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) const {\n \
+    \       assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n   \
+    \     l += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n     \
+    \           pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n     \
+    \           pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >>\
+    \ 1;\n            r >>= 1;\n        }\n        return op(pl, pr);\n    }\n   \
+    \ S get(ll x) const { return v[n + x]; }\n};\n#line 3 \"test/atcoder/practice2_j.test.cpp\"\
+    \n\nll e() { return -1; }\nvoid solve() {\n    LL(n, q);\n    vl a(n);\n    input(a);\n\
     \    segtree<ll, max, e> seg(a);\n    rep(_, q) {\n        LL(flag);\n       \
     \ if(flag == 1) {\n            LL(x, v);\n            x--;\n            seg.set(x,\
     \ v);\n        } else if(flag == 2) {\n            LL(l, r);\n            l--;\n\
@@ -121,8 +121,8 @@ data:
   isVerificationFile: true
   path: test/atcoder/practice2_j.test.cpp
   requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-02-07 15:18:13+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/practice2_j.test.cpp
 layout: document

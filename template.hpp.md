@@ -17,7 +17,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/segtree-beats.hpp
     title: data_structure/segtree-beats.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
   - icon: ':heavy_check_mark:'
@@ -89,6 +89,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
+  - icon: ':heavy_check_mark:'
+    path: tree/euler-tour.hpp
+    title: tree/euler-tour.hpp
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/atcoder/abc113_c.test.cpp
@@ -102,16 +105,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/abc217_h.test.cpp
     title: test/atcoder/abc217_h.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc235_c.test.cpp
     title: test/atcoder/abc235_c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc248_d.test.cpp
     title: test/atcoder/abc248_d.test.cpp
   - icon: ':x:'
     path: test/atcoder/abc249_d.test.cpp
     title: test/atcoder/abc249_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc273_d.test.cpp
     title: test/atcoder/abc273_d.test.cpp
   - icon: ':heavy_check_mark:'
@@ -135,7 +138,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/atcoder/arc171_d.test.cpp
     title: test/atcoder/arc171_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
   - icon: ':heavy_check_mark:'
@@ -231,6 +234,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/many_aplusb.test.cpp
     title: test/library_checker/sample/many_aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/tree/lca.test.cpp
+    title: test/library_checker/tree/lca.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
@@ -415,6 +421,7 @@ data:
   - number-theory/divisor-multiple-transform.hpp
   - dp/longest-increasing-sequence.hpp
   - dp/cumulative-sum.hpp
+  - tree/euler-tour.hpp
   - string/run-length-encoding.hpp
   timestamp: '2024-12-02 02:31:35+09:00'
   verificationStatus: LIBRARY_SOME_WA
@@ -443,6 +450,7 @@ data:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp
+  - test/library_checker/tree/lca.test.cpp
   - test/library_checker/number_theory/lcm_convolution.test.cpp
   - test/library_checker/number_theory/sqrt_mod.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp

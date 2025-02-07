@@ -4,9 +4,12 @@ data:
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy: []
-  _extendedVerifiedWith:
+  _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: tree/euler-tour.hpp
+    title: tree/euler-tour.hpp
+  _extendedVerifiedWith:
+  - icon: ':x:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
   - icon: ':heavy_check_mark:'
@@ -21,9 +24,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq.test.cpp
     title: test/library_checker/data_structure/staticrmq.test.cpp
-  _isVerificationFailed: false
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/tree/lca.test.cpp
+    title: test/library_checker/tree/lca.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -89,13 +95,13 @@ data:
     \         v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll\
     \ x, S p) {\n        assert(0 <= x && x < n);\n        x += n;\n        v[x] =\
     \ p;\n        while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x\
-    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) {\n       \
-    \ assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n        l\
-    \ += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n           \
-    \     pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n           \
-    \     pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >> 1;\n \
-    \           r >>= 1;\n        }\n        return op(pl, pr);\n    }\n    S get(ll\
-    \ x) { return v[n + x]; }\n};\n"
+    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) const {\n \
+    \       assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n   \
+    \     l += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n     \
+    \           pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n     \
+    \           pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >>\
+    \ 1;\n            r >>= 1;\n        }\n        return op(pl, pr);\n    }\n   \
+    \ S get(ll x) const { return v[n + x]; }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S,\
     \ S), S (*e)()> struct segtree {\n    ll n;\n    vector<S> v;\n    segtree(ll\
     \ n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const vector<S> &v_) : n(v_.size())\
@@ -104,24 +110,27 @@ data:
     \ << 1 | 1]);\n        }\n    }\n    void set(ll x, S p) {\n        assert(0 <=\
     \ x && x < n);\n        x += n;\n        v[x] = p;\n        while(x > 1) {\n \
     \           x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n     \
-    \   }\n    }\n    S prod(ll l, ll r) {\n        assert(0 <= l && l <= r && r <=\
-    \ n);\n        S pl(e()), pr(e());\n        l += n, r += n;\n        while(l <\
-    \ r) {\n            if(l & 1) {\n                pl = op(pl, v[l]);\n        \
-    \    }\n            if(r & 1) {\n                pr = op(v[r - 1], pr);\n    \
-    \        }\n            l = (l + 1) >> 1;\n            r >>= 1;\n        }\n \
-    \       return op(pl, pr);\n    }\n    S get(ll x) { return v[n + x]; }\n};"
+    \   }\n    }\n    S prod(ll l, ll r) const {\n        assert(0 <= l && l <= r\
+    \ && r <= n);\n        S pl(e()), pr(e());\n        l += n, r += n;\n        while(l\
+    \ < r) {\n            if(l & 1) {\n                pl = op(pl, v[l]);\n      \
+    \      }\n            if(r & 1) {\n                pr = op(v[r - 1], pr);\n  \
+    \          }\n            l = (l + 1) >> 1;\n            r >>= 1;\n        }\n\
+    \        return op(pl, pr);\n    }\n    S get(ll x) const { return v[n + x]; }\n\
+    };"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/segtree.hpp
-  requiredBy: []
-  timestamp: '2024-12-02 02:31:35+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  requiredBy:
+  - tree/euler-tour.hpp
+  timestamp: '2025-02-07 15:18:13+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/staticrmq.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
+  - test/library_checker/tree/lca.test.cpp
   - test/atcoder/practice2_j.test.cpp
 documentation_of: data_structure/segtree.hpp
 layout: document
