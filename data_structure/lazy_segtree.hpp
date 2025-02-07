@@ -40,7 +40,7 @@ struct lazy_segtree {
         recul_above(l0);
         recul_above(r0);
     }
-    S get(ll x) const {
+    S get(ll x) {
         x += n;
         ll maxi = bit_length(x) - 1;
         for(ll i = maxi; i > 0; i--) {
