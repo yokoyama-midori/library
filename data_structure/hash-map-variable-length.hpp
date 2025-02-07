@@ -44,6 +44,8 @@ template <class Val> struct HashMap {
         }
         return res;
     }
+    int size() const { return cnt; }
+
   private:
     int hash(ll x) {
         // https://judge.yosupo.jp/submission/186759

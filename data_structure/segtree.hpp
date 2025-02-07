@@ -21,7 +21,7 @@ template <class S, S (*op)(S, S), S (*e)()> struct segtree {
             v[x] = op(v[x << 1], v[x << 1 | 1]);
         }
     }
-    S prod(ll l, ll r) {
+    S prod(ll l, ll r) const {
         assert(0 <= l && l <= r && r <= n);
         S pl(e()), pr(e());
         l += n, r += n;
@@ -37,5 +37,5 @@ template <class S, S (*op)(S, S), S (*e)()> struct segtree {
         }
         return op(pl, pr);
     }
-    S get(ll x) { return v[n + x]; }
+    S get(ll x) const { return v[n + x]; }
 };
