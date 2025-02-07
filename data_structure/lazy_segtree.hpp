@@ -40,7 +40,7 @@ struct lazy_segtree {
         recul_above(l0);
         recul_above(r0);
     }
-    S get(ll x) {
+    S get(ll x) const {
         x += n;
         ll maxi = bit_length(x) - 1;
         for(ll i = maxi; i > 0; i--) {
@@ -54,7 +54,7 @@ struct lazy_segtree {
         v[x] = s;
         recul_above(x);
     }
-    S prod(ll l, ll r) {
+    S prod(ll l, ll r) const {
         l += n;
         r += n;
         ll l0 = l / (l & -l);
@@ -88,7 +88,7 @@ struct lazy_segtree {
         apply_at(x << 1 | 1, vf[x]);
         vf[x] = id();
     }
-    ll bit_length(unsigned long long x) { return 64 - countl_zero(x); }
+    ll bit_length(unsigned long long x) const { return 64 - countl_zero(x); }
     void propagate_above(ll x) {
         ll maxi = bit_length(x) - 1;
         for(ll i = maxi; i > 0; i--) {
