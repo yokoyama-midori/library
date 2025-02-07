@@ -16,6 +16,7 @@ pii op(pii a, pii b) {
 pii e() { return pii(numeric_limits<int>::max(), -1); }
 using RMQ_seg = segtree<pii, op, e>;
 }; // namespace et_internal
+
 template <class G> struct EulerTour {
     int root, id;
     vector<int> in, out, dep;
@@ -30,6 +31,10 @@ template <class G> struct EulerTour {
         if(ix > iy)
             swap(ix, iy);
         return seg.prod(ix, iy + 1).second;
+    }
+    int dist(int x, int y) const {
+        int l = lca(x, y);
+        return dep[x] + dep[y] - 2 * dep[l];
     }
 
   private:

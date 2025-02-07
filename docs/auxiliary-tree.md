@@ -4,9 +4,10 @@ documentation_of: ./tree/auxiliary-tree.hpp
 ---
 ## 問題例
 
-- [G - Sum of Tree Distance](https://atcoder.jp/contests/abc359/editorial/10259)
+- [ABC359 G - Sum of Tree Distance](https://atcoder.jp/contests/abc359/editorial/10259)
+- [Preserve Connectivity 競プロ典型 90 問](https://atcoder.jp/contests/typical90/tasks/typical90_ai)
 
 ## LINK
-- https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95
-- https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp
-- https://noshi91.github.io/algorithm-encyclopedia/auxiliary-tree
+- <https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95>
+- <https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp>
+- <https://noshi91.github.io/algorithm-encyclopedia/auxiliary-tree>
