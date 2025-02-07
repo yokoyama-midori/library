@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/lazy_segtree.hpp
     title: data_structure/lazy_segtree.hpp
   - icon: ':question:'
@@ -90,27 +90,27 @@ data:
     \               apply_at(l, f);\n                l++;\n            }\n       \
     \     if(r & 1) {\n                r--;\n                apply_at(r, f);\n   \
     \         }\n            l >>= 1;\n            r >>= 1;\n        }\n        recul_above(l0);\n\
-    \        recul_above(r0);\n    }\n    S get(ll x) const {\n        x += n;\n \
-    \       ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n\
-    \            propagate_at(x >> i);\n        }\n        return v[x];\n    }\n \
-    \   void set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n    \
-    \    v[x] = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) {\n   \
-    \     l += n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 =\
-    \ r / (r & -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n\
-    \        S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1)\
-    \ {\n                sl = op(sl, v[l]);\n                l++;\n            }\n\
-    \            if(r & 1) {\n                r--;\n                sr = op(v[r],\
-    \ sr);\n            }\n            l >>= 1;\n            r >>= 1;\n        }\n\
-    \        return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f)\
-    \ {\n        v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] =\
-    \ composition(f, vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x\
-    \ << 1, vf[x]);\n        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n\
-    \    }\n    ll bit_length(unsigned long long x) const { return 64 - countl_zero(x);\
-    \ }\n    void propagate_above(ll x) {\n        ll maxi = bit_length(x) - 1;\n\
-    \        for(ll i = maxi; i > 0; i--) {\n            propagate_at(x >> i);\n \
-    \       }\n        return;\n    }\n    void recul_above(ll x) {\n        while(x\
-    \ > 1) {\n            x >>= 1;\n            v[x] = op(v[x << 1], v[x << 1 | 1]);\n\
-    \        }\n    }\n};\n#line 4 \"test/library_checker/data_structure/range_set_range_composite.test.cpp\"\
+    \        recul_above(r0);\n    }\n    S get(ll x) {\n        x += n;\n       \
+    \ ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0; i--) {\n     \
+    \       propagate_at(x >> i);\n        }\n        return v[x];\n    }\n    void\
+    \ set(ll x, S s) {\n        x += n;\n        propagate_above(x);\n        v[x]\
+    \ = s;\n        recul_above(x);\n    }\n    S prod(ll l, ll r) {\n        l +=\
+    \ n;\n        r += n;\n        ll l0 = l / (l & -l);\n        ll r0 = r / (r &\
+    \ -r) - 1;\n        propagate_above(l0);\n        propagate_above(r0);\n     \
+    \   S sl = e(), sr = e();\n        while(l < r) {\n            if(l & 1) {\n \
+    \               sl = op(sl, v[l]);\n                l++;\n            }\n    \
+    \        if(r & 1) {\n                r--;\n                sr = op(v[r], sr);\n\
+    \            }\n            l >>= 1;\n            r >>= 1;\n        }\n      \
+    \  return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f) {\n \
+    \       v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] = composition(f,\
+    \ vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x << 1, vf[x]);\n\
+    \        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n    }\n    ll bit_length(unsigned\
+    \ long long x) const { return 64 - countl_zero(x); }\n    void propagate_above(ll\
+    \ x) {\n        ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0;\
+    \ i--) {\n            propagate_at(x >> i);\n        }\n        return;\n    }\n\
+    \    void recul_above(ll x) {\n        while(x > 1) {\n            x >>= 1;\n\
+    \            v[x] = op(v[x << 1], v[x << 1 | 1]);\n        }\n    }\n};\n#line\
+    \ 4 \"test/library_checker/data_structure/range_set_range_composite.test.cpp\"\
     \n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\nstruct S\
     \ {\n    mint b, c;\n    ll sz;\n};\nS e() { return S(1, 0, 0); };\nS op(S g,\
     \ S f) { return S(f.b * g.b, f.b * g.c + f.c, g.sz + f.sz); }\nstruct F {\n  \
@@ -152,7 +152,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/range_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2025-02-07 15:32:13+09:00'
+  timestamp: '2025-02-07 15:42:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_set_range_composite.test.cpp

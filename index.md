@@ -9,7 +9,7 @@ data:
     - icon: ':question:'
       path: data_structure/hash-map-variable-length.hpp
       title: data_structure/hash-map-variable-length.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/lazy_segtree.hpp
       title: data_structure/lazy_segtree.hpp
     - icon: ':heavy_check_mark:'
@@ -179,7 +179,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_set_range_composite.test.cpp
       title: test/library_checker/data_structure/point_set_range_composite.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_affine_point_get.test.cpp
       title: test/library_checker/data_structure/range_affine_point_get.test.cpp
     - icon: ':heavy_check_mark:'
