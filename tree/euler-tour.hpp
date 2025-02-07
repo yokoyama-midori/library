@@ -18,12 +18,12 @@ using RMQ_seg = segtree<pii, op, e>;
 }; // namespace et_internal
 template <class G> struct EulerTour {
     int root, id;
-    vector<int> in, out;
+    vector<int> in, out, dep;
     et_internal::RMQ_seg seg;
     EulerTour(G &g, int root = 0)
         : root(root), id(0), in(g.size(), -1), out(g.size(), -1),
-          seg(2 * g.size()) {
-        dfs(g, root, -1, 0);
+          dep(g.size(), 0), seg(2 * g.size()) {
+        dfs(g, root, -1);
     }
     int lca(int x, int y) const {
         int ix = in[x], iy = in[y];
@@ -33,15 +33,16 @@ template <class G> struct EulerTour {
     }
 
   private:
-    void dfs(G &g, int now, int prev, int depth) {
-        seg.set(id, {depth, now});
+    void dfs(G &g, int now, int prev) {
+        seg.set(id, {dep[now], now});
         in[now] = id++;
         for(auto nex : g[now]) {
             if(nex == prev)
                 continue;
-            dfs(g, nex, now, depth + 1);
+            dep[nex] = dep[now] + 1;
+            dfs(g, nex, now);
         }
-        seg.set(id, {depth - 1, prev});
+        seg.set(id, {dep[now] - 1, prev});
         out[now] = id++;
     }
 };
