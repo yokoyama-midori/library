@@ -12,8 +12,8 @@ template <class G> struct AuxiliaryTree {
     // {aux tree,vs:aux treeの頂点番号->gでの頂点番号}を返す
     // aux tree : 親->子のみ含まれる
     // N = size(g),M=size(vs)として
-    // O(M log N) 
-    // LCAを高速化すれば O(M log M)
+    // 構築 O(N log N)
+    // クエリ O(M log M)
     template <class T> pair<vector<vector<T>>, vector<T>> get(vector<T> vs) {
         if(vs.empty())
             return {};
