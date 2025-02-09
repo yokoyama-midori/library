@@ -107,16 +107,16 @@ data:
     \ {}\n\n    // \u9802\u70B9\u96C6\u5408vs\u3092\u53D7\u3051\u53D6\u308A\n    //\
     \ {aux tree,vs:aux tree\u306E\u9802\u70B9\u756A\u53F7->g\u3067\u306E\u9802\u70B9\
     \u756A\u53F7}\u3092\u8FD4\u3059\n    // aux tree : \u89AA->\u5B50\u306E\u307F\u542B\
-    \u307E\u308C\u308B\n    // N = size(g),M=size(vs)\u3068\u3057\u3066\n    // O(M\
-    \ log N) \n    // LCA\u3092\u9AD8\u901F\u5316\u3059\u308C\u3070 O(M log M)\n \
-    \   template <class T> pair<vector<vector<T>>, vector<T>> get(vector<T> vs) {\n\
-    \        if(vs.empty())\n            return {};\n        auto comp = [&](T i,\
-    \ T j) { return et.in[i] < et.in[j]; };\n        sort(all(vs), comp);\n      \
-    \  for(int i = 1, sz = vs.size(); i < sz; i++) {\n            vs.push_back(et.lca(vs[i\
-    \ - 1], vs[i]));\n        }\n        sort(all(vs), comp);\n        vs.erase(unique(all(vs)),\
-    \ end(vs));\n        vector<vector<T>> aux(vs.size());\n        stack<T> st;\n\
-    \        st.push(0);\n        rep(i, 1, vs.size()) {\n            while(et.out[vs[st.top()]]\
-    \ < et.in[vs[i]]) {\n                st.pop();\n            }\n            aux[st.top()].push_back(i);\n\
+    \u307E\u308C\u308B\n    // N = size(g),M=size(vs)\u3068\u3057\u3066\n    // \u69CB\
+    \u7BC9 O(N log N)\n    // \u30AF\u30A8\u30EA O(M log M)\n    template <class T>\
+    \ pair<vector<vector<T>>, vector<T>> get(vector<T> vs) {\n        if(vs.empty())\n\
+    \            return {};\n        auto comp = [&](T i, T j) { return et.in[i] <\
+    \ et.in[j]; };\n        sort(all(vs), comp);\n        for(int i = 1, sz = vs.size();\
+    \ i < sz; i++) {\n            vs.push_back(et.lca(vs[i - 1], vs[i]));\n      \
+    \  }\n        sort(all(vs), comp);\n        vs.erase(unique(all(vs)), end(vs));\n\
+    \        vector<vector<T>> aux(vs.size());\n        stack<T> st;\n        st.push(0);\n\
+    \        rep(i, 1, vs.size()) {\n            while(et.out[vs[st.top()]] < et.in[vs[i]])\
+    \ {\n                st.pop();\n            }\n            aux[st.top()].push_back(i);\n\
     \            st.push(i);\n        }\n        return {aux, vs};\n    }\n};\n"
   code: "#pragma once\n#include \"tree/euler-tour.hpp\"\n// https://smijake3.hatenablog.com/entry/2019/09/15/200200#%E3%82%BD%E3%83%BC%E3%83%882%E5%9B%9E%E3%81%AE%E6%96%B9%E6%B3%95\n\
     // https://nyaannyaan.github.io/library/tree/auxiliary-tree.hpp\ntemplate <class\
@@ -125,16 +125,16 @@ data:
     \ {}\n\n    // \u9802\u70B9\u96C6\u5408vs\u3092\u53D7\u3051\u53D6\u308A\n    //\
     \ {aux tree,vs:aux tree\u306E\u9802\u70B9\u756A\u53F7->g\u3067\u306E\u9802\u70B9\
     \u756A\u53F7}\u3092\u8FD4\u3059\n    // aux tree : \u89AA->\u5B50\u306E\u307F\u542B\
-    \u307E\u308C\u308B\n    // N = size(g),M=size(vs)\u3068\u3057\u3066\n    // O(M\
-    \ log N) \n    // LCA\u3092\u9AD8\u901F\u5316\u3059\u308C\u3070 O(M log M)\n \
-    \   template <class T> pair<vector<vector<T>>, vector<T>> get(vector<T> vs) {\n\
-    \        if(vs.empty())\n            return {};\n        auto comp = [&](T i,\
-    \ T j) { return et.in[i] < et.in[j]; };\n        sort(all(vs), comp);\n      \
-    \  for(int i = 1, sz = vs.size(); i < sz; i++) {\n            vs.push_back(et.lca(vs[i\
-    \ - 1], vs[i]));\n        }\n        sort(all(vs), comp);\n        vs.erase(unique(all(vs)),\
-    \ end(vs));\n        vector<vector<T>> aux(vs.size());\n        stack<T> st;\n\
-    \        st.push(0);\n        rep(i, 1, vs.size()) {\n            while(et.out[vs[st.top()]]\
-    \ < et.in[vs[i]]) {\n                st.pop();\n            }\n            aux[st.top()].push_back(i);\n\
+    \u307E\u308C\u308B\n    // N = size(g),M=size(vs)\u3068\u3057\u3066\n    // \u69CB\
+    \u7BC9 O(N log N)\n    // \u30AF\u30A8\u30EA O(M log M)\n    template <class T>\
+    \ pair<vector<vector<T>>, vector<T>> get(vector<T> vs) {\n        if(vs.empty())\n\
+    \            return {};\n        auto comp = [&](T i, T j) { return et.in[i] <\
+    \ et.in[j]; };\n        sort(all(vs), comp);\n        for(int i = 1, sz = vs.size();\
+    \ i < sz; i++) {\n            vs.push_back(et.lca(vs[i - 1], vs[i]));\n      \
+    \  }\n        sort(all(vs), comp);\n        vs.erase(unique(all(vs)), end(vs));\n\
+    \        vector<vector<T>> aux(vs.size());\n        stack<T> st;\n        st.push(0);\n\
+    \        rep(i, 1, vs.size()) {\n            while(et.out[vs[st.top()]] < et.in[vs[i]])\
+    \ {\n                st.pop();\n            }\n            aux[st.top()].push_back(i);\n\
     \            st.push(i);\n        }\n        return {aux, vs};\n    }\n};\n"
   dependsOn:
   - tree/euler-tour.hpp
@@ -143,7 +143,7 @@ data:
   isVerificationFile: false
   path: tree/auxiliary-tree.hpp
   requiredBy: []
-  timestamp: '2025-02-09 18:10:41+09:00'
+  timestamp: '2025-02-09 18:53:43+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: tree/auxiliary-tree.hpp
