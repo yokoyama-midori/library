@@ -7,31 +7,26 @@ data:
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: tree/auxiliary-tree.hpp
-    title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
-      \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
-      \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/lca.test.cpp
-    title: test/library_checker/tree/lca.test.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/staticrmq
     links:
-    - https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7
-    - https://nyaannyaan.github.io/library/tree/euler-tour.hpp
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
-    \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
-    \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
-    \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://judge.yosupo.jp/problem/staticrmq
+  bundledCode: "#line 1 \"test/library_checker/data_structure/staticrmq_sparse_table.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#line 2 \"template.hpp\"\
+    \n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
+    \ GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n//\
+    \ usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\u3046\u306B\
+    \u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream& os, const vector<T>&\
+    \ v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size(); ++i) {\n      \
+    \  os << v[i];\n        if (i < v.size() - 1) os << \", \";\n    }\n    os <<\
+    \ \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const T& var) {\n    os << var;\n    return os;\n}\n#define CHOOSE(a) CHOOSE2\
     \ a\n#define CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) { cout\
     \ << #x1 << \": \"; debug_print(cout, x1) << endl; }\n#define debug_2(x1, x2)\
@@ -88,57 +83,31 @@ data:
     \        }\n    }\n    T prod(int l, int r) const {\n        if(l + 1 == r)\n\
     \            return v[0][l];\n        int b = 31 - countl_zero(unsigned(r - l\
     \ - 1));\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n\
-    \    vector<vector<T>> v;\n};\n#line 4 \"tree/euler-tour.hpp\"\n// https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n\
-    // https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\ntemplate <class\
-    \ G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n  \
-    \  using pii = pair<int, int>; // depth,vartex\n    SparseTable<pii, [](pii a,\
-    \ pii b) { return a.first < b.first ? a : b; }>\n        rmq;\n    EulerTour(G\
-    \ &g, int root = 0)\n        : root(root), id(0), in(g.size(), -1), out(g.size(),\
-    \ -1),\n          dep(g.size(), 0), rmq([&] {\n              vector<pii> vec;\n\
-    \              vec.reserve(2 * g.size());\n              dfs(g, root, -1, vec);\n\
-    \              return vec;\n          }()) {}\n    int lca(int x, int y) const\
-    \ {\n        int ix = in[x], iy = in[y];\n        if(ix > iy)\n            swap(ix,\
-    \ iy);\n        return rmq.prod(ix, iy + 1).second;\n    }\n    int dist(int x,\
-    \ int y) const {\n        int l = lca(x, y);\n        return dep[x] + dep[y] -\
-    \ 2 * dep[l];\n    }\n\n  private:\n    void dfs(G &g, int now, int prev, vector<pii>\
-    \ &vec) {\n        vec.push_back({dep[now], now});\n        in[now] = id++;\n\
-    \        for(auto nex : g[now]) {\n            if(nex == prev)\n             \
-    \   continue;\n            dep[nex] = dep[now] + 1;\n            dfs(g, nex, now,\
-    \ vec);\n        }\n        vec.push_back({dep[now] - 1, prev});\n        out[now]\
-    \ = id++;\n    }\n};\n"
-  code: "#pragma once\n#include \"data_structure/sparse-table.hpp\"\n#include \"template.hpp\"\
-    \n// https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n// https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\
-    \ntemplate <class G> struct EulerTour {\n    int root, id;\n    vector<int> in,\
-    \ out, dep;\n    using pii = pair<int, int>; // depth,vartex\n    SparseTable<pii,\
-    \ [](pii a, pii b) { return a.first < b.first ? a : b; }>\n        rmq;\n    EulerTour(G\
-    \ &g, int root = 0)\n        : root(root), id(0), in(g.size(), -1), out(g.size(),\
-    \ -1),\n          dep(g.size(), 0), rmq([&] {\n              vector<pii> vec;\n\
-    \              vec.reserve(2 * g.size());\n              dfs(g, root, -1, vec);\n\
-    \              return vec;\n          }()) {}\n    int lca(int x, int y) const\
-    \ {\n        int ix = in[x], iy = in[y];\n        if(ix > iy)\n            swap(ix,\
-    \ iy);\n        return rmq.prod(ix, iy + 1).second;\n    }\n    int dist(int x,\
-    \ int y) const {\n        int l = lca(x, y);\n        return dep[x] + dep[y] -\
-    \ 2 * dep[l];\n    }\n\n  private:\n    void dfs(G &g, int now, int prev, vector<pii>\
-    \ &vec) {\n        vec.push_back({dep[now], now});\n        in[now] = id++;\n\
-    \        for(auto nex : g[now]) {\n            if(nex == prev)\n             \
-    \   continue;\n            dep[nex] = dep[now] + 1;\n            dfs(g, nex, now,\
-    \ vec);\n        }\n        vec.push_back({dep[now] - 1, prev});\n        out[now]\
-    \ = id++;\n    }\n};"
+    \    vector<vector<T>> v;\n};\n#line 4 \"test/library_checker/data_structure/staticrmq_sparse_table.test.cpp\"\
+    \n\nvoid solve() {\n    INT(n, q);\n    vector<int> a(n);\n    input(a);\n   \
+    \ SparseTable<int, [](int a, int b) { return min(a, b); }> seg(a);\n    rep(_,\
+    \ q) {\n        INT(l, r);\n        print(seg.prod(l, r));\n    }\n}\nint main()\
+    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
+    }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include \"\
+    data_structure/sparse-table.hpp\"\n#include \"template.hpp\"\n\nvoid solve() {\n\
+    \    INT(n, q);\n    vector<int> a(n);\n    input(a);\n    SparseTable<int, [](int\
+    \ a, int b) { return min(a, b); }> seg(a);\n    rep(_, q) {\n        INT(l, r);\n\
+    \        print(seg.prod(l, r));\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   dependsOn:
   - data_structure/sparse-table.hpp
   - template.hpp
-  isVerificationFile: false
-  path: tree/euler-tour.hpp
-  requiredBy:
-  - tree/auxiliary-tree.hpp
+  isVerificationFile: true
+  path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
+  requiredBy: []
   timestamp: '2025-02-09 18:10:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/tree/lca.test.cpp
-documentation_of: tree/euler-tour.hpp
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
 layout: document
 redirect_from:
-- /library/tree/euler-tour.hpp
-- /library/tree/euler-tour.hpp.html
-title: tree/euler-tour.hpp
+- /verify/test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
+- /verify/test/library_checker/data_structure/staticrmq_sparse_table.test.cpp.html
+title: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
 ---

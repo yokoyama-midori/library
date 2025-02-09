@@ -24,6 +24,9 @@ data:
     path: data_structure/slope-trick.hpp
     title: data_structure/slope-trick.hpp
   - icon: ':heavy_check_mark:'
+    path: data_structure/sparse-table.hpp
+    title: data_structure/sparse-table.hpp
+  - icon: ':heavy_check_mark:'
     path: data_structure/splaytree.hpp
     title: data_structure/splaytree.hpp
   - icon: ':question:'
@@ -185,6 +188,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq.test.cpp
     title: test/library_checker/data_structure/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
+    title: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
@@ -414,6 +420,7 @@ data:
   - data_structure/segtree-beats.hpp
   - data_structure/range-chminmaxaddsum-segtree-beats.hpp
   - data_structure/slope-trick.hpp
+  - data_structure/sparse-table.hpp
   - data_structure/segtree.hpp
   - data_structure/splaytree.hpp
   - poly/bostan_mori.hpp
@@ -441,6 +448,7 @@ data:
   - test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
+  - test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
   - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   - test/library_checker/data_structure/associative_array.test.cpp

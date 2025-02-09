@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
-    path: data_structure/segtree.hpp
-    title: data_structure/segtree.hpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/sparse-table.hpp
+    title: data_structure/sparse-table.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
@@ -76,45 +76,38 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/segtree.hpp\"\
-    \n\ntemplate <class S, S (*op)(S, S), S (*e)()> struct segtree {\n    ll n;\n\
-    \    vector<S> v;\n    segtree(ll n_) : segtree(vector<S>(n_, e())) {}\n    segtree(const\
-    \ vector<S> &v_) : n(v_.size()) {\n        v = vector<S>(2 * n, e());\n      \
-    \  rep(i, n) v[n + i] = v_[i];\n        for(ll i = n - 1; i >= 0; i--) {\n   \
-    \         v[i] = op(v[i << 1], v[i << 1 | 1]);\n        }\n    }\n    void set(ll\
-    \ x, S p) {\n        assert(0 <= x && x < n);\n        x += n;\n        v[x] =\
-    \ p;\n        while(x > 1) {\n            x >>= 1;\n            v[x] = op(v[x\
-    \ << 1], v[x << 1 | 1]);\n        }\n    }\n    S prod(ll l, ll r) const {\n \
-    \       assert(0 <= l && l <= r && r <= n);\n        S pl(e()), pr(e());\n   \
-    \     l += n, r += n;\n        while(l < r) {\n            if(l & 1) {\n     \
-    \           pl = op(pl, v[l]);\n            }\n            if(r & 1) {\n     \
-    \           pr = op(v[r - 1], pr);\n            }\n            l = (l + 1) >>\
-    \ 1;\n            r >>= 1;\n        }\n        return op(pl, pr);\n    }\n   \
-    \ S get(ll x) const { return v[n + x]; }\n};\n#line 4 \"tree/euler-tour.hpp\"\n\
-    // https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n// https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\
-    // TODO \u9AD8\u901F\u306ARMQ e.g. sparse table\n// \u4ECA\u306E\u3068\u3053\u308D\
-    \ LCA O(log N)\nnamespace et_internal {\nusing pii = pair<int, int>; // depth,vartex\n\
-    pii op(pii a, pii b) {\n    if(a.first < b.first)\n        return a;\n    else\n\
-    \        return b;\n}\npii e() { return pii(numeric_limits<int>::max(), -1); }\n\
-    using RMQ_seg = segtree<pii, op, e>;\n}; // namespace et_internal\n\ntemplate\
-    \ <class G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n\
-    \    et_internal::RMQ_seg seg;\n    EulerTour(G &g, int root = 0)\n        : root(root),\
-    \ id(0), in(g.size(), -1), out(g.size(), -1),\n          dep(g.size(), 0), seg(2\
-    \ * g.size()) {\n        dfs(g, root, -1);\n    }\n    int lca(int x, int y) const\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/sparse-table.hpp\"\
+    \ntemplate <class T, auto op> struct SparseTable {\n    SparseTable(const vector<T>\
+    \ &vec) {\n        int n = vec.size();\n        int b = 32 - countl_zero(unsigned(n\
+    \ > 1 ? n - 1 : n));\n        v = vector(b, vector<T>(n));\n        v[0] = vec;\n\
+    \        rep(i, b - 1) {\n            for(int j = 0; j + (1 << i) < n; j++) {\n\
+    \                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n            }\n\
+    \        }\n    }\n    T prod(int l, int r) const {\n        if(l + 1 == r)\n\
+    \            return v[0][l];\n        int b = 31 - countl_zero(unsigned(r - l\
+    \ - 1));\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n\
+    \    vector<vector<T>> v;\n};\n#line 4 \"tree/euler-tour.hpp\"\n// https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n\
+    // https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\ntemplate <class\
+    \ G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n  \
+    \  using pii = pair<int, int>; // depth,vartex\n    SparseTable<pii, [](pii a,\
+    \ pii b) { return a.first < b.first ? a : b; }>\n        rmq;\n    EulerTour(G\
+    \ &g, int root = 0)\n        : root(root), id(0), in(g.size(), -1), out(g.size(),\
+    \ -1),\n          dep(g.size(), 0), rmq([&] {\n              vector<pii> vec;\n\
+    \              vec.reserve(2 * g.size());\n              dfs(g, root, -1, vec);\n\
+    \              return vec;\n          }()) {}\n    int lca(int x, int y) const\
     \ {\n        int ix = in[x], iy = in[y];\n        if(ix > iy)\n            swap(ix,\
-    \ iy);\n        return seg.prod(ix, iy + 1).second;\n    }\n    int dist(int x,\
+    \ iy);\n        return rmq.prod(ix, iy + 1).second;\n    }\n    int dist(int x,\
     \ int y) const {\n        int l = lca(x, y);\n        return dep[x] + dep[y] -\
-    \ 2 * dep[l];\n    }\n\n  private:\n    void dfs(G &g, int now, int prev) {\n\
-    \        seg.set(id, {dep[now], now});\n        in[now] = id++;\n        for(auto\
-    \ nex : g[now]) {\n            if(nex == prev)\n                continue;\n  \
-    \          dep[nex] = dep[now] + 1;\n            dfs(g, nex, now);\n        }\n\
-    \        seg.set(id, {dep[now] - 1, prev});\n        out[now] = id++;\n    }\n\
-    };\n#line 3 \"test/library_checker/tree/lca.test.cpp\"\nvoid solve() {\n    INT(n,\
-    \ q);\n    vector<vector<int>> g(n);\n    rep(i, 1, n) {\n        INT(p);\n  \
-    \      g[p].push_back(i), g[i].push_back(p);\n    }\n    EulerTour et(g);\n  \
-    \  while(q--) {\n        INT(x, y);\n        print(et.lca(x, y));\n    }\n}\n\
-    int main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n \
-    \   solve();\n}\n"
+    \ 2 * dep[l];\n    }\n\n  private:\n    void dfs(G &g, int now, int prev, vector<pii>\
+    \ &vec) {\n        vec.push_back({dep[now], now});\n        in[now] = id++;\n\
+    \        for(auto nex : g[now]) {\n            if(nex == prev)\n             \
+    \   continue;\n            dep[nex] = dep[now] + 1;\n            dfs(g, nex, now,\
+    \ vec);\n        }\n        vec.push_back({dep[now] - 1, prev});\n        out[now]\
+    \ = id++;\n    }\n};\n#line 3 \"test/library_checker/tree/lca.test.cpp\"\nvoid\
+    \ solve() {\n    INT(n, q);\n    vector<vector<int>> g(n);\n    rep(i, 1, n) {\n\
+    \        INT(p);\n        g[p].push_back(i), g[i].push_back(p);\n    }\n    EulerTour\
+    \ et(g);\n    while(q--) {\n        INT(x, y);\n        print(et.lca(x, y));\n\
+    \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include \"tree/euler-tour.hpp\"\
     \nvoid solve() {\n    INT(n, q);\n    vector<vector<int>> g(n);\n    rep(i, 1,\
     \ n) {\n        INT(p);\n        g[p].push_back(i), g[i].push_back(p);\n    }\n\
@@ -123,12 +116,12 @@ data:
     \    solve();\n}"
   dependsOn:
   - tree/euler-tour.hpp
-  - data_structure/segtree.hpp
+  - data_structure/sparse-table.hpp
   - template.hpp
   isVerificationFile: true
   path: test/library_checker/tree/lca.test.cpp
   requiredBy: []
-  timestamp: '2025-02-08 00:23:28+09:00'
+  timestamp: '2025-02-09 18:10:41+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/tree/lca.test.cpp

@@ -25,6 +25,9 @@ data:
       path: data_structure/slope-trick.hpp
       title: data_structure/slope-trick.hpp
     - icon: ':heavy_check_mark:'
+      path: data_structure/sparse-table.hpp
+      title: data_structure/sparse-table.hpp
+    - icon: ':heavy_check_mark:'
       path: data_structure/splaytree.hpp
       title: data_structure/splaytree.hpp
   - name: dp
@@ -211,6 +214,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/staticrmq.test.cpp
       title: test/library_checker/data_structure/staticrmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
+      title: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
   - name: test/library_checker/enumerative_combinatorics
     pages:
     - icon: ':heavy_check_mark:'

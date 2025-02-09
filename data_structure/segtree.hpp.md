@@ -4,15 +4,7 @@ data:
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: tree/auxiliary-tree.hpp
-    title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
-      \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
-      \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
-  - icon: ':heavy_check_mark:'
-    path: tree/euler-tour.hpp
-    title: tree/euler-tour.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/atcoder/practice2_j.test.cpp
@@ -29,9 +21,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq.test.cpp
     title: test/library_checker/data_structure/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/lca.test.cpp
-    title: test/library_checker/tree/lca.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -126,9 +115,7 @@ data:
   - template.hpp
   isVerificationFile: false
   path: data_structure/segtree.hpp
-  requiredBy:
-  - tree/auxiliary-tree.hpp
-  - tree/euler-tour.hpp
+  requiredBy: []
   timestamp: '2025-02-07 15:18:13+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
@@ -136,7 +123,6 @@ data:
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-  - test/library_checker/tree/lca.test.cpp
   - test/atcoder/practice2_j.test.cpp
 documentation_of: data_structure/segtree.hpp
 layout: document

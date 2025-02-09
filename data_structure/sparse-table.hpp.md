@@ -1,9 +1,6 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: data_structure/sparse-table.hpp
-    title: data_structure/sparse-table.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
@@ -13,7 +10,13 @@ data:
     title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
       \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
       \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
+  - icon: ':heavy_check_mark:'
+    path: tree/euler-tour.hpp
+    title: tree/euler-tour.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
+    title: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/lca.test.cpp
     title: test/library_checker/tree/lca.test.cpp
@@ -21,9 +24,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links:
-    - https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7
-    - https://nyaannyaan.github.io/library/tree/euler-tour.hpp
+    links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -88,57 +89,32 @@ data:
     \        }\n    }\n    T prod(int l, int r) const {\n        if(l + 1 == r)\n\
     \            return v[0][l];\n        int b = 31 - countl_zero(unsigned(r - l\
     \ - 1));\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n\
-    \    vector<vector<T>> v;\n};\n#line 4 \"tree/euler-tour.hpp\"\n// https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n\
-    // https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\ntemplate <class\
-    \ G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n  \
-    \  using pii = pair<int, int>; // depth,vartex\n    SparseTable<pii, [](pii a,\
-    \ pii b) { return a.first < b.first ? a : b; }>\n        rmq;\n    EulerTour(G\
-    \ &g, int root = 0)\n        : root(root), id(0), in(g.size(), -1), out(g.size(),\
-    \ -1),\n          dep(g.size(), 0), rmq([&] {\n              vector<pii> vec;\n\
-    \              vec.reserve(2 * g.size());\n              dfs(g, root, -1, vec);\n\
-    \              return vec;\n          }()) {}\n    int lca(int x, int y) const\
-    \ {\n        int ix = in[x], iy = in[y];\n        if(ix > iy)\n            swap(ix,\
-    \ iy);\n        return rmq.prod(ix, iy + 1).second;\n    }\n    int dist(int x,\
-    \ int y) const {\n        int l = lca(x, y);\n        return dep[x] + dep[y] -\
-    \ 2 * dep[l];\n    }\n\n  private:\n    void dfs(G &g, int now, int prev, vector<pii>\
-    \ &vec) {\n        vec.push_back({dep[now], now});\n        in[now] = id++;\n\
-    \        for(auto nex : g[now]) {\n            if(nex == prev)\n             \
-    \   continue;\n            dep[nex] = dep[now] + 1;\n            dfs(g, nex, now,\
-    \ vec);\n        }\n        vec.push_back({dep[now] - 1, prev});\n        out[now]\
-    \ = id++;\n    }\n};\n"
-  code: "#pragma once\n#include \"data_structure/sparse-table.hpp\"\n#include \"template.hpp\"\
-    \n// https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n// https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\
-    \ntemplate <class G> struct EulerTour {\n    int root, id;\n    vector<int> in,\
-    \ out, dep;\n    using pii = pair<int, int>; // depth,vartex\n    SparseTable<pii,\
-    \ [](pii a, pii b) { return a.first < b.first ? a : b; }>\n        rmq;\n    EulerTour(G\
-    \ &g, int root = 0)\n        : root(root), id(0), in(g.size(), -1), out(g.size(),\
-    \ -1),\n          dep(g.size(), 0), rmq([&] {\n              vector<pii> vec;\n\
-    \              vec.reserve(2 * g.size());\n              dfs(g, root, -1, vec);\n\
-    \              return vec;\n          }()) {}\n    int lca(int x, int y) const\
-    \ {\n        int ix = in[x], iy = in[y];\n        if(ix > iy)\n            swap(ix,\
-    \ iy);\n        return rmq.prod(ix, iy + 1).second;\n    }\n    int dist(int x,\
-    \ int y) const {\n        int l = lca(x, y);\n        return dep[x] + dep[y] -\
-    \ 2 * dep[l];\n    }\n\n  private:\n    void dfs(G &g, int now, int prev, vector<pii>\
-    \ &vec) {\n        vec.push_back({dep[now], now});\n        in[now] = id++;\n\
-    \        for(auto nex : g[now]) {\n            if(nex == prev)\n             \
-    \   continue;\n            dep[nex] = dep[now] + 1;\n            dfs(g, nex, now,\
-    \ vec);\n        }\n        vec.push_back({dep[now] - 1, prev});\n        out[now]\
-    \ = id++;\n    }\n};"
+    \    vector<vector<T>> v;\n};\n"
+  code: "#pragma once\n#include \"template.hpp\"\ntemplate <class T, auto op> struct\
+    \ SparseTable {\n    SparseTable(const vector<T> &vec) {\n        int n = vec.size();\n\
+    \        int b = 32 - countl_zero(unsigned(n > 1 ? n - 1 : n));\n        v = vector(b,\
+    \ vector<T>(n));\n        v[0] = vec;\n        rep(i, b - 1) {\n            for(int\
+    \ j = 0; j + (1 << i) < n; j++) {\n                v[i + 1][j] = op(v[i][j], v[i][j\
+    \ + (1 << i)]);\n            }\n        }\n    }\n    T prod(int l, int r) const\
+    \ {\n        if(l + 1 == r)\n            return v[0][l];\n        int b = 31 -\
+    \ countl_zero(unsigned(r - l - 1));\n        return op(v[b][l], v[b][r - (1 <<\
+    \ b)]);\n    }\n\n  private:\n    vector<vector<T>> v;\n};\n"
   dependsOn:
-  - data_structure/sparse-table.hpp
   - template.hpp
   isVerificationFile: false
-  path: tree/euler-tour.hpp
+  path: data_structure/sparse-table.hpp
   requiredBy:
   - tree/auxiliary-tree.hpp
+  - tree/euler-tour.hpp
   timestamp: '2025-02-09 18:10:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
   - test/library_checker/tree/lca.test.cpp
-documentation_of: tree/euler-tour.hpp
+documentation_of: data_structure/sparse-table.hpp
 layout: document
 redirect_from:
-- /library/tree/euler-tour.hpp
-- /library/tree/euler-tour.hpp.html
-title: tree/euler-tour.hpp
+- /library/data_structure/sparse-table.hpp
+- /library/data_structure/sparse-table.hpp.html
+title: data_structure/sparse-table.hpp
 ---
