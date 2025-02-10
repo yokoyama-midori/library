@@ -10,19 +10,19 @@ data:
     title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
       \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
       \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/euler-tour.hpp
     title: tree/euler-tour.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
     title: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/lca.test.cpp
     title: test/library_checker/tree/lca.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -84,21 +84,21 @@ data:
     \ntemplate <class T, auto op> struct SparseTable {\n    SparseTable(const vector<T>\
     \ &vec) {\n        int n = vec.size();\n        int b = bit_width(unsigned(n));\n\
     \        v.resize(b);\n        v[0] = vec;\n        rep(i, b - 1) {\n        \
-    \    v[i + 1].resize(n - (1 << i));\n            for(int j = 0; j + (1 << i) <\
-    \ n; j++) {\n                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n\
-    \            }\n        }\n    }\n    T prod(int l, int r) const {\n        if(l\
-    \ + 1 == r)\n            return v[0][l];\n        int b = bit_width(unsigned(r\
-    \ - l - 1)) - 1;\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n \
-    \ private:\n    vector<vector<T>> v;\n};\n"
+    \    v[i + 1].resize(n - (1 << i));\n            rep(j, ssize(v[i]) - (1 << i))\
+    \ {\n                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n        \
+    \    }\n        }\n    }\n    T prod(int l, int r) const {\n        if(l + 1 ==\
+    \ r)\n            return v[0][l];\n        int b = bit_width(unsigned(r - l -\
+    \ 1)) - 1;\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n\
+    \    vector<vector<T>> v;\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\ntemplate <class T, auto op> struct\
     \ SparseTable {\n    SparseTable(const vector<T> &vec) {\n        int n = vec.size();\n\
     \        int b = bit_width(unsigned(n));\n        v.resize(b);\n        v[0] =\
     \ vec;\n        rep(i, b - 1) {\n            v[i + 1].resize(n - (1 << i));\n\
-    \            for(int j = 0; j + (1 << i) < n; j++) {\n                v[i + 1][j]\
-    \ = op(v[i][j], v[i][j + (1 << i)]);\n            }\n        }\n    }\n    T prod(int\
-    \ l, int r) const {\n        if(l + 1 == r)\n            return v[0][l];\n   \
-    \     int b = bit_width(unsigned(r - l - 1)) - 1;\n        return op(v[b][l],\
-    \ v[b][r - (1 << b)]);\n    }\n\n  private:\n    vector<vector<T>> v;\n};\n"
+    \            rep(j, ssize(v[i]) - (1 << i)) {\n                v[i + 1][j] = op(v[i][j],\
+    \ v[i][j + (1 << i)]);\n            }\n        }\n    }\n    T prod(int l, int\
+    \ r) const {\n        if(l + 1 == r)\n            return v[0][l];\n        int\
+    \ b = bit_width(unsigned(r - l - 1)) - 1;\n        return op(v[b][l], v[b][r -\
+    \ (1 << b)]);\n    }\n\n  private:\n    vector<vector<T>> v;\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
@@ -106,8 +106,8 @@ data:
   requiredBy:
   - tree/auxiliary-tree.hpp
   - tree/euler-tour.hpp
-  timestamp: '2025-02-10 20:25:34+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2025-02-10 21:42:40+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
   - test/library_checker/tree/lca.test.cpp

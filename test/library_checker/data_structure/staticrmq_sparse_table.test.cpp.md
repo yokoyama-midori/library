@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/sparse-table.hpp
     title: data_structure/sparse-table.hpp
   - icon: ':question:'
@@ -78,12 +78,12 @@ data:
     \ntemplate <class T, auto op> struct SparseTable {\n    SparseTable(const vector<T>\
     \ &vec) {\n        int n = vec.size();\n        int b = bit_width(unsigned(n));\n\
     \        v.resize(b);\n        v[0] = vec;\n        rep(i, b - 1) {\n        \
-    \    v[i + 1].resize(n - (1 << i));\n            for(int j = 0; j + (1 << i) <\
-    \ n; j++) {\n                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n\
-    \            }\n        }\n    }\n    T prod(int l, int r) const {\n        if(l\
-    \ + 1 == r)\n            return v[0][l];\n        int b = bit_width(unsigned(r\
-    \ - l - 1)) - 1;\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n \
-    \ private:\n    vector<vector<T>> v;\n};\n#line 4 \"test/library_checker/data_structure/staticrmq_sparse_table.test.cpp\"\
+    \    v[i + 1].resize(n - (1 << i));\n            rep(j, ssize(v[i]) - (1 << i))\
+    \ {\n                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n        \
+    \    }\n        }\n    }\n    T prod(int l, int r) const {\n        if(l + 1 ==\
+    \ r)\n            return v[0][l];\n        int b = bit_width(unsigned(r - l -\
+    \ 1)) - 1;\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n\
+    \    vector<vector<T>> v;\n};\n#line 4 \"test/library_checker/data_structure/staticrmq_sparse_table.test.cpp\"\
     \n\nvoid solve() {\n    INT(n, q);\n    vector<int> a(n);\n    input(a);\n   \
     \ SparseTable<int, [](int a, int b) { return min(a, b); }> seg(a);\n    rep(_,\
     \ q) {\n        INT(l, r);\n        print(seg.prod(l, r));\n    }\n}\nint main()\
@@ -101,7 +101,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
   requiredBy: []
-  timestamp: '2025-02-10 20:25:34+09:00'
+  timestamp: '2025-02-10 21:42:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
