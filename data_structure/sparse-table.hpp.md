@@ -10,19 +10,19 @@ data:
     title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
       \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
       \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tree/euler-tour.hpp
     title: tree/euler-tour.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
     title: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/tree/lca.test.cpp
     title: test/library_checker/tree/lca.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -82,23 +82,23 @@ data:
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/sparse-table.hpp\"\
     \ntemplate <class T, auto op> struct SparseTable {\n    SparseTable(const vector<T>\
-    \ &vec) {\n        int n = vec.size();\n        int b = 32 - countl_zero(unsigned(n\
-    \ > 1 ? n - 1 : n));\n        v = vector(b, vector<T>(n));\n        v[0] = vec;\n\
-    \        rep(i, b - 1) {\n            for(int j = 0; j + (1 << i) < n; j++) {\n\
-    \                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n            }\n\
-    \        }\n    }\n    T prod(int l, int r) const {\n        if(l + 1 == r)\n\
-    \            return v[0][l];\n        int b = 31 - countl_zero(unsigned(r - l\
-    \ - 1));\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n\
-    \    vector<vector<T>> v;\n};\n"
+    \ &vec) {\n        int n = vec.size();\n        int b = bit_width(unsigned(n));\n\
+    \        v.resize(b);\n        v[0] = vec;\n        rep(i, b - 1) {\n        \
+    \    v[i + 1].resize(n - (1 << i));\n            for(int j = 0; j + (1 << i) <\
+    \ n; j++) {\n                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n\
+    \            }\n        }\n    }\n    T prod(int l, int r) const {\n        if(l\
+    \ + 1 == r)\n            return v[0][l];\n        int b = bit_width(unsigned(r\
+    \ - l - 1)) - 1;\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n \
+    \ private:\n    vector<vector<T>> v;\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\ntemplate <class T, auto op> struct\
     \ SparseTable {\n    SparseTable(const vector<T> &vec) {\n        int n = vec.size();\n\
-    \        int b = 32 - countl_zero(unsigned(n > 1 ? n - 1 : n));\n        v = vector(b,\
-    \ vector<T>(n));\n        v[0] = vec;\n        rep(i, b - 1) {\n            for(int\
-    \ j = 0; j + (1 << i) < n; j++) {\n                v[i + 1][j] = op(v[i][j], v[i][j\
-    \ + (1 << i)]);\n            }\n        }\n    }\n    T prod(int l, int r) const\
-    \ {\n        if(l + 1 == r)\n            return v[0][l];\n        int b = 31 -\
-    \ countl_zero(unsigned(r - l - 1));\n        return op(v[b][l], v[b][r - (1 <<\
-    \ b)]);\n    }\n\n  private:\n    vector<vector<T>> v;\n};\n"
+    \        int b = bit_width(unsigned(n));\n        v.resize(b);\n        v[0] =\
+    \ vec;\n        rep(i, b - 1) {\n            v[i + 1].resize(n - (1 << i));\n\
+    \            for(int j = 0; j + (1 << i) < n; j++) {\n                v[i + 1][j]\
+    \ = op(v[i][j], v[i][j + (1 << i)]);\n            }\n        }\n    }\n    T prod(int\
+    \ l, int r) const {\n        if(l + 1 == r)\n            return v[0][l];\n   \
+    \     int b = bit_width(unsigned(r - l - 1)) - 1;\n        return op(v[b][l],\
+    \ v[b][r - (1 << b)]);\n    }\n\n  private:\n    vector<vector<T>> v;\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
@@ -106,8 +106,8 @@ data:
   requiredBy:
   - tree/auxiliary-tree.hpp
   - tree/euler-tour.hpp
-  timestamp: '2025-02-09 18:10:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-02-10 20:25:34+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
   - test/library_checker/tree/lca.test.cpp

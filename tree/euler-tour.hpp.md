@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/sparse-table.hpp
     title: data_structure/sparse-table.hpp
   - icon: ':question:'
@@ -14,12 +14,12 @@ data:
       \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
       \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/tree/lca.test.cpp
     title: test/library_checker/tree/lca.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7
@@ -81,18 +81,18 @@ data:
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/sparse-table.hpp\"\
     \ntemplate <class T, auto op> struct SparseTable {\n    SparseTable(const vector<T>\
-    \ &vec) {\n        int n = vec.size();\n        int b = 32 - countl_zero(unsigned(n\
-    \ > 1 ? n - 1 : n));\n        v = vector(b, vector<T>(n));\n        v[0] = vec;\n\
-    \        rep(i, b - 1) {\n            for(int j = 0; j + (1 << i) < n; j++) {\n\
-    \                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n            }\n\
-    \        }\n    }\n    T prod(int l, int r) const {\n        if(l + 1 == r)\n\
-    \            return v[0][l];\n        int b = 31 - countl_zero(unsigned(r - l\
-    \ - 1));\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n\
-    \    vector<vector<T>> v;\n};\n#line 4 \"tree/euler-tour.hpp\"\n// https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n\
-    // https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\ntemplate <class\
-    \ G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n  \
-    \  using pii = pair<int, int>; // depth,vartex\n    SparseTable<pii, [](pii a,\
-    \ pii b) { return a.first < b.first ? a : b; }>\n        rmq;\n    EulerTour(G\
+    \ &vec) {\n        int n = vec.size();\n        int b = bit_width(unsigned(n));\n\
+    \        v.resize(b);\n        v[0] = vec;\n        rep(i, b - 1) {\n        \
+    \    v[i + 1].resize(n - (1 << i));\n            for(int j = 0; j + (1 << i) <\
+    \ n; j++) {\n                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n\
+    \            }\n        }\n    }\n    T prod(int l, int r) const {\n        if(l\
+    \ + 1 == r)\n            return v[0][l];\n        int b = bit_width(unsigned(r\
+    \ - l - 1)) - 1;\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n \
+    \ private:\n    vector<vector<T>> v;\n};\n#line 4 \"tree/euler-tour.hpp\"\n//\
+    \ https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n// https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\
+    \ntemplate <class G> struct EulerTour {\n    int root, id;\n    vector<int> in,\
+    \ out, dep;\n    using pii = pair<int, int>; // depth,vartex\n    SparseTable<pii,\
+    \ [](pii a, pii b) { return a.first < b.first ? a : b; }>\n        rmq;\n    EulerTour(G\
     \ &g, int root = 0)\n        : root(root), id(0), in(g.size(), -1), out(g.size(),\
     \ -1),\n          dep(g.size(), 0), rmq([&] {\n              vector<pii> vec;\n\
     \              vec.reserve(2 * g.size());\n              dfs(g, root, -1, vec);\n\
@@ -131,8 +131,8 @@ data:
   path: tree/euler-tour.hpp
   requiredBy:
   - tree/auxiliary-tree.hpp
-  timestamp: '2025-02-09 18:10:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-02-10 20:25:34+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/tree/lca.test.cpp
 documentation_of: tree/euler-tour.hpp
