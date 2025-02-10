@@ -8,7 +8,7 @@ template <class T, auto op> struct SparseTable {
         v[0] = vec;
         rep(i, b - 1) {
             v[i + 1].resize(n - (1 << i));
-            for(int j = 0; j + (1 << i) < n; j++) {
+            rep(j, ssize(v[i]) - (1 << i)) {
                 v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);
             }
         }
