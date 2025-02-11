@@ -1,5 +1,5 @@
 #define PROBLEM "https://yukicoder.me/problems/no/230"
-#include "data_structure/lazy_segtree.hpp"
+#include "data_structure/lazy-segtree.hpp"
 #include "template.hpp"
 struct S {
     ll a, b, sz;

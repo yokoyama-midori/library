@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_set_range_composite"
-#include "data_structure/lazy_segtree.hpp"
+#include "data_structure/lazy-segtree.hpp"
 #include "template.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;
