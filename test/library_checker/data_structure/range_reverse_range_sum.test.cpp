@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_reverse_range_sum"
-#include "data_structure/splaytree.hpp"
+#include "data_structure/lazy-splaytree.hpp"
 using S = ll;
 static S op(S s, S t) { return s + t; }
 static S e() { return 0; }

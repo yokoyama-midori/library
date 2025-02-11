@@ -1,6 +1,8 @@
+#pragma once
 #include "template.hpp"
-template <class S, auto op = [](S a, S b) { return S(0); },
-          auto e = []() { return S(0); }>
+template <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),
+          F (*composition)(F, F), F (*id)()>
+//   composition(f,g)(x) = f∘g(x) = f(g(x))
 struct SplayTree {
   private:
     struct Node;
@@ -8,13 +10,15 @@ struct SplayTree {
     struct Node {
         Node *left, *right, *parent;
         S a, prod;
+        F lazy;
         int size;
+        bool rev;
         Node()
             : left(nullptr), right(nullptr), parent(nullptr), size(1), a(e()),
-              prod(e()) {}
+              prod(e()), lazy(id()), rev(false) {}
         Node(const S &s)
             : left(nullptr), right(nullptr), parent(nullptr), size(1), a(s),
-              prod(s) {}
+              prod(s), lazy(id()), rev(false) {}
         int state() {
             if(!this->parent)
                 return 0;
@@ -23,6 +27,31 @@ struct SplayTree {
             if(this->parent->right == this)
                 return 2;
             return 0;
+        }
+        void apply(const F &f) {
+            a = mapping(f, a);
+            prod = mapping(f, prod);
+            lazy = composition(f, lazy);
+        }
+        void reverse() {
+            swap(left, right);
+            rev = !rev;
+        }
+        void push() {
+            if(lazy != id()) {
+                if(left)
+                    left->apply(lazy);
+                if(right)
+                    right->apply(lazy);
+                lazy = id();
+            }
+            if(rev) {
+                if(left)
+                    left->reverse();
+                if(right)
+                    right->reverse();
+                rev = false;
+            }
         }
         void update() {
             size = 1;
@@ -63,7 +92,20 @@ struct SplayTree {
             c->parent = p;
         }
     }
-    void splay(Node *me) {
+    void push_from_root(Node *node) {
+        // 根からトップダウンにpush
+        // https://qiita.com/ngtkana/items/4d0b84d45210771aa074#32-%E3%81%99%E3%81%B9%E3%81%A6%E3%83%88%E3%83%83%E3%83%97%E3%83%80%E3%82%A6%E3%83%B3%E3%83%95%E3%82%A7%E3%83%BC%E3%82%BA%E3%81%AB-push
+        if(!node)
+            return;
+        if(node->parent)
+            push_from_root(node->parent);
+        node->push();
+    }
+    void splay(Node *me, bool push_from_root_done = false) {
+        if(push_from_root_done)
+            me->push();
+        else
+            push_from_root(me);
         while(me->parent) {
             Node *p = me->parent, *pp = p->parent;
             if(me->parent->state() == 0) {
@@ -82,11 +124,12 @@ struct SplayTree {
     Node *splay_kth(int k, Node *node) {
         assert(0 <= k and k < node->size);
         while(1) {
+            node->push();
             int l_size = node->left ? node->left->size : 0;
             if(k < l_size) {
                 node = node->left;
             } else if(k == l_size) {
-                splay(node);
+                splay(node, true);
                 return node;
             } else {
                 k -= l_size + 1;
@@ -143,13 +186,6 @@ struct SplayTree {
         tie(l_root, c_root) = split(l, c_root);
         return;
     }
-    void dfs(Node *node, vector<S> &res) {
-        if(node->left)
-            dfs(node->left, res);
-        res.push_back(node->a);
-        if(node->right)
-            dfs(node->right, res);
-    }
 
   public:
     void insert_at(int k, const S &s) {
@@ -181,29 +217,21 @@ struct SplayTree {
         root = merge(merge(l_root, c_root), r_root);
         return res;
     }
-    void shift(int l, int r) {
-        //    ...,a[l]  ,    ... ,a[r-1],a[r],...
-        // -> ...,a[r-1],a[l],...,a[r-2],a[r],...
-        Node *node;
-        tie(root, node) = remove(r - 1, root);
-        root = insert(l, node, root);
-    }
-    void swap(ll l, ll r) {
-        // swap(a[l],a[r])
+    void reverse(int l, int r) {
         if(l == r)
             return;
-        if(l > r)
-            std::swap(l, r);
-        Node *al, *ar;
-        tie(root, ar) = remove(r, root);
-        tie(root, al) = remove(l, root);
-        root = insert(l, ar, root);
-        root = insert(r, al, root);
+        Node *l_root, *c_root, *r_root;
+        between(l_root, c_root, r_root, l, r);
+        c_root->reverse();
+        root = merge(merge(l_root, c_root), r_root);
     }
-    vector<S> get_vec() {
-        vector<S> res;
-        dfs(root, res);
-        return res;
+    void apply(int l, int r, F f) {
+        if(l == r)
+            return;
+        Node *l_root, *c_root, *r_root;
+        between(l_root, c_root, r_root, l, r);
+        c_root->apply(f);
+        root = merge(merge(l_root, c_root), r_root);
     }
 
     SplayTree() : root(nullptr) {}
