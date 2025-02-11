@@ -258,6 +258,9 @@ data:
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/my-test/splaytree.test.cpp
+    title: test/my-test/splaytree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1077.test.cpp
     title: test/yukicoder/1077.test.cpp
   - icon: ':heavy_check_mark:'
@@ -507,6 +510,7 @@ data:
   - test/atcoder/abc329_c.test.cpp
   - test/atcoder/abc248_d.test.cpp
   - test/my-test/run-length-encoding.test.cpp
+  - test/my-test/splaytree.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:

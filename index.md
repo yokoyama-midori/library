@@ -305,6 +305,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/my-test/run-length-encoding.test.cpp
       title: test/my-test/run-length-encoding.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/my-test/splaytree.test.cpp
+      title: test/my-test/splaytree.test.cpp
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'

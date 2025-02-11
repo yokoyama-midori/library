@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/sqrt_mod.test.cpp
     title: test/library_checker/number_theory/sqrt_mod.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/my-test/splaytree.test.cpp
+    title: test/my-test/splaytree.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -102,6 +105,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/sqrt_mod.test.cpp
+  - test/my-test/splaytree.test.cpp
 documentation_of: rng.hpp
 layout: document
 redirect_from:
