@@ -29,7 +29,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/sparse-table.hpp
     title: data_structure/sparse-table.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/splaytree.hpp
     title: data_structure/splaytree.hpp
   - icon: ':question:'
@@ -179,7 +179,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_reverse_range_sum.test.cpp
     title: test/library_checker/data_structure/range_reverse_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_set_range_composite.test.cpp
+    title: test/library_checker/data_structure/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
   - icon: ':heavy_check_mark:'
@@ -269,6 +272,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/2092.test.cpp
     title: test/yukicoder/2092.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/230.test.cpp
+    title: test/yukicoder/230.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/3004.test.cpp
     title: test/yukicoder/3004.test.cpp
@@ -404,100 +410,102 @@ data:
   isVerificationFile: false
   path: template.hpp
   requiredBy:
-  - string/run-length-encoding.hpp
-  - math/pollard_rho.hpp
-  - math/factorial.hpp
-  - math/matrix.hpp
-  - math/primitive-root.hpp
   - math/factorial_large.hpp
-  - math/mod-pow.hpp
+  - math/matrix.hpp
   - math/miller_rabin.hpp
   - math/mod-sqrt.hpp
+  - math/mod-pow.hpp
+  - math/pollard_rho.hpp
+  - math/factorial.hpp
+  - math/primitive-root.hpp
   - geometry/manhattan-mst.hpp
-  - rng.hpp
-  - poly/shift_of_sampling_points.hpp
-  - poly/poly_taylor_shift.hpp
-  - poly/bostan_mori.hpp
   - graph/chromatic-number.hpp
-  - data_structure/segtree.hpp
-  - data_structure/range-chminmaxaddsum-segtree-beats.hpp
-  - data_structure/segtree-beats.hpp
-  - data_structure/splaytree.hpp
+  - data_structure/compress.hpp
   - data_structure/lazy-segtree.hpp
-  - data_structure/sparse-table.hpp
   - data_structure/hash-map-variable-length.hpp
   - data_structure/lazy-splaytree.hpp
-  - data_structure/compress.hpp
+  - data_structure/segtree-beats.hpp
+  - data_structure/range-chminmaxaddsum-segtree-beats.hpp
   - data_structure/slope-trick.hpp
+  - data_structure/sparse-table.hpp
+  - data_structure/segtree.hpp
+  - data_structure/splaytree.hpp
+  - poly/bostan_mori.hpp
+  - poly/shift_of_sampling_points.hpp
+  - poly/poly_taylor_shift.hpp
+  - rng.hpp
+  - number-theory/lcm-convolution.hpp
+  - number-theory/gcd-convolution.hpp
+  - number-theory/enumerate-primes.hpp
+  - number-theory/divisor-multiple-transform.hpp
+  - dp/longest-increasing-sequence.hpp
+  - dp/cumulative-sum.hpp
   - tree/auxiliary-tree.hpp
   - tree/euler-tour.hpp
-  - number-theory/enumerate-primes.hpp
-  - number-theory/lcm-convolution.hpp
-  - number-theory/divisor-multiple-transform.hpp
-  - number-theory/gcd-convolution.hpp
-  - dp/cumulative-sum.hpp
-  - dp/longest-increasing-sequence.hpp
+  - string/run-length-encoding.hpp
   timestamp: '2024-12-02 02:31:35+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/3004.test.cpp
-  - test/yukicoder/3006.test.cpp
-  - test/yukicoder/888.test.cpp
-  - test/yukicoder/1077.test.cpp
-  - test/yukicoder/880.test.cpp
-  - test/yukicoder/1634.test.cpp
-  - test/yukicoder/2092.test.cpp
-  - test/yukicoder/2051.test.cpp
-  - test/yukicoder/12.test.cpp
-  - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
-  - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  - test/library_checker/number_theory/primitive_root.test.cpp
-  - test/library_checker/number_theory/sqrt_mod.test.cpp
-  - test/library_checker/number_theory/factorize.test.cpp
-  - test/library_checker/number_theory/lcm_convolution.test.cpp
-  - test/library_checker/number_theory/gcd_convolution.test.cpp
-  - test/library_checker/number_theory/enumerate_primes.test.cpp
-  - test/library_checker/number_theory/primality_test.test.cpp
+  - test/library_checker/geometry/manhattanmst.test.cpp
   - test/library_checker/other/longest_increasing_subsequence.test.cpp
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
+  - test/library_checker/graph/chromatic_number.test.cpp
+  - test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
+  - test/library_checker/data_structure/range_set_range_composite.test.cpp
+  - test/library_checker/data_structure/range_affine_point_get.test.cpp
+  - test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
+  - test/library_checker/data_structure/staticrmq.test.cpp
+  - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
+  - test/library_checker/data_structure/associative_array.test.cpp
+  - test/library_checker/data_structure/range_reverse_range_sum.test.cpp
+  - test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
+  - test/library_checker/data_structure/point_set_range_composite.test.cpp
+  - test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - test/library_checker/data_structure/point_add_range_sum.test.cpp
+  - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
+  - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
+  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - test/library_checker/linear_algebra/matrix_product.test.cpp
+  - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp
-  - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - test/library_checker/geometry/manhattanmst.test.cpp
-  - test/library_checker/graph/chromatic_number.test.cpp
-  - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-  - test/library_checker/data_structure/range_affine_point_get.test.cpp
-  - test/library_checker/data_structure/point_set_range_composite.test.cpp
-  - test/library_checker/data_structure/staticrmq.test.cpp
-  - test/library_checker/data_structure/point_add_range_sum.test.cpp
-  - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
-  - test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
-  - test/library_checker/data_structure/range_reverse_range_sum.test.cpp
-  - test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
-  - test/library_checker/data_structure/range_affine_range_sum.test.cpp
-  - test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
-  - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
-  - test/library_checker/data_structure/associative_array.test.cpp
   - test/library_checker/tree/lca.test.cpp
-  - test/library_checker/linear_algebra/matrix_product.test.cpp
-  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - test/library_checker/number_theory/lcm_convolution.test.cpp
+  - test/library_checker/number_theory/sqrt_mod.test.cpp
+  - test/library_checker/number_theory/factorize.test.cpp
+  - test/library_checker/number_theory/primality_test.test.cpp
+  - test/library_checker/number_theory/primitive_root.test.cpp
+  - test/library_checker/number_theory/gcd_convolution.test.cpp
+  - test/library_checker/number_theory/enumerate_primes.test.cpp
   - test/aoj/1508.test.cpp
-  - test/atcoder/abc235_c.test.cpp
-  - test/atcoder/arc123_d.test.cpp
-  - test/atcoder/practice2_j.test.cpp
-  - test/atcoder/abc283_f.test.cpp
-  - test/atcoder/abc369_c.test.cpp
+  - test/yukicoder/3006.test.cpp
+  - test/yukicoder/230.test.cpp
+  - test/yukicoder/2051.test.cpp
+  - test/yukicoder/2092.test.cpp
+  - test/yukicoder/1077.test.cpp
+  - test/yukicoder/3004.test.cpp
+  - test/yukicoder/1634.test.cpp
+  - test/yukicoder/888.test.cpp
+  - test/yukicoder/12.test.cpp
+  - test/yukicoder/880.test.cpp
   - test/atcoder/abc373_e.test.cpp
-  - test/atcoder/abc248_d.test.cpp
-  - test/atcoder/abc329_c.test.cpp
-  - test/atcoder/abc180_c.test.cpp
   - test/atcoder/abc273_d.test.cpp
-  - test/atcoder/abc127_f.test.cpp
-  - test/atcoder/arc171_d.test.cpp
-  - test/atcoder/arc070_c.test.cpp
+  - test/atcoder/practice2_j.test.cpp
+  - test/atcoder/abc369_c.test.cpp
   - test/atcoder/abc249_d.test.cpp
-  - test/atcoder/abc217_h.test.cpp
+  - test/atcoder/arc070_c.test.cpp
   - test/atcoder/abc113_c.test.cpp
+  - test/atcoder/arc123_d.test.cpp
+  - test/atcoder/abc235_c.test.cpp
+  - test/atcoder/abc217_h.test.cpp
+  - test/atcoder/arc171_d.test.cpp
+  - test/atcoder/abc127_f.test.cpp
+  - test/atcoder/abc180_c.test.cpp
+  - test/atcoder/abc283_f.test.cpp
+  - test/atcoder/abc329_c.test.cpp
+  - test/atcoder/abc248_d.test.cpp
   - test/my-test/run-length-encoding.test.cpp
 documentation_of: template.hpp
 layout: document

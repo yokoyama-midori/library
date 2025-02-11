@@ -116,8 +116,8 @@ data:
   path: number-theory/enumerate-primes.hpp
   requiredBy:
   - number-theory/lcm-convolution.hpp
-  - number-theory/divisor-multiple-transform.hpp
   - number-theory/gcd-convolution.hpp
+  - number-theory/divisor-multiple-transform.hpp
   timestamp: '2025-01-08 13:17:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

@@ -179,12 +179,12 @@ data:
   timestamp: '2025-01-31 17:56:36+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/888.test.cpp
-  - test/yukicoder/2051.test.cpp
-  - test/library_checker/number_theory/primitive_root.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
-  - test/atcoder/abc180_c.test.cpp
+  - test/library_checker/number_theory/primitive_root.test.cpp
+  - test/yukicoder/2051.test.cpp
+  - test/yukicoder/888.test.cpp
   - test/atcoder/abc249_d.test.cpp
+  - test/atcoder/abc180_c.test.cpp
 documentation_of: math/pollard_rho.hpp
 layout: document
 redirect_from:

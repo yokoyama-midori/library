@@ -119,10 +119,10 @@ data:
   timestamp: '2025-02-07 15:18:13+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
-  - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
+  - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/point_add_range_sum.test.cpp
+  - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
   - test/atcoder/practice2_j.test.cpp
 documentation_of: data_structure/segtree.hpp
 layout: document

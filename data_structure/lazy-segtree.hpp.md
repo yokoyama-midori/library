@@ -12,6 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
     title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/range_set_range_composite.test.cpp
+    title: test/library_checker/data_structure/range_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/230.test.cpp
+    title: test/yukicoder/230.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -151,8 +157,10 @@ data:
   timestamp: '2025-02-11 15:47:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - test/yukicoder/230.test.cpp
 documentation_of: data_structure/lazy-segtree.hpp
 layout: document
 redirect_from:
