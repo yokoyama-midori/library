@@ -149,9 +149,9 @@ data:
   timestamp: '2024-12-02 02:31:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/3004.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - test/yukicoder/3004.test.cpp
 documentation_of: poly/shift_of_sampling_points.hpp
 layout: document
 redirect_from:

@@ -10,8 +10,11 @@ data:
       path: data_structure/hash-map-variable-length.hpp
       title: data_structure/hash-map-variable-length.hpp
     - icon: ':heavy_check_mark:'
-      path: data_structure/lazy_segtree.hpp
-      title: data_structure/lazy_segtree.hpp
+      path: data_structure/lazy-segtree.hpp
+      title: data_structure/lazy-segtree.hpp
+    - icon: ':heavy_check_mark:'
+      path: data_structure/lazy-splaytree.hpp
+      title: data_structure/lazy-splaytree.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/range-chminmaxaddsum-segtree-beats.hpp
       title: data_structure/range-chminmaxaddsum-segtree-beats.hpp
@@ -27,7 +30,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/sparse-table.hpp
       title: data_structure/sparse-table.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: data_structure/splaytree.hpp
       title: data_structure/splaytree.hpp
   - name: dp
@@ -123,6 +126,11 @@ data:
       path: tree/euler-tour.hpp
       title: tree/euler-tour.hpp
   verificationCategories:
+  - name: test/aoj
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/1508.test.cpp
+      title: test/aoj/1508.test.cpp
   - name: test/atcoder
     pages:
     - icon: ':x:'
@@ -199,10 +207,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/range_reverse_range_sum.test.cpp
       title: test/library_checker/data_structure/range_reverse_range_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/data_structure/range_set_range_composite.test.cpp
       title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
       title: test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
     - icon: ':heavy_check_mark:'
@@ -314,7 +322,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/2092.test.cpp
       title: test/yukicoder/2092.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/yukicoder/230.test.cpp
       title: test/yukicoder/230.test.cpp
     - icon: ':heavy_check_mark:'

@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: data_structure/splaytree.hpp
-    title: data_structure/splaytree.hpp
+    path: data_structure/lazy-splaytree.hpp
+    title: data_structure/lazy-splaytree.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
@@ -74,7 +74,7 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/splaytree.hpp\"\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/lazy-splaytree.hpp\"\
     \ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n \
     \         F (*composition)(F, F), F (*id)()>\n//   composition(f,g)(x) = f\u2218\
     g(x) = f(g(x))\nstruct SplayTree {\n  private:\n    struct Node;\n    using pNode\
@@ -184,10 +184,10 @@ data:
     \ r));\n        }\n    }\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n\
     \    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_reverse_range_sum\"\
-    \n#include \"data_structure/splaytree.hpp\"\nusing S = ll;\nstatic S op(S s, S\
-    \ t) { return s + t; }\nstatic S e() { return 0; }\n// \u4F5C\u7528\u306F\u4E0D\
-    \u8981\u3060\u304C...\nstruct F {\n    bool operator==(const F &other) const {\
-    \ return true; }\n};\nstatic S mapping(F f, S s) { return s; }\nstatic F id()\
+    \n#include \"data_structure/lazy-splaytree.hpp\"\nusing S = ll;\nstatic S op(S\
+    \ s, S t) { return s + t; }\nstatic S e() { return 0; }\n// \u4F5C\u7528\u306F\
+    \u4E0D\u8981\u3060\u304C...\nstruct F {\n    bool operator==(const F &other) const\
+    \ { return true; }\n};\nstatic S mapping(F f, S s) { return s; }\nstatic F id()\
     \ { return F(); }\nstatic F composition(F f, F g) {\n    // composition(f,g)(s)\
     \ = f(g(s))\n    return id();\n}\nvoid solve() {\n    LL(n, q);\n    vector<S>\
     \ v(n);\n    rep(i, n) {\n        LL(val);\n        v[i] = val;\n    }\n    SplayTree<S,\
@@ -197,12 +197,12 @@ data:
     \ main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n   \
     \ solve();\n}\n"
   dependsOn:
-  - data_structure/splaytree.hpp
+  - data_structure/lazy-splaytree.hpp
   - template.hpp
   isVerificationFile: true
   path: test/library_checker/data_structure/range_reverse_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-01-16 02:30:16+09:00'
+  timestamp: '2025-02-11 15:47:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_reverse_range_sum.test.cpp

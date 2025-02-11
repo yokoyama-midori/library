@@ -164,8 +164,8 @@ data:
   timestamp: '2024-12-17 16:58:00+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   - test/yukicoder/880.test.cpp
+  - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
 documentation_of: data_structure/segtree-beats.hpp
 layout: document
 redirect_from:

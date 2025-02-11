@@ -12,12 +12,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_affine_range_sum.test.cpp
     title: test/library_checker/data_structure/range_affine_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/data_structure/range_set_range_composite.test.cpp
-    title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/230.test.cpp
-    title: test/yukicoder/230.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -78,7 +72,7 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"data_structure/lazy_segtree.hpp\"\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"data_structure/lazy-segtree.hpp\"\
     \n\ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n\
     \          F (*composition)(F, F), F (*id)()>\n//   composition(f,g)(x) = f\u2218\
     g(x) = f(g(x))\n// acl\u3068\u540C\u3058\u3001maspy\u3055\u3093\u8A18\u4E8B\u3068\
@@ -152,19 +146,17 @@ data:
   dependsOn:
   - template.hpp
   isVerificationFile: false
-  path: data_structure/lazy_segtree.hpp
+  path: data_structure/lazy-segtree.hpp
   requiredBy: []
-  timestamp: '2025-02-07 15:42:56+09:00'
+  timestamp: '2025-02-11 15:47:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
-  - test/yukicoder/230.test.cpp
-documentation_of: data_structure/lazy_segtree.hpp
+documentation_of: data_structure/lazy-segtree.hpp
 layout: document
 redirect_from:
-- /library/data_structure/lazy_segtree.hpp
-- /library/data_structure/lazy_segtree.hpp.html
-title: data_structure/lazy_segtree.hpp
+- /library/data_structure/lazy-segtree.hpp
+- /library/data_structure/lazy-segtree.hpp.html
+title: data_structure/lazy-segtree.hpp
 ---

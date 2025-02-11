@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: data_structure/lazy_segtree.hpp
-    title: data_structure/lazy_segtree.hpp
+    path: data_structure/lazy-segtree.hpp
+    title: data_structure/lazy-segtree.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
@@ -77,7 +77,7 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"data_structure/lazy_segtree.hpp\"\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"data_structure/lazy-segtree.hpp\"\
     \n\ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n\
     \          F (*composition)(F, F), F (*id)()>\n//   composition(f,g)(x) = f\u2218\
     g(x) = f(g(x))\n// acl\u3068\u540C\u3058\u3001maspy\u3055\u3093\u8A18\u4E8B\u3068\
@@ -128,7 +128,7 @@ data:
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_point_get\"\
     \n// \u53CC\u5BFE\u30BB\u30B0\u6728\u3067\u53EF\u80FD\u3001\u3001\u3060\u304C\u3068\
     \u308A\u3042\u3048\u305A\u9045\u5EF6\u30BB\u30B0\u6728\u3067\n// https://github.com/yosupo06/library-checker-problems/issues/778\n\
-    #include \"data_structure/lazy_segtree.hpp\"\n#include \"template.hpp\"\n#include\
+    #include \"data_structure/lazy-segtree.hpp\"\n#include \"template.hpp\"\n#include\
     \ <atcoder/modint>\nusing mint = atcoder::modint998244353;\nstruct S {\n    mint\
     \ a, sz;\n};\nS e() { return S(0, 0); };\nS op(S a, S b) { return S(a.a + b.a,\
     \ a.sz + b.sz); }\nstruct F {\n    mint b, c;\n};\nS mapping(F f, S s) { return\
@@ -141,12 +141,12 @@ data:
     \            print(seg.get(i).a.val());\n        }\n    }\n}\nint main() {\n \
     \   ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n}\n"
   dependsOn:
-  - data_structure/lazy_segtree.hpp
+  - data_structure/lazy-segtree.hpp
   - template.hpp
   isVerificationFile: true
   path: test/library_checker/data_structure/range_affine_point_get.test.cpp
   requiredBy: []
-  timestamp: '2025-02-07 15:42:56+09:00'
+  timestamp: '2025-02-11 15:47:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/range_affine_point_get.test.cpp
