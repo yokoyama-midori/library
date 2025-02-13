@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: data_structure/splaytree.hpp
-    title: data_structure/splaytree.hpp
+    title: "\u30B9\u30D7\u30EC\u30FC\u6728"
   - icon: ':heavy_check_mark:'
     path: rng.hpp
     title: rng.hpp

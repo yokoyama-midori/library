@@ -31,7 +31,7 @@ data:
     title: data_structure/sparse-table.hpp
   - icon: ':heavy_check_mark:'
     path: data_structure/splaytree.hpp
-    title: data_structure/splaytree.hpp
+    title: "\u30B9\u30D7\u30EC\u30FC\u6728"
   - icon: ':question:'
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
