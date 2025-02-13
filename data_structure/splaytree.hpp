@@ -181,6 +181,7 @@ struct SplayTree {
         root = merge(merge(l_root, c_root), r_root);
         return res;
     }
+    S all_prod() { return root->prod; }
     void shift(int l, int r) {
         //    ...,a[l]  ,    ... ,a[r-1],a[r],...
         // -> ...,a[r-1],a[l],...,a[r-2],a[r],...
@@ -204,6 +205,30 @@ struct SplayTree {
         vector<S> res;
         dfs(root, res);
         return res;
+    }
+    int find(const S &s, auto &&comp) {
+        // comp(s,t) <==> s < t
+        // 昇順にソートされていることを仮定する
+        // comp(a[i],s)が成り立たない最小のi(s以上の最初のidx)を返す
+        // なければsize()を返す
+        // amortized O(log size)
+        Node *cur = root;
+        Node *res = nullptr;
+        while(cur) {
+            if(comp(cur->a, s)) {
+                cur = cur->right;
+            } else {
+                res = cur;
+                cur = cur->left;
+            }
+        }
+        if(res) {
+            splay(res);
+            root = res;
+            return res->left ? res->left->size : 0;
+        } else {
+            return size();
+        }
     }
 
     SplayTree() : root(nullptr) {}
