@@ -143,21 +143,32 @@ data:
     \        return root->a;\n    }\n    S prod(int l, int r) {\n        if(l == r)\n\
     \            return e();\n        Node *l_root, *c_root, *r_root;\n        between(l_root,\
     \ c_root, r_root, l, r);\n        S res = c_root->prod;\n        root = merge(merge(l_root,\
-    \ c_root), r_root);\n        return res;\n    }\n    void shift(int l, int r)\
-    \ {\n        //    ...,a[l]  ,    ... ,a[r-1],a[r],...\n        // -> ...,a[r-1],a[l],...,a[r-2],a[r],...\n\
-    \        Node *node;\n        tie(root, node) = remove(r - 1, root);\n       \
-    \ root = insert(l, node, root);\n    }\n    void swap(ll l, ll r) {\n        //\
-    \ swap(a[l],a[r])\n        if(l == r)\n            return;\n        if(l > r)\n\
-    \            std::swap(l, r);\n        Node *al, *ar;\n        tie(root, ar) =\
-    \ remove(r, root);\n        tie(root, al) = remove(l, root);\n        root = insert(l,\
-    \ ar, root);\n        root = insert(r, al, root);\n    }\n    vector<S> get_vec()\
-    \ {\n        vector<S> res;\n        dfs(root, res);\n        return res;\n  \
-    \  }\n\n    SplayTree() : root(nullptr) {}\n    SplayTree(const vector<S> &v)\
-    \ : root(nullptr) {\n        Node *prev = nullptr;\n        for(const auto &s\
-    \ : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n          \
-    \  Node *node = pool.back().get();\n            if(prev)\n                prev->parent\
-    \ = node;\n            node->left = prev;\n            node->update();\n     \
-    \       root = prev = node;\n        }\n    }\n};\n"
+    \ c_root), r_root);\n        return res;\n    }\n    S all_prod() { return root->prod;\
+    \ }\n    void shift(int l, int r) {\n        //    ...,a[l]  ,    ... ,a[r-1],a[r],...\n\
+    \        // -> ...,a[r-1],a[l],...,a[r-2],a[r],...\n        Node *node;\n    \
+    \    tie(root, node) = remove(r - 1, root);\n        root = insert(l, node, root);\n\
+    \    }\n    void swap(ll l, ll r) {\n        // swap(a[l],a[r])\n        if(l\
+    \ == r)\n            return;\n        if(l > r)\n            std::swap(l, r);\n\
+    \        Node *al, *ar;\n        tie(root, ar) = remove(r, root);\n        tie(root,\
+    \ al) = remove(l, root);\n        root = insert(l, ar, root);\n        root =\
+    \ insert(r, al, root);\n    }\n    vector<S> get_vec() {\n        vector<S> res;\n\
+    \        dfs(root, res);\n        return res;\n    }\n    int find(const S &s,\
+    \ auto &&comp) {\n        // comp(s,t) <==> s < t\n        // \u6607\u9806\u306B\
+    \u30BD\u30FC\u30C8\u3055\u308C\u3066\u3044\u308B\u3053\u3068\u3092\u4EEE\u5B9A\
+    \u3059\u308B\n        // comp(a[i],s)\u304C\u6210\u308A\u7ACB\u305F\u306A\u3044\
+    \u6700\u5C0F\u306Ei(s\u4EE5\u4E0A\u306E\u6700\u521D\u306Eidx)\u3092\u8FD4\u3059\
+    \n        // \u306A\u3051\u308C\u3070size()\u3092\u8FD4\u3059\n        // amortized\
+    \ O(log size)\n        Node *cur = root;\n        Node *res = nullptr;\n     \
+    \   while(cur) {\n            if(comp(cur->a, s)) {\n                cur = cur->right;\n\
+    \            } else {\n                res = cur;\n                cur = cur->left;\n\
+    \            }\n        }\n        if(res) {\n            splay(res);\n      \
+    \      root = res;\n            return res->left ? res->left->size : 0;\n    \
+    \    } else {\n            return size();\n        }\n    }\n\n    SplayTree()\
+    \ : root(nullptr) {}\n    SplayTree(const vector<S> &v) : root(nullptr) {\n  \
+    \      Node *prev = nullptr;\n        for(const auto &s : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n\
+    \            Node *node = pool.back().get();\n            if(prev)\n         \
+    \       prev->parent = node;\n            node->left = prev;\n            node->update();\n\
+    \            root = prev = node;\n        }\n    }\n};\n"
   code: "#include \"template.hpp\"\ntemplate <class S, auto op = [](S a, S b) { return\
     \ S(0); },\n          auto e = []() { return S(0); }>\nstruct SplayTree {\n  private:\n\
     \    struct Node;\n    using pNode = unique_ptr<Node>;\n    struct Node {\n  \
@@ -228,27 +239,38 @@ data:
     \        return root->a;\n    }\n    S prod(int l, int r) {\n        if(l == r)\n\
     \            return e();\n        Node *l_root, *c_root, *r_root;\n        between(l_root,\
     \ c_root, r_root, l, r);\n        S res = c_root->prod;\n        root = merge(merge(l_root,\
-    \ c_root), r_root);\n        return res;\n    }\n    void shift(int l, int r)\
-    \ {\n        //    ...,a[l]  ,    ... ,a[r-1],a[r],...\n        // -> ...,a[r-1],a[l],...,a[r-2],a[r],...\n\
-    \        Node *node;\n        tie(root, node) = remove(r - 1, root);\n       \
-    \ root = insert(l, node, root);\n    }\n    void swap(ll l, ll r) {\n        //\
-    \ swap(a[l],a[r])\n        if(l == r)\n            return;\n        if(l > r)\n\
-    \            std::swap(l, r);\n        Node *al, *ar;\n        tie(root, ar) =\
-    \ remove(r, root);\n        tie(root, al) = remove(l, root);\n        root = insert(l,\
-    \ ar, root);\n        root = insert(r, al, root);\n    }\n    vector<S> get_vec()\
-    \ {\n        vector<S> res;\n        dfs(root, res);\n        return res;\n  \
-    \  }\n\n    SplayTree() : root(nullptr) {}\n    SplayTree(const vector<S> &v)\
-    \ : root(nullptr) {\n        Node *prev = nullptr;\n        for(const auto &s\
-    \ : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n          \
-    \  Node *node = pool.back().get();\n            if(prev)\n                prev->parent\
-    \ = node;\n            node->left = prev;\n            node->update();\n     \
-    \       root = prev = node;\n        }\n    }\n};"
+    \ c_root), r_root);\n        return res;\n    }\n    S all_prod() { return root->prod;\
+    \ }\n    void shift(int l, int r) {\n        //    ...,a[l]  ,    ... ,a[r-1],a[r],...\n\
+    \        // -> ...,a[r-1],a[l],...,a[r-2],a[r],...\n        Node *node;\n    \
+    \    tie(root, node) = remove(r - 1, root);\n        root = insert(l, node, root);\n\
+    \    }\n    void swap(ll l, ll r) {\n        // swap(a[l],a[r])\n        if(l\
+    \ == r)\n            return;\n        if(l > r)\n            std::swap(l, r);\n\
+    \        Node *al, *ar;\n        tie(root, ar) = remove(r, root);\n        tie(root,\
+    \ al) = remove(l, root);\n        root = insert(l, ar, root);\n        root =\
+    \ insert(r, al, root);\n    }\n    vector<S> get_vec() {\n        vector<S> res;\n\
+    \        dfs(root, res);\n        return res;\n    }\n    int find(const S &s,\
+    \ auto &&comp) {\n        // comp(s,t) <==> s < t\n        // \u6607\u9806\u306B\
+    \u30BD\u30FC\u30C8\u3055\u308C\u3066\u3044\u308B\u3053\u3068\u3092\u4EEE\u5B9A\
+    \u3059\u308B\n        // comp(a[i],s)\u304C\u6210\u308A\u7ACB\u305F\u306A\u3044\
+    \u6700\u5C0F\u306Ei(s\u4EE5\u4E0A\u306E\u6700\u521D\u306Eidx)\u3092\u8FD4\u3059\
+    \n        // \u306A\u3051\u308C\u3070size()\u3092\u8FD4\u3059\n        // amortized\
+    \ O(log size)\n        Node *cur = root;\n        Node *res = nullptr;\n     \
+    \   while(cur) {\n            if(comp(cur->a, s)) {\n                cur = cur->right;\n\
+    \            } else {\n                res = cur;\n                cur = cur->left;\n\
+    \            }\n        }\n        if(res) {\n            splay(res);\n      \
+    \      root = res;\n            return res->left ? res->left->size : 0;\n    \
+    \    } else {\n            return size();\n        }\n    }\n\n    SplayTree()\
+    \ : root(nullptr) {}\n    SplayTree(const vector<S> &v) : root(nullptr) {\n  \
+    \      Node *prev = nullptr;\n        for(const auto &s : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n\
+    \            Node *node = pool.back().get();\n            if(prev)\n         \
+    \       prev->parent = node;\n            node->left = prev;\n            node->update();\n\
+    \            root = prev = node;\n        }\n    }\n};"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/splaytree.hpp
   requiredBy: []
-  timestamp: '2025-02-11 15:47:15+09:00'
+  timestamp: '2025-02-14 01:26:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1508.test.cpp

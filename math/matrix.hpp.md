@@ -145,9 +145,9 @@ data:
   timestamp: '2024-12-02 02:31:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
-  - test/library_checker/linear_algebra/matrix_product.test.cpp
   - test/yukicoder/3006.test.cpp
+  - test/library_checker/linear_algebra/matrix_product.test.cpp
+  - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
 documentation_of: math/matrix.hpp
 layout: document
 redirect_from:

@@ -280,9 +280,9 @@ data:
   timestamp: '2025-02-11 15:47:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
-  - test/library_checker/data_structure/range_reverse_range_sum.test.cpp
   - test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
+  - test/library_checker/data_structure/range_reverse_range_sum.test.cpp
+  - test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
 documentation_of: data_structure/lazy-splaytree.hpp
 layout: document
 redirect_from:

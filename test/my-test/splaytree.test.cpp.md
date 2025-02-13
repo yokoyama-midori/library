@@ -147,67 +147,78 @@ data:
     \        return root->a;\n    }\n    S prod(int l, int r) {\n        if(l == r)\n\
     \            return e();\n        Node *l_root, *c_root, *r_root;\n        between(l_root,\
     \ c_root, r_root, l, r);\n        S res = c_root->prod;\n        root = merge(merge(l_root,\
-    \ c_root), r_root);\n        return res;\n    }\n    void shift(int l, int r)\
-    \ {\n        //    ...,a[l]  ,    ... ,a[r-1],a[r],...\n        // -> ...,a[r-1],a[l],...,a[r-2],a[r],...\n\
-    \        Node *node;\n        tie(root, node) = remove(r - 1, root);\n       \
-    \ root = insert(l, node, root);\n    }\n    void swap(ll l, ll r) {\n        //\
-    \ swap(a[l],a[r])\n        if(l == r)\n            return;\n        if(l > r)\n\
-    \            std::swap(l, r);\n        Node *al, *ar;\n        tie(root, ar) =\
-    \ remove(r, root);\n        tie(root, al) = remove(l, root);\n        root = insert(l,\
-    \ ar, root);\n        root = insert(r, al, root);\n    }\n    vector<S> get_vec()\
-    \ {\n        vector<S> res;\n        dfs(root, res);\n        return res;\n  \
-    \  }\n\n    SplayTree() : root(nullptr) {}\n    SplayTree(const vector<S> &v)\
-    \ : root(nullptr) {\n        Node *prev = nullptr;\n        for(const auto &s\
-    \ : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n          \
-    \  Node *node = pool.back().get();\n            if(prev)\n                prev->parent\
-    \ = node;\n            node->left = prev;\n            node->update();\n     \
-    \       root = prev = node;\n        }\n    }\n};\n#line 2 \"rng.hpp\"\n// https://maspypy.github.io/library/random/base.hpp\n\
-    #line 4 \"rng.hpp\"\nunsigned long long RNG_64() {\n    static unsigned long long\
-    \ x_ =\n        (unsigned long long)(chrono::duration_cast<chrono::nanoseconds>(\n\
-    \                                 chrono::high_resolution_clock::now()\n     \
-    \                                .time_since_epoch())\n                      \
-    \           .count()) *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n\
-    \    return x_ ^= x_ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim)\
-    \ { return RNG_64() % lim; }\n\nll rng(ll l, ll r) {\n    // [l,r)\n    return\
-    \ l + RNG_64() % (r - l);\n}\n#line 4 \"test/my-test/splaytree.test.cpp\"\nvoid\
-    \ test() {\n    const int size_max = 100, value_max = 1000000000, query_max =\
-    \ 1000;\n    int n = rng(1, size_max + 1);\n    vl a(n);\n    rep(i, n) a[i] =\
-    \ rng(1, value_max + 1);\n    SplayTree<ll, [](ll a, ll b) { return a + b; },\
-    \ []() { return 0LL; }> spt(\n        a);\n    auto make_val = [&value_max] {\
-    \ return rng(1, value_max + 1); };\n    auto make_pos = [&] { return rng(0, n);\
-    \ };\n    auto make_lr = [&]() {\n        int l(make_pos()), r(make_pos() + 1);\n\
-    \        if(l > r)\n            swap(l, r);\n        return pair<int, int>(l,\
-    \ r);\n    };\n    auto insert_query = [&] {\n        int x = rng(0, n + 1), val\
-    \ = make_val();\n        assert(x <= n);\n        a.insert(begin(a) + x, val);\n\
-    \        ++n;\n        spt.insert_at(x, val);\n    };\n    auto erase_query =\
-    \ [&]() {\n        int x = make_pos();\n        assert(x < n);\n        a.erase(begin(a)\
-    \ + x);\n        --n;\n        spt.remove_at(x);\n    };\n    auto set_query =\
-    \ [&]() {\n        int x = make_pos(), val = make_val();\n        assert(x < n);\n\
-    \        a[x] = val;\n        spt.set(x, val);\n    };\n    auto size_query =\
-    \ [&] { assert(a.size() == n and n == spt.size()); };\n    auto get_query = [&]\
-    \ {\n        int x = make_pos();\n        assert(x < n);\n        assert(a[x]\
-    \ == spt.get(x));\n    };\n    auto prod_query = [&] {\n        auto [l, r] =\
-    \ make_lr();\n        assert(0 <= l and l <= r and r <= n);\n        ll sum =\
-    \ accumulate(begin(a) + l, begin(a) + r, 0LL);\n        assert(sum == spt.prod(l,\
-    \ r));\n    };\n    auto shift_query = [&] {\n        auto [l, r] = make_lr();\n\
-    \        while(l == r)\n            tie(l, r) = make_lr();\n        assert(0 <=\
-    \ l and l < r and r <= n);\n        rotate(begin(a) + l, begin(a) + r - 1, begin(a)\
-    \ + r);\n        spt.shift(l, r);\n    };\n    auto swap_query = [&] {\n     \
-    \   int l = make_pos(), r = make_pos();\n        assert(0 <= min(l, r) and max(l,\
-    \ r) < n);\n        swap(a[l], a[r]);\n        spt.swap(l, r);\n    };\n    auto\
-    \ get_vec_query = [&]() { assert(spt.get_vec() == a); };\n    int q = rng(1, query_max\
-    \ + 1);\n    while(q--) {\n        if(n == 0) {\n            insert_query();\n\
-    \            continue;\n        }\n        ll flag = rng(0, 9);\n        if(flag\
-    \ == 0) {\n            insert_query();\n        } else if(flag == 1) {\n     \
-    \       erase_query();\n        } else if(flag == 2) {\n            set_query();\n\
-    \        } else if(flag == 3) {\n            size_query();\n        } else if(flag\
-    \ == 4) {\n            get_query();\n        } else if(flag == 5) {\n        \
-    \    prod_query();\n        } else if(flag == 6) {\n            shift_query();\n\
-    \        } else if(flag == 7) {\n            swap_query();\n        } else {\n\
-    \            get_vec_query();\n        }\n        debug(q, flag, \"ok\", a);\n\
-    \    }\n}\nvoid solve() {\n    LL(a, b);\n    print(a + b);\n}\nint main() {\n\
-    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    rep(i, 10)\
-    \ test();\n    solve();\n}\n"
+    \ c_root), r_root);\n        return res;\n    }\n    S all_prod() { return root->prod;\
+    \ }\n    void shift(int l, int r) {\n        //    ...,a[l]  ,    ... ,a[r-1],a[r],...\n\
+    \        // -> ...,a[r-1],a[l],...,a[r-2],a[r],...\n        Node *node;\n    \
+    \    tie(root, node) = remove(r - 1, root);\n        root = insert(l, node, root);\n\
+    \    }\n    void swap(ll l, ll r) {\n        // swap(a[l],a[r])\n        if(l\
+    \ == r)\n            return;\n        if(l > r)\n            std::swap(l, r);\n\
+    \        Node *al, *ar;\n        tie(root, ar) = remove(r, root);\n        tie(root,\
+    \ al) = remove(l, root);\n        root = insert(l, ar, root);\n        root =\
+    \ insert(r, al, root);\n    }\n    vector<S> get_vec() {\n        vector<S> res;\n\
+    \        dfs(root, res);\n        return res;\n    }\n    int find(const S &s,\
+    \ auto &&comp) {\n        // comp(s,t) <==> s < t\n        // \u6607\u9806\u306B\
+    \u30BD\u30FC\u30C8\u3055\u308C\u3066\u3044\u308B\u3053\u3068\u3092\u4EEE\u5B9A\
+    \u3059\u308B\n        // comp(a[i],s)\u304C\u6210\u308A\u7ACB\u305F\u306A\u3044\
+    \u6700\u5C0F\u306Ei(s\u4EE5\u4E0A\u306E\u6700\u521D\u306Eidx)\u3092\u8FD4\u3059\
+    \n        // \u306A\u3051\u308C\u3070size()\u3092\u8FD4\u3059\n        // amortized\
+    \ O(log size)\n        Node *cur = root;\n        Node *res = nullptr;\n     \
+    \   while(cur) {\n            if(comp(cur->a, s)) {\n                cur = cur->right;\n\
+    \            } else {\n                res = cur;\n                cur = cur->left;\n\
+    \            }\n        }\n        if(res) {\n            splay(res);\n      \
+    \      root = res;\n            return res->left ? res->left->size : 0;\n    \
+    \    } else {\n            return size();\n        }\n    }\n\n    SplayTree()\
+    \ : root(nullptr) {}\n    SplayTree(const vector<S> &v) : root(nullptr) {\n  \
+    \      Node *prev = nullptr;\n        for(const auto &s : v) {\n            pool.push_back(move(make_unique<Node>(s)));\n\
+    \            Node *node = pool.back().get();\n            if(prev)\n         \
+    \       prev->parent = node;\n            node->left = prev;\n            node->update();\n\
+    \            root = prev = node;\n        }\n    }\n};\n#line 2 \"rng.hpp\"\n\
+    // https://maspypy.github.io/library/random/base.hpp\n#line 4 \"rng.hpp\"\nunsigned\
+    \ long long RNG_64() {\n    static unsigned long long x_ =\n        (unsigned\
+    \ long long)(chrono::duration_cast<chrono::nanoseconds>(\n                   \
+    \              chrono::high_resolution_clock::now()\n                        \
+    \             .time_since_epoch())\n                                 .count())\
+    \ *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n    return x_ ^= x_\
+    \ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim) { return RNG_64()\
+    \ % lim; }\n\nll rng(ll l, ll r) {\n    // [l,r)\n    return l + RNG_64() % (r\
+    \ - l);\n}\n#line 4 \"test/my-test/splaytree.test.cpp\"\nvoid test() {\n    const\
+    \ int size_max = 100, value_max = 1000000000, query_max = 1000;\n    int n = rng(1,\
+    \ size_max + 1);\n    vl a(n);\n    rep(i, n) a[i] = rng(1, value_max + 1);\n\
+    \    SplayTree<ll, [](ll a, ll b) { return a + b; }, []() { return 0LL; }> spt(\n\
+    \        a);\n    auto make_val = [&value_max] { return rng(1, value_max + 1);\
+    \ };\n    auto make_pos = [&] { return rng(0, n); };\n    auto make_lr = [&]()\
+    \ {\n        int l(make_pos()), r(make_pos() + 1);\n        if(l > r)\n      \
+    \      swap(l, r);\n        return pair<int, int>(l, r);\n    };\n    auto insert_query\
+    \ = [&] {\n        int x = rng(0, n + 1), val = make_val();\n        assert(x\
+    \ <= n);\n        a.insert(begin(a) + x, val);\n        ++n;\n        spt.insert_at(x,\
+    \ val);\n    };\n    auto erase_query = [&]() {\n        int x = make_pos();\n\
+    \        assert(x < n);\n        a.erase(begin(a) + x);\n        --n;\n      \
+    \  spt.remove_at(x);\n    };\n    auto set_query = [&]() {\n        int x = make_pos(),\
+    \ val = make_val();\n        assert(x < n);\n        a[x] = val;\n        spt.set(x,\
+    \ val);\n    };\n    auto size_query = [&] { assert(a.size() == n and n == spt.size());\
+    \ };\n    auto get_query = [&] {\n        int x = make_pos();\n        assert(x\
+    \ < n);\n        assert(a[x] == spt.get(x));\n    };\n    auto prod_query = [&]\
+    \ {\n        auto [l, r] = make_lr();\n        assert(0 <= l and l <= r and r\
+    \ <= n);\n        ll sum = accumulate(begin(a) + l, begin(a) + r, 0LL);\n    \
+    \    assert(sum == spt.prod(l, r));\n    };\n    auto shift_query = [&] {\n  \
+    \      auto [l, r] = make_lr();\n        while(l == r)\n            tie(l, r)\
+    \ = make_lr();\n        assert(0 <= l and l < r and r <= n);\n        rotate(begin(a)\
+    \ + l, begin(a) + r - 1, begin(a) + r);\n        spt.shift(l, r);\n    };\n  \
+    \  auto swap_query = [&] {\n        int l = make_pos(), r = make_pos();\n    \
+    \    assert(0 <= min(l, r) and max(l, r) < n);\n        swap(a[l], a[r]);\n  \
+    \      spt.swap(l, r);\n    };\n    auto get_vec_query = [&]() { assert(spt.get_vec()\
+    \ == a); };\n    int q = rng(1, query_max + 1);\n    while(q--) {\n        if(n\
+    \ == 0) {\n            insert_query();\n            continue;\n        }\n   \
+    \     ll flag = rng(0, 9);\n        if(flag == 0) {\n            insert_query();\n\
+    \        } else if(flag == 1) {\n            erase_query();\n        } else if(flag\
+    \ == 2) {\n            set_query();\n        } else if(flag == 3) {\n        \
+    \    size_query();\n        } else if(flag == 4) {\n            get_query();\n\
+    \        } else if(flag == 5) {\n            prod_query();\n        } else if(flag\
+    \ == 6) {\n            shift_query();\n        } else if(flag == 7) {\n      \
+    \      swap_query();\n        } else {\n            get_vec_query();\n       \
+    \ }\n        debug(q, flag, \"ok\", a);\n    }\n}\nvoid solve() {\n    LL(a, b);\n\
+    \    print(a + b);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    rep(i, 10) test();\n    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"data_structure/splaytree.hpp\"\
     \n#include \"rng.hpp\"\nvoid test() {\n    const int size_max = 100, value_max\
     \ = 1000000000, query_max = 1000;\n    int n = rng(1, size_max + 1);\n    vl a(n);\n\
@@ -254,7 +265,7 @@ data:
   isVerificationFile: true
   path: test/my-test/splaytree.test.cpp
   requiredBy: []
-  timestamp: '2025-02-11 16:24:02+09:00'
+  timestamp: '2025-02-14 01:26:49+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/my-test/splaytree.test.cpp
