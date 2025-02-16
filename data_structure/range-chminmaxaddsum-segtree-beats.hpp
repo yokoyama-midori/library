@@ -10,7 +10,10 @@ struct S {
     S(ll x, ll sz = 1)
         : min(x), min2(x), max(x), max2(x), sum(x * sz), sz(sz), fail(false),
           szmin(sz), szmax(sz) {};
-    S() = default;
+    S()
+        : min(inf), min2(inf), max(-inf), max2(-inf), sz(0), szmin(0), szmax(0),
+          sum(0), fail(false) {}
+
     bool operator==(const S &other) const {
         return min == other.min and min2 == other.min2 and max == other.max and
                max2 == other.max2 and sz == other.sz and
