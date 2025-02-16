@@ -119,51 +119,52 @@ data:
     \ max == min2\u3067\u3042\u308Amapping\u306E\u969B\u306F\u6CE8\u610F\u304C\u5FC5\
     \u8981\n    ll sz, szmin, szmax, sum;\n    bool fail;\n    S(ll x, ll sz = 1)\n\
     \        : min(x), min2(x), max(x), max2(x), sum(x * sz), sz(sz), fail(false),\n\
-    \          szmin(sz), szmax(sz) {};\n    S() = default;\n    bool operator==(const\
-    \ S &other) const {\n        return min == other.min and min2 == other.min2 and\
-    \ max == other.max and\n               max2 == other.max2 and sz == other.sz and\n\
-    \               szmin == other.szmin and szmax == other.szmax and\n          \
-    \     sum == other.sum;\n    }\n};\nS e() {\n    S res(0, 0);\n    res.min = res.min2\
-    \ = inf, res.max = res.max2 = -inf;\n    res.fail = false;\n    return res;\n\
-    };\nvoid chmin2(ll &m, ll &m2, ll val) {\n    if(val < m) {\n        m2 = m, m\
-    \ = val;\n    } else if(m < val and val < m2) {\n        m2 = val;\n    }\n}\n\
-    ll second_lowest(S &a, S &b) {\n    ll m = inf, m2 = inf;\n    chmin2(m, m2, a.min),\
-    \ chmin2(m, m2, a.min2), chmin2(m, m2, b.min),\n        chmin2(m, m2, b.min2);\n\
-    \    return (m2 == inf ? m : m2);\n}\nll second_heighest(S &a, S &b) {\n    ll\
-    \ m = inf, m2 = inf;\n    chmin2(m, m2, -a.max), chmin2(m, m2, -a.max2), chmin2(m,\
-    \ m2, -b.max),\n        chmin2(m, m2, -b.max2);\n    return (m2 == inf ? -m :\
-    \ -m2);\n}\nS op(S a, S b) {\n    if(a.fail)\n        return a;\n    if(b.fail)\n\
-    \        return b;\n    S res;\n    res.min = min(a.min, b.min);\n    res.max\
-    \ = max(a.max, b.max);\n    res.min2 = second_lowest(a, b);\n    res.max2 = second_heighest(a,\
-    \ b);\n    res.sum = a.sum + b.sum;\n    res.sz = a.sz + b.sz;\n    res.szmin\
-    \ = a.szmin * (a.min == res.min) + b.szmin * (b.min == res.min);\n    res.szmax\
-    \ = a.szmax * (a.max == res.max) + b.szmax * (b.max == res.max);\n    return res;\n\
-    }\nstruct F {\n    // min -> max -> add \u306E\u9806\n    ll min, max, add;\n\
-    \    bool operator==(const F &other) const {\n        return min == other.min\
-    \ && max == other.max && add == other.add;\n    }\n};\nF id() { return F(inf,\
-    \ -inf, 0); }\nS mapping(F f, S s) {\n    if(s.fail or f == id())\n        return\
-    \ s;\n    if(s.sz == 1) {\n        ll x = s.min;\n        chmin(x, f.min);\n \
-    \       chmax(x, f.max);\n        x += f.add;\n        return S(x, s.sz);\n  \
-    \  }\n    // f.min\n    if(f.min > s.max2) {\n        // f.min\u3092\u51E6\u7406\
-    \u3067\u304D\u308B\n        ll dif = min(0LL, f.min - s.max);\n        s.sum +=\
-    \ dif * s.szmax;\n        s.max += dif;\n        if(s.min2 + dif == s.max) {\n\
-    \            s.min2 = s.max;\n        }\n    } else if(f.min <= s.min) {\n   \
-    \     // \u5168\u90E8x\n        ll x = max(f.max, f.min) + f.add;\n        return\
-    \ S(x, s.sz);\n    } else {\n        s.fail = true;\n        return s;\n    }\n\
-    \    // f.max\n    if(f.max < s.min2) {\n        ll dif = max(0LL, f.max - s.min);\n\
-    \        s.sum += dif * s.szmin;\n        s.min += dif;\n        if(s.max2 + dif\
-    \ == s.min) {\n            s.max2 = s.min;\n        }\n    } else if(f.max >=\
-    \ s.max) {\n        return S(f.max + f.add, s.sz);\n    } else {\n        s.fail\
-    \ = true;\n        return s;\n    }\n    s.min += f.add, s.min2 += f.add, s.max\
-    \ += f.add, s.max2 += f.add;\n    s.sum += f.add * s.sz;\n    return s;\n}\nF\
-    \ composition(F f, F g) {\n    F res;\n    if(f == id())\n        return g;\n\
-    \    if(g == id())\n        return f;\n    res.min = min(g.min, f.min - g.add);\n\
-    \    res.max = max(g.max, f.max - g.add);\n    if(g.max >= f.min - g.add) {\n\
-    \        res.min = res.max = f.min - g.add;\n    }\n    if(f.max - g.add >= g.min)\
-    \ {\n        res.min = res.max = f.max - g.add;\n    }\n    res.add = f.add +\
-    \ g.add;\n    return res;\n}\nusing segtree = segtree_beats<S, op, e, F, mapping,\
-    \ composition, id>;\n} // namespace RangeChMinMaxAddSum\nusing RangeChMinMaxAddSum::F;\n\
-    using RangeChMinMaxAddSum::S;\nusing RangeChMinMaxAddSum::segtree;\n"
+    \          szmin(sz), szmax(sz) {};\n    S()\n        : min(inf), min2(inf), max(-inf),\
+    \ max2(-inf), sz(0), szmin(0), szmax(0),\n          sum(0), fail(false) {}\n\n\
+    \    bool operator==(const S &other) const {\n        return min == other.min\
+    \ and min2 == other.min2 and max == other.max and\n               max2 == other.max2\
+    \ and sz == other.sz and\n               szmin == other.szmin and szmax == other.szmax\
+    \ and\n               sum == other.sum;\n    }\n};\nS e() {\n    S res(0, 0);\n\
+    \    res.min = res.min2 = inf, res.max = res.max2 = -inf;\n    res.fail = false;\n\
+    \    return res;\n};\nvoid chmin2(ll &m, ll &m2, ll val) {\n    if(val < m) {\n\
+    \        m2 = m, m = val;\n    } else if(m < val and val < m2) {\n        m2 =\
+    \ val;\n    }\n}\nll second_lowest(S &a, S &b) {\n    ll m = inf, m2 = inf;\n\
+    \    chmin2(m, m2, a.min), chmin2(m, m2, a.min2), chmin2(m, m2, b.min),\n    \
+    \    chmin2(m, m2, b.min2);\n    return (m2 == inf ? m : m2);\n}\nll second_heighest(S\
+    \ &a, S &b) {\n    ll m = inf, m2 = inf;\n    chmin2(m, m2, -a.max), chmin2(m,\
+    \ m2, -a.max2), chmin2(m, m2, -b.max),\n        chmin2(m, m2, -b.max2);\n    return\
+    \ (m2 == inf ? -m : -m2);\n}\nS op(S a, S b) {\n    if(a.fail)\n        return\
+    \ a;\n    if(b.fail)\n        return b;\n    S res;\n    res.min = min(a.min,\
+    \ b.min);\n    res.max = max(a.max, b.max);\n    res.min2 = second_lowest(a, b);\n\
+    \    res.max2 = second_heighest(a, b);\n    res.sum = a.sum + b.sum;\n    res.sz\
+    \ = a.sz + b.sz;\n    res.szmin = a.szmin * (a.min == res.min) + b.szmin * (b.min\
+    \ == res.min);\n    res.szmax = a.szmax * (a.max == res.max) + b.szmax * (b.max\
+    \ == res.max);\n    return res;\n}\nstruct F {\n    // min -> max -> add \u306E\
+    \u9806\n    ll min, max, add;\n    bool operator==(const F &other) const {\n \
+    \       return min == other.min && max == other.max && add == other.add;\n   \
+    \ }\n};\nF id() { return F(inf, -inf, 0); }\nS mapping(F f, S s) {\n    if(s.fail\
+    \ or f == id())\n        return s;\n    if(s.sz == 1) {\n        ll x = s.min;\n\
+    \        chmin(x, f.min);\n        chmax(x, f.max);\n        x += f.add;\n   \
+    \     return S(x, s.sz);\n    }\n    // f.min\n    if(f.min > s.max2) {\n    \
+    \    // f.min\u3092\u51E6\u7406\u3067\u304D\u308B\n        ll dif = min(0LL, f.min\
+    \ - s.max);\n        s.sum += dif * s.szmax;\n        s.max += dif;\n        if(s.min2\
+    \ + dif == s.max) {\n            s.min2 = s.max;\n        }\n    } else if(f.min\
+    \ <= s.min) {\n        // \u5168\u90E8x\n        ll x = max(f.max, f.min) + f.add;\n\
+    \        return S(x, s.sz);\n    } else {\n        s.fail = true;\n        return\
+    \ s;\n    }\n    // f.max\n    if(f.max < s.min2) {\n        ll dif = max(0LL,\
+    \ f.max - s.min);\n        s.sum += dif * s.szmin;\n        s.min += dif;\n  \
+    \      if(s.max2 + dif == s.min) {\n            s.max2 = s.min;\n        }\n \
+    \   } else if(f.max >= s.max) {\n        return S(f.max + f.add, s.sz);\n    }\
+    \ else {\n        s.fail = true;\n        return s;\n    }\n    s.min += f.add,\
+    \ s.min2 += f.add, s.max += f.add, s.max2 += f.add;\n    s.sum += f.add * s.sz;\n\
+    \    return s;\n}\nF composition(F f, F g) {\n    F res;\n    if(f == id())\n\
+    \        return g;\n    if(g == id())\n        return f;\n    res.min = min(g.min,\
+    \ f.min - g.add);\n    res.max = max(g.max, f.max - g.add);\n    if(g.max >= f.min\
+    \ - g.add) {\n        res.min = res.max = f.min - g.add;\n    }\n    if(f.max\
+    \ - g.add >= g.min) {\n        res.min = res.max = f.max - g.add;\n    }\n   \
+    \ res.add = f.add + g.add;\n    return res;\n}\nusing segtree = segtree_beats<S,\
+    \ op, e, F, mapping, composition, id>;\n} // namespace RangeChMinMaxAddSum\nusing\
+    \ RangeChMinMaxAddSum::F;\nusing RangeChMinMaxAddSum::S;\nusing RangeChMinMaxAddSum::segtree;\n"
   code: "#include \"data_structure/segtree-beats.hpp\"\n#include \"template.hpp\"\n\
     namespace RangeChMinMaxAddSum {\nstruct S {\n    ll min, min2, max, max2;\n  \
     \  // min2,max2\u306F2\u756A\u76EE\u306E\u6700\u5C0F\u6700\u5927,\u4F46\u3057\u5024\
@@ -172,58 +173,59 @@ data:
     \ == min2\u3067\u3042\u308Amapping\u306E\u969B\u306F\u6CE8\u610F\u304C\u5FC5\u8981\
     \n    ll sz, szmin, szmax, sum;\n    bool fail;\n    S(ll x, ll sz = 1)\n    \
     \    : min(x), min2(x), max(x), max2(x), sum(x * sz), sz(sz), fail(false),\n \
-    \         szmin(sz), szmax(sz) {};\n    S() = default;\n    bool operator==(const\
-    \ S &other) const {\n        return min == other.min and min2 == other.min2 and\
-    \ max == other.max and\n               max2 == other.max2 and sz == other.sz and\n\
-    \               szmin == other.szmin and szmax == other.szmax and\n          \
-    \     sum == other.sum;\n    }\n};\nS e() {\n    S res(0, 0);\n    res.min = res.min2\
-    \ = inf, res.max = res.max2 = -inf;\n    res.fail = false;\n    return res;\n\
-    };\nvoid chmin2(ll &m, ll &m2, ll val) {\n    if(val < m) {\n        m2 = m, m\
-    \ = val;\n    } else if(m < val and val < m2) {\n        m2 = val;\n    }\n}\n\
-    ll second_lowest(S &a, S &b) {\n    ll m = inf, m2 = inf;\n    chmin2(m, m2, a.min),\
-    \ chmin2(m, m2, a.min2), chmin2(m, m2, b.min),\n        chmin2(m, m2, b.min2);\n\
-    \    return (m2 == inf ? m : m2);\n}\nll second_heighest(S &a, S &b) {\n    ll\
-    \ m = inf, m2 = inf;\n    chmin2(m, m2, -a.max), chmin2(m, m2, -a.max2), chmin2(m,\
-    \ m2, -b.max),\n        chmin2(m, m2, -b.max2);\n    return (m2 == inf ? -m :\
-    \ -m2);\n}\nS op(S a, S b) {\n    if(a.fail)\n        return a;\n    if(b.fail)\n\
-    \        return b;\n    S res;\n    res.min = min(a.min, b.min);\n    res.max\
-    \ = max(a.max, b.max);\n    res.min2 = second_lowest(a, b);\n    res.max2 = second_heighest(a,\
-    \ b);\n    res.sum = a.sum + b.sum;\n    res.sz = a.sz + b.sz;\n    res.szmin\
-    \ = a.szmin * (a.min == res.min) + b.szmin * (b.min == res.min);\n    res.szmax\
-    \ = a.szmax * (a.max == res.max) + b.szmax * (b.max == res.max);\n    return res;\n\
-    }\nstruct F {\n    // min -> max -> add \u306E\u9806\n    ll min, max, add;\n\
-    \    bool operator==(const F &other) const {\n        return min == other.min\
-    \ && max == other.max && add == other.add;\n    }\n};\nF id() { return F(inf,\
-    \ -inf, 0); }\nS mapping(F f, S s) {\n    if(s.fail or f == id())\n        return\
-    \ s;\n    if(s.sz == 1) {\n        ll x = s.min;\n        chmin(x, f.min);\n \
-    \       chmax(x, f.max);\n        x += f.add;\n        return S(x, s.sz);\n  \
-    \  }\n    // f.min\n    if(f.min > s.max2) {\n        // f.min\u3092\u51E6\u7406\
-    \u3067\u304D\u308B\n        ll dif = min(0LL, f.min - s.max);\n        s.sum +=\
-    \ dif * s.szmax;\n        s.max += dif;\n        if(s.min2 + dif == s.max) {\n\
-    \            s.min2 = s.max;\n        }\n    } else if(f.min <= s.min) {\n   \
-    \     // \u5168\u90E8x\n        ll x = max(f.max, f.min) + f.add;\n        return\
-    \ S(x, s.sz);\n    } else {\n        s.fail = true;\n        return s;\n    }\n\
-    \    // f.max\n    if(f.max < s.min2) {\n        ll dif = max(0LL, f.max - s.min);\n\
-    \        s.sum += dif * s.szmin;\n        s.min += dif;\n        if(s.max2 + dif\
-    \ == s.min) {\n            s.max2 = s.min;\n        }\n    } else if(f.max >=\
-    \ s.max) {\n        return S(f.max + f.add, s.sz);\n    } else {\n        s.fail\
-    \ = true;\n        return s;\n    }\n    s.min += f.add, s.min2 += f.add, s.max\
-    \ += f.add, s.max2 += f.add;\n    s.sum += f.add * s.sz;\n    return s;\n}\nF\
-    \ composition(F f, F g) {\n    F res;\n    if(f == id())\n        return g;\n\
-    \    if(g == id())\n        return f;\n    res.min = min(g.min, f.min - g.add);\n\
-    \    res.max = max(g.max, f.max - g.add);\n    if(g.max >= f.min - g.add) {\n\
-    \        res.min = res.max = f.min - g.add;\n    }\n    if(f.max - g.add >= g.min)\
-    \ {\n        res.min = res.max = f.max - g.add;\n    }\n    res.add = f.add +\
-    \ g.add;\n    return res;\n}\nusing segtree = segtree_beats<S, op, e, F, mapping,\
-    \ composition, id>;\n} // namespace RangeChMinMaxAddSum\nusing RangeChMinMaxAddSum::F;\n\
-    using RangeChMinMaxAddSum::S;\nusing RangeChMinMaxAddSum::segtree;"
+    \         szmin(sz), szmax(sz) {};\n    S()\n        : min(inf), min2(inf), max(-inf),\
+    \ max2(-inf), sz(0), szmin(0), szmax(0),\n          sum(0), fail(false) {}\n\n\
+    \    bool operator==(const S &other) const {\n        return min == other.min\
+    \ and min2 == other.min2 and max == other.max and\n               max2 == other.max2\
+    \ and sz == other.sz and\n               szmin == other.szmin and szmax == other.szmax\
+    \ and\n               sum == other.sum;\n    }\n};\nS e() {\n    S res(0, 0);\n\
+    \    res.min = res.min2 = inf, res.max = res.max2 = -inf;\n    res.fail = false;\n\
+    \    return res;\n};\nvoid chmin2(ll &m, ll &m2, ll val) {\n    if(val < m) {\n\
+    \        m2 = m, m = val;\n    } else if(m < val and val < m2) {\n        m2 =\
+    \ val;\n    }\n}\nll second_lowest(S &a, S &b) {\n    ll m = inf, m2 = inf;\n\
+    \    chmin2(m, m2, a.min), chmin2(m, m2, a.min2), chmin2(m, m2, b.min),\n    \
+    \    chmin2(m, m2, b.min2);\n    return (m2 == inf ? m : m2);\n}\nll second_heighest(S\
+    \ &a, S &b) {\n    ll m = inf, m2 = inf;\n    chmin2(m, m2, -a.max), chmin2(m,\
+    \ m2, -a.max2), chmin2(m, m2, -b.max),\n        chmin2(m, m2, -b.max2);\n    return\
+    \ (m2 == inf ? -m : -m2);\n}\nS op(S a, S b) {\n    if(a.fail)\n        return\
+    \ a;\n    if(b.fail)\n        return b;\n    S res;\n    res.min = min(a.min,\
+    \ b.min);\n    res.max = max(a.max, b.max);\n    res.min2 = second_lowest(a, b);\n\
+    \    res.max2 = second_heighest(a, b);\n    res.sum = a.sum + b.sum;\n    res.sz\
+    \ = a.sz + b.sz;\n    res.szmin = a.szmin * (a.min == res.min) + b.szmin * (b.min\
+    \ == res.min);\n    res.szmax = a.szmax * (a.max == res.max) + b.szmax * (b.max\
+    \ == res.max);\n    return res;\n}\nstruct F {\n    // min -> max -> add \u306E\
+    \u9806\n    ll min, max, add;\n    bool operator==(const F &other) const {\n \
+    \       return min == other.min && max == other.max && add == other.add;\n   \
+    \ }\n};\nF id() { return F(inf, -inf, 0); }\nS mapping(F f, S s) {\n    if(s.fail\
+    \ or f == id())\n        return s;\n    if(s.sz == 1) {\n        ll x = s.min;\n\
+    \        chmin(x, f.min);\n        chmax(x, f.max);\n        x += f.add;\n   \
+    \     return S(x, s.sz);\n    }\n    // f.min\n    if(f.min > s.max2) {\n    \
+    \    // f.min\u3092\u51E6\u7406\u3067\u304D\u308B\n        ll dif = min(0LL, f.min\
+    \ - s.max);\n        s.sum += dif * s.szmax;\n        s.max += dif;\n        if(s.min2\
+    \ + dif == s.max) {\n            s.min2 = s.max;\n        }\n    } else if(f.min\
+    \ <= s.min) {\n        // \u5168\u90E8x\n        ll x = max(f.max, f.min) + f.add;\n\
+    \        return S(x, s.sz);\n    } else {\n        s.fail = true;\n        return\
+    \ s;\n    }\n    // f.max\n    if(f.max < s.min2) {\n        ll dif = max(0LL,\
+    \ f.max - s.min);\n        s.sum += dif * s.szmin;\n        s.min += dif;\n  \
+    \      if(s.max2 + dif == s.min) {\n            s.max2 = s.min;\n        }\n \
+    \   } else if(f.max >= s.max) {\n        return S(f.max + f.add, s.sz);\n    }\
+    \ else {\n        s.fail = true;\n        return s;\n    }\n    s.min += f.add,\
+    \ s.min2 += f.add, s.max += f.add, s.max2 += f.add;\n    s.sum += f.add * s.sz;\n\
+    \    return s;\n}\nF composition(F f, F g) {\n    F res;\n    if(f == id())\n\
+    \        return g;\n    if(g == id())\n        return f;\n    res.min = min(g.min,\
+    \ f.min - g.add);\n    res.max = max(g.max, f.max - g.add);\n    if(g.max >= f.min\
+    \ - g.add) {\n        res.min = res.max = f.min - g.add;\n    }\n    if(f.max\
+    \ - g.add >= g.min) {\n        res.min = res.max = f.max - g.add;\n    }\n   \
+    \ res.add = f.add + g.add;\n    return res;\n}\nusing segtree = segtree_beats<S,\
+    \ op, e, F, mapping, composition, id>;\n} // namespace RangeChMinMaxAddSum\nusing\
+    \ RangeChMinMaxAddSum::F;\nusing RangeChMinMaxAddSum::S;\nusing RangeChMinMaxAddSum::segtree;"
   dependsOn:
   - data_structure/segtree-beats.hpp
   - template.hpp
   isVerificationFile: false
   path: data_structure/range-chminmaxaddsum-segtree-beats.hpp
   requiredBy: []
-  timestamp: '2024-12-17 16:58:00+09:00'
+  timestamp: '2025-02-16 17:46:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
