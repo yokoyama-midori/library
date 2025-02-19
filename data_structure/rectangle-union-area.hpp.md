@@ -141,7 +141,7 @@ data:
     \ {\n        int n = rectangles.size();\n        if(n == 0)\n            return\
     \ 0;\n        Compress<T> cp;\n        vector<int> ord(2 * n);\n        iota(begin(ord),\
     \ end(ord), -n);\n        // \u4E0B\u304B\u3089\u5E73\u9762\u8D70\u67FB i : d[i]\u3067\
-    in, -i-1 : U[i]\u3067out\n        for(auto [l, d, r, u] : rectangles)\n      \
+    in, -i-1 : u[i]\u3067out\n        for(auto [l, d, r, u] : rectangles)\n      \
     \      cp.add(l), cp.add(r);\n        cp.build();\n        ranges::sort(ord, [&](int\
     \ i, int j) {\n            T x = i < 0 ? rectangles[-i - 1].u : rectangles[i].d;\n\
     \            T y = j < 0 ? rectangles[-j - 1].u : rectangles[j].d;\n         \
@@ -174,7 +174,7 @@ data:
     \ {\n        int n = rectangles.size();\n        if(n == 0)\n            return\
     \ 0;\n        Compress<T> cp;\n        vector<int> ord(2 * n);\n        iota(begin(ord),\
     \ end(ord), -n);\n        // \u4E0B\u304B\u3089\u5E73\u9762\u8D70\u67FB i : d[i]\u3067\
-    in, -i-1 : U[i]\u3067out\n        for(auto [l, d, r, u] : rectangles)\n      \
+    in, -i-1 : u[i]\u3067out\n        for(auto [l, d, r, u] : rectangles)\n      \
     \      cp.add(l), cp.add(r);\n        cp.build();\n        ranges::sort(ord, [&](int\
     \ i, int j) {\n            T x = i < 0 ? rectangles[-i - 1].u : rectangles[i].d;\n\
     \            T y = j < 0 ? rectangles[-j - 1].u : rectangles[j].d;\n         \
@@ -200,7 +200,7 @@ data:
   isVerificationFile: false
   path: data_structure/rectangle-union-area.hpp
   requiredBy: []
-  timestamp: '2025-02-19 15:24:05+09:00'
+  timestamp: '2025-02-19 15:43:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
