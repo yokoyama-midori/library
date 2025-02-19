@@ -4,8 +4,14 @@ data:
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/rectangle-union-area.hpp
+    title: data_structure/rectangle-union-area.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
+    title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_affine_point_get.test.cpp
     title: test/library_checker/data_structure/range_affine_point_get.test.cpp
@@ -78,11 +84,11 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"data_structure/lazy-segtree.hpp\"\
-    \n\ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n\
-    \          F (*composition)(F, F), F (*id)()>\n//   composition(f,g)(x) = f\u2218\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/lazy-segtree.hpp\"\
+    \ntemplate <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),\n \
+    \         F (*composition)(F, F), F (*id)()>\n//   composition(f,g)(x) = f\u2218\
     g(x) = f(g(x))\n// acl\u3068\u540C\u3058\u3001maspy\u3055\u3093\u8A18\u4E8B\u3068\
-    \u9006\nstruct lazy_segtree {\n    vector<S> v;\n    vector<F> vf;\n    ll n;\n\
+    \u9006\nstruct lazy_segtree {\n    ll n;\n    vector<S> v;\n    vector<F> vf;\n\
     \    lazy_segtree(ll n)\n        : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2\
     \ * n, id())) {};\n    lazy_segtree(vector<S> v_) : n(v_.size()) {\n        vf\
     \ = vector<F>(2 * n, id());\n        v = vector<S>(2 * n, e());\n        rep(i,\
@@ -105,22 +111,25 @@ data:
     \               sl = op(sl, v[l]);\n                l++;\n            }\n    \
     \        if(r & 1) {\n                r--;\n                sr = op(v[r], sr);\n\
     \            }\n            l >>= 1;\n            r >>= 1;\n        }\n      \
-    \  return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f) {\n \
-    \       v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] = composition(f,\
-    \ vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x << 1, vf[x]);\n\
-    \        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n    }\n    ll bit_length(unsigned\
+    \  return op(sl, sr);\n    }\n    S all_prod_commute() { \n        // \u53EF\u63DB\
+    \u306A\u30E2\u30CE\u30A4\u30C9\u5C02\u7528\n        // 2\u51AA\u306B\u3059\u308C\
+    \u3070\u975E\u53EF\u63DB\u3067\u3082\u826F\u3055\u305D\u3046\n        return v[1];\
+    \ \n    }\n\n  private:\n    void apply_at(ll x, F f) {\n        v[x] = mapping(f,\
+    \ v[x]);\n        if(x < n)\n            vf[x] = composition(f, vf[x]);\n    }\n\
+    \    void propagate_at(ll x) {\n        apply_at(x << 1, vf[x]);\n        apply_at(x\
+    \ << 1 | 1, vf[x]);\n        vf[x] = id();\n    }\n    ll bit_length(unsigned\
     \ long long x) const { return 64 - countl_zero(x); }\n    void propagate_above(ll\
     \ x) {\n        ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0;\
     \ i--) {\n            propagate_at(x >> i);\n        }\n        return;\n    }\n\
     \    void recul_above(ll x) {\n        while(x > 1) {\n            x >>= 1;\n\
     \            v[x] = op(v[x << 1], v[x << 1 | 1]);\n        }\n    }\n};\n"
-  code: "#include \"template.hpp\"\n\ntemplate <class S, S (*op)(S, S), S (*e)(),\
-    \ class F, S (*mapping)(F, S),\n          F (*composition)(F, F), F (*id)()>\n\
-    //   composition(f,g)(x) = f\u2218g(x) = f(g(x))\n// acl\u3068\u540C\u3058\u3001\
-    maspy\u3055\u3093\u8A18\u4E8B\u3068\u9006\nstruct lazy_segtree {\n    vector<S>\
-    \ v;\n    vector<F> vf;\n    ll n;\n    lazy_segtree(ll n)\n        : n(n), v(vector<S>(2\
-    \ * n, e())), vf(vector<F>(2 * n, id())) {};\n    lazy_segtree(vector<S> v_) :\
-    \ n(v_.size()) {\n        vf = vector<F>(2 * n, id());\n        v = vector<S>(2\
+  code: "#pragma once\n#include \"template.hpp\"\ntemplate <class S, S (*op)(S, S),\
+    \ S (*e)(), class F, S (*mapping)(F, S),\n          F (*composition)(F, F), F\
+    \ (*id)()>\n//   composition(f,g)(x) = f\u2218g(x) = f(g(x))\n// acl\u3068\u540C\
+    \u3058\u3001maspy\u3055\u3093\u8A18\u4E8B\u3068\u9006\nstruct lazy_segtree {\n\
+    \    ll n;\n    vector<S> v;\n    vector<F> vf;\n    lazy_segtree(ll n)\n    \
+    \    : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};\n    lazy_segtree(vector<S>\
+    \ v_) : n(v_.size()) {\n        vf = vector<F>(2 * n, id());\n        v = vector<S>(2\
     \ * n, e());\n        rep(i, n) { v[i + n] = v_[i]; }\n        for(ll i = n -\
     \ 1; i > 0; i--) {\n            v[i] = op(v[i << 1], v[i << 1 | 1]);\n       \
     \ }\n    }\n    void apply(ll l, ll r, F f) {\n        l += n;\n        r += n;\n\
@@ -140,10 +149,13 @@ data:
     \               sl = op(sl, v[l]);\n                l++;\n            }\n    \
     \        if(r & 1) {\n                r--;\n                sr = op(v[r], sr);\n\
     \            }\n            l >>= 1;\n            r >>= 1;\n        }\n      \
-    \  return op(sl, sr);\n    }\n\n  private:\n    void apply_at(ll x, F f) {\n \
-    \       v[x] = mapping(f, v[x]);\n        if(x < n)\n            vf[x] = composition(f,\
-    \ vf[x]);\n    }\n    void propagate_at(ll x) {\n        apply_at(x << 1, vf[x]);\n\
-    \        apply_at(x << 1 | 1, vf[x]);\n        vf[x] = id();\n    }\n    ll bit_length(unsigned\
+    \  return op(sl, sr);\n    }\n    S all_prod_commute() { \n        // \u53EF\u63DB\
+    \u306A\u30E2\u30CE\u30A4\u30C9\u5C02\u7528\n        // 2\u51AA\u306B\u3059\u308C\
+    \u3070\u975E\u53EF\u63DB\u3067\u3082\u826F\u3055\u305D\u3046\n        return v[1];\
+    \ \n    }\n\n  private:\n    void apply_at(ll x, F f) {\n        v[x] = mapping(f,\
+    \ v[x]);\n        if(x < n)\n            vf[x] = composition(f, vf[x]);\n    }\n\
+    \    void propagate_at(ll x) {\n        apply_at(x << 1, vf[x]);\n        apply_at(x\
+    \ << 1 | 1, vf[x]);\n        vf[x] = id();\n    }\n    ll bit_length(unsigned\
     \ long long x) const { return 64 - countl_zero(x); }\n    void propagate_above(ll\
     \ x) {\n        ll maxi = bit_length(x) - 1;\n        for(ll i = maxi; i > 0;\
     \ i--) {\n            propagate_at(x >> i);\n        }\n        return;\n    }\n\
@@ -153,11 +165,13 @@ data:
   - template.hpp
   isVerificationFile: false
   path: data_structure/lazy-segtree.hpp
-  requiredBy: []
-  timestamp: '2025-02-11 15:47:15+09:00'
+  requiredBy:
+  - data_structure/rectangle-union-area.hpp
+  timestamp: '2025-02-19 15:24:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/230.test.cpp
+  - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp

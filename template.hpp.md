@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: data_structure/compress.hpp
     title: data_structure/compress.hpp
   - icon: ':question:'
@@ -17,6 +17,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/range-chminmaxaddsum-segtree-beats.hpp
     title: data_structure/range-chminmaxaddsum-segtree-beats.hpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/rectangle-union-area.hpp
+    title: data_structure/rectangle-union-area.hpp
   - icon: ':heavy_check_mark:'
     path: data_structure/segtree-beats.hpp
     title: data_structure/segtree-beats.hpp
@@ -155,6 +158,9 @@ data:
   - icon: ':x:'
     path: test/atcoder/practice2_j.test.cpp
     title: test/atcoder/practice2_j.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
+    title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/associative_array.test.cpp
     title: test/library_checker/data_structure/associative_array.test.cpp
@@ -438,6 +444,7 @@ data:
   - data_structure/lazy-splaytree.hpp
   - data_structure/compress.hpp
   - data_structure/slope-trick.hpp
+  - data_structure/rectangle-union-area.hpp
   - tree/auxiliary-tree.hpp
   - tree/euler-tour.hpp
   - number-theory/enumerate-primes.hpp
@@ -476,6 +483,7 @@ data:
   - test/library_checker/geometry/manhattanmst.test.cpp
   - test/library_checker/graph/chromatic_number.test.cpp
   - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
+  - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp

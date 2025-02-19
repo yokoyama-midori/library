@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: data_structure
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: data_structure/compress.hpp
       title: data_structure/compress.hpp
     - icon: ':question:'
@@ -18,6 +18,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/range-chminmaxaddsum-segtree-beats.hpp
       title: data_structure/range-chminmaxaddsum-segtree-beats.hpp
+    - icon: ':heavy_check_mark:'
+      path: data_structure/rectangle-union-area.hpp
+      title: data_structure/rectangle-union-area.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/segtree-beats.hpp
       title: data_structure/segtree-beats.hpp
@@ -183,6 +186,9 @@ data:
       title: test/atcoder/practice2_j.test.cpp
   - name: test/library_checker/data_structure
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
+      title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/associative_array.test.cpp
       title: test/library_checker/data_structure/associative_array.test.cpp

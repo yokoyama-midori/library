@@ -4,14 +4,20 @@ data:
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/rectangle-union-area.hpp
+    title: data_structure/rectangle-union-area.hpp
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/atcoder/abc113_c.test.cpp
     title: test/atcoder/abc113_c.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
+    title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://ei1333.github.io/library/other/compress.hpp
@@ -82,7 +88,7 @@ data:
     \u6700\u5C0F\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\u30B9\u3092\u8FD4\u3059\n   \
     \     assert(is_built);\n        ll res = lower_bound(data.begin(), data.end(),\
     \ x) - data.begin();\n        return res;\n    }\n    const T &operator[](size_t\
-    \ t) {\n        assert(is_built);\n        assert(0 <= t and t < ssize(data));\n\
+    \ t) {\n        assert(is_built);\n        assert(0 <= t and t < data.size());\n\
     \        return data[t];\n    }\n    ll size() {\n        return ssize(data);\n\
     \    }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/other/compress.hpp\n\
@@ -96,17 +102,19 @@ data:
     \ x \u4EE5\u4E0A\u3068\u306A\u308B\u6700\u5C0F\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\
     \u30B9\u3092\u8FD4\u3059\n        assert(is_built);\n        ll res = lower_bound(data.begin(),\
     \ data.end(), x) - data.begin();\n        return res;\n    }\n    const T &operator[](size_t\
-    \ t) {\n        assert(is_built);\n        assert(0 <= t and t < ssize(data));\n\
+    \ t) {\n        assert(is_built);\n        assert(0 <= t and t < data.size());\n\
     \        return data[t];\n    }\n    ll size() {\n        return ssize(data);\n\
     \    }\n};"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/compress.hpp
-  requiredBy: []
-  timestamp: '2024-12-18 01:36:01+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  requiredBy:
+  - data_structure/rectangle-union-area.hpp
+  timestamp: '2025-02-19 15:24:05+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - test/atcoder/abc113_c.test.cpp
 documentation_of: data_structure/compress.hpp
 layout: document

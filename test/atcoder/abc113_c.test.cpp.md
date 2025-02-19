@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: data_structure/compress.hpp
     title: data_structure/compress.hpp
   - icon: ':question:'
@@ -85,7 +85,7 @@ data:
     \u6700\u5C0F\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\u30B9\u3092\u8FD4\u3059\n   \
     \     assert(is_built);\n        ll res = lower_bound(data.begin(), data.end(),\
     \ x) - data.begin();\n        return res;\n    }\n    const T &operator[](size_t\
-    \ t) {\n        assert(is_built);\n        assert(0 <= t and t < ssize(data));\n\
+    \ t) {\n        assert(is_built);\n        assert(0 <= t and t < data.size());\n\
     \        return data[t];\n    }\n    ll size() {\n        return ssize(data);\n\
     \    }\n};\n#line 3 \"test/atcoder/abc113_c.test.cpp\"\nstring make_str(ll n)\
     \ {\n    string suf = to_string(n);\n    string res;\n    rep(i, 6 - ssize(suf))\
@@ -111,7 +111,7 @@ data:
   isVerificationFile: true
   path: test/atcoder/abc113_c.test.cpp
   requiredBy: []
-  timestamp: '2024-12-18 01:36:01+09:00'
+  timestamp: '2025-02-19 15:24:05+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/abc113_c.test.cpp
