@@ -40,7 +40,7 @@ template <class T = int, class ans_type = ll> struct RectangleUnionArea {
         Compress<T> cp;
         vector<int> ord(2 * n);
         iota(begin(ord), end(ord), -n);
-        // 下から平面走査 i : d[i]でin, -i-1 : U[i]でout
+        // 下から平面走査 i : d[i]でin, -i-1 : u[i]でout
         for(auto [l, d, r, u] : rectangles)
             cp.add(l), cp.add(r);
         cp.build();
