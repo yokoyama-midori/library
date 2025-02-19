@@ -1,13 +1,13 @@
+#pragma once
 #include "template.hpp"
-
 template <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),
           F (*composition)(F, F), F (*id)()>
 //   composition(f,g)(x) = f∘g(x) = f(g(x))
 // aclと同じ、maspyさん記事と逆
 struct lazy_segtree {
+    ll n;
     vector<S> v;
     vector<F> vf;
-    ll n;
     lazy_segtree(ll n)
         : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};
     lazy_segtree(vector<S> v_) : n(v_.size()) {
@@ -75,6 +75,11 @@ struct lazy_segtree {
             r >>= 1;
         }
         return op(sl, sr);
+    }
+    S all_prod_commute() { 
+        // 可換なモノイド専用
+        // 2冪にすれば非可換でも良さそう
+        return v[1]; 
     }
 
   private:
