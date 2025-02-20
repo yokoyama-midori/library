@@ -36,6 +36,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/splaytree.hpp
       title: "\u30B9\u30D7\u30EC\u30FC\u6728"
+    - icon: ':heavy_check_mark:'
+      path: data_structure/union-find.hpp
+      title: data_structure/union-find.hpp
   - name: dp
     pages:
     - icon: ':question:'
@@ -231,6 +234,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
       title: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/unionfind.test.cpp
+      title: test/library_checker/data_structure/unionfind.test.cpp
   - name: test/library_checker/enumerative_combinatorics
     pages:
     - icon: ':heavy_check_mark:'

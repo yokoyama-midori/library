@@ -35,6 +35,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/splaytree.hpp
     title: "\u30B9\u30D7\u30EC\u30FC\u6728"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/union-find.hpp
+    title: data_structure/union-find.hpp
   - icon: ':question:'
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
@@ -203,6 +206,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
     title: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/unionfind.test.cpp
+    title: test/library_checker/data_structure/unionfind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
@@ -440,6 +446,7 @@ data:
   - data_structure/splaytree.hpp
   - data_structure/lazy-segtree.hpp
   - data_structure/sparse-table.hpp
+  - data_structure/union-find.hpp
   - data_structure/hash-map-variable-length.hpp
   - data_structure/lazy-splaytree.hpp
   - data_structure/compress.hpp
@@ -495,6 +502,7 @@ data:
   - test/library_checker/data_structure/range_set_range_composite_splay.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
   - test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
+  - test/library_checker/data_structure/unionfind.test.cpp
   - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
   - test/library_checker/data_structure/associative_array.test.cpp
   - test/library_checker/tree/lca.test.cpp
