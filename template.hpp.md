@@ -21,6 +21,9 @@ data:
     path: data_structure/rectangle-union-area.hpp
     title: data_structure/rectangle-union-area.hpp
   - icon: ':heavy_check_mark:'
+    path: data_structure/rollback-union-find.hpp
+    title: data_structure/rollback-union-find.hpp
+  - icon: ':heavy_check_mark:'
     path: data_structure/segtree-beats.hpp
     title: data_structure/segtree-beats.hpp
   - icon: ':question:'
@@ -170,6 +173,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
     title: test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/data_structure/persistent_unionfind.test.cpp
+    title: test/library_checker/data_structure/persistent_unionfind.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/point_add_range_sum.test.cpp
     title: test/library_checker/data_structure/point_add_range_sum.test.cpp
@@ -448,6 +454,7 @@ data:
   - data_structure/sparse-table.hpp
   - data_structure/union-find.hpp
   - data_structure/hash-map-variable-length.hpp
+  - data_structure/rollback-union-find.hpp
   - data_structure/lazy-splaytree.hpp
   - data_structure/compress.hpp
   - data_structure/slope-trick.hpp
@@ -491,6 +498,7 @@ data:
   - test/library_checker/graph/chromatic_number.test.cpp
   - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
   - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
+  - test/library_checker/data_structure/persistent_unionfind.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp

@@ -22,6 +22,9 @@ data:
       path: data_structure/rectangle-union-area.hpp
       title: data_structure/rectangle-union-area.hpp
     - icon: ':heavy_check_mark:'
+      path: data_structure/rollback-union-find.hpp
+      title: data_structure/rollback-union-find.hpp
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree-beats.hpp
       title: data_structure/segtree-beats.hpp
     - icon: ':question:'
@@ -198,6 +201,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
       title: test/library_checker/data_structure/dynamic_sequence_range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/data_structure/persistent_unionfind.test.cpp
+      title: test/library_checker/data_structure/persistent_unionfind.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/data_structure/point_add_range_sum.test.cpp
       title: test/library_checker/data_structure/point_add_range_sum.test.cpp
