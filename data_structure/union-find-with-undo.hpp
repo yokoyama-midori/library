@@ -2,12 +2,12 @@
 #include "template.hpp"
 // https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html
 // snapshot/rollback いるかな？
-struct RollbackUnionFind {
+struct UnionFindWithUndo {
     int n;
     vector<int> p;
     using T = tuple<int, int, int, int>;
     stack<T> history;
-    RollbackUnionFind(int n) : n(n), p(n, -1) {}
+    UnionFindWithUndo(int n) : n(n), p(n, -1) {}
     int leader(int x) {
         while(p[x] >= 0)
             x = p[x];
