@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/persistent_unionfind"
-#include "data_structure/rollback-union-find.hpp"
+#include "data_structure/union-find-with-undo.hpp"
 void solve() {
     INT(n, q);
-    RollbackUnionFind dsu(n);
+    UnionFindWithUndo dsu(n);
     vector ch(q + 1, vector<int>());
     vector<pair<int, int>> mg(q + 1, {0, 0});
     vector<vector<tuple<int, int, int>>> query(q + 1);
