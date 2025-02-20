@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: data_structure/rollback-union-find.hpp
-    title: data_structure/rollback-union-find.hpp
+    path: data_structure/union-find-with-undo.hpp
+    title: "Undo\u3064\u304DUnion Find"
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
@@ -74,11 +74,11 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/rollback-union-find.hpp\"\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/union-find-with-undo.hpp\"\
     \n// https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html\n\
-    // snapshot/rollback \u3044\u308B\u304B\u306A\uFF1F\nstruct RollbackUnionFind\
+    // snapshot/rollback \u3044\u308B\u304B\u306A\uFF1F\nstruct UnionFindWithUndo\
     \ {\n    int n;\n    vector<int> p;\n    using T = tuple<int, int, int, int>;\n\
-    \    stack<T> history;\n    RollbackUnionFind(int n) : n(n), p(n, -1) {}\n   \
+    \    stack<T> history;\n    UnionFindWithUndo(int n) : n(n), p(n, -1) {}\n   \
     \ int leader(int x) {\n        while(p[x] >= 0)\n            x = p[x];\n     \
     \   return x;\n    }\n    int merge(int x, int y) {\n        x = leader(x), y\
     \ = leader(y);\n        history.push(T(x, y, p[x], p[y]));\n        if(x == y)\n\
@@ -89,7 +89,7 @@ data:
     \         p[x] = px, p[y] = py;\n        }\n    }\n    int size(int x) { return\
     \ -p[leader(x)]; }\n    bool same(int x, int y) { return leader(x) == leader(y);\
     \ }\n};\n#line 3 \"test/library_checker/data_structure/persistent_unionfind.test.cpp\"\
-    \nvoid solve() {\n    INT(n, q);\n    RollbackUnionFind dsu(n);\n    vector ch(q\
+    \nvoid solve() {\n    INT(n, q);\n    UnionFindWithUndo dsu(n);\n    vector ch(q\
     \ + 1, vector<int>());\n    vector<pair<int, int>> mg(q + 1, {0, 0});\n    vector<vector<tuple<int,\
     \ int, int>>> query(q + 1);\n    vector<int> ans(q + 1, -1);\n    rep(i, 1, q\
     \ + 1) {\n        INT(t, k, x, y);\n        ++k;\n        if(!t) {\n         \
@@ -102,8 +102,8 @@ data:
     \ ai : ans)\n        if(ai != -1)\n            print(ai);\n}\nint main() {\n \
     \   ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/persistent_unionfind\"\n\
-    #include \"data_structure/rollback-union-find.hpp\"\nvoid solve() {\n    INT(n,\
-    \ q);\n    RollbackUnionFind dsu(n);\n    vector ch(q + 1, vector<int>());\n \
+    #include \"data_structure/union-find-with-undo.hpp\"\nvoid solve() {\n    INT(n,\
+    \ q);\n    UnionFindWithUndo dsu(n);\n    vector ch(q + 1, vector<int>());\n \
     \   vector<pair<int, int>> mg(q + 1, {0, 0});\n    vector<vector<tuple<int, int,\
     \ int>>> query(q + 1);\n    vector<int> ans(q + 1, -1);\n    rep(i, 1, q + 1)\
     \ {\n        INT(t, k, x, y);\n        ++k;\n        if(!t) {\n            ch[k].push_back(i);\n\
@@ -116,12 +116,12 @@ data:
     \        print(ai);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
   dependsOn:
-  - data_structure/rollback-union-find.hpp
+  - data_structure/union-find-with-undo.hpp
   - template.hpp
   isVerificationFile: true
   path: test/library_checker/data_structure/persistent_unionfind.test.cpp
   requiredBy: []
-  timestamp: '2025-02-21 03:11:34+09:00'
+  timestamp: '2025-02-21 05:06:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/persistent_unionfind.test.cpp

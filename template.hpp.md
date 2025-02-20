@@ -21,9 +21,6 @@ data:
     path: data_structure/rectangle-union-area.hpp
     title: data_structure/rectangle-union-area.hpp
   - icon: ':heavy_check_mark:'
-    path: data_structure/rollback-union-find.hpp
-    title: data_structure/rollback-union-find.hpp
-  - icon: ':heavy_check_mark:'
     path: data_structure/segtree-beats.hpp
     title: data_structure/segtree-beats.hpp
   - icon: ':question:'
@@ -38,6 +35,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/splaytree.hpp
     title: "\u30B9\u30D7\u30EC\u30FC\u6728"
+  - icon: ':heavy_check_mark:'
+    path: data_structure/union-find-with-undo.hpp
+    title: "Undo\u3064\u304DUnion Find"
   - icon: ':heavy_check_mark:'
     path: data_structure/union-find.hpp
     title: data_structure/union-find.hpp
@@ -454,10 +454,10 @@ data:
   - data_structure/sparse-table.hpp
   - data_structure/union-find.hpp
   - data_structure/hash-map-variable-length.hpp
-  - data_structure/rollback-union-find.hpp
   - data_structure/lazy-splaytree.hpp
   - data_structure/compress.hpp
   - data_structure/slope-trick.hpp
+  - data_structure/union-find-with-undo.hpp
   - data_structure/rectangle-union-area.hpp
   - tree/auxiliary-tree.hpp
   - tree/euler-tour.hpp

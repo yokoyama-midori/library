@@ -70,11 +70,11 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/rollback-union-find.hpp\"\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/union-find-with-undo.hpp\"\
     \n// https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html\n\
-    // snapshot/rollback \u3044\u308B\u304B\u306A\uFF1F\nstruct RollbackUnionFind\
+    // snapshot/rollback \u3044\u308B\u304B\u306A\uFF1F\nstruct UnionFindWithUndo\
     \ {\n    int n;\n    vector<int> p;\n    using T = tuple<int, int, int, int>;\n\
-    \    stack<T> history;\n    RollbackUnionFind(int n) : n(n), p(n, -1) {}\n   \
+    \    stack<T> history;\n    UnionFindWithUndo(int n) : n(n), p(n, -1) {}\n   \
     \ int leader(int x) {\n        while(p[x] >= 0)\n            x = p[x];\n     \
     \   return x;\n    }\n    int merge(int x, int y) {\n        x = leader(x), y\
     \ = leader(y);\n        history.push(T(x, y, p[x], p[y]));\n        if(x == y)\n\
@@ -86,9 +86,9 @@ data:
     \ -p[leader(x)]; }\n    bool same(int x, int y) { return leader(x) == leader(y);\
     \ }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\n// https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html\n\
-    // snapshot/rollback \u3044\u308B\u304B\u306A\uFF1F\nstruct RollbackUnionFind\
+    // snapshot/rollback \u3044\u308B\u304B\u306A\uFF1F\nstruct UnionFindWithUndo\
     \ {\n    int n;\n    vector<int> p;\n    using T = tuple<int, int, int, int>;\n\
-    \    stack<T> history;\n    RollbackUnionFind(int n) : n(n), p(n, -1) {}\n   \
+    \    stack<T> history;\n    UnionFindWithUndo(int n) : n(n), p(n, -1) {}\n   \
     \ int leader(int x) {\n        while(p[x] >= 0)\n            x = p[x];\n     \
     \   return x;\n    }\n    int merge(int x, int y) {\n        x = leader(x), y\
     \ = leader(y);\n        history.push(T(x, y, p[x], p[y]));\n        if(x == y)\n\
@@ -102,16 +102,20 @@ data:
   dependsOn:
   - template.hpp
   isVerificationFile: false
-  path: data_structure/rollback-union-find.hpp
+  path: data_structure/union-find-with-undo.hpp
   requiredBy: []
-  timestamp: '2025-02-21 03:11:34+09:00'
+  timestamp: '2025-02-21 05:06:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/persistent_unionfind.test.cpp
-documentation_of: data_structure/rollback-union-find.hpp
+documentation_of: data_structure/union-find-with-undo.hpp
 layout: document
-redirect_from:
-- /library/data_structure/rollback-union-find.hpp
-- /library/data_structure/rollback-union-find.hpp.html
-title: data_structure/rollback-union-find.hpp
+title: "Undo\u3064\u304DUnion Find"
 ---
+
+## 問題例
+
+- [ABC302 Ex - Ball Collector](https://atcoder.jp/contests/abc302/tasks/abc302_h)  
+連結成分の辺の数と頂点数を持つ
+
+
