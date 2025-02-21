@@ -73,38 +73,40 @@ data:
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/union-find-with-undo.hpp\"\
     \n// https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html\n\
     // snapshot/rollback \u3044\u308B\u304B\u306A\uFF1F\nstruct UnionFindWithUndo\
-    \ {\n    int n;\n    vector<int> p;\n    using T = tuple<int, int, int, int>;\n\
-    \    stack<T> history;\n    UnionFindWithUndo(int n) : n(n), p(n, -1) {}\n   \
-    \ int leader(int x) {\n        while(p[x] >= 0)\n            x = p[x];\n     \
-    \   return x;\n    }\n    int merge(int x, int y) {\n        x = leader(x), y\
-    \ = leader(y);\n        history.push(T(x, y, p[x], p[y]));\n        if(x == y)\n\
-    \            return x;\n        if(-p[x] < -p[y])\n            swap(x, y);\n \
-    \       p[x] += p[y];\n        p[y] = x;\n        return x;\n    }\n    void undo(int\
-    \ k = 1) {\n        assert(history.size() >= k);\n        while(k--) {\n     \
-    \       auto [x, y, px, py] = history.top();\n            history.pop();\n   \
-    \         p[x] = px, p[y] = py;\n        }\n    }\n    int size(int x) { return\
-    \ -p[leader(x)]; }\n    bool same(int x, int y) { return leader(x) == leader(y);\
-    \ }\n};\n"
+    \ {\n    int n, numComponents;\n    vector<int> p;\n    using T = tuple<int, int,\
+    \ int, int>;\n    stack<T> history;\n    UnionFindWithUndo(int n) : n(n), numComponents(n),\
+    \ p(n, -1) {}\n    int leader(int x) {\n        while(p[x] >= 0)\n           \
+    \ x = p[x];\n        return x;\n    }\n    int merge(int x, int y) {\n       \
+    \ x = leader(x), y = leader(y);\n        history.push(T(x, y, p[x], p[y]));\n\
+    \        if(x == y)\n            return x;\n        --numComponents;\n       \
+    \ if(-p[x] < -p[y])\n            swap(x, y);\n        p[x] += p[y];\n        p[y]\
+    \ = x;\n        return x;\n    }\n    void undo(int k = 1) {\n        assert(history.size()\
+    \ >= k);\n        while(k--) {\n            auto [x, y, px, py] = history.top();\n\
+    \            history.pop();\n            p[x] = px, p[y] = py;\n            if(x\
+    \ != y)\n                ++numComponents;\n        }\n    }\n    int size(int\
+    \ x) { return -p[leader(x)]; }\n    bool same(int x, int y) { return leader(x)\
+    \ == leader(y); }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\n// https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html\n\
     // snapshot/rollback \u3044\u308B\u304B\u306A\uFF1F\nstruct UnionFindWithUndo\
-    \ {\n    int n;\n    vector<int> p;\n    using T = tuple<int, int, int, int>;\n\
-    \    stack<T> history;\n    UnionFindWithUndo(int n) : n(n), p(n, -1) {}\n   \
-    \ int leader(int x) {\n        while(p[x] >= 0)\n            x = p[x];\n     \
-    \   return x;\n    }\n    int merge(int x, int y) {\n        x = leader(x), y\
-    \ = leader(y);\n        history.push(T(x, y, p[x], p[y]));\n        if(x == y)\n\
-    \            return x;\n        if(-p[x] < -p[y])\n            swap(x, y);\n \
-    \       p[x] += p[y];\n        p[y] = x;\n        return x;\n    }\n    void undo(int\
-    \ k = 1) {\n        assert(history.size() >= k);\n        while(k--) {\n     \
-    \       auto [x, y, px, py] = history.top();\n            history.pop();\n   \
-    \         p[x] = px, p[y] = py;\n        }\n    }\n    int size(int x) { return\
-    \ -p[leader(x)]; }\n    bool same(int x, int y) { return leader(x) == leader(y);\
-    \ }\n};"
+    \ {\n    int n, numComponents;\n    vector<int> p;\n    using T = tuple<int, int,\
+    \ int, int>;\n    stack<T> history;\n    UnionFindWithUndo(int n) : n(n), numComponents(n),\
+    \ p(n, -1) {}\n    int leader(int x) {\n        while(p[x] >= 0)\n           \
+    \ x = p[x];\n        return x;\n    }\n    int merge(int x, int y) {\n       \
+    \ x = leader(x), y = leader(y);\n        history.push(T(x, y, p[x], p[y]));\n\
+    \        if(x == y)\n            return x;\n        --numComponents;\n       \
+    \ if(-p[x] < -p[y])\n            swap(x, y);\n        p[x] += p[y];\n        p[y]\
+    \ = x;\n        return x;\n    }\n    void undo(int k = 1) {\n        assert(history.size()\
+    \ >= k);\n        while(k--) {\n            auto [x, y, px, py] = history.top();\n\
+    \            history.pop();\n            p[x] = px, p[y] = py;\n            if(x\
+    \ != y)\n                ++numComponents;\n        }\n    }\n    int size(int\
+    \ x) { return -p[leader(x)]; }\n    bool same(int x, int y) { return leader(x)\
+    \ == leader(y); }\n};"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: data_structure/union-find-with-undo.hpp
   requiredBy: []
-  timestamp: '2025-02-21 05:06:47+09:00'
+  timestamp: '2025-02-21 16:40:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/persistent_unionfind.test.cpp
@@ -117,5 +119,6 @@ title: "Undo\u3064\u304DUnion Find"
 
 - [ABC302 Ex - Ball Collector](https://atcoder.jp/contests/abc302/tasks/abc302_h)  
 連結成分の辺の数と頂点数を持つ
-
+- [ABC334 G - Christmas Color Grid 2](https://atcoder.jp/contests/abc334/tasks/abc334_g)  
+分割統治+undoつきUF
 
