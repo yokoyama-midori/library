@@ -3,11 +3,11 @@
 // https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html
 // snapshot/rollback いるかな？
 struct UnionFindWithUndo {
-    int n;
+    int n, numComponents;
     vector<int> p;
     using T = tuple<int, int, int, int>;
     stack<T> history;
-    UnionFindWithUndo(int n) : n(n), p(n, -1) {}
+    UnionFindWithUndo(int n) : n(n), numComponents(n), p(n, -1) {}
     int leader(int x) {
         while(p[x] >= 0)
             x = p[x];
@@ -18,6 +18,7 @@ struct UnionFindWithUndo {
         history.push(T(x, y, p[x], p[y]));
         if(x == y)
             return x;
+        --numComponents;
         if(-p[x] < -p[y])
             swap(x, y);
         p[x] += p[y];
@@ -30,6 +31,8 @@ struct UnionFindWithUndo {
             auto [x, y, px, py] = history.top();
             history.pop();
             p[x] = px, p[y] = py;
+            if(x != y)
+                ++numComponents;
         }
     }
     int size(int x) { return -p[leader(x)]; }
