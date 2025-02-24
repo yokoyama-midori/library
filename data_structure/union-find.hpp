@@ -1,14 +1,13 @@
 #pragma once
 #include "template.hpp"
 struct UnionFind {
-    // 経路圧縮なし
     int n;
     vector<int> p;
     UnionFind(int n) : n(n), p(n, -1) {}
     int leader(int x) {
-        while(p[x] >= 0)
-            x = p[x];
-        return x;
+        if(p[x] < 0)
+            return x;
+        return p[x] = leader(p[x]);
     }
     int merge(int x, int y) {
         x = leader(x), y = leader(y);
