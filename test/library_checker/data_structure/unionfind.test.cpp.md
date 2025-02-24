@@ -75,19 +75,18 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/union-find.hpp\"\
-    \nstruct UnionFind {\n    // \u7D4C\u8DEF\u5727\u7E2E\u306A\u3057\n    int n;\n\
-    \    vector<int> p;\n    UnionFind(int n) : n(n), p(n, -1) {}\n    int leader(int\
-    \ x) {\n        while(p[x] >= 0)\n            x = p[x];\n        return x;\n \
-    \   }\n    int merge(int x, int y) {\n        x = leader(x), y = leader(y);\n\
-    \        if(x == y)\n            return x;\n        if(-p[x] < -p[y])\n      \
-    \      swap(x, y);\n        p[x] += p[y];\n        p[y] = x;\n        return x;\n\
-    \    }\n    int size(int x) { return -p[leader(x)]; }\n    bool same(int x, int\
-    \ y) { return leader(x) == leader(y); }\n};\n#line 4 \"test/library_checker/data_structure/unionfind.test.cpp\"\
-    \nvoid solve() {\n    INT(n, q);\n    UnionFind dsu(n);\n    while(q--) {\n  \
-    \      INT(t, x, y);\n        if(t) {\n            print(dsu.same(x, y));\n  \
-    \      } else {\n            dsu.merge(x, y);\n        }\n    }\n}\nint main()\
-    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
-    }\n"
+    \nstruct UnionFind {\n    int n;\n    vector<int> p;\n    UnionFind(int n) : n(n),\
+    \ p(n, -1) {}\n    int leader(int x) {\n        if(p[x] < 0)\n            return\
+    \ x;\n        return p[x] = leader(p[x]);\n    }\n    int merge(int x, int y)\
+    \ {\n        x = leader(x), y = leader(y);\n        if(x == y)\n            return\
+    \ x;\n        if(-p[x] < -p[y])\n            swap(x, y);\n        p[x] += p[y];\n\
+    \        p[y] = x;\n        return x;\n    }\n    int size(int x) { return -p[leader(x)];\
+    \ }\n    bool same(int x, int y) { return leader(x) == leader(y); }\n};\n#line\
+    \ 4 \"test/library_checker/data_structure/unionfind.test.cpp\"\nvoid solve() {\n\
+    \    INT(n, q);\n    UnionFind dsu(n);\n    while(q--) {\n        INT(t, x, y);\n\
+    \        if(t) {\n            print(dsu.same(x, y));\n        } else {\n     \
+    \       dsu.merge(x, y);\n        }\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\n#include \"\
     data_structure/union-find.hpp\"\n#include \"template.hpp\"\nvoid solve() {\n \
     \   INT(n, q);\n    UnionFind dsu(n);\n    while(q--) {\n        INT(t, x, y);\n\
@@ -100,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/unionfind.test.cpp
   requiredBy: []
-  timestamp: '2025-02-21 02:06:59+09:00'
+  timestamp: '2025-02-24 19:56:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/unionfind.test.cpp
