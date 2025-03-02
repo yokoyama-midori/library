@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/sparse-table.hpp
     title: data_structure/sparse-table.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/euler-tour.hpp
     title: tree/euler-tour.hpp
   _extendedRequiredBy: []

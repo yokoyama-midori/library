@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: data_structure/slope-trick.hpp
     title: data_structure/slope-trick.hpp
   - icon: ':question:'

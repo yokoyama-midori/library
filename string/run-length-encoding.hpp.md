@@ -12,12 +12,12 @@ data:
   - icon: ':x:'
     path: test/atcoder/abc369_c.test.cpp
     title: test/atcoder/abc369_c.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -92,7 +92,7 @@ data:
   path: string/run-length-encoding.hpp
   requiredBy: []
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/my-test/run-length-encoding.test.cpp
   - test/atcoder/abc329_c.test.cpp

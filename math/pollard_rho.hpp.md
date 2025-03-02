@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/primitive-root.hpp
     title: math/primitive-root.hpp
   _extendedVerifiedWith:
@@ -21,21 +21,21 @@ data:
   - icon: ':x:'
     path: test/atcoder/abc249_d.test.cpp
     title: test/atcoder/abc249_d.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primitive_root.test.cpp
     title: test/library_checker/number_theory/primitive_root.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/2051.test.cpp
     title: test/yukicoder/2051.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://manabitimes.jp/math/1192
@@ -177,7 +177,7 @@ data:
   requiredBy:
   - math/primitive-root.hpp
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primitive_root.test.cpp

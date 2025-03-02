@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/sparse-table.hpp
     title: data_structure/sparse-table.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/euler-tour.hpp
     title: tree/euler-tour.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -122,7 +122,7 @@ data:
   path: test/library_checker/tree/lca.test.cpp
   requiredBy: []
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/tree/lca.test.cpp
 layout: document

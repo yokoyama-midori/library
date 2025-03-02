@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/factorial_large.hpp
     title: math/factorial_large.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
     title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/3004.test.cpp
     title: test/yukicoder/3004.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp
@@ -147,7 +147,7 @@ data:
   requiredBy:
   - math/factorial_large.hpp
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/factorial.hpp
     title: math/factorial.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: poly/shift_of_sampling_points.hpp
     title: poly/shift_of_sampling_points.hpp
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial
@@ -138,7 +138,7 @@ data:
   path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   requiredBy: []
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
 layout: document

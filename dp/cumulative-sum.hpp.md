@@ -12,7 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
     title: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/2092.test.cpp
     title: test/yukicoder/2092.test.cpp
   _isVerificationFailed: true
