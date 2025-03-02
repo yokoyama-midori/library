@@ -121,12 +121,12 @@ data:
     \        return pl + pr;\n    }\n    S get(ll x) { return v[n + x]; }\n};\nusing\
     \ S = HashMap<ll>;\nS op(S s, S t) {\n    if(t.sz > s.sz)\n        swap(s, t);\n\
     \    for(auto [key, val] : t.enumerate()) {\n        s[key] += val;\n    }\n \
-    \   return s;\n};\nS e() { return S(); }\n\nvoid solve() {\n    LL(n);\n    Graph\
-    \ g(n);\n    vector<S> mp(n);\n    rep(i, n) {\n        LL(a);\n        mp[i][--a]\
-    \ = 1;\n    }\n    segtree<S, op, e> seg(mp);\n    LL(q);\n    rep(_, q) {\n \
-    \       LL(l, r, x);\n        l--, x--;\n        ll ans = seg.prod(l, r, x);\n\
-    \        print(ans);\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+    \   return s;\n};\nS e() { return S(); }\n\nvoid solve() {\n    LL(n);\n    vector<S>\
+    \ mp(n);\n    rep(i, n) {\n        LL(a);\n        mp[i][--a] = 1;\n    }\n  \
+    \  segtree<S, op, e> seg(mp);\n    LL(q);\n    rep(_, q) {\n        LL(l, r, x);\n\
+    \        l--, x--;\n        ll ans = seg.prod(l, r, x);\n        print(ans);\n\
+    \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/abc248/tasks/abc248_d\"\n#include\
     \ \"data_structure/hash-map-variable-length.hpp\"\n// segtree \u6539\u9020\n//\
     \ https://atcoder.jp/contests/abc248/editorial/3819\ntemplate <class S, S (*op)(S,\
@@ -146,19 +146,19 @@ data:
     \        return pl + pr;\n    }\n    S get(ll x) { return v[n + x]; }\n};\nusing\
     \ S = HashMap<ll>;\nS op(S s, S t) {\n    if(t.sz > s.sz)\n        swap(s, t);\n\
     \    for(auto [key, val] : t.enumerate()) {\n        s[key] += val;\n    }\n \
-    \   return s;\n};\nS e() { return S(); }\n\nvoid solve() {\n    LL(n);\n    Graph\
-    \ g(n);\n    vector<S> mp(n);\n    rep(i, n) {\n        LL(a);\n        mp[i][--a]\
-    \ = 1;\n    }\n    segtree<S, op, e> seg(mp);\n    LL(q);\n    rep(_, q) {\n \
-    \       LL(l, r, x);\n        l--, x--;\n        ll ans = seg.prod(l, r, x);\n\
-    \        print(ans);\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    solve();\n}"
+    \   return s;\n};\nS e() { return S(); }\n\nvoid solve() {\n    LL(n);\n    vector<S>\
+    \ mp(n);\n    rep(i, n) {\n        LL(a);\n        mp[i][--a] = 1;\n    }\n  \
+    \  segtree<S, op, e> seg(mp);\n    LL(q);\n    rep(_, q) {\n        LL(l, r, x);\n\
+    \        l--, x--;\n        ll ans = seg.prod(l, r, x);\n        print(ans);\n\
+    \    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}"
   dependsOn:
   - data_structure/hash-map-variable-length.hpp
   - template.hpp
   isVerificationFile: true
   path: test/atcoder/abc248_d.test.cpp
   requiredBy: []
-  timestamp: '2025-03-02 18:30:18+09:00'
+  timestamp: '2025-03-02 19:13:41+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/atcoder/abc248_d.test.cpp
