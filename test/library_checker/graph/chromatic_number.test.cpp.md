@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/chromatic-number.hpp
     title: graph/chromatic-number.hpp
   - icon: ':question:'
@@ -42,7 +42,7 @@ data:
     : \"; debug_print(cout, x4) << \", \" << #x5 << \": \"; debug_print(cout, x5)\
     \ << endl; }\n\n#ifdef LOCAL\n#define debug(...) CHOOSE((__VA_ARGS__, debug_5,\
     \ debug_4, debug_3, debug_2, debug_1, ~))(__VA_ARGS__)\n#else\n#define debug(...)\n\
-    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -117,7 +117,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/chromatic_number.test.cpp
   requiredBy: []
-  timestamp: '2024-12-06 17:22:20+09:00'
+  timestamp: '2025-03-02 18:30:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/chromatic_number.test.cpp

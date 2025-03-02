@@ -6,24 +6,24 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc127_f.test.cpp
     title: test/atcoder/abc127_f.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc217_h.test.cpp
     title: test/atcoder/abc217_h.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/arc070_c.test.cpp
     title: test/atcoder/arc070_c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/arc123_d.test.cpp
     title: test/atcoder/arc123_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1077.test.cpp
     title: test/yukicoder/1077.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://ei1333.github.io/library/structure/others/slope-trick.hpp
@@ -52,7 +52,7 @@ data:
     : \"; debug_print(cout, x4) << \", \" << #x5 << \": \"; debug_print(cout, x5)\
     \ << endl; }\n\n#ifdef LOCAL\n#define debug(...) CHOOSE((__VA_ARGS__, debug_5,\
     \ debug_4, debug_3, debug_2, debug_1, ~))(__VA_ARGS__)\n#else\n#define debug(...)\n\
-    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -151,14 +151,14 @@ data:
   isVerificationFile: false
   path: data_structure/slope-trick.hpp
   requiredBy: []
-  timestamp: '2024-12-06 17:38:38+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-03-02 18:30:18+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/1077.test.cpp
-  - test/atcoder/arc123_d.test.cpp
-  - test/atcoder/abc127_f.test.cpp
-  - test/atcoder/arc070_c.test.cpp
   - test/atcoder/abc217_h.test.cpp
+  - test/atcoder/arc123_d.test.cpp
+  - test/atcoder/arc070_c.test.cpp
+  - test/atcoder/abc127_f.test.cpp
 documentation_of: data_structure/slope-trick.hpp
 layout: document
 redirect_from:

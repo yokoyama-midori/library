@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/primitive-root.hpp
     title: math/primitive-root.hpp
   _extendedVerifiedWith:
@@ -21,24 +21,24 @@ data:
   - icon: ':x:'
     path: test/atcoder/abc249_d.test.cpp
     title: test/atcoder/abc249_d.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/primality_test.test.cpp
     title: test/library_checker/number_theory/primality_test.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/primitive_root.test.cpp
     title: test/library_checker/number_theory/primitive_root.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/2051.test.cpp
     title: test/yukicoder/2051.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://drken1215.hatenablog.com/entry/2023/05/23/233000
@@ -65,7 +65,7 @@ data:
     : \"; debug_print(cout, x4) << \", \" << #x5 << \": \"; debug_print(cout, x5)\
     \ << endl; }\n\n#ifdef LOCAL\n#define debug(...) CHOOSE((__VA_ARGS__, debug_5,\
     \ debug_4, debug_3, debug_2, debug_1, ~))(__VA_ARGS__)\n#else\n#define debug(...)\n\
-    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -142,16 +142,16 @@ data:
   isVerificationFile: false
   path: math/miller_rabin.hpp
   requiredBy:
-  - math/pollard_rho.hpp
   - math/primitive-root.hpp
-  timestamp: '2025-01-31 17:56:36+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  - math/pollard_rho.hpp
+  timestamp: '2025-03-02 18:30:18+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/yukicoder/888.test.cpp
-  - test/yukicoder/2051.test.cpp
-  - test/library_checker/number_theory/primitive_root.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
+  - test/library_checker/number_theory/primitive_root.test.cpp
+  - test/yukicoder/2051.test.cpp
+  - test/yukicoder/888.test.cpp
   - test/atcoder/abc180_c.test.cpp
   - test/atcoder/abc249_d.test.cpp
 documentation_of: math/miller_rabin.hpp

@@ -6,18 +6,18 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc329_c.test.cpp
     title: test/atcoder/abc329_c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/atcoder/abc369_c.test.cpp
     title: test/atcoder/abc369_c.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -43,7 +43,7 @@ data:
     : \"; debug_print(cout, x4) << \", \" << #x5 << \": \"; debug_print(cout, x5)\
     \ << endl; }\n\n#ifdef LOCAL\n#define debug(...) CHOOSE((__VA_ARGS__, debug_5,\
     \ debug_4, debug_3, debug_2, debug_1, ~))(__VA_ARGS__)\n#else\n#define debug(...)\n\
-    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -91,12 +91,12 @@ data:
   isVerificationFile: false
   path: string/run-length-encoding.hpp
   requiredBy: []
-  timestamp: '2024-12-07 20:51:51+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-03-02 18:30:18+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/atcoder/abc369_c.test.cpp
-  - test/atcoder/abc329_c.test.cpp
   - test/my-test/run-length-encoding.test.cpp
+  - test/atcoder/abc329_c.test.cpp
+  - test/atcoder/abc369_c.test.cpp
 documentation_of: string/run-length-encoding.hpp
 layout: document
 redirect_from:

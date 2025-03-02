@@ -5,28 +5,28 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: number-theory/divisor-multiple-transform.hpp
     title: number-theory/divisor-multiple-transform.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: number-theory/gcd-convolution.hpp
     title: number-theory/gcd-convolution.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: number-theory/lcm-convolution.hpp
     title: number-theory/lcm-convolution.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/enumerate_primes.test.cpp
     title: test/library_checker/number_theory/enumerate_primes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/gcd_convolution.test.cpp
     title: test/library_checker/number_theory/gcd_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/number_theory/lcm_convolution.test.cpp
     title: test/library_checker/number_theory/lcm_convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://nyaannyaan.github.io/library/prime/prime-enumerate.hpp
@@ -53,7 +53,7 @@ data:
     : \"; debug_print(cout, x4) << \", \" << #x5 << \": \"; debug_print(cout, x5)\
     \ << endl; }\n\n#ifdef LOCAL\n#define debug(...) CHOOSE((__VA_ARGS__, debug_5,\
     \ debug_4, debug_3, debug_2, debug_1, ~))(__VA_ARGS__)\n#else\n#define debug(...)\n\
-    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -116,13 +116,13 @@ data:
   path: number-theory/enumerate-primes.hpp
   requiredBy:
   - number-theory/lcm-convolution.hpp
-  - number-theory/divisor-multiple-transform.hpp
   - number-theory/gcd-convolution.hpp
-  timestamp: '2025-01-08 13:17:27+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - number-theory/divisor-multiple-transform.hpp
+  timestamp: '2025-03-02 18:30:18+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/library_checker/number_theory/lcm_convolution.test.cpp
   - test/library_checker/number_theory/gcd_convolution.test.cpp
+  - test/library_checker/number_theory/lcm_convolution.test.cpp
   - test/library_checker/number_theory/enumerate_primes.test.cpp
 documentation_of: number-theory/enumerate-primes.hpp
 layout: document

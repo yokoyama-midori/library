@@ -49,7 +49,7 @@ data:
     : \"; debug_print(cout, x4) << \", \" << #x5 << \": \"; debug_print(cout, x5)\
     \ << endl; }\n\n#ifdef LOCAL\n#define debug(...) CHOOSE((__VA_ARGS__, debug_5,\
     \ debug_4, debug_3, debug_2, debug_1, ~))(__VA_ARGS__)\n#else\n#define debug(...)\n\
-    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -116,13 +116,13 @@ data:
   isVerificationFile: false
   path: data_structure/segtree.hpp
   requiredBy: []
-  timestamp: '2025-02-07 15:18:13+09:00'
+  timestamp: '2025-03-02 18:30:18+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/library_checker/data_structure/static_range_sum_segtree.test.cpp
   - test/library_checker/data_structure/point_set_range_composite.test.cpp
   - test/library_checker/data_structure/staticrmq.test.cpp
-  - test/library_checker/data_structure/point_add_range_sum.test.cpp
   - test/atcoder/practice2_j.test.cpp
 documentation_of: data_structure/segtree.hpp
 layout: document

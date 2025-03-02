@@ -21,12 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_set_range_composite.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -52,7 +52,7 @@ data:
     : \"; debug_print(cout, x4) << \", \" << #x5 << \": \"; debug_print(cout, x5)\
     \ << endl; }\n\n#ifdef LOCAL\n#define debug(...) CHOOSE((__VA_ARGS__, debug_5,\
     \ debug_4, debug_3, debug_2, debug_1, ~))(__VA_ARGS__)\n#else\n#define debug(...)\n\
-    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing Graph = vector<vector<ll>>;\n\
+    #endif\n\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\n\
     using P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename\
     \ T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
     }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
@@ -167,14 +167,14 @@ data:
   path: data_structure/lazy-segtree.hpp
   requiredBy:
   - data_structure/rectangle-union-area.hpp
-  timestamp: '2025-02-19 15:24:05+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-03-02 18:30:18+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/yukicoder/230.test.cpp
   - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp
   - test/library_checker/data_structure/range_set_range_composite.test.cpp
   - test/library_checker/data_structure/range_affine_range_sum.test.cpp
+  - test/yukicoder/230.test.cpp
 documentation_of: data_structure/lazy-segtree.hpp
 layout: document
 redirect_from:
