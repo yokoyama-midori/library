@@ -60,6 +60,12 @@ data:
     - icon: ':question:'
       path: graph/chromatic-number.hpp
       title: graph/chromatic-number.hpp
+    - icon: ':heavy_check_mark:'
+      path: graph/graph-template.hpp
+      title: graph/graph-template.hpp
+    - icon: ':heavy_check_mark:'
+      path: graph/minimum-steiner-tree.hpp
+      title: graph/minimum-steiner-tree.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -137,6 +143,9 @@ data:
   verificationCategories:
   - name: test/aoj
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/1040.test.cpp
+      title: test/aoj/1040.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/aoj/1508.test.cpp
       title: test/aoj/1508.test.cpp

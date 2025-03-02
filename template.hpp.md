@@ -54,6 +54,12 @@ data:
     path: graph/chromatic-number.hpp
     title: graph/chromatic-number.hpp
   - icon: ':heavy_check_mark:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':heavy_check_mark:'
+    path: graph/minimum-steiner-tree.hpp
+    title: graph/minimum-steiner-tree.hpp
+  - icon: ':heavy_check_mark:'
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':heavy_check_mark:'
@@ -113,6 +119,9 @@ data:
     path: tree/euler-tour.hpp
     title: tree/euler-tour.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/1040.test.cpp
+    title: test/aoj/1040.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/1508.test.cpp
     title: test/aoj/1508.test.cpp
@@ -451,6 +460,8 @@ data:
   - number-theory/gcd-convolution.hpp
   - number-theory/divisor-multiple-transform.hpp
   - graph/chromatic-number.hpp
+  - graph/minimum-steiner-tree.hpp
+  - graph/graph-template.hpp
   - data_structure/sparse-table.hpp
   - data_structure/segtree.hpp
   - data_structure/hash-map-variable-length.hpp
@@ -508,6 +519,7 @@ data:
   - test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - test/my-test/splaytree.test.cpp
   - test/my-test/run-length-encoding.test.cpp
+  - test/aoj/1040.test.cpp
   - test/aoj/1508.test.cpp
   - test/yukicoder/1077.test.cpp
   - test/yukicoder/2051.test.cpp
