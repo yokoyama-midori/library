@@ -40,7 +40,7 @@ ostream& debug_print(ostream& os, const T& var) {
 
 using ll = long long;
 using vl = vector<ll>;
-using Graph = vector<vector<ll>>;
+using vll = vector<vl>;
 using P = pair<ll, ll>;
 #define all(v) v.begin(), v.end()
 template <typename T> inline bool chmax(T &a, T b) {
