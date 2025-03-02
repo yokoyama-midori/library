@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1040.test.cpp
     title: test/aoj/1040.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/114.test.cpp
+    title: test/yukicoder/114.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -137,6 +140,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/1040.test.cpp
+  - test/yukicoder/114.test.cpp
 documentation_of: graph/minimum-steiner-tree.hpp
 layout: document
 redirect_from:

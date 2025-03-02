@@ -291,6 +291,9 @@ data:
     path: test/yukicoder/1077.test.cpp
     title: test/yukicoder/1077.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/114.test.cpp
+    title: test/yukicoder/114.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/12.test.cpp
     title: test/yukicoder/12.test.cpp
   - icon: ':heavy_check_mark:'
@@ -527,6 +530,7 @@ data:
   - test/yukicoder/3006.test.cpp
   - test/yukicoder/12.test.cpp
   - test/yukicoder/1634.test.cpp
+  - test/yukicoder/114.test.cpp
   - test/yukicoder/888.test.cpp
   - test/yukicoder/2092.test.cpp
   - test/yukicoder/3004.test.cpp

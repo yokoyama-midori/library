@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/unionfind.test.cpp
     title: test/library_checker/data_structure/unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/114.test.cpp
+    title: test/yukicoder/114.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -94,6 +97,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/unionfind.test.cpp
+  - test/yukicoder/114.test.cpp
 documentation_of: data_structure/union-find.hpp
 layout: document
 redirect_from:
