@@ -55,7 +55,6 @@ S e() { return S(); }
 
 void solve() {
     LL(n);
-    Graph g(n);
     vector<S> mp(n);
     rep(i, n) {
         LL(a);

@@ -13,4 +13,7 @@ serve:
 	oj-verify docs
 	cd .verify-helper/markdown/ && bundle exec jekyll serve --incremental
 
+empty:
+	git commit --allow-empty -m"empty commit"
+
 .PHONY: all clean
