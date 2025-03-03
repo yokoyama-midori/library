@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
@@ -76,17 +76,18 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"poly/bostan_mori.hpp\"\
-    \n#include <atcoder/modint>\n#include <atcoder/convolution>\nusing namespace atcoder;\n\
-    template <class T> T bostanMori(vector<T> p, vector<T> q, ll n) {\n    // return\
-    \ [x^n]P(x)/Q(x)\n    ll k = p.size();\n    while(n) {\n        auto q_minus(q);\n\
-    \        rep(i, k + 1) {\n            if(i & 1)\n                q_minus[i] *=\
-    \ -1;\n        }\n        if(T::mod() == 998244353) {\n            p = convolution(p,\
-    \ q_minus);\n            q = convolution(q, q_minus);\n        } else {\n    \
-    \        p = convolution_naive(p, q_minus);\n            q = convolution_naive(q,\
-    \ q_minus);\n        }\n        vector<T> q_nex(k + 1), p_nex(k);\n        rep(i,\
-    \ k + 1) { q_nex[i] = q[2 * i]; }\n        ll n1 = n & 1;\n        rep(i, k) {\
-    \ p_nex[i] = p[2 * i + n1]; }\n        swap(p, p_nex);\n        swap(q, q_nex);\n\
-    \        n >>= 1;\n    }\n    return p[0] / q[0];\n}\n#line 5 \"test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp\"\
+    \n#include <atcoder/convolution>\n#include <atcoder/modint>\ntemplate <class T>\
+    \ T bostanMori(vector<T> p, vector<T> q, ll n) {\n    // return [x^n]P(x)/Q(x)\n\
+    \    using namespace atcoder;\n    assert(p.size() < q.size());\n    int k = ssize(q)\
+    \ - 1;\n    if(p.size() < k - 1)\n        p.resize(k);\n    while(n) {\n     \
+    \   auto q_minus(q);\n        for(int i = 1; i < k + 1; i += 2) {\n          \
+    \  q_minus[i] *= -1;\n        }\n        if(T::mod() == 998244353) {\n       \
+    \     p = convolution(p, q_minus);\n            q = convolution(q, q_minus);\n\
+    \        } else {\n            p = convolution_naive(p, q_minus);\n          \
+    \  q = convolution_naive(q, q_minus);\n        }\n        int n1 = n & 1;\n  \
+    \      rep(i, k) p[i] = p[2 * i + n1];\n        rep(i, k + 1) q[i] = q[2 * i];\n\
+    \        p.resize(k);\n        q.resize(k + 1);\n        n >>= 1;\n    }\n   \
+    \ return p[0] / q[0];\n}\n#line 5 \"test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp\"\
     \nusing mint = modint998244353;\nvoid solve() {\n    LL(d, k);\n    vector<mint>\
     \ a(d);\n    vector<mint> q(d + 1);\n    rep(i, d) {\n        LL(ai);\n      \
     \  a[i] = ai;\n    }\n    q[0] = 1;\n    rep1(i, d) {\n        LL(qi);\n     \
@@ -108,8 +109,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   requiredBy: []
-  timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-03-04 03:15:08+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
 layout: document

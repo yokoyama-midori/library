@@ -95,7 +95,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: number-theory/lcm-convolution.hpp
     title: number-theory/lcm-convolution.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
   - icon: ':heavy_check_mark:'
@@ -260,7 +260,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/sqrt_mod.test.cpp
     title: test/library_checker/number_theory/sqrt_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - icon: ':heavy_check_mark:'
@@ -314,6 +314,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/3006.test.cpp
     title: test/yukicoder/3006.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/3044.test.cpp
+    title: test/yukicoder/3044.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/880.test.cpp
     title: test/yukicoder/880.test.cpp
@@ -532,6 +535,7 @@ data:
   - test/yukicoder/1634.test.cpp
   - test/yukicoder/114.test.cpp
   - test/yukicoder/888.test.cpp
+  - test/yukicoder/3044.test.cpp
   - test/yukicoder/2092.test.cpp
   - test/yukicoder/3004.test.cpp
   - test/yukicoder/880.test.cpp
