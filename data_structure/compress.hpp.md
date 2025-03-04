@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
@@ -9,15 +9,12 @@ data:
     path: data_structure/rectangle-union-area.hpp
     title: data_structure/rectangle-union-area.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/atcoder/abc113_c.test.cpp
-    title: test/atcoder/abc113_c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
     title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://ei1333.github.io/library/other/compress.hpp
@@ -112,10 +109,9 @@ data:
   requiredBy:
   - data_structure/rectangle-union-area.hpp
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
-  - test/atcoder/abc113_c.test.cpp
 documentation_of: data_structure/compress.hpp
 layout: document
 redirect_from:

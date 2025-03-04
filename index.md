@@ -3,10 +3,10 @@ data:
   libraryCategories:
   - name: data_structure
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/compress.hpp
       title: data_structure/compress.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/hash-map-variable-length.hpp
       title: data_structure/hash-map-variable-length.hpp
     - icon: ':heavy_check_mark:'
@@ -24,10 +24,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/segtree-beats.hpp
       title: data_structure/segtree-beats.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/segtree.hpp
       title: data_structure/segtree.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/slope-trick.hpp
       title: data_structure/slope-trick.hpp
     - icon: ':heavy_check_mark:'
@@ -44,7 +44,7 @@ data:
       title: data_structure/union-find.hpp
   - name: dp
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: dp/cumulative-sum.hpp
       title: dp/cumulative-sum.hpp
     - icon: ':heavy_check_mark:'
@@ -52,12 +52,12 @@ data:
       title: dp/longest-increasing-sequence.hpp
   - name: geometry
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/manhattan-mst.hpp
       title: geometry/manhattan-mst.hpp
   - name: graph
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: graph/chromatic-number.hpp
       title: graph/chromatic-number.hpp
     - icon: ':heavy_check_mark:'
@@ -77,16 +77,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/matrix.hpp
       title: math/matrix.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/miller_rabin.hpp
       title: math/miller_rabin.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/mod-pow.hpp
       title: math/mod-pow.hpp
     - icon: ':heavy_check_mark:'
       path: math/mod-sqrt.hpp
       title: math/mod-sqrt.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/pollard_rho.hpp
       title: math/pollard_rho.hpp
     - icon: ':heavy_check_mark:'
@@ -122,12 +122,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: rng.hpp
       title: rng.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.hpp
       title: template.hpp
   - name: string
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: string/run-length-encoding.hpp
       title: string/run-length-encoding.hpp
   - name: tree
@@ -149,56 +149,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/1508.test.cpp
       title: test/aoj/1508.test.cpp
-  - name: test/atcoder
-    pages:
-    - icon: ':x:'
-      path: test/atcoder/abc113_c.test.cpp
-      title: test/atcoder/abc113_c.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc127_f.test.cpp
-      title: test/atcoder/abc127_f.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc180_c.test.cpp
-      title: test/atcoder/abc180_c.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc217_h.test.cpp
-      title: test/atcoder/abc217_h.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc235_c.test.cpp
-      title: test/atcoder/abc235_c.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc248_d.test.cpp
-      title: test/atcoder/abc248_d.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc249_d.test.cpp
-      title: test/atcoder/abc249_d.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc273_d.test.cpp
-      title: test/atcoder/abc273_d.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc283_f.test.cpp
-      title: test/atcoder/abc283_f.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc329_c.test.cpp
-      title: test/atcoder/abc329_c.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc369_c.test.cpp
-      title: test/atcoder/abc369_c.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/abc373_e.test.cpp
-      title: test/atcoder/abc373_e.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/arc070_c.test.cpp
-      title: test/atcoder/arc070_c.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/arc123_d.test.cpp
-      title: test/atcoder/arc123_d.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/arc171_d.test.cpp
-      title: test/atcoder/arc171_d.test.cpp
-    - icon: ':x:'
-      path: test/atcoder/practice2_j.test.cpp
-      title: test/atcoder/practice2_j.test.cpp
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'

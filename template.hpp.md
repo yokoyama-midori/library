@@ -2,10 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/compress.hpp
     title: data_structure/compress.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/hash-map-variable-length.hpp
     title: data_structure/hash-map-variable-length.hpp
   - icon: ':heavy_check_mark:'
@@ -23,10 +23,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/segtree-beats.hpp
     title: data_structure/segtree-beats.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/segtree.hpp
     title: data_structure/segtree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/slope-trick.hpp
     title: data_structure/slope-trick.hpp
   - icon: ':heavy_check_mark:'
@@ -41,16 +41,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/union-find.hpp
     title: data_structure/union-find.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: dp/cumulative-sum.hpp
     title: dp/cumulative-sum.hpp
   - icon: ':heavy_check_mark:'
     path: dp/longest-increasing-sequence.hpp
     title: dp/longest-increasing-sequence.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/manhattan-mst.hpp
     title: geometry/manhattan-mst.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/chromatic-number.hpp
     title: graph/chromatic-number.hpp
   - icon: ':heavy_check_mark:'
@@ -68,16 +68,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
   - icon: ':heavy_check_mark:'
     path: math/mod-sqrt.hpp
     title: math/mod-sqrt.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
   - icon: ':heavy_check_mark:'
@@ -107,7 +107,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: rng.hpp
     title: rng.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
   - icon: ':warning:'
@@ -125,54 +125,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1508.test.cpp
     title: test/aoj/1508.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc113_c.test.cpp
-    title: test/atcoder/abc113_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc127_f.test.cpp
-    title: test/atcoder/abc127_f.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc180_c.test.cpp
-    title: test/atcoder/abc180_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc217_h.test.cpp
-    title: test/atcoder/abc217_h.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc235_c.test.cpp
-    title: test/atcoder/abc235_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc248_d.test.cpp
-    title: test/atcoder/abc248_d.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc249_d.test.cpp
-    title: test/atcoder/abc249_d.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc273_d.test.cpp
-    title: test/atcoder/abc273_d.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc283_f.test.cpp
-    title: test/atcoder/abc283_f.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc329_c.test.cpp
-    title: test/atcoder/abc329_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc369_c.test.cpp
-    title: test/atcoder/abc369_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc373_e.test.cpp
-    title: test/atcoder/abc373_e.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/arc070_c.test.cpp
-    title: test/atcoder/arc070_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/arc123_d.test.cpp
-    title: test/atcoder/arc123_d.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/arc171_d.test.cpp
-    title: test/atcoder/arc171_d.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/practice2_j.test.cpp
-    title: test/atcoder/practice2_j.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
     title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
@@ -323,9 +275,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -485,7 +437,7 @@ data:
   - dp/cumulative-sum.hpp
   - dp/longest-increasing-sequence.hpp
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
@@ -539,22 +491,6 @@ data:
   - test/yukicoder/2092.test.cpp
   - test/yukicoder/3004.test.cpp
   - test/yukicoder/880.test.cpp
-  - test/atcoder/abc217_h.test.cpp
-  - test/atcoder/abc373_e.test.cpp
-  - test/atcoder/abc113_c.test.cpp
-  - test/atcoder/abc329_c.test.cpp
-  - test/atcoder/abc283_f.test.cpp
-  - test/atcoder/arc123_d.test.cpp
-  - test/atcoder/abc180_c.test.cpp
-  - test/atcoder/abc235_c.test.cpp
-  - test/atcoder/practice2_j.test.cpp
-  - test/atcoder/arc171_d.test.cpp
-  - test/atcoder/arc070_c.test.cpp
-  - test/atcoder/abc127_f.test.cpp
-  - test/atcoder/abc273_d.test.cpp
-  - test/atcoder/abc248_d.test.cpp
-  - test/atcoder/abc249_d.test.cpp
-  - test/atcoder/abc369_c.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:

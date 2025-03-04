@@ -1,23 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/atcoder/abc329_c.test.cpp
-    title: test/atcoder/abc329_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc369_c.test.cpp
-    title: test/atcoder/abc369_c.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -92,11 +86,9 @@ data:
   path: string/run-length-encoding.hpp
   requiredBy: []
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/my-test/run-length-encoding.test.cpp
-  - test/atcoder/abc329_c.test.cpp
-  - test/atcoder/abc369_c.test.cpp
 documentation_of: string/run-length-encoding.hpp
 layout: document
 redirect_from:

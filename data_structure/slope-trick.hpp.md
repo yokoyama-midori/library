@@ -1,29 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/atcoder/abc127_f.test.cpp
-    title: test/atcoder/abc127_f.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc217_h.test.cpp
-    title: test/atcoder/abc217_h.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/arc070_c.test.cpp
-    title: test/atcoder/arc070_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/arc123_d.test.cpp
-    title: test/atcoder/arc123_d.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1077.test.cpp
     title: test/yukicoder/1077.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://ei1333.github.io/library/structure/others/slope-trick.hpp
@@ -152,13 +140,9 @@ data:
   path: data_structure/slope-trick.hpp
   requiredBy: []
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1077.test.cpp
-  - test/atcoder/abc217_h.test.cpp
-  - test/atcoder/arc123_d.test.cpp
-  - test/atcoder/arc070_c.test.cpp
-  - test/atcoder/abc127_f.test.cpp
 documentation_of: data_structure/slope-trick.hpp
 layout: document
 redirect_from:

@@ -1,20 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/atcoder/abc283_f.test.cpp
-    title: test/atcoder/abc283_f.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/geometry/manhattanmst.test.cpp
     title: test/library_checker/geometry/manhattanmst.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -116,10 +113,9 @@ data:
   path: geometry/manhattan-mst.hpp
   requiredBy: []
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/geometry/manhattanmst.test.cpp
-  - test/atcoder/abc283_f.test.cpp
 documentation_of: geometry/manhattan-mst.hpp
 layout: document
 redirect_from:

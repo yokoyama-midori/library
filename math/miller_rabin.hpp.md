@@ -1,26 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
   - icon: ':heavy_check_mark:'
     path: math/primitive-root.hpp
     title: math/primitive-root.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/atcoder/abc180_c.test.cpp
-    title: test/atcoder/abc180_c.test.cpp
-  - icon: ':x:'
-    path: test/atcoder/abc249_d.test.cpp
-    title: test/atcoder/abc249_d.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
@@ -36,9 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://drken1215.hatenablog.com/entry/2023/05/23/233000
@@ -145,15 +139,13 @@ data:
   - math/primitive-root.hpp
   - math/pollard_rho.hpp
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
   - test/library_checker/number_theory/primitive_root.test.cpp
   - test/yukicoder/2051.test.cpp
   - test/yukicoder/888.test.cpp
-  - test/atcoder/abc180_c.test.cpp
-  - test/atcoder/abc249_d.test.cpp
 documentation_of: math/miller_rabin.hpp
 layout: document
 redirect_from:
