@@ -66,6 +66,9 @@ data:
     path: math/factorial_large.hpp
     title: math/factorial_large.hpp
   - icon: ':heavy_check_mark:'
+    path: math/linear-sieve.hpp
+    title: math/linear-sieve.hpp
+  - icon: ':heavy_check_mark:'
     path: math/matrix.hpp
     title: math/matrix.hpp
   - icon: ':heavy_check_mark:'
@@ -261,6 +264,9 @@ data:
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/2896.test.cpp
+    title: test/yukicoder/2896.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/3004.test.cpp
     title: test/yukicoder/3004.test.cpp
   - icon: ':heavy_check_mark:'
@@ -408,6 +414,7 @@ data:
   - math/primitive-root.hpp
   - math/matrix.hpp
   - math/mod-sqrt.hpp
+  - math/linear-sieve.hpp
   - math/miller_rabin.hpp
   - math/pollard_rho.hpp
   - math/factorial.hpp
@@ -483,6 +490,7 @@ data:
   - test/yukicoder/2051.test.cpp
   - test/yukicoder/230.test.cpp
   - test/yukicoder/3006.test.cpp
+  - test/yukicoder/2896.test.cpp
   - test/yukicoder/12.test.cpp
   - test/yukicoder/1634.test.cpp
   - test/yukicoder/114.test.cpp

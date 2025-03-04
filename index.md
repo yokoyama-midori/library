@@ -75,6 +75,9 @@ data:
       path: math/factorial_large.hpp
       title: math/factorial_large.hpp
     - icon: ':heavy_check_mark:'
+      path: math/linear-sieve.hpp
+      title: math/linear-sieve.hpp
+    - icon: ':heavy_check_mark:'
       path: math/matrix.hpp
       title: math/matrix.hpp
     - icon: ':heavy_check_mark:'
@@ -308,6 +311,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/230.test.cpp
       title: test/yukicoder/230.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/2896.test.cpp
+      title: test/yukicoder/2896.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/3004.test.cpp
       title: test/yukicoder/3004.test.cpp

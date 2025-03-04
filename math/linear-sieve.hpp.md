@@ -4,38 +4,17 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: math/factorial_large.hpp
-    title: math/factorial_large.hpp
-  - icon: ':heavy_check_mark:'
-    path: poly/poly_taylor_shift.hpp
-    title: poly taylor shift
-  - icon: ':heavy_check_mark:'
-    path: poly/shift_of_sampling_points.hpp
-    title: poly/shift_of_sampling_points.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-    title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-    title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
-    title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/2896.test.cpp
     title: test/yukicoder/2896.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/3004.test.cpp
-    title: test/yukicoder/3004.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
-    - https://suisen-cp.github.io/cp-library-cpp/library/math/factorial.hpp
+    - https://37zigen.com/linear-sieve/
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -91,61 +70,51 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/factorial.hpp\"\
-    \n// https://suisen-cp.github.io/cp-library-cpp/library/math/factorial.hpp\ntemplate\
-    \ <class T> struct factorial {\n    factorial() {};\n    void ensure(const int\
-    \ n) {\n        int sz = size(fac);\n        if(sz > n) {\n            return;\n\
-    \        }\n        int new_sz = max(2 * sz, n + 1);\n        fac.resize(new_sz),\
-    \ fac_inv.resize(new_sz);\n        for(int i = sz; i < new_sz; i++) {\n      \
-    \      if(i == 0) {\n                fac[i] = 1;\n                continue;\n\
-    \            }\n            fac[i] = fac[i - 1] * i;\n        }\n        fac_inv[new_sz\
-    \ - 1] = T(1) / fac[new_sz - 1];\n        for(int i = new_sz - 2; i >= sz; i--)\
-    \ {\n            fac_inv[i] = fac_inv[i + 1] * (i + 1);\n        }\n        return;\n\
-    \    }\n    T get(int i) {\n        ensure(i);\n        return fac[i];\n    }\n\
-    \    T operator[](int i) { return get(i); }\n    T inv(int i) {\n        ensure(i);\n\
-    \        return fac_inv[i];\n    }\n    T binom(int n, int i) {\n        if(n\
-    \ < 0 || i < 0 || n < i) {\n            return T(0);\n        }\n        ensure(n);\n\
-    \        return fac[n] * fac_inv[i] * fac_inv[n - i];\n    }\n    T perm(int n,\
-    \ int i) {\n        if(n < 0 || i < 0 || n < i) {\n            return T(0);\n\
-    \        }\n        ensure(n);\n        return fac[n] * fac_inv[n - i];\n    }\n\
-    \n  private:\n    vector<T> fac, fac_inv;\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://suisen-cp.github.io/cp-library-cpp/library/math/factorial.hpp\n\
-    template <class T> struct factorial {\n    factorial() {};\n    void ensure(const\
-    \ int n) {\n        int sz = size(fac);\n        if(sz > n) {\n            return;\n\
-    \        }\n        int new_sz = max(2 * sz, n + 1);\n        fac.resize(new_sz),\
-    \ fac_inv.resize(new_sz);\n        for(int i = sz; i < new_sz; i++) {\n      \
-    \      if(i == 0) {\n                fac[i] = 1;\n                continue;\n\
-    \            }\n            fac[i] = fac[i - 1] * i;\n        }\n        fac_inv[new_sz\
-    \ - 1] = T(1) / fac[new_sz - 1];\n        for(int i = new_sz - 2; i >= sz; i--)\
-    \ {\n            fac_inv[i] = fac_inv[i + 1] * (i + 1);\n        }\n        return;\n\
-    \    }\n    T get(int i) {\n        ensure(i);\n        return fac[i];\n    }\n\
-    \    T operator[](int i) { return get(i); }\n    T inv(int i) {\n        ensure(i);\n\
-    \        return fac_inv[i];\n    }\n    T binom(int n, int i) {\n        if(n\
-    \ < 0 || i < 0 || n < i) {\n            return T(0);\n        }\n        ensure(n);\n\
-    \        return fac[n] * fac_inv[i] * fac_inv[n - i];\n    }\n    T perm(int n,\
-    \ int i) {\n        if(n < 0 || i < 0 || n < i) {\n            return T(0);\n\
-    \        }\n        ensure(n);\n        return fac[n] * fac_inv[n - i];\n    }\n\
-    \n  private:\n    vector<T> fac, fac_inv;\n};"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/linear-sieve.hpp\"\
+    \n// https://37zigen.com/linear-sieve/\n// AtCoder codetest\n// 1e6   7ms 7.5MB\n\
+    // 1e7  53ms  46MB\n// 1e8 650ms 426MB\nstruct LinearSieve {\n    int max_value;\n\
+    \    // lpf[i] = i\u306E\u6700\u5C0F\u7D20\u56E0\u6570(least prime factor)\n \
+    \   vector<int> lpf, primes;\n    LinearSieve(int max_value) : max_value(max_value),\
+    \ lpf(max_value + 1, 1) {\n        for(int i = 2; i <= max_value; ++i) {\n   \
+    \         if(lpf[i] == 1) {\n                lpf[i] = i;\n                primes.emplace_back(i);\n\
+    \            }\n            for(auto p : primes) {\n                if(p * i >\
+    \ max_value or p > lpf[i])\n                    break;\n                lpf[p\
+    \ * i] = p;\n            }\n        }\n    }\n    vector<int> factorize(int n)\
+    \ {\n        vector<int> res;\n        while(n > 1) {\n            res.emplace_back(lpf[n]);\n\
+    \            n /= lpf[n];\n        }\n        return res;\n    }\n    vector<pair<int,\
+    \ int>> factor_count(int n) {\n        vector<pair<int, int>> res;\n        while(n\
+    \ > 1) {\n            if(res.empty() or res.back().first != lpf[n])\n        \
+    \        res.emplace_back(lpf[n], 0);\n            ++res.back().second;\n    \
+    \    }\n        return res;\n    }\n};\n"
+  code: "#pragma once\n#include \"template.hpp\"\n// https://37zigen.com/linear-sieve/\n\
+    // AtCoder codetest\n// 1e6   7ms 7.5MB\n// 1e7  53ms  46MB\n// 1e8 650ms 426MB\n\
+    struct LinearSieve {\n    int max_value;\n    // lpf[i] = i\u306E\u6700\u5C0F\u7D20\
+    \u56E0\u6570(least prime factor)\n    vector<int> lpf, primes;\n    LinearSieve(int\
+    \ max_value) : max_value(max_value), lpf(max_value + 1, 1) {\n        for(int\
+    \ i = 2; i <= max_value; ++i) {\n            if(lpf[i] == 1) {\n             \
+    \   lpf[i] = i;\n                primes.emplace_back(i);\n            }\n    \
+    \        for(auto p : primes) {\n                if(p * i > max_value or p > lpf[i])\n\
+    \                    break;\n                lpf[p * i] = p;\n            }\n\
+    \        }\n    }\n    vector<int> factorize(int n) {\n        vector<int> res;\n\
+    \        while(n > 1) {\n            res.emplace_back(lpf[n]);\n            n\
+    \ /= lpf[n];\n        }\n        return res;\n    }\n    vector<pair<int, int>>\
+    \ factor_count(int n) {\n        vector<pair<int, int>> res;\n        while(n\
+    \ > 1) {\n            if(res.empty() or res.back().first != lpf[n])\n        \
+    \        res.emplace_back(lpf[n], 0);\n            ++res.back().second;\n    \
+    \    }\n        return res;\n    }\n};"
   dependsOn:
   - template.hpp
   isVerificationFile: false
-  path: math/factorial.hpp
-  requiredBy:
-  - poly/poly_taylor_shift.hpp
-  - poly/shift_of_sampling_points.hpp
-  - math/factorial_large.hpp
-  timestamp: '2025-03-02 18:30:18+09:00'
+  path: math/linear-sieve.hpp
+  requiredBy: []
+  timestamp: '2025-03-05 07:27:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
-  - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - test/yukicoder/2896.test.cpp
-  - test/yukicoder/3004.test.cpp
-documentation_of: math/factorial.hpp
+documentation_of: math/linear-sieve.hpp
 layout: document
 redirect_from:
-- /library/math/factorial.hpp
-- /library/math/factorial.hpp.html
-title: math/factorial.hpp
+- /library/math/linear-sieve.hpp
+- /library/math/linear-sieve.hpp.html
+title: math/linear-sieve.hpp
 ---
