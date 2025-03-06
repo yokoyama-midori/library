@@ -1,8 +1,9 @@
 #pragma once
 #include "template.hpp"
 // dist : distance from d1
-template <class TREE, class T = ll> struct TreeDiamter {
+template <class TREE> struct TreeDiamter {
     TREE &g;
+    using T = typename TREE::cost_type;
     vector<T> dist;
     int d1, d2;
     TreeDiamter(TREE &g) : g(g), dist(g.size(), -1) {
