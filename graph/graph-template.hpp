@@ -10,6 +10,7 @@ template <class T = ll> struct Edge {
         : from(from), to(to), cost(cost), idx(idx) {}
 };
 template <class T = ll> struct Graph {
+    using cost_type = T;
     vector<vector<Edge<T>>> g;
     int es; // edge_size
     Graph(int n) : g(n), es(0) {};

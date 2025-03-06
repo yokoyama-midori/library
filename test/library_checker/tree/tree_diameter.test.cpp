@@ -5,7 +5,7 @@ void solve() {
     INT(n);
     Graph<ll> g(n);
     g.read(n - 1, 0, true);
-    TreeDiamter<decltype(g), ll> td(g);
+    TreeDiamter<decltype(g)> td(g);
     auto path = td.get_path();
     print(td.dist[td.d2], path.size());
     print(path);
