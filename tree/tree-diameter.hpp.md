@@ -4,26 +4,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: graph/minimum-steiner-tree.hpp
-    title: graph/minimum-steiner-tree.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/1040.test.cpp
-    title: test/aoj/1040.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_diameter.test.cpp
     title: test/library_checker/tree/tree_diameter.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/114.test.cpp
-    title: test/yukicoder/114.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links:
-    - https://ei1333.github.io/library/graph/graph-template.hpp
+    links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -79,57 +69,51 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"graph/graph-template.hpp\"\
-    \n// https://ei1333.github.io/library/graph/graph-template.hpp\ntemplate <class\
-    \ T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int idx;\n    Edge()\
-    \ = default;\n    Edge(int from, int to, T cost = 1, int idx = -1)\n        :\
-    \ from(from), to(to), cost(cost), idx(idx) {}\n};\ntemplate <class T = ll> struct\
-    \ Graph {\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n    Graph(int\
-    \ n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n    void add_directed_edge(int\
-    \ from, int to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es++);\n\
-    \    }\n    void add_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es);\n        g[to].emplace_back(to, from, cost, es++);\n    }\n \
-    \   vector<Edge<T>> &operator[](const int &k) { return g[k]; }\n    const vector<Edge<T>>\
-    \ &operator[](const int &k) const { return g[k]; }\n    void read(int m, int padding\
-    \ = -1, bool weighted = false,\n              bool directed = false) {\n     \
-    \   rep(i, m) {\n            int a, b;\n            T c(1);\n            cin >>\
-    \ a >> b;\n            a += padding;\n            b += padding;\n            if(weighted)\n\
-    \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
-    \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/graph/graph-template.hpp\n\
-    template <class T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int\
-    \ idx;\n    Edge() = default;\n    Edge(int from, int to, T cost = 1, int idx\
-    \ = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n};\ntemplate <class\
-    \ T = ll> struct Graph {\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n\
-    \    Graph(int n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n\
-    \    void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es++);\n    }\n    void add_edge(int from, int to, T cost = 1) {\n\
-    \        g[from].emplace_back(from, to, cost, es);\n        g[to].emplace_back(to,\
-    \ from, cost, es++);\n    }\n    vector<Edge<T>> &operator[](const int &k) { return\
-    \ g[k]; }\n    const vector<Edge<T>> &operator[](const int &k) const { return\
-    \ g[k]; }\n    void read(int m, int padding = -1, bool weighted = false,\n   \
-    \           bool directed = false) {\n        rep(i, m) {\n            int a,\
-    \ b;\n            T c(1);\n            cin >> a >> b;\n            a += padding;\n\
-    \            b += padding;\n            if(weighted)\n                cin >> c;\n\
-    \            if(directed)\n                add_directed_edge(a, b, c);\n     \
-    \       else\n                add_edge(a, b, c);\n        }\n    }\n};\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"tree/tree-diameter.hpp\"\
+    \n// dist : distance from d1\ntemplate <class TREE, class T = ll> struct TreeDiamter\
+    \ {\n    TREE &g;\n    vector<T> dist;\n    int d1, d2;\n    TreeDiamter(TREE\
+    \ &g) : g(g), dist(g.size(), -1) {\n        d1 = bfs(0);\n        dist = vector<T>(g.size(),\
+    \ -1);\n        d2 = bfs(d1);\n    }\n    vector<int> get_path() const {\n   \
+    \     vector<int> res = {d2};\n        int cur = d2;\n        while(cur != d1)\
+    \ {\n            for(auto &e : g[cur]) {\n                if(dist[e.to] + e.cost\
+    \ == dist[cur]) {\n                    cur = e.to;\n                    res.emplace_back(cur);\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     ranges::reverse(res);\n        return res;\n    }\n\n  private:\n    int\
+    \ bfs(int root) {\n        queue<int> que;\n        que.push(root);\n        dist[root]\
+    \ = 0;\n        while(que.size()) {\n            int cur = que.front();\n    \
+    \        que.pop();\n            for(auto &e : g[cur]) {\n                if(dist[e.to]\
+    \ != -1)\n                    continue;\n                dist[e.to] = dist[cur]\
+    \ + e.cost;\n                que.push(e.to);\n            }\n        }\n     \
+    \   return ranges::max_element(dist) - begin(dist);\n    }\n};\n"
+  code: "#pragma once\n#include \"template.hpp\"\n// dist : distance from d1\ntemplate\
+    \ <class TREE, class T = ll> struct TreeDiamter {\n    TREE &g;\n    vector<T>\
+    \ dist;\n    int d1, d2;\n    TreeDiamter(TREE &g) : g(g), dist(g.size(), -1)\
+    \ {\n        d1 = bfs(0);\n        dist = vector<T>(g.size(), -1);\n        d2\
+    \ = bfs(d1);\n    }\n    vector<int> get_path() const {\n        vector<int> res\
+    \ = {d2};\n        int cur = d2;\n        while(cur != d1) {\n            for(auto\
+    \ &e : g[cur]) {\n                if(dist[e.to] + e.cost == dist[cur]) {\n   \
+    \                 cur = e.to;\n                    res.emplace_back(cur);\n  \
+    \                  break;\n                }\n            }\n        }\n     \
+    \   ranges::reverse(res);\n        return res;\n    }\n\n  private:\n    int bfs(int\
+    \ root) {\n        queue<int> que;\n        que.push(root);\n        dist[root]\
+    \ = 0;\n        while(que.size()) {\n            int cur = que.front();\n    \
+    \        que.pop();\n            for(auto &e : g[cur]) {\n                if(dist[e.to]\
+    \ != -1)\n                    continue;\n                dist[e.to] = dist[cur]\
+    \ + e.cost;\n                que.push(e.to);\n            }\n        }\n     \
+    \   return ranges::max_element(dist) - begin(dist);\n    }\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
-  path: graph/graph-template.hpp
-  requiredBy:
-  - graph/minimum-steiner-tree.hpp
-  timestamp: '2025-03-03 04:04:42+09:00'
+  path: tree/tree-diameter.hpp
+  requiredBy: []
+  timestamp: '2025-03-06 09:19:46+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/tree/tree_diameter.test.cpp
-  - test/aoj/1040.test.cpp
-  - test/yukicoder/114.test.cpp
-documentation_of: graph/graph-template.hpp
+documentation_of: tree/tree-diameter.hpp
 layout: document
 redirect_from:
-- /library/graph/graph-template.hpp
-- /library/graph/graph-template.hpp.html
-title: graph/graph-template.hpp
+- /library/tree/tree-diameter.hpp
+- /library/tree/tree-diameter.hpp.html
+title: tree/tree-diameter.hpp
 ---

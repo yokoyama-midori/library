@@ -143,6 +143,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/euler-tour.hpp
       title: tree/euler-tour.hpp
+    - icon: ':heavy_check_mark:'
+      path: tree/tree-diameter.hpp
+      title: tree/tree-diameter.hpp
   verificationCategories:
   - name: test/aoj
     pages:
@@ -280,6 +283,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/lca.test.cpp
       title: test/library_checker/tree/lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/tree_diameter.test.cpp
+      title: test/library_checker/tree/tree_diameter.test.cpp
   - name: test/my-test
     pages:
     - icon: ':heavy_check_mark:'
