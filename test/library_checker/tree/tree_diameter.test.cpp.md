@@ -82,43 +82,43 @@ data:
     \ T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int idx;\n    Edge()\
     \ = default;\n    Edge(int from, int to, T cost = 1, int idx = -1)\n        :\
     \ from(from), to(to), cost(cost), idx(idx) {}\n};\ntemplate <class T = ll> struct\
-    \ Graph {\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n    Graph(int\
-    \ n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n    void add_directed_edge(int\
-    \ from, int to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es++);\n\
-    \    }\n    void add_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es);\n        g[to].emplace_back(to, from, cost, es++);\n    }\n \
-    \   vector<Edge<T>> &operator[](const int &k) { return g[k]; }\n    const vector<Edge<T>>\
-    \ &operator[](const int &k) const { return g[k]; }\n    void read(int m, int padding\
-    \ = -1, bool weighted = false,\n              bool directed = false) {\n     \
-    \   rep(i, m) {\n            int a, b;\n            T c(1);\n            cin >>\
-    \ a >> b;\n            a += padding;\n            b += padding;\n            if(weighted)\n\
+    \ Graph {\n    using cost_type = T;\n    vector<vector<Edge<T>>> g;\n    int es;\
+    \ // edge_size\n    Graph(int n) : g(n), es(0) {};\n    int size() const { return\
+    \ ssize(g); }\n    void add_directed_edge(int from, int to, T cost = 1) {\n  \
+    \      g[from].emplace_back(from, to, cost, es++);\n    }\n    void add_edge(int\
+    \ from, int to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es);\n\
+    \        g[to].emplace_back(to, from, cost, es++);\n    }\n    vector<Edge<T>>\
+    \ &operator[](const int &k) { return g[k]; }\n    const vector<Edge<T>> &operator[](const\
+    \ int &k) const { return g[k]; }\n    void read(int m, int padding = -1, bool\
+    \ weighted = false,\n              bool directed = false) {\n        rep(i, m)\
+    \ {\n            int a, b;\n            T c(1);\n            cin >> a >> b;\n\
+    \            a += padding;\n            b += padding;\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
     \  }\n};\n#line 3 \"tree/tree-diameter.hpp\"\n// dist : distance from d1\ntemplate\
-    \ <class TREE, class T = ll> struct TreeDiamter {\n    TREE &g;\n    vector<T>\
-    \ dist;\n    int d1, d2;\n    TreeDiamter(TREE &g) : g(g), dist(g.size(), -1)\
-    \ {\n        d1 = bfs(0);\n        dist = vector<T>(g.size(), -1);\n        d2\
-    \ = bfs(d1);\n    }\n    vector<int> get_path() const {\n        vector<int> res\
-    \ = {d2};\n        int cur = d2;\n        while(cur != d1) {\n            for(auto\
-    \ &e : g[cur]) {\n                if(dist[e.to] + e.cost == dist[cur]) {\n   \
-    \                 cur = e.to;\n                    res.emplace_back(cur);\n  \
-    \                  break;\n                }\n            }\n        }\n     \
-    \   ranges::reverse(res);\n        return res;\n    }\n\n  private:\n    int bfs(int\
-    \ root) {\n        queue<int> que;\n        que.push(root);\n        dist[root]\
+    \ <class TREE> struct TreeDiamter {\n    TREE &g;\n    using T = typename TREE::cost_type;\n\
+    \    vector<T> dist;\n    int d1, d2;\n    TreeDiamter(TREE &g) : g(g), dist(g.size(),\
+    \ -1) {\n        d1 = bfs(0);\n        dist = vector<T>(g.size(), -1);\n     \
+    \   d2 = bfs(d1);\n    }\n    vector<int> get_path() const {\n        vector<int>\
+    \ res = {d2};\n        int cur = d2;\n        while(cur != d1) {\n           \
+    \ for(auto &e : g[cur]) {\n                if(dist[e.to] + e.cost == dist[cur])\
+    \ {\n                    cur = e.to;\n                    res.emplace_back(cur);\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     ranges::reverse(res);\n        return res;\n    }\n\n  private:\n    int\
+    \ bfs(int root) {\n        queue<int> que;\n        que.push(root);\n        dist[root]\
     \ = 0;\n        while(que.size()) {\n            int cur = que.front();\n    \
     \        que.pop();\n            for(auto &e : g[cur]) {\n                if(dist[e.to]\
     \ != -1)\n                    continue;\n                dist[e.to] = dist[cur]\
     \ + e.cost;\n                que.push(e.to);\n            }\n        }\n     \
     \   return ranges::max_element(dist) - begin(dist);\n    }\n};\n#line 4 \"test/library_checker/tree/tree_diameter.test.cpp\"\
     \nvoid solve() {\n    INT(n);\n    Graph<ll> g(n);\n    g.read(n - 1, 0, true);\n\
-    \    TreeDiamter<decltype(g), ll> td(g);\n    auto path = td.get_path();\n   \
-    \ print(td.dist[td.d2], path.size());\n    print(path);\n}\n\nint main() {\n \
-    \   ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    cout << setprecision(16);\n\
-    \    solve();\n}\n"
+    \    TreeDiamter<decltype(g)> td(g);\n    auto path = td.get_path();\n    print(td.dist[td.d2],\
+    \ path.size());\n    print(path);\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    cout << setprecision(16);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\
     \ \"graph/graph-template.hpp\"\n#include \"tree/tree-diameter.hpp\"\nvoid solve()\
-    \ {\n    INT(n);\n    Graph<ll> g(n);\n    g.read(n - 1, 0, true);\n    TreeDiamter<decltype(g),\
-    \ ll> td(g);\n    auto path = td.get_path();\n    print(td.dist[td.d2], path.size());\n\
+    \ {\n    INT(n);\n    Graph<ll> g(n);\n    g.read(n - 1, 0, true);\n    TreeDiamter<decltype(g)>\
+    \ td(g);\n    auto path = td.get_path();\n    print(td.dist[td.d2], path.size());\n\
     \    print(path);\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    cout << setprecision(16);\n    solve();\n}\n"
   dependsOn:
@@ -128,7 +128,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2025-03-06 09:19:46+09:00'
+  timestamp: '2025-03-06 09:55:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/tree/tree_diameter.test.cpp
