@@ -37,6 +37,7 @@
 "test/library_checker/sample/aplusb.test.cpp": "2025-03-02 18:30:18 +0900",
 "test/library_checker/sample/many_aplusb.test.cpp": "2025-03-02 18:30:18 +0900",
 "test/library_checker/tree/lca.test.cpp": "2025-03-02 18:30:18 +0900",
+"test/library_checker/tree/tree_diameter.test.cpp": "2025-03-06 09:19:46 +0900",
 "test/my-test/run-length-encoding.test.cpp": "2025-03-02 18:30:18 +0900",
 "test/my-test/splaytree.test.cpp": "2025-03-02 18:30:18 +0900",
 "test/yukicoder/1077.test.cpp": "2025-03-02 18:30:18 +0900",
