@@ -8,6 +8,11 @@ template <class T = ll> struct Edge {
     Edge() = default;
     Edge(int from, int to, T cost = 1, int idx = -1)
         : from(from), to(to), cost(cost), idx(idx) {}
+    Edge &operator=(const int &x) {
+        to = x;
+        return *this;
+    }
+    operator int() const { return to; }
 };
 template <class T = ll> struct Graph {
     using cost_type = T;
