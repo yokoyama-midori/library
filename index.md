@@ -144,6 +144,9 @@ data:
       path: tree/euler-tour.hpp
       title: tree/euler-tour.hpp
     - icon: ':heavy_check_mark:'
+      path: tree/rerooting.hpp
+      title: tree/rerooting.hpp
+    - icon: ':heavy_check_mark:'
       path: tree/tree-diameter.hpp
       title: tree/tree-diameter.hpp
   verificationCategories:
@@ -286,6 +289,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_diameter.test.cpp
       title: test/library_checker/tree/tree_diameter.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/tree_path_composite_sum.test.cpp
+      title: test/library_checker/tree/tree_path_composite_sum.test.cpp
   - name: test/my-test
     pages:
     - icon: ':heavy_check_mark:'
@@ -308,6 +314,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/1634.test.cpp
       title: test/yukicoder/1634.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1718.test.cpp
+      title: test/yukicoder/1718.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/yukicoder/2051.test.cpp
       title: test/yukicoder/2051.test.cpp

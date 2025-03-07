@@ -122,6 +122,9 @@ data:
     path: tree/euler-tour.hpp
     title: tree/euler-tour.hpp
   - icon: ':heavy_check_mark:'
+    path: tree/rerooting.hpp
+    title: tree/rerooting.hpp
+  - icon: ':heavy_check_mark:'
     path: tree/tree-diameter.hpp
     title: tree/tree-diameter.hpp
   _extendedVerifiedWith:
@@ -243,6 +246,9 @@ data:
     path: test/library_checker/tree/tree_diameter.test.cpp
     title: test/library_checker/tree/tree_diameter.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/tree/tree_path_composite_sum.test.cpp
+    title: test/library_checker/tree/tree_path_composite_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/my-test/run-length-encoding.test.cpp
     title: test/my-test/run-length-encoding.test.cpp
   - icon: ':heavy_check_mark:'
@@ -260,6 +266,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1634.test.cpp
     title: test/yukicoder/1634.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1718.test.cpp
+    title: test/yukicoder/1718.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/2051.test.cpp
     title: test/yukicoder/2051.test.cpp
@@ -415,6 +424,7 @@ data:
   - poly/poly_taylor_shift.hpp
   - poly/shift_of_sampling_points.hpp
   - tree/auxiliary-tree.hpp
+  - tree/rerooting.hpp
   - tree/euler-tour.hpp
   - tree/tree-diameter.hpp
   - math/mod-pow.hpp
@@ -458,6 +468,7 @@ data:
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   - test/library_checker/tree/tree_diameter.test.cpp
   - test/library_checker/tree/lca.test.cpp
+  - test/library_checker/tree/tree_path_composite_sum.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/gcd_convolution.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
@@ -505,6 +516,7 @@ data:
   - test/yukicoder/888.test.cpp
   - test/yukicoder/3044.test.cpp
   - test/yukicoder/2092.test.cpp
+  - test/yukicoder/1718.test.cpp
   - test/yukicoder/3004.test.cpp
   - test/yukicoder/880.test.cpp
 documentation_of: template.hpp
