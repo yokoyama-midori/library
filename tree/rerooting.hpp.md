@@ -12,6 +12,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1718.test.cpp
     title: test/yukicoder/1718.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/2677.test.cpp
+    title: test/yukicoder/2677.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -140,6 +143,7 @@ data:
   verifiedWith:
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
   - test/yukicoder/1718.test.cpp
+  - test/yukicoder/2677.test.cpp
 documentation_of: tree/rerooting.hpp
 layout: document
 redirect_from:

@@ -24,6 +24,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1718.test.cpp
     title: test/yukicoder/1718.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/2677.test.cpp
+    title: test/yukicoder/2677.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -89,30 +92,13 @@ data:
     \n// https://ei1333.github.io/library/graph/graph-template.hpp\ntemplate <class\
     \ T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int idx;\n    Edge()\
     \ = default;\n    Edge(int from, int to, T cost = 1, int idx = -1)\n        :\
-    \ from(from), to(to), cost(cost), idx(idx) {}\n};\ntemplate <class T = ll> struct\
-    \ Graph {\n    using cost_type = T;\n    vector<vector<Edge<T>>> g;\n    int es;\
-    \ // edge_size\n    Graph(int n) : g(n), es(0) {};\n    int size() const { return\
-    \ ssize(g); }\n    void add_directed_edge(int from, int to, T cost = 1) {\n  \
-    \      g[from].emplace_back(from, to, cost, es++);\n    }\n    void add_edge(int\
-    \ from, int to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es);\n\
-    \        g[to].emplace_back(to, from, cost, es++);\n    }\n    vector<Edge<T>>\
-    \ &operator[](const int &k) { return g[k]; }\n    const vector<Edge<T>> &operator[](const\
-    \ int &k) const { return g[k]; }\n    void read(int m, int padding = -1, bool\
-    \ weighted = false,\n              bool directed = false) {\n        rep(i, m)\
-    \ {\n            int a, b;\n            T c(1);\n            cin >> a >> b;\n\
-    \            a += padding;\n            b += padding;\n            if(weighted)\n\
-    \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
-    \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/graph/graph-template.hpp\n\
-    template <class T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int\
-    \ idx;\n    Edge() = default;\n    Edge(int from, int to, T cost = 1, int idx\
-    \ = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n};\ntemplate <class\
-    \ T = ll> struct Graph {\n    using cost_type = T;\n    vector<vector<Edge<T>>>\
-    \ g;\n    int es; // edge_size\n    Graph(int n) : g(n), es(0) {};\n    int size()\
-    \ const { return ssize(g); }\n    void add_directed_edge(int from, int to, T cost\
-    \ = 1) {\n        g[from].emplace_back(from, to, cost, es++);\n    }\n    void\
-    \ add_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
+    \ from(from), to(to), cost(cost), idx(idx) {}\n    Edge &operator=(const int &x)\
+    \ {\n        to = x;\n        return *this;\n    }\n    operator int() const {\
+    \ return to; }\n};\ntemplate <class T = ll> struct Graph {\n    using cost_type\
+    \ = T;\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n    Graph(int\
+    \ n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n    void add_directed_edge(int\
+    \ from, int to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es++);\n\
+    \    }\n    void add_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
     \ to, cost, es);\n        g[to].emplace_back(to, from, cost, es++);\n    }\n \
     \   vector<Edge<T>> &operator[](const int &k) { return g[k]; }\n    const vector<Edge<T>>\
     \ &operator[](const int &k) const { return g[k]; }\n    void read(int m, int padding\
@@ -122,13 +108,32 @@ data:
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
     \  }\n};\n"
+  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/graph/graph-template.hpp\n\
+    template <class T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int\
+    \ idx;\n    Edge() = default;\n    Edge(int from, int to, T cost = 1, int idx\
+    \ = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    Edge &operator=(const\
+    \ int &x) {\n        to = x;\n        return *this;\n    }\n    operator int()\
+    \ const { return to; }\n};\ntemplate <class T = ll> struct Graph {\n    using\
+    \ cost_type = T;\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n \
+    \   Graph(int n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n\
+    \    void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
+    \ to, cost, es++);\n    }\n    void add_edge(int from, int to, T cost = 1) {\n\
+    \        g[from].emplace_back(from, to, cost, es);\n        g[to].emplace_back(to,\
+    \ from, cost, es++);\n    }\n    vector<Edge<T>> &operator[](const int &k) { return\
+    \ g[k]; }\n    const vector<Edge<T>> &operator[](const int &k) const { return\
+    \ g[k]; }\n    void read(int m, int padding = -1, bool weighted = false,\n   \
+    \           bool directed = false) {\n        rep(i, m) {\n            int a,\
+    \ b;\n            T c(1);\n            cin >> a >> b;\n            a += padding;\n\
+    \            b += padding;\n            if(weighted)\n                cin >> c;\n\
+    \            if(directed)\n                add_directed_edge(a, b, c);\n     \
+    \       else\n                add_edge(a, b, c);\n        }\n    }\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: graph/graph-template.hpp
   requiredBy:
   - graph/minimum-steiner-tree.hpp
-  timestamp: '2025-03-06 09:55:51+09:00'
+  timestamp: '2025-03-07 18:46:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/tree/tree_diameter.test.cpp
@@ -136,6 +141,7 @@ data:
   - test/aoj/1040.test.cpp
   - test/yukicoder/114.test.cpp
   - test/yukicoder/1718.test.cpp
+  - test/yukicoder/2677.test.cpp
 documentation_of: graph/graph-template.hpp
 layout: document
 redirect_from:
