@@ -16,14 +16,11 @@ void solve() {
         d[--di] = true;
     }
     auto merge = [](Data a, Data b) {
-        a.exist |= b.exist;
-        a.val += b.val;
-        chmax(a.max_len, b.max_len);
-        return a;
+        return Data(a.exist or b.exist, max(a.max_len, b.max_len),
+                    a.val + b.val);
     };
     auto apply = [&](Data data, int from, int to, bool) {
-        data.exist |= d[from];
-        if(data.exist)
+        if(data.exist |= d[from])
             data.val += 2, data.max_len++;
         return data;
     };
