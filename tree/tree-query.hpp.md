@@ -19,7 +19,8 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
+    links:
+    - https://nyaannyaan.github.io/library/tree/tree-query.hpp
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -94,61 +95,61 @@ data:
     \ a >> b;\n            a += padding;\n            b += padding;\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n};\n#line 3 \"tree/tree-query.hpp\"\ntemplate <class T> struct Tree {\n\
-    \    int n, root, lg;\n    Graph<T> &g;\n    vector<int> depth;\n    vector<vector<int>>\
-    \ table;\n    Tree(Graph<T> &g, int root = 0)\n        : n(g.size()), root(root),\
-    \ lg(bit_width((unsigned)n)), g(g),\n          depth(n, 0), table(lg, vector<int>(n,\
-    \ -1)) {\n        dfs(root, -1);\n    }\n    // root -> -1\n    int par(int u)\
-    \ const { return table[0][u]; }\n    int kth_ancestor(int u, int k) const {\n\
-    \        if(depth[u] < k)\n            return -1;\n        while(k) {\n      \
-    \      int t = countr_zero((unsigned)k);\n            u = table[t][u], k ^= 1\
-    \ << t;\n        }\n        return u;\n    }\n    int lca(int s, int t) const\
-    \ {\n        if(depth[s] > depth[t])\n            swap(s, t);\n        t = kth_ancestor(t,\
-    \ depth[t] - depth[s]);\n        if(s == t)\n            return s;\n        for(int\
-    \ i = lg - 1; i >= 0; i--) {\n            if(table[i][s] != table[i][t])\n   \
-    \             s = table[i][s], t = table[i][t];\n        }\n        return table[0][s];\n\
-    \    }\n    // s\u304B\u3089t\u65B9\u5411\u306Bk\u9032\u3080\n    // dist(s,t)\
-    \ < k \u306A\u3089 -1\n    int jump(int s, int t, int k) const {\n        int\
-    \ lc = lca(s, t);\n        if(depth[s] - depth[lc] >= k)\n            return kth_ancestor(s,\
-    \ k);\n        k = depth[s] + depth[t] - 2 * depth[lc] - k;\n        if(k >= 0\
-    \ and depth[t] - depth[lc] >= k)\n            return kth_ancestor(t, k);\n   \
-    \     return -1;\n    }\n\n  private:\n    void dfs(int cur, int par) {\n    \
-    \    for(int i = 0; i + 1 < lg and table[i][cur] != -1; i++)\n            table[i\
-    \ + 1][cur] = table[i][table[i][cur]];\n        for(auto &to : g[cur]) {\n   \
-    \         if(to == par)\n                continue;\n            depth[to] = depth[cur]\
-    \ + 1;\n            table[0][to] = cur;\n            dfs(to, cur);\n        }\n\
-    \    }\n};\n"
-  code: "#pragma once\n#include \"graph/graph-template.hpp\"\ntemplate <class T> struct\
-    \ Tree {\n    int n, root, lg;\n    Graph<T> &g;\n    vector<int> depth;\n   \
-    \ vector<vector<int>> table;\n    Tree(Graph<T> &g, int root = 0)\n        : n(g.size()),\
-    \ root(root), lg(bit_width((unsigned)n)), g(g),\n          depth(n, 0), table(lg,\
-    \ vector<int>(n, -1)) {\n        dfs(root, -1);\n    }\n    // root -> -1\n  \
-    \  int par(int u) const { return table[0][u]; }\n    int kth_ancestor(int u, int\
-    \ k) const {\n        if(depth[u] < k)\n            return -1;\n        while(k)\
-    \ {\n            int t = countr_zero((unsigned)k);\n            u = table[t][u],\
-    \ k ^= 1 << t;\n        }\n        return u;\n    }\n    int lca(int s, int t)\
-    \ const {\n        if(depth[s] > depth[t])\n            swap(s, t);\n        t\
-    \ = kth_ancestor(t, depth[t] - depth[s]);\n        if(s == t)\n            return\
-    \ s;\n        for(int i = lg - 1; i >= 0; i--) {\n            if(table[i][s] !=\
-    \ table[i][t])\n                s = table[i][s], t = table[i][t];\n        }\n\
-    \        return table[0][s];\n    }\n    // s\u304B\u3089t\u65B9\u5411\u306Bk\u9032\
-    \u3080\n    // dist(s,t) < k \u306A\u3089 -1\n    int jump(int s, int t, int k)\
-    \ const {\n        int lc = lca(s, t);\n        if(depth[s] - depth[lc] >= k)\n\
-    \            return kth_ancestor(s, k);\n        k = depth[s] + depth[t] - 2 *\
-    \ depth[lc] - k;\n        if(k >= 0 and depth[t] - depth[lc] >= k)\n         \
-    \   return kth_ancestor(t, k);\n        return -1;\n    }\n\n  private:\n    void\
-    \ dfs(int cur, int par) {\n        for(int i = 0; i + 1 < lg and table[i][cur]\
-    \ != -1; i++)\n            table[i + 1][cur] = table[i][table[i][cur]];\n    \
-    \    for(auto &to : g[cur]) {\n            if(to == par)\n                continue;\n\
-    \            depth[to] = depth[cur] + 1;\n            table[0][to] = cur;\n  \
-    \          dfs(to, cur);\n        }\n    }\n};"
+    \  }\n};\n#line 3 \"tree/tree-query.hpp\"\n// https://nyaannyaan.github.io/library/tree/tree-query.hpp\n\
+    template <class T> struct Tree {\n    int n, root, lg;\n    Graph<T> &g;\n   \
+    \ vector<int> depth;\n    vector<vector<int>> table;\n    Tree(Graph<T> &g, int\
+    \ root = 0)\n        : n(g.size()), root(root), lg(bit_width((unsigned)n)), g(g),\n\
+    \          depth(n, 0), table(lg, vector<int>(n, -1)) {\n        dfs(root, -1);\n\
+    \    }\n    // root -> -1\n    int par(int u) const { return table[0][u]; }\n\
+    \    int kth_ancestor(int u, int k) const {\n        if(depth[u] < k)\n      \
+    \      return -1;\n        while(k) {\n            int t = countr_zero((unsigned)k);\n\
+    \            u = table[t][u], k ^= 1 << t;\n        }\n        return u;\n   \
+    \ }\n    int lca(int s, int t) const {\n        if(depth[s] > depth[t])\n    \
+    \        swap(s, t);\n        t = kth_ancestor(t, depth[t] - depth[s]);\n    \
+    \    if(s == t)\n            return s;\n        for(int i = lg - 1; i >= 0; i--)\
+    \ {\n            if(table[i][s] != table[i][t])\n                s = table[i][s],\
+    \ t = table[i][t];\n        }\n        return table[0][s];\n    }\n    // s\u304B\
+    \u3089t\u65B9\u5411\u306Bk\u9032\u3080\n    // dist(s,t) < k \u306A\u3089 -1\n\
+    \    int jump(int s, int t, int k) const {\n        int lc = lca(s, t);\n    \
+    \    if(depth[s] - depth[lc] >= k)\n            return kth_ancestor(s, k);\n \
+    \       k = depth[s] + depth[t] - 2 * depth[lc] - k;\n        if(k >= 0 and depth[t]\
+    \ - depth[lc] >= k)\n            return kth_ancestor(t, k);\n        return -1;\n\
+    \    }\n\n  private:\n    void dfs(int cur, int par) {\n        for(int i = 0;\
+    \ i + 1 < lg and table[i][cur] != -1; i++)\n            table[i + 1][cur] = table[i][table[i][cur]];\n\
+    \        for(auto &to : g[cur]) {\n            if(to == par)\n               \
+    \ continue;\n            depth[to] = depth[cur] + 1;\n            table[0][to]\
+    \ = cur;\n            dfs(to, cur);\n        }\n    }\n};\n"
+  code: "#pragma once\n#include \"graph/graph-template.hpp\"\n// https://nyaannyaan.github.io/library/tree/tree-query.hpp\n\
+    template <class T> struct Tree {\n    int n, root, lg;\n    Graph<T> &g;\n   \
+    \ vector<int> depth;\n    vector<vector<int>> table;\n    Tree(Graph<T> &g, int\
+    \ root = 0)\n        : n(g.size()), root(root), lg(bit_width((unsigned)n)), g(g),\n\
+    \          depth(n, 0), table(lg, vector<int>(n, -1)) {\n        dfs(root, -1);\n\
+    \    }\n    // root -> -1\n    int par(int u) const { return table[0][u]; }\n\
+    \    int kth_ancestor(int u, int k) const {\n        if(depth[u] < k)\n      \
+    \      return -1;\n        while(k) {\n            int t = countr_zero((unsigned)k);\n\
+    \            u = table[t][u], k ^= 1 << t;\n        }\n        return u;\n   \
+    \ }\n    int lca(int s, int t) const {\n        if(depth[s] > depth[t])\n    \
+    \        swap(s, t);\n        t = kth_ancestor(t, depth[t] - depth[s]);\n    \
+    \    if(s == t)\n            return s;\n        for(int i = lg - 1; i >= 0; i--)\
+    \ {\n            if(table[i][s] != table[i][t])\n                s = table[i][s],\
+    \ t = table[i][t];\n        }\n        return table[0][s];\n    }\n    // s\u304B\
+    \u3089t\u65B9\u5411\u306Bk\u9032\u3080\n    // dist(s,t) < k \u306A\u3089 -1\n\
+    \    int jump(int s, int t, int k) const {\n        int lc = lca(s, t);\n    \
+    \    if(depth[s] - depth[lc] >= k)\n            return kth_ancestor(s, k);\n \
+    \       k = depth[s] + depth[t] - 2 * depth[lc] - k;\n        if(k >= 0 and depth[t]\
+    \ - depth[lc] >= k)\n            return kth_ancestor(t, k);\n        return -1;\n\
+    \    }\n\n  private:\n    void dfs(int cur, int par) {\n        for(int i = 0;\
+    \ i + 1 < lg and table[i][cur] != -1; i++)\n            table[i + 1][cur] = table[i][table[i][cur]];\n\
+    \        for(auto &to : g[cur]) {\n            if(to == par)\n               \
+    \ continue;\n            depth[to] = depth[cur] + 1;\n            table[0][to]\
+    \ = cur;\n            dfs(to, cur);\n        }\n    }\n};"
   dependsOn:
   - graph/graph-template.hpp
   - template.hpp
   isVerificationFile: false
   path: tree/tree-query.hpp
   requiredBy: []
-  timestamp: '2025-03-08 11:03:56+09:00'
+  timestamp: '2025-03-08 11:22:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/tree/jump_on_tree.test.cpp
