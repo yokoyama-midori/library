@@ -70,25 +70,9 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"tree/tree-diameter.hpp\"\
-    \n// dist : distance from d1\ntemplate <class TREE> struct TreeDiamter {\n   \
-    \ TREE &g;\n    using T = typename TREE::cost_type;\n    vector<T> dist;\n   \
-    \ int d1, d2;\n    TreeDiamter(TREE &g) : g(g), dist(g.size(), -1) {\n       \
-    \ d1 = bfs(0);\n        dist = vector<T>(g.size(), -1);\n        d2 = bfs(d1);\n\
-    \    }\n    vector<int> get_path() const {\n        vector<int> res = {d2};\n\
-    \        int cur = d2;\n        while(cur != d1) {\n            for(auto &e :\
-    \ g[cur]) {\n                if(dist[e.to] + e.cost == dist[cur]) {\n        \
-    \            cur = e.to;\n                    res.emplace_back(cur);\n       \
-    \             break;\n                }\n            }\n        }\n        ranges::reverse(res);\n\
-    \        return res;\n    }\n\n  private:\n    int bfs(int root) {\n        queue<int>\
-    \ que;\n        que.push(root);\n        dist[root] = 0;\n        while(que.size())\
-    \ {\n            int cur = que.front();\n            que.pop();\n            for(auto\
-    \ &e : g[cur]) {\n                if(dist[e.to] != -1)\n                    continue;\n\
-    \                dist[e.to] = dist[cur] + e.cost;\n                que.push(e.to);\n\
-    \            }\n        }\n        return ranges::max_element(dist) - begin(dist);\n\
-    \    }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// dist : distance from d1\ntemplate\
-    \ <class TREE> struct TreeDiamter {\n    TREE &g;\n    using T = typename TREE::cost_type;\n\
-    \    vector<T> dist;\n    int d1, d2;\n    TreeDiamter(TREE &g) : g(g), dist(g.size(),\
+    \n// dist : distance from d1\ntemplate <class TreeType> struct TreeDiamter {\n\
+    \    TreeType &g;\n    using T = typename TreeType::cost_type;\n    vector<T>\
+    \ dist;\n    int d1, d2;\n    TreeDiamter(TreeType &g) : g(g), dist(g.size(),\
     \ -1) {\n        d1 = bfs(0);\n        dist = vector<T>(g.size(), -1);\n     \
     \   d2 = bfs(d1);\n    }\n    vector<int> get_path() const {\n        vector<int>\
     \ res = {d2};\n        int cur = d2;\n        while(cur != d1) {\n           \
@@ -102,12 +86,28 @@ data:
     \ != -1)\n                    continue;\n                dist[e.to] = dist[cur]\
     \ + e.cost;\n                que.push(e.to);\n            }\n        }\n     \
     \   return ranges::max_element(dist) - begin(dist);\n    }\n};\n"
+  code: "#pragma once\n#include \"template.hpp\"\n// dist : distance from d1\ntemplate\
+    \ <class TreeType> struct TreeDiamter {\n    TreeType &g;\n    using T = typename\
+    \ TreeType::cost_type;\n    vector<T> dist;\n    int d1, d2;\n    TreeDiamter(TreeType\
+    \ &g) : g(g), dist(g.size(), -1) {\n        d1 = bfs(0);\n        dist = vector<T>(g.size(),\
+    \ -1);\n        d2 = bfs(d1);\n    }\n    vector<int> get_path() const {\n   \
+    \     vector<int> res = {d2};\n        int cur = d2;\n        while(cur != d1)\
+    \ {\n            for(auto &e : g[cur]) {\n                if(dist[e.to] + e.cost\
+    \ == dist[cur]) {\n                    cur = e.to;\n                    res.emplace_back(cur);\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     ranges::reverse(res);\n        return res;\n    }\n\n  private:\n    int\
+    \ bfs(int root) {\n        queue<int> que;\n        que.push(root);\n        dist[root]\
+    \ = 0;\n        while(que.size()) {\n            int cur = que.front();\n    \
+    \        que.pop();\n            for(auto &e : g[cur]) {\n                if(dist[e.to]\
+    \ != -1)\n                    continue;\n                dist[e.to] = dist[cur]\
+    \ + e.cost;\n                que.push(e.to);\n            }\n        }\n     \
+    \   return ranges::max_element(dist) - begin(dist);\n    }\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: tree/tree-diameter.hpp
   requiredBy: []
-  timestamp: '2025-03-06 09:55:51+09:00'
+  timestamp: '2025-03-08 11:03:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/tree/tree_diameter.test.cpp

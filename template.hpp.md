@@ -127,6 +127,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tree/tree-diameter.hpp
     title: tree/tree-diameter.hpp
+  - icon: ':heavy_check_mark:'
+    path: tree/tree-query.hpp
+    title: tree/tree-query.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1040.test.cpp
@@ -240,8 +243,14 @@ data:
     path: test/library_checker/sample/many_aplusb.test.cpp
     title: test/library_checker/sample/many_aplusb.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/tree/jump_on_tree.test.cpp
+    title: test/library_checker/tree/jump_on_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/lca.test.cpp
     title: test/library_checker/tree/lca.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/tree/lca_doubling.test.cpp
+    title: test/library_checker/tree/lca_doubling.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_diameter.test.cpp
     title: test/library_checker/tree/tree_diameter.test.cpp
@@ -427,6 +436,7 @@ data:
   - poly/poly_taylor_shift.hpp
   - poly/shift_of_sampling_points.hpp
   - tree/auxiliary-tree.hpp
+  - tree/tree-query.hpp
   - tree/rerooting.hpp
   - tree/euler-tour.hpp
   - tree/tree-diameter.hpp
@@ -469,9 +479,11 @@ data:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
+  - test/library_checker/tree/jump_on_tree.test.cpp
   - test/library_checker/tree/tree_diameter.test.cpp
   - test/library_checker/tree/lca.test.cpp
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
+  - test/library_checker/tree/lca_doubling.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/gcd_convolution.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp

@@ -97,13 +97,13 @@ data:
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
     \  }\n};\n#line 3 \"tree/tree-diameter.hpp\"\n// dist : distance from d1\ntemplate\
-    \ <class TREE> struct TreeDiamter {\n    TREE &g;\n    using T = typename TREE::cost_type;\n\
-    \    vector<T> dist;\n    int d1, d2;\n    TreeDiamter(TREE &g) : g(g), dist(g.size(),\
-    \ -1) {\n        d1 = bfs(0);\n        dist = vector<T>(g.size(), -1);\n     \
-    \   d2 = bfs(d1);\n    }\n    vector<int> get_path() const {\n        vector<int>\
-    \ res = {d2};\n        int cur = d2;\n        while(cur != d1) {\n           \
-    \ for(auto &e : g[cur]) {\n                if(dist[e.to] + e.cost == dist[cur])\
-    \ {\n                    cur = e.to;\n                    res.emplace_back(cur);\n\
+    \ <class TreeType> struct TreeDiamter {\n    TreeType &g;\n    using T = typename\
+    \ TreeType::cost_type;\n    vector<T> dist;\n    int d1, d2;\n    TreeDiamter(TreeType\
+    \ &g) : g(g), dist(g.size(), -1) {\n        d1 = bfs(0);\n        dist = vector<T>(g.size(),\
+    \ -1);\n        d2 = bfs(d1);\n    }\n    vector<int> get_path() const {\n   \
+    \     vector<int> res = {d2};\n        int cur = d2;\n        while(cur != d1)\
+    \ {\n            for(auto &e : g[cur]) {\n                if(dist[e.to] + e.cost\
+    \ == dist[cur]) {\n                    cur = e.to;\n                    res.emplace_back(cur);\n\
     \                    break;\n                }\n            }\n        }\n   \
     \     ranges::reverse(res);\n        return res;\n    }\n\n  private:\n    int\
     \ bfs(int root) {\n        queue<int> que;\n        que.push(root);\n        dist[root]\
@@ -129,7 +129,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2025-03-07 18:46:28+09:00'
+  timestamp: '2025-03-08 11:03:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/tree/tree_diameter.test.cpp

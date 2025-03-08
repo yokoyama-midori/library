@@ -149,6 +149,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tree/tree-diameter.hpp
       title: tree/tree-diameter.hpp
+    - icon: ':heavy_check_mark:'
+      path: tree/tree-query.hpp
+      title: tree/tree-query.hpp
   verificationCategories:
   - name: test/aoj
     pages:
@@ -284,8 +287,14 @@ data:
   - name: test/library_checker/tree
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/jump_on_tree.test.cpp
+      title: test/library_checker/tree/jump_on_tree.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/lca.test.cpp
       title: test/library_checker/tree/lca.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/tree/lca_doubling.test.cpp
+      title: test/library_checker/tree/lca_doubling.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/tree/tree_diameter.test.cpp
       title: test/library_checker/tree/tree_diameter.test.cpp

@@ -2,54 +2,34 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: graph/minimum-steiner-tree.hpp
-    title: graph/minimum-steiner-tree.hpp
   - icon: ':heavy_check_mark:'
     path: tree/tree-query.hpp
     title: tree/tree-query.hpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/1040.test.cpp
-    title: test/aoj/1040.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/jump_on_tree.test.cpp
-    title: test/library_checker/tree/jump_on_tree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/lca_doubling.test.cpp
-    title: test/library_checker/tree/lca_doubling.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/tree_diameter.test.cpp
-    title: test/library_checker/tree/tree_diameter.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/tree_path_composite_sum.test.cpp
-    title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/114.test.cpp
-    title: test/yukicoder/114.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1718.test.cpp
-    title: test/yukicoder/1718.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/2677.test.cpp
-    title: test/yukicoder/2677.test.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/jump_on_tree
     links:
-    - https://ei1333.github.io/library/graph/graph-template.hpp
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
-    \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
-    \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
-    \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://judge.yosupo.jp/problem/jump_on_tree
+  bundledCode: "#line 1 \"test/library_checker/tree/jump_on_tree.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/jump_on_tree\"\n#line 2 \"template.hpp\"\
+    \n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
+    \ GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n//\
+    \ usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\u3046\u306B\
+    \u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream& os, const vector<T>&\
+    \ v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size(); ++i) {\n      \
+    \  os << v[i];\n        if (i < v.size() - 1) os << \", \";\n    }\n    os <<\
+    \ \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const T& var) {\n    os << var;\n    return os;\n}\n#define CHOOSE(a) CHOOSE2\
     \ a\n#define CHOOSE2(a0, a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) { cout\
     \ << #x1 << \": \"; debug_print(cout, x1) << endl; }\n#define debug_2(x1, x2)\
@@ -116,48 +96,53 @@ data:
     \ a >> b;\n            a += padding;\n            b += padding;\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/graph/graph-template.hpp\n\
-    template <class T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int\
-    \ idx;\n    Edge() = default;\n    Edge(int from, int to, T cost = 1, int idx\
-    \ = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    Edge &operator=(const\
-    \ int &x) {\n        to = x;\n        return *this;\n    }\n    operator int()\
-    \ const { return to; }\n};\ntemplate <class T = ll> struct Graph {\n    using\
-    \ cost_type = T;\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n \
-    \   Graph(int n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n\
-    \    void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es++);\n    }\n    void add_edge(int from, int to, T cost = 1) {\n\
-    \        g[from].emplace_back(from, to, cost, es);\n        g[to].emplace_back(to,\
-    \ from, cost, es++);\n    }\n    vector<Edge<T>> &operator[](const int &k) { return\
-    \ g[k]; }\n    const vector<Edge<T>> &operator[](const int &k) const { return\
-    \ g[k]; }\n    void read(int m, int padding = -1, bool weighted = false,\n   \
-    \           bool directed = false) {\n        rep(i, m) {\n            int a,\
-    \ b;\n            T c(1);\n            cin >> a >> b;\n            a += padding;\n\
-    \            b += padding;\n            if(weighted)\n                cin >> c;\n\
-    \            if(directed)\n                add_directed_edge(a, b, c);\n     \
-    \       else\n                add_edge(a, b, c);\n        }\n    }\n};\n"
+    \  }\n};\n#line 3 \"tree/tree-query.hpp\"\ntemplate <class T> struct Tree {\n\
+    \    int n, root, lg;\n    Graph<T> &g;\n    vector<int> depth;\n    vector<vector<int>>\
+    \ table;\n    Tree(Graph<T> &g, int root = 0)\n        : n(g.size()), root(root),\
+    \ lg(bit_width((unsigned)n)), g(g),\n          depth(n, 0), table(lg, vector<int>(n,\
+    \ -1)) {\n        dfs(root, -1);\n    }\n    // root -> -1\n    int par(int u)\
+    \ const { return table[0][u]; }\n    int kth_ancestor(int u, int k) const {\n\
+    \        if(depth[u] < k)\n            return -1;\n        while(k) {\n      \
+    \      int t = countr_zero((unsigned)k);\n            u = table[t][u], k ^= 1\
+    \ << t;\n        }\n        return u;\n    }\n    int lca(int s, int t) const\
+    \ {\n        if(depth[s] > depth[t])\n            swap(s, t);\n        t = kth_ancestor(t,\
+    \ depth[t] - depth[s]);\n        if(s == t)\n            return s;\n        for(int\
+    \ i = lg - 1; i >= 0; i--) {\n            if(table[i][s] != table[i][t])\n   \
+    \             s = table[i][s], t = table[i][t];\n        }\n        return table[0][s];\n\
+    \    }\n    // s\u304B\u3089t\u65B9\u5411\u306Bk\u9032\u3080\n    // dist(s,t)\
+    \ < k \u306A\u3089 -1\n    int jump(int s, int t, int k) const {\n        int\
+    \ lc = lca(s, t);\n        if(depth[s] - depth[lc] >= k)\n            return kth_ancestor(s,\
+    \ k);\n        k = depth[s] + depth[t] - 2 * depth[lc] - k;\n        if(k >= 0\
+    \ and depth[t] - depth[lc] >= k)\n            return kth_ancestor(t, k);\n   \
+    \     return -1;\n    }\n\n  private:\n    void dfs(int cur, int par) {\n    \
+    \    for(int i = 0; i + 1 < lg and table[i][cur] != -1; i++)\n            table[i\
+    \ + 1][cur] = table[i][table[i][cur]];\n        for(auto &to : g[cur]) {\n   \
+    \         if(to == par)\n                continue;\n            depth[to] = depth[cur]\
+    \ + 1;\n            table[0][to] = cur;\n            dfs(to, cur);\n        }\n\
+    \    }\n};\n#line 3 \"test/library_checker/tree/jump_on_tree.test.cpp\"\nint main()\
+    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    INT(n,\
+    \ q);\n    Graph<bool> g(n);\n    g.read(n - 1, 0);\n    Tree<bool> tree(g);\n\
+    \    while(q--) {\n        INT(s, t, k);\n        print(tree.jump(s, t, k));\n\
+    \    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/jump_on_tree\"\n#include\
+    \ \"tree/tree-query.hpp\"\nint main() {\n    ios::sync_with_stdio(false);\n  \
+    \  std::cin.tie(nullptr);\n    INT(n, q);\n    Graph<bool> g(n);\n    g.read(n\
+    \ - 1, 0);\n    Tree<bool> tree(g);\n    while(q--) {\n        INT(s, t, k);\n\
+    \        print(tree.jump(s, t, k));\n    }\n}\n"
   dependsOn:
-  - template.hpp
-  isVerificationFile: false
-  path: graph/graph-template.hpp
-  requiredBy:
   - tree/tree-query.hpp
-  - graph/minimum-steiner-tree.hpp
-  timestamp: '2025-03-07 18:46:28+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/tree/jump_on_tree.test.cpp
-  - test/library_checker/tree/tree_diameter.test.cpp
-  - test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - test/library_checker/tree/lca_doubling.test.cpp
-  - test/aoj/1040.test.cpp
-  - test/yukicoder/114.test.cpp
-  - test/yukicoder/1718.test.cpp
-  - test/yukicoder/2677.test.cpp
-documentation_of: graph/graph-template.hpp
+  - graph/graph-template.hpp
+  - template.hpp
+  isVerificationFile: true
+  path: test/library_checker/tree/jump_on_tree.test.cpp
+  requiredBy: []
+  timestamp: '2025-03-08 11:03:56+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/library_checker/tree/jump_on_tree.test.cpp
 layout: document
 redirect_from:
-- /library/graph/graph-template.hpp
-- /library/graph/graph-template.hpp.html
-title: graph/graph-template.hpp
+- /verify/test/library_checker/tree/jump_on_tree.test.cpp
+- /verify/test/library_checker/tree/jump_on_tree.test.cpp.html
+title: test/library_checker/tree/jump_on_tree.test.cpp
 ---
