@@ -54,6 +54,9 @@ data:
     path: graph/chromatic-number.hpp
     title: graph/chromatic-number.hpp
   - icon: ':heavy_check_mark:'
+    path: graph/cycle-detection.hpp
+    title: graph/cycle-detection.hpp
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
@@ -203,6 +206,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/chromatic_number.test.cpp
     title: test/library_checker/graph/chromatic_number.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/cycle_detection.test.cpp
+    title: test/library_checker/graph/cycle_detection.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/cycle_detection_undirected.test.cpp
+    title: test/library_checker/graph/cycle_detection_undirected.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/matrix_product.test.cpp
     title: test/library_checker/linear_algebra/matrix_product.test.cpp
@@ -471,6 +480,7 @@ data:
   - graph/minimum-steiner-tree.hpp
   - graph/shortest-path.hpp
   - graph/graph-template.hpp
+  - graph/cycle-detection.hpp
   - data_structure/sparse-table.hpp
   - data_structure/segtree.hpp
   - data_structure/hash-map-variable-length.hpp
@@ -508,6 +518,8 @@ data:
   - test/library_checker/number_theory/sqrt_mod.test.cpp
   - test/library_checker/shortest_path.test.cpp
   - test/library_checker/graph/chromatic_number.test.cpp
+  - test/library_checker/graph/cycle_detection.test.cpp
+  - test/library_checker/graph/cycle_detection_undirected.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp
   - test/library_checker/data_structure/associative_array.test.cpp

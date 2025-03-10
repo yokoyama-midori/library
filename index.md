@@ -61,6 +61,9 @@ data:
       path: graph/chromatic-number.hpp
       title: graph/chromatic-number.hpp
     - icon: ':heavy_check_mark:'
+      path: graph/cycle-detection.hpp
+      title: graph/cycle-detection.hpp
+    - icon: ':heavy_check_mark:'
       path: graph/graph-template.hpp
       title: graph/graph-template.hpp
     - icon: ':heavy_check_mark:'
@@ -235,6 +238,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/chromatic_number.test.cpp
       title: test/library_checker/graph/chromatic_number.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/cycle_detection.test.cpp
+      title: test/library_checker/graph/cycle_detection.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/cycle_detection_undirected.test.cpp
+      title: test/library_checker/graph/cycle_detection_undirected.test.cpp
   - name: test/library_checker/linear_algebra
     pages:
     - icon: ':heavy_check_mark:'

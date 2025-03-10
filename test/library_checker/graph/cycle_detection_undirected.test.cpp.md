@@ -2,63 +2,31 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: template.hpp
-    title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
     path: graph/cycle-detection.hpp
     title: graph/cycle-detection.hpp
   - icon: ':heavy_check_mark:'
-    path: graph/minimum-steiner-tree.hpp
-    title: graph/minimum-steiner-tree.hpp
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
-    path: tree/tree-query.hpp
-    title: tree/tree-query.hpp
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/1040.test.cpp
-    title: test/aoj/1040.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/graph/cycle_detection.test.cpp
-    title: test/library_checker/graph/cycle_detection.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/graph/cycle_detection_undirected.test.cpp
-    title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/shortest_path.test.cpp
-    title: test/library_checker/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/jump_on_tree.test.cpp
-    title: test/library_checker/tree/jump_on_tree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/lca_doubling.test.cpp
-    title: test/library_checker/tree/lca_doubling.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/tree_diameter.test.cpp
-    title: test/library_checker/tree/tree_diameter.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/tree_path_composite_sum.test.cpp
-    title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/114.test.cpp
-    title: test/yukicoder/114.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1718.test.cpp
-    title: test/yukicoder/1718.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/2677.test.cpp
-    title: test/yukicoder/2677.test.cpp
+    path: template.hpp
+    title: template.hpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/cycle_detection_undirected
     links:
-    - https://ei1333.github.io/library/graph/graph-template.hpp
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
-    // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
-    \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
+    - https://judge.yosupo.jp/problem/cycle_detection_undirected
+  bundledCode: "#line 1 \"test/library_checker/graph/cycle_detection_undirected.test.cpp\"\
+    \n#define PROBLEM \"https://judge.yosupo.jp/problem/cycle_detection_undirected\"\
+    \n#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
+    O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
+    using namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug\
+    \ methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\u3088\
+    \u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
     \ ++i) {\n        os << v[i];\n        if (i < v.size() - 1) os << \", \";\n \
     \   }\n    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nostream& debug_print(ostream&\
@@ -128,52 +96,51 @@ data:
     \ a >> b;\n            a += padding;\n            b += padding;\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/graph/graph-template.hpp\n\
-    template <class T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int\
-    \ idx;\n    Edge() = default;\n    Edge(int from, int to, T cost = 1, int idx\
-    \ = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    Edge &operator=(const\
-    \ int &x) {\n        to = x;\n        return *this;\n    }\n    operator int()\
-    \ const { return to; }\n};\ntemplate <class T = ll> struct Graph {\n    using\
-    \ cost_type = T;\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n \
-    \   Graph(int n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n\
-    \    void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es++);\n    }\n    void add_edge(int from, int to, T cost = 1) {\n\
-    \        g[from].emplace_back(from, to, cost, es);\n        g[to].emplace_back(to,\
-    \ from, cost, es++);\n    }\n    vector<Edge<T>> &operator[](const int &k) { return\
-    \ g[k]; }\n    const vector<Edge<T>> &operator[](const int &k) const { return\
-    \ g[k]; }\n    void read(int m, int padding = -1, bool weighted = false,\n   \
-    \           bool directed = false) {\n        rep(i, m) {\n            int a,\
-    \ b;\n            T c(1);\n            cin >> a >> b;\n            a += padding;\n\
-    \            b += padding;\n            if(weighted)\n                cin >> c;\n\
-    \            if(directed)\n                add_directed_edge(a, b, c);\n     \
-    \       else\n                add_edge(a, b, c);\n        }\n    }\n};\n"
+    \  }\n};\n#line 4 \"graph/cycle-detection.hpp\"\n// https://ei1333.github.io/library/graph/others/cycle-detection.hpp\n\
+    // \u8FBA\u7D20\u306A\u30B5\u30A4\u30AF\u30EB\u30921\u3064\u8FD4\u3059 \u306A\u3051\
+    \u308C\u3070\u7A7A\n// Edge\u306Eidx\u304C\u5FC5\u8981\n// \u6709\u5411/\u7121\
+    \u52B9 \u3069\u3061\u3089\u3067\u3082ok\ntemplate <class T> vector<Edge<T>> cycle_detection(Graph<T>\
+    \ &g) {\n    int n = g.size();\n    using edge_type = Edge<T>;\n    vector<char>\
+    \ used(n, 0);\n    vector<edge_type> prev(n, edge_type(-1, -1)), cycle;\n    auto\
+    \ dfs = [&](auto &&dfs, edge_type cur) -> bool {\n        used[cur] = 1;\n   \
+    \     for(edge_type e : g[cur]) {\n            if(e.idx == cur.idx)\n        \
+    \        continue;\n            prev[e] = e;\n            if(used[e] == 0) {\n\
+    \                if(dfs(dfs, e)) {\n                    return true;\n       \
+    \         }\n            } else if(used[e] == 1) {\n                int s = e.to;\n\
+    \                while(cycle.empty() or e.to != s) {\n                    cycle.emplace_back(e);\n\
+    \                    e = prev[e.from];\n                }\n                return\
+    \ true;\n            }\n        }\n        used[cur] = 2;\n        return false;\n\
+    \    };\n    rep(i, n) {\n        if(cycle.empty() and used[i] == 0)\n       \
+    \     dfs(dfs, Edge<bool>(-1, i));\n    }\n    ranges::reverse(cycle);\n    return\
+    \ cycle;\n}\n#line 3 \"test/library_checker/graph/cycle_detection_undirected.test.cpp\"\
+    \nvoid solve() {\n    INT(n, m);\n    Graph<bool> g(n);\n    g.read(m, 0, 0, 0);\n\
+    \    auto cycle = cycle_detection(g);\n    if(cycle.empty()) {\n        print(-1);\n\
+    \        return;\n    }\n    print(cycle.size());\n    for(auto i : cycle)\n \
+    \       cout << i.from << \" \";\n    cout << \"\\n\";\n    for(auto i : cycle)\n\
+    \        cout << i.idx << \" \";\n    cout << \"\\n\";\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/cycle_detection_undirected\"\
+    \n#include \"graph/cycle-detection.hpp\"\nvoid solve() {\n    INT(n, m);\n   \
+    \ Graph<bool> g(n);\n    g.read(m, 0, 0, 0);\n    auto cycle = cycle_detection(g);\n\
+    \    if(cycle.empty()) {\n        print(-1);\n        return;\n    }\n    print(cycle.size());\n\
+    \    for(auto i : cycle)\n        cout << i.from << \" \";\n    cout << \"\\n\"\
+    ;\n    for(auto i : cycle)\n        cout << i.idx << \" \";\n    cout << \"\\\
+    n\";\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
   dependsOn:
-  - template.hpp
-  isVerificationFile: false
-  path: graph/graph-template.hpp
-  requiredBy:
-  - tree/tree-query.hpp
-  - graph/minimum-steiner-tree.hpp
   - graph/cycle-detection.hpp
-  timestamp: '2025-03-07 18:46:28+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/tree/jump_on_tree.test.cpp
-  - test/library_checker/tree/tree_diameter.test.cpp
-  - test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - test/library_checker/tree/lca_doubling.test.cpp
-  - test/library_checker/shortest_path.test.cpp
-  - test/library_checker/graph/cycle_detection.test.cpp
-  - test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - test/aoj/1040.test.cpp
-  - test/yukicoder/114.test.cpp
-  - test/yukicoder/1718.test.cpp
-  - test/yukicoder/2677.test.cpp
-documentation_of: graph/graph-template.hpp
+  - graph/graph-template.hpp
+  - template.hpp
+  isVerificationFile: true
+  path: test/library_checker/graph/cycle_detection_undirected.test.cpp
+  requiredBy: []
+  timestamp: '2025-03-11 07:15:36+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/library_checker/graph/cycle_detection_undirected.test.cpp
 layout: document
 redirect_from:
-- /library/graph/graph-template.hpp
-- /library/graph/graph-template.hpp.html
-title: graph/graph-template.hpp
+- /verify/test/library_checker/graph/cycle_detection_undirected.test.cpp
+- /verify/test/library_checker/graph/cycle_detection_undirected.test.cpp.html
+title: test/library_checker/graph/cycle_detection_undirected.test.cpp
 ---
