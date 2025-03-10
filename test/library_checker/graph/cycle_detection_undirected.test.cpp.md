@@ -111,7 +111,7 @@ data:
     \                    e = prev[e.from];\n                }\n                return\
     \ true;\n            }\n        }\n        used[cur] = 2;\n        return false;\n\
     \    };\n    rep(i, n) {\n        if(cycle.empty() and used[i] == 0)\n       \
-    \     dfs(dfs, Edge<bool>(-1, i));\n    }\n    ranges::reverse(cycle);\n    return\
+    \     dfs(dfs, edge_type(-1, i));\n    }\n    ranges::reverse(cycle);\n    return\
     \ cycle;\n}\n#line 3 \"test/library_checker/graph/cycle_detection_undirected.test.cpp\"\
     \nvoid solve() {\n    INT(n, m);\n    Graph<bool> g(n);\n    g.read(m, 0, 0, 0);\n\
     \    auto cycle = cycle_detection(g);\n    if(cycle.empty()) {\n        print(-1);\n\
@@ -134,7 +134,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/graph/cycle_detection_undirected.test.cpp
   requiredBy: []
-  timestamp: '2025-03-11 07:15:36+09:00'
+  timestamp: '2025-03-11 07:19:54+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/cycle_detection_undirected.test.cpp

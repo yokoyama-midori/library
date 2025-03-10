@@ -110,7 +110,7 @@ data:
     \                    e = prev[e.from];\n                }\n                return\
     \ true;\n            }\n        }\n        used[cur] = 2;\n        return false;\n\
     \    };\n    rep(i, n) {\n        if(cycle.empty() and used[i] == 0)\n       \
-    \     dfs(dfs, Edge<bool>(-1, i));\n    }\n    ranges::reverse(cycle);\n    return\
+    \     dfs(dfs, edge_type(-1, i));\n    }\n    ranges::reverse(cycle);\n    return\
     \ cycle;\n}\n"
   code: "#pragma once\n#include \"graph/graph-template.hpp\"\n#include \"template.hpp\"\
     \n// https://ei1333.github.io/library/graph/others/cycle-detection.hpp\n// \u8FBA\
@@ -128,7 +128,7 @@ data:
     \                    e = prev[e.from];\n                }\n                return\
     \ true;\n            }\n        }\n        used[cur] = 2;\n        return false;\n\
     \    };\n    rep(i, n) {\n        if(cycle.empty() and used[i] == 0)\n       \
-    \     dfs(dfs, Edge<bool>(-1, i));\n    }\n    ranges::reverse(cycle);\n    return\
+    \     dfs(dfs, edge_type(-1, i));\n    }\n    ranges::reverse(cycle);\n    return\
     \ cycle;\n}\n"
   dependsOn:
   - graph/graph-template.hpp
@@ -136,7 +136,7 @@ data:
   isVerificationFile: false
   path: graph/cycle-detection.hpp
   requiredBy: []
-  timestamp: '2025-03-11 07:15:36+09:00'
+  timestamp: '2025-03-11 07:19:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/cycle_detection.test.cpp
