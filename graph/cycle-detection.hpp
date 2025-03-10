@@ -34,7 +34,7 @@ template <class T> vector<Edge<T>> cycle_detection(Graph<T> &g) {
     };
     rep(i, n) {
         if(cycle.empty() and used[i] == 0)
-            dfs(dfs, Edge<bool>(-1, i));
+            dfs(dfs, edge_type(-1, i));
     }
     ranges::reverse(cycle);
     return cycle;
