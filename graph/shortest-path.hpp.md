@@ -4,47 +4,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: graph/minimum-steiner-tree.hpp
-    title: graph/minimum-steiner-tree.hpp
-  - icon: ':heavy_check_mark:'
-    path: tree/tree-query.hpp
-    title: tree/tree-query.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/1040.test.cpp
-    title: test/aoj/1040.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/shortest_path.test.cpp
     title: test/library_checker/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/jump_on_tree.test.cpp
-    title: test/library_checker/tree/jump_on_tree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/lca_doubling.test.cpp
-    title: test/library_checker/tree/lca_doubling.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/tree_diameter.test.cpp
-    title: test/library_checker/tree/tree_diameter.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/tree_path_composite_sum.test.cpp
-    title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/114.test.cpp
-    title: test/yukicoder/114.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1718.test.cpp
-    title: test/yukicoder/1718.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/2677.test.cpp
-    title: test/yukicoder/2677.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links:
-    - https://ei1333.github.io/library/graph/graph-template.hpp
+    links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -100,68 +69,50 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"graph/graph-template.hpp\"\
-    \n// https://ei1333.github.io/library/graph/graph-template.hpp\ntemplate <class\
-    \ T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int idx;\n    Edge()\
-    \ = default;\n    Edge(int from, int to, T cost = 1, int idx = -1)\n        :\
-    \ from(from), to(to), cost(cost), idx(idx) {}\n    Edge &operator=(const int &x)\
-    \ {\n        to = x;\n        return *this;\n    }\n    operator int() const {\
-    \ return to; }\n};\ntemplate <class T = ll> struct Graph {\n    using cost_type\
-    \ = T;\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n    Graph(int\
-    \ n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n    void add_directed_edge(int\
-    \ from, int to, T cost = 1) {\n        g[from].emplace_back(from, to, cost, es++);\n\
-    \    }\n    void add_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es);\n        g[to].emplace_back(to, from, cost, es++);\n    }\n \
-    \   vector<Edge<T>> &operator[](const int &k) { return g[k]; }\n    const vector<Edge<T>>\
-    \ &operator[](const int &k) const { return g[k]; }\n    void read(int m, int padding\
-    \ = -1, bool weighted = false,\n              bool directed = false) {\n     \
-    \   rep(i, m) {\n            int a, b;\n            T c(1);\n            cin >>\
-    \ a >> b;\n            a += padding;\n            b += padding;\n            if(weighted)\n\
-    \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
-    \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/graph/graph-template.hpp\n\
-    template <class T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int\
-    \ idx;\n    Edge() = default;\n    Edge(int from, int to, T cost = 1, int idx\
-    \ = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    Edge &operator=(const\
-    \ int &x) {\n        to = x;\n        return *this;\n    }\n    operator int()\
-    \ const { return to; }\n};\ntemplate <class T = ll> struct Graph {\n    using\
-    \ cost_type = T;\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n \
-    \   Graph(int n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n\
-    \    void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es++);\n    }\n    void add_edge(int from, int to, T cost = 1) {\n\
-    \        g[from].emplace_back(from, to, cost, es);\n        g[to].emplace_back(to,\
-    \ from, cost, es++);\n    }\n    vector<Edge<T>> &operator[](const int &k) { return\
-    \ g[k]; }\n    const vector<Edge<T>> &operator[](const int &k) const { return\
-    \ g[k]; }\n    void read(int m, int padding = -1, bool weighted = false,\n   \
-    \           bool directed = false) {\n        rep(i, m) {\n            int a,\
-    \ b;\n            T c(1);\n            cin >> a >> b;\n            a += padding;\n\
-    \            b += padding;\n            if(weighted)\n                cin >> c;\n\
-    \            if(directed)\n                add_directed_edge(a, b, c);\n     \
-    \       else\n                add_edge(a, b, c);\n        }\n    }\n};\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"graph/shortest-path.hpp\"\
+    \ntemplate <class T> struct ShortestPath {\n    int n;\n    Graph<T> &g;\n   \
+    \ vector<int> from;\n    vector<T> dist;\n    ShortestPath(Graph<T> &g, int s)\n\
+    \        : n(g.size()), g(g), from(n, -1), dist(n, -1) {\n        using Pti =\
+    \ pair<T, int>;\n        priority_queue<Pti, vector<Pti>, greater<Pti>> que;\n\
+    \        que.push(Pti(0, s));\n        dist[s] = 0;\n        while(que.size())\
+    \ {\n            auto [cost, idx] = que.top();\n            que.pop();\n     \
+    \       if(dist[idx] < cost)\n                continue;\n            for(auto\
+    \ to : g[idx]) {\n                if(dist[to] == -1 or cost + to.cost < dist[to])\
+    \ {\n                    dist[to] = cost + to.cost;\n                    que.push(Pti(dist[to],\
+    \ to));\n                    from[to] = idx;\n                }\n            }\n\
+    \        }\n    }\n    const T &operator[](int i) const { return dist[i]; }\n\
+    \    vector<int> restore(int t) const {\n        assert(t != -1);\n        vector<int>\
+    \ res = {t};\n        while(from[t] != -1) {\n            t = from[t];\n     \
+    \       res.emplace_back(t);\n        }\n        ranges::reverse(res);\n     \
+    \   return res;\n    }\n};\n"
+  code: "#pragma once\n#include \"template.hpp\"\ntemplate <class T> struct ShortestPath\
+    \ {\n    int n;\n    Graph<T> &g;\n    vector<int> from;\n    vector<T> dist;\n\
+    \    ShortestPath(Graph<T> &g, int s)\n        : n(g.size()), g(g), from(n, -1),\
+    \ dist(n, -1) {\n        using Pti = pair<T, int>;\n        priority_queue<Pti,\
+    \ vector<Pti>, greater<Pti>> que;\n        que.push(Pti(0, s));\n        dist[s]\
+    \ = 0;\n        while(que.size()) {\n            auto [cost, idx] = que.top();\n\
+    \            que.pop();\n            if(dist[idx] < cost)\n                continue;\n\
+    \            for(auto to : g[idx]) {\n                if(dist[to] == -1 or cost\
+    \ + to.cost < dist[to]) {\n                    dist[to] = cost + to.cost;\n  \
+    \                  que.push(Pti(dist[to], to));\n                    from[to]\
+    \ = idx;\n                }\n            }\n        }\n    }\n    const T &operator[](int\
+    \ i) const { return dist[i]; }\n    vector<int> restore(int t) const {\n     \
+    \   assert(t != -1);\n        vector<int> res = {t};\n        while(from[t] !=\
+    \ -1) {\n            t = from[t];\n            res.emplace_back(t);\n        }\n\
+    \        ranges::reverse(res);\n        return res;\n    }\n};\n"
   dependsOn:
   - template.hpp
   isVerificationFile: false
-  path: graph/graph-template.hpp
-  requiredBy:
-  - tree/tree-query.hpp
-  - graph/minimum-steiner-tree.hpp
-  timestamp: '2025-03-07 18:46:28+09:00'
+  path: graph/shortest-path.hpp
+  requiredBy: []
+  timestamp: '2025-03-11 04:37:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/tree/jump_on_tree.test.cpp
-  - test/library_checker/tree/tree_diameter.test.cpp
-  - test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - test/library_checker/tree/lca_doubling.test.cpp
   - test/library_checker/shortest_path.test.cpp
-  - test/aoj/1040.test.cpp
-  - test/yukicoder/114.test.cpp
-  - test/yukicoder/1718.test.cpp
-  - test/yukicoder/2677.test.cpp
-documentation_of: graph/graph-template.hpp
+documentation_of: graph/shortest-path.hpp
 layout: document
 redirect_from:
-- /library/graph/graph-template.hpp
-- /library/graph/graph-template.hpp.html
-title: graph/graph-template.hpp
+- /library/graph/shortest-path.hpp
+- /library/graph/shortest-path.hpp.html
+title: graph/shortest-path.hpp
 ---

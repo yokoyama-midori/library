@@ -66,6 +66,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/minimum-steiner-tree.hpp
       title: graph/minimum-steiner-tree.hpp
+    - icon: ':heavy_check_mark:'
+      path: graph/shortest-path.hpp
+      title: graph/shortest-path.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -287,6 +290,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/sample/many_aplusb.test.cpp
       title: test/library_checker/sample/many_aplusb.test.cpp
+  - name: test/library_checker
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/shortest_path.test.cpp
+      title: test/library_checker/shortest_path.test.cpp
   - name: test/library_checker/tree
     pages:
     - icon: ':heavy_check_mark:'

@@ -60,6 +60,9 @@ data:
     path: graph/minimum-steiner-tree.hpp
     title: graph/minimum-steiner-tree.hpp
   - icon: ':heavy_check_mark:'
+    path: graph/shortest-path.hpp
+    title: graph/shortest-path.hpp
+  - icon: ':heavy_check_mark:'
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':heavy_check_mark:'
@@ -245,6 +248,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/many_aplusb.test.cpp
     title: test/library_checker/sample/many_aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/shortest_path.test.cpp
+    title: test/library_checker/shortest_path.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/cartesian_tree.test.cpp
     title: test/library_checker/tree/cartesian_tree.test.cpp
@@ -463,6 +469,7 @@ data:
   - number-theory/divisor-multiple-transform.hpp
   - graph/chromatic-number.hpp
   - graph/minimum-steiner-tree.hpp
+  - graph/shortest-path.hpp
   - graph/graph-template.hpp
   - data_structure/sparse-table.hpp
   - data_structure/segtree.hpp
@@ -499,6 +506,7 @@ data:
   - test/library_checker/number_theory/lcm_convolution.test.cpp
   - test/library_checker/number_theory/enumerate_primes.test.cpp
   - test/library_checker/number_theory/sqrt_mod.test.cpp
+  - test/library_checker/shortest_path.test.cpp
   - test/library_checker/graph/chromatic_number.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp
