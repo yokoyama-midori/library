@@ -1,5 +1,6 @@
 #include "template.hpp"
 // a : distinct
+// root = argmin a
 // p[root] = -1
 template <class T> vector<int> cartesian_tree(const vector<T> &a) {
     int n = a.size();
