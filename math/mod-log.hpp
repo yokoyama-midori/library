@@ -1,7 +1,8 @@
+#pragma once
 #include "template.hpp"
 #include <atcoder/math>
-https://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7
-ll discrete_log_coprime(ll x, ll y, ll mod) {
+// https : // qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7
+ll mod_log_coprime(ll x, ll y, ll mod) {
     // gcd(x,mod) == 1
     assert(0 <= x and x < mod and 0 <= y and y < mod);
     if(x == 0) {
@@ -31,7 +32,7 @@ ll discrete_log_coprime(ll x, ll y, ll mod) {
 }
 // min k s.t. x^k==y mod mod
 // なければ -1
-ll discrete_log(ll x, ll y, ll mod) {
+ll mod_log(ll x, ll y, ll mod) {
     assert(0 < mod and mod < numeric_limits<int>::max());
     // mod でかすぎると128bit必要
     if(x < 0 or mod <= x) {
@@ -48,12 +49,12 @@ ll discrete_log(ll x, ll y, ll mod) {
         return 0;
     ll g = gcd(x, mod);
     if(g == 1)
-        return discrete_log_coprime(x, y, mod);
+        return mod_log_coprime(x, y, mod);
     if(y % g)
         return -1;
     y /= g, mod /= g;
     ll ix = atcoder::inv_mod(x / g, mod);
     ll z = y * ix % mod;
-    ll l = discrete_log(x % mod, z, mod);
+    ll l = mod_log(x % mod, z, mod);
     return l == -1 ? l : l + 1;
 }

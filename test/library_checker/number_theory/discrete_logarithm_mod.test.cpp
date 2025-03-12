@@ -2,7 +2,7 @@
 #include "math/mod-log.hpp"
 void solve() {
     INT(x, y, mod);
-    print(discrete_log(x, y, mod));
+    print(mod_log(x, y, mod));
 }
 int main() {
     ios::sync_with_stdio(false);
