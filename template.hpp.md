@@ -60,6 +60,9 @@ data:
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
   - icon: ':heavy_check_mark:'
+    path: graph/maximum-independent-set.hpp
+    title: "\u6700\u5927\u72EC\u7ACB\u96C6\u5408"
+  - icon: ':heavy_check_mark:'
     path: graph/minimum-steiner-tree.hpp
     title: graph/minimum-steiner-tree.hpp
   - icon: ':heavy_check_mark:'
@@ -212,6 +215,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/maximum_independent_set.test.cpp
+    title: test/library_checker/graph/maximum_independent_set.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/matrix_product.test.cpp
     title: test/library_checker/linear_algebra/matrix_product.test.cpp
@@ -481,6 +487,7 @@ data:
   - graph/shortest-path.hpp
   - graph/graph-template.hpp
   - graph/cycle-detection.hpp
+  - graph/maximum-independent-set.hpp
   - data_structure/sparse-table.hpp
   - data_structure/segtree.hpp
   - data_structure/hash-map-variable-length.hpp
@@ -519,6 +526,7 @@ data:
   - test/library_checker/shortest_path.test.cpp
   - test/library_checker/graph/chromatic_number.test.cpp
   - test/library_checker/graph/cycle_detection.test.cpp
+  - test/library_checker/graph/maximum_independent_set.test.cpp
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp

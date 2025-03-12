@@ -2,64 +2,24 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: graph/graph-template.hpp
+    title: graph/graph-template.hpp
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: graph/cycle-detection.hpp
-    title: graph/cycle-detection.hpp
-  - icon: ':heavy_check_mark:'
-    path: graph/maximum-independent-set.hpp
-    title: "\u6700\u5927\u72EC\u7ACB\u96C6\u5408"
-  - icon: ':heavy_check_mark:'
-    path: graph/minimum-steiner-tree.hpp
-    title: graph/minimum-steiner-tree.hpp
-  - icon: ':heavy_check_mark:'
-    path: tree/tree-query.hpp
-    title: tree/tree-query.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/1040.test.cpp
-    title: test/aoj/1040.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/graph/cycle_detection.test.cpp
-    title: test/library_checker/graph/cycle_detection.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/graph/cycle_detection_undirected.test.cpp
-    title: test/library_checker/graph/cycle_detection_undirected.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/maximum_independent_set.test.cpp
     title: test/library_checker/graph/maximum_independent_set.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/shortest_path.test.cpp
-    title: test/library_checker/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/jump_on_tree.test.cpp
-    title: test/library_checker/tree/jump_on_tree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/lca_doubling.test.cpp
-    title: test/library_checker/tree/lca_doubling.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/tree_diameter.test.cpp
-    title: test/library_checker/tree/tree_diameter.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/tree/tree_path_composite_sum.test.cpp
-    title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/114.test.cpp
-    title: test/yukicoder/114.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/1718.test.cpp
-    title: test/yukicoder/1718.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/yukicoder/2677.test.cpp
-    title: test/yukicoder/2677.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
-    - https://ei1333.github.io/library/graph/graph-template.hpp
+    - https://maspypy.github.io/library/graph/maximum_independent_set.hpp
+    - https://www.slideshare.net/wata_orz/ss-12131479
+    - https://yukicoder.me/problems/no/382
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -134,54 +94,79 @@ data:
     \ a >> b;\n            a += padding;\n            b += padding;\n            if(weighted)\n\
     \                cin >> c;\n            if(directed)\n                add_directed_edge(a,\
     \ b, c);\n            else\n                add_edge(a, b, c);\n        }\n  \
-    \  }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\n// https://ei1333.github.io/library/graph/graph-template.hpp\n\
-    template <class T = ll> struct Edge {\n    int from, to;\n    T cost;\n    int\
-    \ idx;\n    Edge() = default;\n    Edge(int from, int to, T cost = 1, int idx\
-    \ = -1)\n        : from(from), to(to), cost(cost), idx(idx) {}\n    Edge &operator=(const\
-    \ int &x) {\n        to = x;\n        return *this;\n    }\n    operator int()\
-    \ const { return to; }\n};\ntemplate <class T = ll> struct Graph {\n    using\
-    \ cost_type = T;\n    vector<vector<Edge<T>>> g;\n    int es; // edge_size\n \
-    \   Graph(int n) : g(n), es(0) {};\n    int size() const { return ssize(g); }\n\
-    \    void add_directed_edge(int from, int to, T cost = 1) {\n        g[from].emplace_back(from,\
-    \ to, cost, es++);\n    }\n    void add_edge(int from, int to, T cost = 1) {\n\
-    \        g[from].emplace_back(from, to, cost, es);\n        g[to].emplace_back(to,\
-    \ from, cost, es++);\n    }\n    vector<Edge<T>> &operator[](const int &k) { return\
-    \ g[k]; }\n    const vector<Edge<T>> &operator[](const int &k) const { return\
-    \ g[k]; }\n    void read(int m, int padding = -1, bool weighted = false,\n   \
-    \           bool directed = false) {\n        rep(i, m) {\n            int a,\
-    \ b;\n            T c(1);\n            cin >> a >> b;\n            a += padding;\n\
-    \            b += padding;\n            if(weighted)\n                cin >> c;\n\
-    \            if(directed)\n                add_directed_edge(a, b, c);\n     \
-    \       else\n                add_edge(a, b, c);\n        }\n    }\n};\n"
+    \  }\n};\n#line 3 \"graph/maximum-independent-set.hpp\"\n// https://maspypy.github.io/library/graph/maximum_independent_set.hpp\n\
+    // https://yukicoder.me/problems/no/382\n// https://www.slideshare.net/wata_orz/ss-12131479\
+    \ \u3088\u308A\u9AD8\u901F\n// n=120 5sec\ntemplate <int n_max, class edge_type>\n\
+    vector<int> max_independent_set(int n, const vector<edge_type> &edges) {\n   \
+    \ using BS = bitset<n_max>;\n    BS res;\n    auto dfs = [&n, &res](auto &&dfs,\
+    \ vector<BS> nbd, BS rem, BS cur) {\n        while(1) {\n            bool upd\
+    \ = false;\n            for(int i : views::iota(0, n) | views::filter([&](int\
+    \ i) {\n                            return rem[i] and (rem & nbd[i]).count() <=\
+    \ 1;\n                        })) {\n                rem[i] = 0;\n           \
+    \     cur[i] = 1;\n                upd = true;\n                rem &= ~nbd[i];\n\
+    \            }\n            if(!upd)\n                break;\n        }\n    \
+    \    if(rem.none()) {\n            if(res.count() < cur.count())\n           \
+    \     res = cur;\n            return;\n        }\n        int max_idx = ranges::max(\n\
+    \            views::iota(0, n) | views::filter([&](int i) { return rem[i]; }),\n\
+    \            {}, [&](int i) { return (rem & nbd[i]).count(); });\n        assert(rem[max_idx]\
+    \ and nbd[max_idx].any());\n        rem[max_idx] = 0;\n        // max_idx \u4F7F\
+    \u308F\u306A\u3044\n        if(nbd[max_idx].count() > 2) // 2\u4EE5\u4E0B->\u5168\
+    \u90E82->\u3069\u308C\u4F7F\u3063\u3066\u3082\u4E00\u7DD2\n            dfs(dfs,\
+    \ nbd, rem, cur);\n        // \u4F7F\u3046\n        cur[max_idx] = 1;\n      \
+    \  rem &= ~nbd[max_idx];\n        dfs(dfs, nbd, rem, cur);\n    };\n    vector<BS>\
+    \ nbd(n);\n    BS rem;\n    for(int i : views::iota(0, n))\n        rem[i] = 1;\n\
+    \    for(auto &e : edges) {\n        assert(0 <= min(e, e.from) and max(e, e.from)\
+    \ < n);\n        if(e.from == e)\n            rem[e] = 0;\n        nbd[e.from][e]\
+    \ = nbd[e][e.from] = 1;\n    }\n    dfs(dfs, nbd, rem, BS(0));\n    vector<int>\
+    \ res_v;\n    for(int i :\n        views::iota(0, n) | views::filter([&](int i)\
+    \ { return res[i]; }))\n        res_v.emplace_back(i);\n    return res_v;\n}\n"
+  code: "#pragma once\n#include \"graph/graph-template.hpp\"\n// https://maspypy.github.io/library/graph/maximum_independent_set.hpp\n\
+    // https://yukicoder.me/problems/no/382\n// https://www.slideshare.net/wata_orz/ss-12131479\
+    \ \u3088\u308A\u9AD8\u901F\n// n=120 5sec\ntemplate <int n_max, class edge_type>\n\
+    vector<int> max_independent_set(int n, const vector<edge_type> &edges) {\n   \
+    \ using BS = bitset<n_max>;\n    BS res;\n    auto dfs = [&n, &res](auto &&dfs,\
+    \ vector<BS> nbd, BS rem, BS cur) {\n        while(1) {\n            bool upd\
+    \ = false;\n            for(int i : views::iota(0, n) | views::filter([&](int\
+    \ i) {\n                            return rem[i] and (rem & nbd[i]).count() <=\
+    \ 1;\n                        })) {\n                rem[i] = 0;\n           \
+    \     cur[i] = 1;\n                upd = true;\n                rem &= ~nbd[i];\n\
+    \            }\n            if(!upd)\n                break;\n        }\n    \
+    \    if(rem.none()) {\n            if(res.count() < cur.count())\n           \
+    \     res = cur;\n            return;\n        }\n        int max_idx = ranges::max(\n\
+    \            views::iota(0, n) | views::filter([&](int i) { return rem[i]; }),\n\
+    \            {}, [&](int i) { return (rem & nbd[i]).count(); });\n        assert(rem[max_idx]\
+    \ and nbd[max_idx].any());\n        rem[max_idx] = 0;\n        // max_idx \u4F7F\
+    \u308F\u306A\u3044\n        if(nbd[max_idx].count() > 2) // 2\u4EE5\u4E0B->\u5168\
+    \u90E82->\u3069\u308C\u4F7F\u3063\u3066\u3082\u4E00\u7DD2\n            dfs(dfs,\
+    \ nbd, rem, cur);\n        // \u4F7F\u3046\n        cur[max_idx] = 1;\n      \
+    \  rem &= ~nbd[max_idx];\n        dfs(dfs, nbd, rem, cur);\n    };\n    vector<BS>\
+    \ nbd(n);\n    BS rem;\n    for(int i : views::iota(0, n))\n        rem[i] = 1;\n\
+    \    for(auto &e : edges) {\n        assert(0 <= min(e, e.from) and max(e, e.from)\
+    \ < n);\n        if(e.from == e)\n            rem[e] = 0;\n        nbd[e.from][e]\
+    \ = nbd[e][e.from] = 1;\n    }\n    dfs(dfs, nbd, rem, BS(0));\n    vector<int>\
+    \ res_v;\n    for(int i :\n        views::iota(0, n) | views::filter([&](int i)\
+    \ { return res[i]; }))\n        res_v.emplace_back(i);\n    return res_v;\n}"
   dependsOn:
+  - graph/graph-template.hpp
   - template.hpp
   isVerificationFile: false
-  path: graph/graph-template.hpp
-  requiredBy:
-  - tree/tree-query.hpp
-  - graph/minimum-steiner-tree.hpp
-  - graph/cycle-detection.hpp
-  - graph/maximum-independent-set.hpp
-  timestamp: '2025-03-07 18:46:28+09:00'
+  path: graph/maximum-independent-set.hpp
+  requiredBy: []
+  timestamp: '2025-03-12 12:50:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/tree/jump_on_tree.test.cpp
-  - test/library_checker/tree/tree_diameter.test.cpp
-  - test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - test/library_checker/tree/lca_doubling.test.cpp
-  - test/library_checker/shortest_path.test.cpp
-  - test/library_checker/graph/cycle_detection.test.cpp
   - test/library_checker/graph/maximum_independent_set.test.cpp
-  - test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - test/aoj/1040.test.cpp
-  - test/yukicoder/114.test.cpp
-  - test/yukicoder/1718.test.cpp
-  - test/yukicoder/2677.test.cpp
-documentation_of: graph/graph-template.hpp
+documentation_of: graph/maximum-independent-set.hpp
 layout: document
-redirect_from:
-- /library/graph/graph-template.hpp
-- /library/graph/graph-template.hpp.html
-title: graph/graph-template.hpp
+title: "\u6700\u5927\u72EC\u7ACB\u96C6\u5408"
 ---
+
+rem : 未決定頂点集合  
+cur : 採用する頂点集合  
+nbd[i]&rem : iと隣接する頂点集合  
+degが1以下ならその頂点を採用して損しない  
+そのような頂点がなくなったらdeg最大の頂点を使うor使わないで分岐  
+
+## LINK
+- <https://maspypy.github.io/library/graph/maximum_independent_set.hpp>
+- <https://yukicoder.me/problems/no/382>
