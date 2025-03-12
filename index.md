@@ -142,6 +142,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/run-length-encoding.hpp
       title: string/run-length-encoding.hpp
+    - icon: ':heavy_check_mark:'
+      path: string/wildcard-pattern-matching.hpp
+      title: string/wildcard-pattern-matching.hpp
   - name: tree
     pages:
     - icon: ':warning:'
@@ -310,6 +313,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/shortest_path.test.cpp
       title: test/library_checker/shortest_path.test.cpp
+  - name: test/library_checker/string
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/string/wildcard_pattern_matching.test.cpp
+      title: test/library_checker/string/wildcard_pattern_matching.test.cpp
   - name: test/library_checker/tree
     pages:
     - icon: ':heavy_check_mark:'

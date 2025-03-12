@@ -122,6 +122,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
+  - icon: ':heavy_check_mark:'
+    path: string/wildcard-pattern-matching.hpp
+    title: string/wildcard-pattern-matching.hpp
   - icon: ':warning:'
     path: tree/auxiliary-tree.hpp
     title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
@@ -266,6 +269,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/shortest_path.test.cpp
     title: test/library_checker/shortest_path.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/string/wildcard_pattern_matching.test.cpp
+    title: test/library_checker/string/wildcard_pattern_matching.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/cartesian_tree.test.cpp
     title: test/library_checker/tree/cartesian_tree.test.cpp
@@ -478,6 +484,7 @@ data:
   - math/factorial.hpp
   - math/factorial_large.hpp
   - string/run-length-encoding.hpp
+  - string/wildcard-pattern-matching.hpp
   - number-theory/lcm-convolution.hpp
   - number-theory/enumerate-primes.hpp
   - number-theory/gcd-convolution.hpp
@@ -523,6 +530,7 @@ data:
   - test/library_checker/number_theory/lcm_convolution.test.cpp
   - test/library_checker/number_theory/enumerate_primes.test.cpp
   - test/library_checker/number_theory/sqrt_mod.test.cpp
+  - test/library_checker/string/wildcard_pattern_matching.test.cpp
   - test/library_checker/shortest_path.test.cpp
   - test/library_checker/graph/chromatic_number.test.cpp
   - test/library_checker/graph/cycle_detection.test.cpp

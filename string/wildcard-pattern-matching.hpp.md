@@ -2,31 +2,21 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: rng.hpp
+    title: rng.hpp
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: math/mod-sqrt.hpp
-    title: math/mod-sqrt.hpp
-  - icon: ':heavy_check_mark:'
-    path: string/wildcard-pattern-matching.hpp
-    title: string/wildcard-pattern-matching.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/number_theory/sqrt_mod.test.cpp
-    title: test/library_checker/number_theory/sqrt_mod.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/string/wildcard_pattern_matching.test.cpp
     title: test/library_checker/string/wildcard_pattern_matching.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/my-test/splaytree.test.cpp
-    title: test/my-test/splaytree.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links:
-    - https://maspypy.github.io/library/random/base.hpp
+    links: []
   bundledCode: "#line 2 \"rng.hpp\"\n// https://maspypy.github.io/library/random/base.hpp\n\
     #line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"\
     O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\n\
@@ -91,33 +81,54 @@ data:
     \ *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n    return x_ ^= x_\
     \ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim) { return RNG_64()\
     \ % lim; }\n\nll rng(ll l, ll r) {\n    // [l,r)\n    return l + RNG_64() % (r\
-    \ - l);\n}\n"
-  code: "#pragma once\n// https://maspypy.github.io/library/random/base.hpp\n#include\
-    \ \"template.hpp\"\nunsigned long long RNG_64() {\n    static unsigned long long\
-    \ x_ =\n        (unsigned long long)(chrono::duration_cast<chrono::nanoseconds>(\n\
-    \                                 chrono::high_resolution_clock::now()\n     \
-    \                                .time_since_epoch())\n                      \
-    \           .count()) *\n        10150724397891781847ULL;\n    x_ ^= x_ << 7;\n\
-    \    return x_ ^= x_ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim)\
-    \ { return RNG_64() % lim; }\n\nll rng(ll l, ll r) {\n    // [l,r)\n    return\
-    \ l + RNG_64() % (r - l);\n}"
+    \ - l);\n}\n#line 4 \"string/wildcard-pattern-matching.hpp\"\n#include <atcoder/convolution>\n\
+    #include <atcoder/modint>\ntemplate <class T>\nenable_if_t<is_integral_v<T>, vector<bool>>\n\
+    wildcard_pattern_matching(const vector<T> &_s, const vector<T> &_t) {\n    assert(_s.size()\
+    \ >= _t.size());\n    using mint = atcoder::modint998244353;\n    int ns = _s.size(),\
+    \ nt = _t.size();\n    vector<mint> s(ns), s01(ns), t(nt), t01(nt);\n    for(int\
+    \ i : views::iota(0, ns))\n        s[i] = _s[i], s01[i] = _s[i] ? 1 : 0;\n   \
+    \ for(int i : views::iota(0, nt)) {\n        mint r = rng(0, mint::mod());\n \
+    \       t[i] = _t[nt - 1 - i] * r, t01[i] = _t[nt - 1 - i] ? r : 0;\n    }\n \
+    \   auto c1 = atcoder::convolution(s, t01);\n    auto c2 = atcoder::convolution(s01,\
+    \ t);\n    vector<bool> res(ns - nt + 1);\n    for(int i : views::iota(0, ssize(res)))\n\
+    \        res[i] = c1[nt - 1 + i] == c2[nt - 1 + i];\n    return res;\n}\nvector<bool>\
+    \ wildcard_pattern_matching(const string &str, const string &str2,\n         \
+    \                              const char &wildcard = '*') {\n    vector<char>\
+    \ _s(begin(str), end(str)), _t(begin(str2), end(str2));\n    for(char &c : _s)\n\
+    \        if(c == wildcard)\n            c = 0;\n    for(char &c : _t)\n      \
+    \  if(c == wildcard)\n            c = 0;\n    return wildcard_pattern_matching(_s,\
+    \ _t);\n}\n"
+  code: "#pragma once\n#include \"rng.hpp\"\n#include \"template.hpp\"\n#include <atcoder/convolution>\n\
+    #include <atcoder/modint>\ntemplate <class T>\nenable_if_t<is_integral_v<T>, vector<bool>>\n\
+    wildcard_pattern_matching(const vector<T> &_s, const vector<T> &_t) {\n    assert(_s.size()\
+    \ >= _t.size());\n    using mint = atcoder::modint998244353;\n    int ns = _s.size(),\
+    \ nt = _t.size();\n    vector<mint> s(ns), s01(ns), t(nt), t01(nt);\n    for(int\
+    \ i : views::iota(0, ns))\n        s[i] = _s[i], s01[i] = _s[i] ? 1 : 0;\n   \
+    \ for(int i : views::iota(0, nt)) {\n        mint r = rng(0, mint::mod());\n \
+    \       t[i] = _t[nt - 1 - i] * r, t01[i] = _t[nt - 1 - i] ? r : 0;\n    }\n \
+    \   auto c1 = atcoder::convolution(s, t01);\n    auto c2 = atcoder::convolution(s01,\
+    \ t);\n    vector<bool> res(ns - nt + 1);\n    for(int i : views::iota(0, ssize(res)))\n\
+    \        res[i] = c1[nt - 1 + i] == c2[nt - 1 + i];\n    return res;\n}\nvector<bool>\
+    \ wildcard_pattern_matching(const string &str, const string &str2,\n         \
+    \                              const char &wildcard = '*') {\n    vector<char>\
+    \ _s(begin(str), end(str)), _t(begin(str2), end(str2));\n    for(char &c : _s)\n\
+    \        if(c == wildcard)\n            c = 0;\n    for(char &c : _t)\n      \
+    \  if(c == wildcard)\n            c = 0;\n    return wildcard_pattern_matching(_s,\
+    \ _t);\n}"
   dependsOn:
+  - rng.hpp
   - template.hpp
   isVerificationFile: false
-  path: rng.hpp
-  requiredBy:
-  - math/mod-sqrt.hpp
-  - string/wildcard-pattern-matching.hpp
-  timestamp: '2025-03-02 18:30:18+09:00'
+  path: string/wildcard-pattern-matching.hpp
+  requiredBy: []
+  timestamp: '2025-03-12 15:02:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/number_theory/sqrt_mod.test.cpp
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
-  - test/my-test/splaytree.test.cpp
-documentation_of: rng.hpp
+documentation_of: string/wildcard-pattern-matching.hpp
 layout: document
 redirect_from:
-- /library/rng.hpp
-- /library/rng.hpp.html
-title: rng.hpp
+- /library/string/wildcard-pattern-matching.hpp
+- /library/string/wildcard-pattern-matching.hpp.html
+title: string/wildcard-pattern-matching.hpp
 ---
