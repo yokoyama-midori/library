@@ -92,6 +92,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/miller_rabin.hpp
       title: math/miller_rabin.hpp
+    - icon: ':x:'
+      path: math/mod-log.hpp
+      title: math/mod-log.hpp
     - icon: ':heavy_check_mark:'
       path: math/mod-pow.hpp
       title: math/mod-pow.hpp
@@ -134,7 +137,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: rng.hpp
       title: rng.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.hpp
       title: template.hpp
   - name: string
@@ -263,6 +266,9 @@ data:
       title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - name: test/library_checker/number_theory
     pages:
+    - icon: ':x:'
+      path: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
+      title: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/number_theory/enumerate_primes.test.cpp
       title: test/library_checker/number_theory/enumerate_primes.test.cpp

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: number-theory/enumerate-primes.hpp
     title: number-theory/enumerate-primes.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:

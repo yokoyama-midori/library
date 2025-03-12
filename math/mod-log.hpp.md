@@ -6,14 +6,15 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/shortest_path.test.cpp
-    title: test/library_checker/shortest_path.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
+    title: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
+    links:
+    - https://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -69,50 +70,60 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"graph/shortest-path.hpp\"\
-    \ntemplate <class T> struct ShortestPath {\n    int n;\n    Graph<T> &g;\n   \
-    \ vector<int> from;\n    vector<T> dist;\n    ShortestPath(Graph<T> &g, int s)\n\
-    \        : n(g.size()), g(g), from(n, -1), dist(n, -1) {\n        using Pti =\
-    \ pair<T, int>;\n        priority_queue<Pti, vector<Pti>, greater<Pti>> que;\n\
-    \        que.push(Pti(0, s));\n        dist[s] = 0;\n        while(que.size())\
-    \ {\n            auto [cost, idx] = que.top();\n            que.pop();\n     \
-    \       if(dist[idx] < cost)\n                continue;\n            for(auto\
-    \ to : g[idx]) {\n                if(dist[to] == -1 or cost + to.cost < dist[to])\
-    \ {\n                    dist[to] = cost + to.cost;\n                    que.push(Pti(dist[to],\
-    \ to));\n                    from[to] = idx;\n                }\n            }\n\
-    \        }\n    }\n    const T &operator[](int i) const { return dist[i]; }\n\
-    \    vector<int> restore(int t) const {\n        assert(t != -1);\n        vector<int>\
-    \ res = {t};\n        while(from[t] != -1) {\n            t = from[t];\n     \
-    \       res.emplace_back(t);\n        }\n        ranges::reverse(res);\n     \
-    \   return res;\n    }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\ntemplate <class T> struct ShortestPath\
-    \ {\n    int n;\n    Graph<T> &g;\n    vector<int> from;\n    vector<T> dist;\n\
-    \    ShortestPath(Graph<T> &g, int s)\n        : n(g.size()), g(g), from(n, -1),\
-    \ dist(n, -1) {\n        using Pti = pair<T, int>;\n        priority_queue<Pti,\
-    \ vector<Pti>, greater<Pti>> que;\n        que.push(Pti(0, s));\n        dist[s]\
-    \ = 0;\n        while(que.size()) {\n            auto [cost, idx] = que.top();\n\
-    \            que.pop();\n            if(dist[idx] < cost)\n                continue;\n\
-    \            for(auto to : g[idx]) {\n                if(dist[to] == -1 or cost\
-    \ + to.cost < dist[to]) {\n                    dist[to] = cost + to.cost;\n  \
-    \                  que.push(Pti(dist[to], to));\n                    from[to]\
-    \ = idx;\n                }\n            }\n        }\n    }\n    const T &operator[](int\
-    \ i) const { return dist[i]; }\n    vector<int> restore(int t) const {\n     \
-    \   assert(t != -1);\n        vector<int> res = {t};\n        while(from[t] !=\
-    \ -1) {\n            t = from[t];\n            res.emplace_back(t);\n        }\n\
-    \        ranges::reverse(res);\n        return res;\n    }\n};\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"math/mod-log.hpp\"\n\
+    #include <atcoder/math>\nhttps://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7\n\
+    ll discrete_log_coprime(ll x, ll y, ll mod) {\n    // gcd(x,mod) == 1\n    assert(0\
+    \ <= x and x < mod and 0 <= y and y < mod);\n    if(x == 0) {\n        if(y ==\
+    \ 0)\n            return 1;\n        else if(y == 1)\n            return 0;\n\
+    \        else\n            return -1;\n    }\n    ll p = 0, xp = 1, ixp = 1;\n\
+    \    unordered_map<ll, ll> mp;\n    for(; p * p < mod; p++) {\n        if(!mp.contains(xp))\n\
+    \            mp[xp] = p;\n        xp = ll(xp) * x % mod;\n    }\n    ll ix = atcoder::inv_mod(x,\
+    \ mod);\n    ix = atcoder::pow_mod(ix, p, mod);\n    for(ll i = 0; i < p; i++)\
+    \ {\n        if(mp.contains(y * ixp % mod)) {\n            return i * p + mp[y\
+    \ * ixp % mod];\n        }\n        ixp = ixp * ix % mod;\n    }\n    return -1;\n\
+    }\n// min k s.t. x^k==y mod mod\n// \u306A\u3051\u308C\u3070 -1\nll discrete_log(ll\
+    \ x, ll y, ll mod) {\n    assert(0 < mod and mod < numeric_limits<int>::max());\n\
+    \    // mod \u3067\u304B\u3059\u304E\u308B\u3068128bit\u5FC5\u8981\n    if(x <\
+    \ 0 or mod <= x) {\n        x %= mod;\n        if(x < 0)\n            x += mod;\n\
+    \    }\n    if(y < 0 or mod <= y) {\n        y %= mod;\n        if(y < 0)\n  \
+    \          y += mod;\n    }\n    if(mod == 1 or y == 1)\n        return 0;\n \
+    \   ll g = gcd(x, mod);\n    if(g == 1)\n        return discrete_log_coprime(x,\
+    \ y, mod);\n    if(y % g)\n        return -1;\n    y /= g, mod /= g;\n    ll ix\
+    \ = atcoder::inv_mod(x / g, mod);\n    ll z = y * ix % mod;\n    ll l = discrete_log(x\
+    \ % mod, z, mod);\n    return l == -1 ? l : l + 1;\n}\n"
+  code: "#include \"template.hpp\"\n#include <atcoder/math>\nhttps://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7\n\
+    ll discrete_log_coprime(ll x, ll y, ll mod) {\n    // gcd(x,mod) == 1\n    assert(0\
+    \ <= x and x < mod and 0 <= y and y < mod);\n    if(x == 0) {\n        if(y ==\
+    \ 0)\n            return 1;\n        else if(y == 1)\n            return 0;\n\
+    \        else\n            return -1;\n    }\n    ll p = 0, xp = 1, ixp = 1;\n\
+    \    unordered_map<ll, ll> mp;\n    for(; p * p < mod; p++) {\n        if(!mp.contains(xp))\n\
+    \            mp[xp] = p;\n        xp = ll(xp) * x % mod;\n    }\n    ll ix = atcoder::inv_mod(x,\
+    \ mod);\n    ix = atcoder::pow_mod(ix, p, mod);\n    for(ll i = 0; i < p; i++)\
+    \ {\n        if(mp.contains(y * ixp % mod)) {\n            return i * p + mp[y\
+    \ * ixp % mod];\n        }\n        ixp = ixp * ix % mod;\n    }\n    return -1;\n\
+    }\n// min k s.t. x^k==y mod mod\n// \u306A\u3051\u308C\u3070 -1\nll discrete_log(ll\
+    \ x, ll y, ll mod) {\n    assert(0 < mod and mod < numeric_limits<int>::max());\n\
+    \    // mod \u3067\u304B\u3059\u304E\u308B\u3068128bit\u5FC5\u8981\n    if(x <\
+    \ 0 or mod <= x) {\n        x %= mod;\n        if(x < 0)\n            x += mod;\n\
+    \    }\n    if(y < 0 or mod <= y) {\n        y %= mod;\n        if(y < 0)\n  \
+    \          y += mod;\n    }\n    if(mod == 1 or y == 1)\n        return 0;\n \
+    \   ll g = gcd(x, mod);\n    if(g == 1)\n        return discrete_log_coprime(x,\
+    \ y, mod);\n    if(y % g)\n        return -1;\n    y /= g, mod /= g;\n    ll ix\
+    \ = atcoder::inv_mod(x / g, mod);\n    ll z = y * ix % mod;\n    ll l = discrete_log(x\
+    \ % mod, z, mod);\n    return l == -1 ? l : l + 1;\n}"
   dependsOn:
   - template.hpp
   isVerificationFile: false
-  path: graph/shortest-path.hpp
+  path: math/mod-log.hpp
   requiredBy: []
-  timestamp: '2025-03-11 04:37:06+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-03-12 18:48:18+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/library_checker/shortest_path.test.cpp
-documentation_of: graph/shortest-path.hpp
+  - test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
+documentation_of: math/mod-log.hpp
 layout: document
 redirect_from:
-- /library/graph/shortest-path.hpp
-- /library/graph/shortest-path.hpp.html
-title: graph/shortest-path.hpp
+- /library/math/mod-log.hpp
+- /library/math/mod-log.hpp.html
+title: math/mod-log.hpp
 ---

@@ -83,6 +83,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
+  - icon: ':x:'
+    path: math/mod-log.hpp
+    title: math/mod-log.hpp
   - icon: ':heavy_check_mark:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
@@ -227,6 +230,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
     title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
+    title: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/enumerate_primes.test.cpp
     title: test/library_checker/number_theory/enumerate_primes.test.cpp
@@ -341,9 +347,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/888.test.cpp
     title: test/yukicoder/888.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://trap.jp/post/1224/
@@ -481,6 +487,7 @@ data:
   - math/linear-sieve.hpp
   - math/miller_rabin.hpp
   - math/pollard_rho.hpp
+  - math/mod-log.hpp
   - math/factorial.hpp
   - math/factorial_large.hpp
   - string/run-length-encoding.hpp
@@ -512,7 +519,7 @@ data:
   - dp/cumulative-sum.hpp
   - dp/longest-increasing-sequence.hpp
   timestamp: '2025-03-02 18:30:18+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
@@ -529,6 +536,7 @@ data:
   - test/library_checker/number_theory/primitive_root.test.cpp
   - test/library_checker/number_theory/lcm_convolution.test.cpp
   - test/library_checker/number_theory/enumerate_primes.test.cpp
+  - test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
   - test/library_checker/number_theory/sqrt_mod.test.cpp
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
   - test/library_checker/shortest_path.test.cpp
