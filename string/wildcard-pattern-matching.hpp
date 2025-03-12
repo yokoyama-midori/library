@@ -3,6 +3,8 @@
 #include "template.hpp"
 #include <atcoder/convolution>
 #include <atcoder/modint>
+// https://noshi91.hatenablog.com/entry/2024/05/26/060854
+// 問題例 https://atcoder.jp/contests/utpc2024/tasks/utpc2024_k
 template <class T>
 enable_if_t<is_integral_v<T>, vector<bool>>
 wildcard_pattern_matching(const vector<T> &_s, const vector<T> &_t) {
