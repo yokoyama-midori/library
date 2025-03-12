@@ -70,25 +70,25 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"tree/cartesian-tree.hpp\"\
-    \n// a : distinct\n// p[root] = -1\ntemplate <class T> vector<int> cartesian_tree(const\
-    \ vector<T> &a) {\n    int n = a.size();\n    vector<int> p(n);\n    stack<T>\
-    \ s;\n    rep(i, n) {\n        int prev = -1;\n        while(s.size() and a[s.top()]\
-    \ > a[i]) {\n            prev = s.top();\n            s.pop();\n        }\n  \
-    \      p[i] = s.size() ? s.top() : -1;\n        if(prev != -1)\n            p[prev]\
-    \ = i;\n        s.push(i);\n    }\n    return p;\n}\n"
-  code: "#include \"template.hpp\"\n// a : distinct\n// p[root] = -1\ntemplate <class\
-    \ T> vector<int> cartesian_tree(const vector<T> &a) {\n    int n = a.size();\n\
-    \    vector<int> p(n);\n    stack<T> s;\n    rep(i, n) {\n        int prev = -1;\n\
-    \        while(s.size() and a[s.top()] > a[i]) {\n            prev = s.top();\n\
-    \            s.pop();\n        }\n        p[i] = s.size() ? s.top() : -1;\n  \
-    \      if(prev != -1)\n            p[prev] = i;\n        s.push(i);\n    }\n \
-    \   return p;\n}"
+    \n// a : distinct\n// root = argmin a\n// p[root] = -1\ntemplate <class T> vector<int>\
+    \ cartesian_tree(const vector<T> &a) {\n    int n = a.size();\n    vector<int>\
+    \ p(n);\n    stack<T> s;\n    rep(i, n) {\n        int prev = -1;\n        while(s.size()\
+    \ and a[s.top()] > a[i]) {\n            prev = s.top();\n            s.pop();\n\
+    \        }\n        p[i] = s.size() ? s.top() : -1;\n        if(prev != -1)\n\
+    \            p[prev] = i;\n        s.push(i);\n    }\n    return p;\n}\n"
+  code: "#include \"template.hpp\"\n// a : distinct\n// root = argmin a\n// p[root]\
+    \ = -1\ntemplate <class T> vector<int> cartesian_tree(const vector<T> &a) {\n\
+    \    int n = a.size();\n    vector<int> p(n);\n    stack<T> s;\n    rep(i, n)\
+    \ {\n        int prev = -1;\n        while(s.size() and a[s.top()] > a[i]) {\n\
+    \            prev = s.top();\n            s.pop();\n        }\n        p[i] =\
+    \ s.size() ? s.top() : -1;\n        if(prev != -1)\n            p[prev] = i;\n\
+    \        s.push(i);\n    }\n    return p;\n}"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: tree/cartesian-tree.hpp
   requiredBy: []
-  timestamp: '2025-03-11 03:51:30+09:00'
+  timestamp: '2025-03-12 13:01:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/tree/cartesian_tree.test.cpp
