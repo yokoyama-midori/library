@@ -26,6 +26,7 @@
 "test/library_checker/graph/maximum_independent_set.test.cpp": "2025-03-12 12:50:45 +0900",
 "test/library_checker/linear_algebra/matrix_product.test.cpp": "2025-03-02 18:30:18 +0900",
 "test/library_checker/linear_algebra/pow_of_matrix.test.cpp": "2025-03-02 18:30:18 +0900",
+"test/library_checker/number_theory/discrete_logarithm_mod.test.cpp": "2025-03-12 18:50:39 +0900",
 "test/library_checker/number_theory/enumerate_primes.test.cpp": "2025-03-02 18:30:18 +0900",
 "test/library_checker/number_theory/factorize.test.cpp": "2025-03-02 18:30:18 +0900",
 "test/library_checker/number_theory/gcd_convolution.test.cpp": "2025-03-02 18:30:18 +0900",
