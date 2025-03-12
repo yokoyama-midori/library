@@ -87,22 +87,23 @@ data:
     \ >> 9;\n}\n\nunsigned long long RNG(unsigned long long lim) { return RNG_64()\
     \ % lim; }\n\nll rng(ll l, ll r) {\n    // [l,r)\n    return l + RNG_64() % (r\
     \ - l);\n}\n#line 4 \"string/wildcard-pattern-matching.hpp\"\n#include <atcoder/convolution>\n\
-    #include <atcoder/modint>\ntemplate <class T>\nenable_if_t<is_integral_v<T>, vector<bool>>\n\
-    wildcard_pattern_matching(const vector<T> &_s, const vector<T> &_t) {\n    assert(_s.size()\
-    \ >= _t.size());\n    using mint = atcoder::modint998244353;\n    int ns = _s.size(),\
-    \ nt = _t.size();\n    vector<mint> s(ns), s01(ns), t(nt), t01(nt);\n    for(int\
-    \ i : views::iota(0, ns))\n        s[i] = _s[i], s01[i] = _s[i] ? 1 : 0;\n   \
-    \ for(int i : views::iota(0, nt)) {\n        mint r = rng(0, mint::mod());\n \
-    \       t[i] = _t[nt - 1 - i] * r, t01[i] = _t[nt - 1 - i] ? r : 0;\n    }\n \
-    \   auto c1 = atcoder::convolution(s, t01);\n    auto c2 = atcoder::convolution(s01,\
-    \ t);\n    vector<bool> res(ns - nt + 1);\n    for(int i : views::iota(0, ssize(res)))\n\
-    \        res[i] = c1[nt - 1 + i] == c2[nt - 1 + i];\n    return res;\n}\nvector<bool>\
-    \ wildcard_pattern_matching(const string &str, const string &str2,\n         \
-    \                              const char &wildcard = '*') {\n    vector<char>\
-    \ _s(begin(str), end(str)), _t(begin(str2), end(str2));\n    for(char &c : _s)\n\
-    \        if(c == wildcard)\n            c = 0;\n    for(char &c : _t)\n      \
-    \  if(c == wildcard)\n            c = 0;\n    return wildcard_pattern_matching(_s,\
-    \ _t);\n}\n#line 3 \"test/library_checker/string/wildcard_pattern_matching.test.cpp\"\
+    #include <atcoder/modint>\n// https://noshi91.hatenablog.com/entry/2024/05/26/060854\n\
+    // \u554F\u984C\u4F8B https://atcoder.jp/contests/utpc2024/tasks/utpc2024_k\n\
+    template <class T>\nenable_if_t<is_integral_v<T>, vector<bool>>\nwildcard_pattern_matching(const\
+    \ vector<T> &_s, const vector<T> &_t) {\n    assert(_s.size() >= _t.size());\n\
+    \    using mint = atcoder::modint998244353;\n    int ns = _s.size(), nt = _t.size();\n\
+    \    vector<mint> s(ns), s01(ns), t(nt), t01(nt);\n    for(int i : views::iota(0,\
+    \ ns))\n        s[i] = _s[i], s01[i] = _s[i] ? 1 : 0;\n    for(int i : views::iota(0,\
+    \ nt)) {\n        mint r = rng(0, mint::mod());\n        t[i] = _t[nt - 1 - i]\
+    \ * r, t01[i] = _t[nt - 1 - i] ? r : 0;\n    }\n    auto c1 = atcoder::convolution(s,\
+    \ t01);\n    auto c2 = atcoder::convolution(s01, t);\n    vector<bool> res(ns\
+    \ - nt + 1);\n    for(int i : views::iota(0, ssize(res)))\n        res[i] = c1[nt\
+    \ - 1 + i] == c2[nt - 1 + i];\n    return res;\n}\nvector<bool> wildcard_pattern_matching(const\
+    \ string &str, const string &str2,\n                                       const\
+    \ char &wildcard = '*') {\n    vector<char> _s(begin(str), end(str)), _t(begin(str2),\
+    \ end(str2));\n    for(char &c : _s)\n        if(c == wildcard)\n            c\
+    \ = 0;\n    for(char &c : _t)\n        if(c == wildcard)\n            c = 0;\n\
+    \    return wildcard_pattern_matching(_s, _t);\n}\n#line 3 \"test/library_checker/string/wildcard_pattern_matching.test.cpp\"\
     \nvoid solve() {\n    STR(s, t);\n    auto ans = wildcard_pattern_matching(s,\
     \ t);\n    for(auto i : ans)\n        cout << i;\n    print();\n}\nint main()\
     \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
@@ -119,7 +120,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/string/wildcard_pattern_matching.test.cpp
   requiredBy: []
-  timestamp: '2025-03-12 15:02:33+09:00'
+  timestamp: '2025-03-12 15:31:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/string/wildcard_pattern_matching.test.cpp
