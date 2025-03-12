@@ -1,20 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
     title: test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links:
-    - https://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7
+    links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
     \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
     \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
@@ -70,9 +69,9 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 2 \"math/mod-log.hpp\"\n\
-    #include <atcoder/math>\nhttps://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7\n\
-    ll discrete_log_coprime(ll x, ll y, ll mod) {\n    // gcd(x,mod) == 1\n    assert(0\
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"math/mod-log.hpp\"\n\
+    #include <atcoder/math>\n// https : // qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7\n\
+    ll mod_log_coprime(ll x, ll y, ll mod) {\n    // gcd(x,mod) == 1\n    assert(0\
     \ <= x and x < mod and 0 <= y and y < mod);\n    if(x == 0) {\n        if(y ==\
     \ 0)\n            return 1;\n        else if(y == 1)\n            return 0;\n\
     \        else\n            return -1;\n    }\n    ll p = 0, xp = 1, ixp = 1;\n\
@@ -81,43 +80,44 @@ data:
     \ mod);\n    ix = atcoder::pow_mod(ix, p, mod);\n    for(ll i = 0; i < p; i++)\
     \ {\n        if(mp.contains(y * ixp % mod)) {\n            return i * p + mp[y\
     \ * ixp % mod];\n        }\n        ixp = ixp * ix % mod;\n    }\n    return -1;\n\
-    }\n// min k s.t. x^k==y mod mod\n// \u306A\u3051\u308C\u3070 -1\nll discrete_log(ll\
+    }\n// min k s.t. x^k==y mod mod\n// \u306A\u3051\u308C\u3070 -1\nll mod_log(ll\
     \ x, ll y, ll mod) {\n    assert(0 < mod and mod < numeric_limits<int>::max());\n\
     \    // mod \u3067\u304B\u3059\u304E\u308B\u3068128bit\u5FC5\u8981\n    if(x <\
     \ 0 or mod <= x) {\n        x %= mod;\n        if(x < 0)\n            x += mod;\n\
     \    }\n    if(y < 0 or mod <= y) {\n        y %= mod;\n        if(y < 0)\n  \
     \          y += mod;\n    }\n    if(mod == 1 or y == 1)\n        return 0;\n \
-    \   ll g = gcd(x, mod);\n    if(g == 1)\n        return discrete_log_coprime(x,\
-    \ y, mod);\n    if(y % g)\n        return -1;\n    y /= g, mod /= g;\n    ll ix\
-    \ = atcoder::inv_mod(x / g, mod);\n    ll z = y * ix % mod;\n    ll l = discrete_log(x\
+    \   ll g = gcd(x, mod);\n    if(g == 1)\n        return mod_log_coprime(x, y,\
+    \ mod);\n    if(y % g)\n        return -1;\n    y /= g, mod /= g;\n    ll ix =\
+    \ atcoder::inv_mod(x / g, mod);\n    ll z = y * ix % mod;\n    ll l = mod_log(x\
     \ % mod, z, mod);\n    return l == -1 ? l : l + 1;\n}\n"
-  code: "#include \"template.hpp\"\n#include <atcoder/math>\nhttps://qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7\n\
-    ll discrete_log_coprime(ll x, ll y, ll mod) {\n    // gcd(x,mod) == 1\n    assert(0\
-    \ <= x and x < mod and 0 <= y and y < mod);\n    if(x == 0) {\n        if(y ==\
-    \ 0)\n            return 1;\n        else if(y == 1)\n            return 0;\n\
-    \        else\n            return -1;\n    }\n    ll p = 0, xp = 1, ixp = 1;\n\
-    \    unordered_map<ll, ll> mp;\n    for(; p * p < mod; p++) {\n        if(!mp.contains(xp))\n\
-    \            mp[xp] = p;\n        xp = ll(xp) * x % mod;\n    }\n    ll ix = atcoder::inv_mod(x,\
+  code: "#pragma once\n#include \"template.hpp\"\n#include <atcoder/math>\n// https\
+    \ : // qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7\nll mod_log_coprime(ll x,\
+    \ ll y, ll mod) {\n    // gcd(x,mod) == 1\n    assert(0 <= x and x < mod and 0\
+    \ <= y and y < mod);\n    if(x == 0) {\n        if(y == 0)\n            return\
+    \ 1;\n        else if(y == 1)\n            return 0;\n        else\n         \
+    \   return -1;\n    }\n    ll p = 0, xp = 1, ixp = 1;\n    unordered_map<ll, ll>\
+    \ mp;\n    for(; p * p < mod; p++) {\n        if(!mp.contains(xp))\n         \
+    \   mp[xp] = p;\n        xp = ll(xp) * x % mod;\n    }\n    ll ix = atcoder::inv_mod(x,\
     \ mod);\n    ix = atcoder::pow_mod(ix, p, mod);\n    for(ll i = 0; i < p; i++)\
     \ {\n        if(mp.contains(y * ixp % mod)) {\n            return i * p + mp[y\
     \ * ixp % mod];\n        }\n        ixp = ixp * ix % mod;\n    }\n    return -1;\n\
-    }\n// min k s.t. x^k==y mod mod\n// \u306A\u3051\u308C\u3070 -1\nll discrete_log(ll\
+    }\n// min k s.t. x^k==y mod mod\n// \u306A\u3051\u308C\u3070 -1\nll mod_log(ll\
     \ x, ll y, ll mod) {\n    assert(0 < mod and mod < numeric_limits<int>::max());\n\
     \    // mod \u3067\u304B\u3059\u304E\u308B\u3068128bit\u5FC5\u8981\n    if(x <\
     \ 0 or mod <= x) {\n        x %= mod;\n        if(x < 0)\n            x += mod;\n\
     \    }\n    if(y < 0 or mod <= y) {\n        y %= mod;\n        if(y < 0)\n  \
     \          y += mod;\n    }\n    if(mod == 1 or y == 1)\n        return 0;\n \
-    \   ll g = gcd(x, mod);\n    if(g == 1)\n        return discrete_log_coprime(x,\
-    \ y, mod);\n    if(y % g)\n        return -1;\n    y /= g, mod /= g;\n    ll ix\
-    \ = atcoder::inv_mod(x / g, mod);\n    ll z = y * ix % mod;\n    ll l = discrete_log(x\
+    \   ll g = gcd(x, mod);\n    if(g == 1)\n        return mod_log_coprime(x, y,\
+    \ mod);\n    if(y % g)\n        return -1;\n    y /= g, mod /= g;\n    ll ix =\
+    \ atcoder::inv_mod(x / g, mod);\n    ll z = y * ix % mod;\n    ll l = mod_log(x\
     \ % mod, z, mod);\n    return l == -1 ? l : l + 1;\n}"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: math/mod-log.hpp
   requiredBy: []
-  timestamp: '2025-03-12 18:48:18+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2025-03-12 18:50:39+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
 documentation_of: math/mod-log.hpp

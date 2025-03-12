@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/rectangle-union-area.hpp
     title: data_structure/rectangle-union-area.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
