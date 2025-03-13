@@ -75,7 +75,7 @@ data:
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"set-function/fast-hadamard-transform.hpp\"\
     \n// https://sapphire15.hatenablog.com/entry/2021/09/13/114900\ntemplate <class\
-    \ T> void fast_hadmard_transform(vector<T> &a, bool inv = false) {\n    if(a.empty())\n\
+    \ T> void fast_hadamard_transform(vector<T> &a, bool inv = false) {\n    if(a.empty())\n\
     \        return;\n    int n = a.size();\n    assert((n & (n - 1)) == 0);\n   \
     \ for(int i = 1; i < n; i <<= 1) {\n        for(int j = 0; j < n; j++) {\n   \
     \         if((i & j) == 0) {\n                tie(a[j], a[i | j]) =\n        \
@@ -83,7 +83,7 @@ data:
     \     }\n    }\n    if(inv) {\n        T invn = T(1) / T(n);\n        for(auto\
     \ &ai : a)\n            ai *= invn;\n    }\n}\n"
   code: "#pragma once\n#include \"template.hpp\"\n// https://sapphire15.hatenablog.com/entry/2021/09/13/114900\n\
-    template <class T> void fast_hadmard_transform(vector<T> &a, bool inv = false)\
+    template <class T> void fast_hadamard_transform(vector<T> &a, bool inv = false)\
     \ {\n    if(a.empty())\n        return;\n    int n = a.size();\n    assert((n\
     \ & (n - 1)) == 0);\n    for(int i = 1; i < n; i <<= 1) {\n        for(int j =\
     \ 0; j < n; j++) {\n            if((i & j) == 0) {\n                tie(a[j],\
@@ -96,7 +96,7 @@ data:
   path: set-function/fast-hadamard-transform.hpp
   requiredBy:
   - set-function/xor-convolution.hpp
-  timestamp: '2025-03-13 15:17:01+09:00'
+  timestamp: '2025-03-13 15:42:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
