@@ -1,7 +1,7 @@
 #pragma once
 #include "template.hpp"
 // https://sapphire15.hatenablog.com/entry/2021/09/13/114900
-template <class T> void fast_hadmard_transform(vector<T> &a, bool inv = false) {
+template <class T> void fast_hadamard_transform(vector<T> &a, bool inv = false) {
     if(a.empty())
         return;
     int n = a.size();
