@@ -140,6 +140,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: template.hpp
       title: template.hpp
+  - name: set-function
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: set-function/fast-hadamard-transform.hpp
+      title: set-function/fast-hadamard-transform.hpp
+    - icon: ':heavy_check_mark:'
+      path: set-function/xor-convolution.hpp
+      title: set-function/xor-convolution.hpp
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
@@ -179,6 +187,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/aoj/1508.test.cpp
       title: test/aoj/1508.test.cpp
+  - name: test/library_checker/convolution
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
+      title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   - name: test/library_checker/data_structure
     pages:
     - icon: ':heavy_check_mark:'

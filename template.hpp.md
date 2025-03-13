@@ -123,6 +123,12 @@ data:
     path: rng.hpp
     title: rng.hpp
   - icon: ':heavy_check_mark:'
+    path: set-function/fast-hadamard-transform.hpp
+    title: set-function/fast-hadamard-transform.hpp
+  - icon: ':heavy_check_mark:'
+    path: set-function/xor-convolution.hpp
+    title: set-function/xor-convolution.hpp
+  - icon: ':heavy_check_mark:'
     path: string/run-length-encoding.hpp
     title: string/run-length-encoding.hpp
   - icon: ':heavy_check_mark:'
@@ -155,6 +161,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1508.test.cpp
     title: test/aoj/1508.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
+    title: test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
     title: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
@@ -490,6 +499,8 @@ data:
   - math/mod-log.hpp
   - math/factorial.hpp
   - math/factorial_large.hpp
+  - set-function/xor-convolution.hpp
+  - set-function/fast-hadamard-transform.hpp
   - string/run-length-encoding.hpp
   - string/wildcard-pattern-matching.hpp
   - number-theory/lcm-convolution.hpp
@@ -530,6 +541,7 @@ data:
   - test/library_checker/tree/lca.test.cpp
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
   - test/library_checker/tree/lca_doubling.test.cpp
+  - test/library_checker/convolution/bitwise_xor_convolution.test.cpp
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/gcd_convolution.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
