@@ -75,15 +75,18 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/sparse-table.hpp\"\
-    \ntemplate <class T, auto op> struct SparseTable {\n    SparseTable(const vector<T>\
-    \ &vec) {\n        int n = vec.size();\n        int b = bit_width(unsigned(n));\n\
-    \        v.resize(b);\n        v[0] = vec;\n        rep(i, b - 1) {\n        \
-    \    v[i + 1].resize(n - (1 << i));\n            rep(j, ssize(v[i]) - (1 << i))\
-    \ {\n                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n        \
-    \    }\n        }\n    }\n    T prod(int l, int r) const {\n        if(l + 1 ==\
-    \ r)\n            return v[0][l];\n        int b = bit_width(unsigned(r - l -\
-    \ 1)) - 1;\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n\
-    \    vector<vector<T>> v;\n};\n#line 4 \"test/library_checker/data_structure/staticrmq_sparse_table.test.cpp\"\
+    \n/*\n    auto op\u306B\u306F\n    [](int i,int j){return min(i,j);}\u3084(int(*)(int,int))min\n\
+    \    \u3092\u6E21\u3059\n    prod \u5358\u4F4D\u5143\u3092\u6E21\u3057\u3066\u3044\
+    \u306A\u3044\u306E\u3067 l==r\u306F\u4E0D\u53EF\n*/\ntemplate <class T, auto op>\
+    \ struct SparseTable {\n    SparseTable(const vector<T> &vec) {\n        int n\
+    \ = vec.size();\n        int b = bit_width(unsigned(n));\n        v.resize(b);\n\
+    \        v[0] = vec;\n        rep(i, b - 1) {\n            v[i + 1].resize(n -\
+    \ (1 << i));\n            rep(j, ssize(v[i]) - (1 << i)) {\n                v[i\
+    \ + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n            }\n        }\n    }\n\
+    \    T prod(int l, int r) const {\n        if(l + 1 == r)\n            return\
+    \ v[0][l];\n        int b = bit_width(unsigned(r - l - 1)) - 1;\n        return\
+    \ op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n    vector<vector<T>>\
+    \ v;\n};\n#line 4 \"test/library_checker/data_structure/staticrmq_sparse_table.test.cpp\"\
     \n\nvoid solve() {\n    INT(n, q);\n    vector<int> a(n);\n    input(a);\n   \
     \ SparseTable<int, [](int a, int b) { return min(a, b); }> seg(a);\n    rep(_,\
     \ q) {\n        INT(l, r);\n        print(seg.prod(l, r));\n    }\n}\nint main()\
@@ -101,7 +104,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp
   requiredBy: []
-  timestamp: '2025-03-02 18:30:18+09:00'
+  timestamp: '2025-03-14 10:49:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/staticrmq_sparse_table.test.cpp

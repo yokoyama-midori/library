@@ -84,7 +84,7 @@ data:
     \n// https://ei1333.github.io/library/other/compress.hpp\ntemplate <class T> struct\
     \ Compress {\n    bool is_built = false;\n    vector<T> data;\n    Compress()\
     \ = default;\n    Compress(const vector<T> &v) {\n        add(v);\n    }\n   \
-    \ void add(const T &x) {\n        is_built = false;\n        data.push_back(x);\n\
+    \ void add(const T &x) {\n        is_built = false;\n        data.emplace_back(x);\n\
     \    }\n    void add(const vector<T> &v) {\n        for(auto x : v)\n        \
     \    add(x);\n    }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
     \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
@@ -183,7 +183,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   requiredBy: []
-  timestamp: '2025-03-02 18:30:18+09:00'
+  timestamp: '2025-03-14 10:49:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp

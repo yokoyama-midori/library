@@ -75,15 +75,18 @@ data:
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
     vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"data_structure/sparse-table.hpp\"\
-    \ntemplate <class T, auto op> struct SparseTable {\n    SparseTable(const vector<T>\
-    \ &vec) {\n        int n = vec.size();\n        int b = bit_width(unsigned(n));\n\
-    \        v.resize(b);\n        v[0] = vec;\n        rep(i, b - 1) {\n        \
-    \    v[i + 1].resize(n - (1 << i));\n            rep(j, ssize(v[i]) - (1 << i))\
-    \ {\n                v[i + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n        \
-    \    }\n        }\n    }\n    T prod(int l, int r) const {\n        if(l + 1 ==\
-    \ r)\n            return v[0][l];\n        int b = bit_width(unsigned(r - l -\
-    \ 1)) - 1;\n        return op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n\
-    \    vector<vector<T>> v;\n};\n#line 4 \"tree/euler-tour.hpp\"\n// https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n\
+    \n/*\n    auto op\u306B\u306F\n    [](int i,int j){return min(i,j);}\u3084(int(*)(int,int))min\n\
+    \    \u3092\u6E21\u3059\n    prod \u5358\u4F4D\u5143\u3092\u6E21\u3057\u3066\u3044\
+    \u306A\u3044\u306E\u3067 l==r\u306F\u4E0D\u53EF\n*/\ntemplate <class T, auto op>\
+    \ struct SparseTable {\n    SparseTable(const vector<T> &vec) {\n        int n\
+    \ = vec.size();\n        int b = bit_width(unsigned(n));\n        v.resize(b);\n\
+    \        v[0] = vec;\n        rep(i, b - 1) {\n            v[i + 1].resize(n -\
+    \ (1 << i));\n            rep(j, ssize(v[i]) - (1 << i)) {\n                v[i\
+    \ + 1][j] = op(v[i][j], v[i][j + (1 << i)]);\n            }\n        }\n    }\n\
+    \    T prod(int l, int r) const {\n        if(l + 1 == r)\n            return\
+    \ v[0][l];\n        int b = bit_width(unsigned(r - l - 1)) - 1;\n        return\
+    \ op(v[b][l], v[b][r - (1 << b)]);\n    }\n\n  private:\n    vector<vector<T>>\
+    \ v;\n};\n#line 4 \"tree/euler-tour.hpp\"\n// https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7\n\
     // https://nyaannyaan.github.io/library/tree/euler-tour.hpp\n\ntemplate <class\
     \ G> struct EulerTour {\n    int root, id;\n    vector<int> in, out, dep;\n  \
     \  using pii = pair<int, int>; // depth,vartex\n    SparseTable<pii, [](pii a,\
@@ -143,7 +146,7 @@ data:
   isVerificationFile: false
   path: tree/auxiliary-tree.hpp
   requiredBy: []
-  timestamp: '2025-03-02 18:30:18+09:00'
+  timestamp: '2025-03-14 10:49:44+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: tree/auxiliary-tree.hpp

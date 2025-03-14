@@ -77,7 +77,7 @@ data:
     \n// https://ei1333.github.io/library/other/compress.hpp\ntemplate <class T> struct\
     \ Compress {\n    bool is_built = false;\n    vector<T> data;\n    Compress()\
     \ = default;\n    Compress(const vector<T> &v) {\n        add(v);\n    }\n   \
-    \ void add(const T &x) {\n        is_built = false;\n        data.push_back(x);\n\
+    \ void add(const T &x) {\n        is_built = false;\n        data.emplace_back(x);\n\
     \    }\n    void add(const vector<T> &v) {\n        for(auto x : v)\n        \
     \    add(x);\n    }\n    void build() {\n        is_built = true;\n        sort(data.begin(),\
     \ data.end());\n        data.erase(unique(data.begin(), data.end()), data.end());\n\
@@ -92,9 +92,9 @@ data:
     template <class T> struct Compress {\n    bool is_built = false;\n    vector<T>\
     \ data;\n    Compress() = default;\n    Compress(const vector<T> &v) {\n     \
     \   add(v);\n    }\n    void add(const T &x) {\n        is_built = false;\n  \
-    \      data.push_back(x);\n    }\n    void add(const vector<T> &v) {\n       \
-    \ for(auto x : v)\n            add(x);\n    }\n    void build() {\n        is_built\
-    \ = true;\n        sort(data.begin(), data.end());\n        data.erase(unique(data.begin(),\
+    \      data.emplace_back(x);\n    }\n    void add(const vector<T> &v) {\n    \
+    \    for(auto x : v)\n            add(x);\n    }\n    void build() {\n       \
+    \ is_built = true;\n        sort(data.begin(), data.end());\n        data.erase(unique(data.begin(),\
     \ data.end()), data.end());\n    }\n    ll get(const T &x) const {\n        //\
     \ x \u4EE5\u4E0A\u3068\u306A\u308B\u6700\u5C0F\u306E\u30A4\u30F3\u30C7\u30C3\u30AF\
     \u30B9\u3092\u8FD4\u3059\n        assert(is_built);\n        ll res = lower_bound(data.begin(),\
@@ -108,7 +108,7 @@ data:
   path: data_structure/compress.hpp
   requiredBy:
   - data_structure/rectangle-union-area.hpp
-  timestamp: '2025-03-02 18:30:18+09:00'
+  timestamp: '2025-03-14 10:49:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
