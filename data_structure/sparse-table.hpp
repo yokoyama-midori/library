@@ -1,5 +1,11 @@
 #pragma once
 #include "template.hpp"
+/*
+    auto opには
+    [](int i,int j){return min(i,j);}や(int(*)(int,int))min
+    を渡す
+    prod 単位元を渡していないので l==rは不可
+*/
 template <class T, auto op> struct SparseTable {
     SparseTable(const vector<T> &vec) {
         int n = vec.size();
