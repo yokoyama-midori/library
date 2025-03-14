@@ -10,7 +10,7 @@ template <class T> struct Compress {
     }
     void add(const T &x) {
         is_built = false;
-        data.push_back(x);
+        data.emplace_back(x);
     }
     void add(const vector<T> &v) {
         for(auto x : v)
