@@ -9,7 +9,7 @@ void solve() {
         cout << q << " \n"[i + 1 == ssize(ans)];
         assert(1 <= l and l < r and r <= n + 1);
         assert(q == (n / l) and q == (n / (r - 1)));
-        assert(r == n or q != n / r);
+        assert(q != n / r);
         assert(i + 1 == ssize(ans) or l == get<2>(ans[i + 1]));
     }
 }
