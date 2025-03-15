@@ -85,27 +85,25 @@ data:
     \    for(int i : views::iota(0, ssize(ans))) {\n        auto [q, l, r] = ans[i];\n\
     \        cout << q << \" \\n\"[i + 1 == ssize(ans)];\n        assert(1 <= l and\
     \ l < r and r <= n + 1);\n        assert(q == (n / l) and q == (n / (r - 1)));\n\
-    \        assert(r == n or q != n / r);\n        assert(i + 1 == ssize(ans) or\
-    \ l == get<2>(ans[i + 1]));\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    cout << std::setprecision(16);\n    solve();\n\
-    }\n"
+    \        assert(q != n / r);\n        assert(i + 1 == ssize(ans) or l == get<2>(ans[i\
+    \ + 1]));\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    cout << std::setprecision(16);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_quotients\"\n\
     #include \"number-theory/enumerate-quotients.hpp\"\nvoid solve() {\n    LL(n);\n\
     \    auto ans = enumerate_quotients<ll>(n);\n    print(ans.size());\n    for(int\
     \ i : views::iota(0, ssize(ans))) {\n        auto [q, l, r] = ans[i];\n      \
     \  cout << q << \" \\n\"[i + 1 == ssize(ans)];\n        assert(1 <= l and l <\
     \ r and r <= n + 1);\n        assert(q == (n / l) and q == (n / (r - 1)));\n \
-    \       assert(r == n or q != n / r);\n        assert(i + 1 == ssize(ans) or l\
-    \ == get<2>(ans[i + 1]));\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    cout << std::setprecision(16);\n    solve();\n\
-    }\n"
+    \       assert(q != n / r);\n        assert(i + 1 == ssize(ans) or l == get<2>(ans[i\
+    \ + 1]));\n    }\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    cout << std::setprecision(16);\n    solve();\n}\n"
   dependsOn:
   - number-theory/enumerate-quotients.hpp
   - template.hpp
   isVerificationFile: true
   path: test/library_checker/number_theory/enumerate_quotients.test.cpp
   requiredBy: []
-  timestamp: '2025-03-15 18:03:32+09:00'
+  timestamp: '2025-03-15 20:56:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/enumerate_quotients.test.cpp
