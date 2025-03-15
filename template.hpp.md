@@ -105,6 +105,9 @@ data:
     path: number-theory/enumerate-primes.hpp
     title: number-theory/enumerate-primes.hpp
   - icon: ':heavy_check_mark:'
+    path: number-theory/enumerate-quotients.hpp
+    title: number-theory/enumerate-quotients.hpp
+  - icon: ':heavy_check_mark:'
     path: number-theory/gcd-convolution.hpp
     title: number-theory/gcd-convolution.hpp
   - icon: ':heavy_check_mark:'
@@ -245,6 +248,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/enumerate_primes.test.cpp
     title: test/library_checker/number_theory/enumerate_primes.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/number_theory/enumerate_quotients.test.cpp
+    title: test/library_checker/number_theory/enumerate_quotients.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
@@ -506,6 +512,7 @@ data:
   - set-function/fast-hadamard-transform.hpp
   - string/run-length-encoding.hpp
   - string/wildcard-pattern-matching.hpp
+  - number-theory/enumerate-quotients.hpp
   - number-theory/lcm-convolution.hpp
   - number-theory/enumerate-primes.hpp
   - number-theory/gcd-convolution.hpp
@@ -548,6 +555,7 @@ data:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/gcd_convolution.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp
+  - test/library_checker/number_theory/enumerate_quotients.test.cpp
   - test/library_checker/number_theory/primitive_root.test.cpp
   - test/library_checker/number_theory/lcm_convolution.test.cpp
   - test/library_checker/number_theory/enumerate_primes.test.cpp
