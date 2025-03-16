@@ -27,6 +27,6 @@ vector<int> longest_increasing_sequence(const vector<T> &a,
     for(int i = idx[now]; i != -1; i = previous[i]) {
         ans.emplace_back(i);
     }
-    reverse(all(ans));
+    ranges::reverse(ans);
     return ans;
 }
