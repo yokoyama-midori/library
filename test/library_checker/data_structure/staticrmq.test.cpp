@@ -2,14 +2,15 @@
 #include "data_structure/segtree.hpp"
 #include "template.hpp"
 
-ll e() { return inf; }
 void solve() {
-    LL(n, q);
-    vl a(n);
+    INT(n, q);
+    vector<int> a(n);
     input(a);
-    segtree<ll, (ll(*)(ll, ll))min, e> seg(a);
+    segtree<int, static_cast<int (*)(int, int)>(min),
+            [] { return numeric_limits<int>::max(); }>
+        seg(a);
     rep(_, q) {
-        LL(l, r);
+        INT(l, r);
         print(seg.prod(l, r));
     }
 }

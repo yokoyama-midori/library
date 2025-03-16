@@ -2,17 +2,17 @@
 #include "template.hpp"
 
 template <class S, auto op, auto e> struct segtree {
-    ll n;
+    int n;
     vector<S> v;
-    segtree(ll n_) : segtree(vector<S>(n_, e())) {}
+    segtree(int n_) : segtree(vector<S>(n_, e())) {}
     segtree(const vector<S> &v_) : n(v_.size()) {
         v = vector<S>(2 * n, e());
         rep(i, n) v[n + i] = v_[i];
-        for(ll i = n - 1; i >= 0; i--) {
+        for(int i = n - 1; i >= 0; i--) {
             v[i] = op(v[i << 1], v[i << 1 | 1]);
         }
     }
-    void set(ll x, S p) {
+    void set(int x, S p) {
         assert(0 <= x && x < n);
         x += n;
         v[x] = p;
@@ -21,7 +21,7 @@ template <class S, auto op, auto e> struct segtree {
             v[x] = op(v[x << 1], v[x << 1 | 1]);
         }
     }
-    S prod(ll l, ll r) const {
+    S prod(int l, int r) const {
         assert(0 <= l && l <= r && r <= n);
         S pl(e()), pr(e());
         l += n, r += n;
@@ -37,5 +37,5 @@ template <class S, auto op, auto e> struct segtree {
         }
         return op(pl, pr);
     }
-    S get(ll x) const { return v[n + x]; }
+    S get(int x) const { return v[n + x]; }
 };
