@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
     title: test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/2092.test.cpp
     title: test/yukicoder/2092.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://ei1333.github.io/library/dp/cumulative-sum.hpp
@@ -117,7 +117,7 @@ data:
   path: dp/cumulative-sum.hpp
   requiredBy: []
   timestamp: '2025-03-16 14:03:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/static_range_sum_cumulative_sum.test.cpp
   - test/yukicoder/2092.test.cpp

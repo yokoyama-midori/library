@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
@@ -21,12 +21,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_set_range_composite.test.cpp
     title: test/library_checker/data_structure/range_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/230.test.cpp
     title: test/yukicoder/230.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -167,7 +167,7 @@ data:
   requiredBy:
   - data_structure/rectangle-union-area.hpp
   timestamp: '2025-03-16 14:03:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/area_of_union_of_rectangles.test.cpp
   - test/library_checker/data_structure/range_affine_point_get.test.cpp

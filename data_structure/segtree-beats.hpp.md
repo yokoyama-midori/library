@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
     title: test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/880.test.cpp
     title: test/yukicoder/880.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://rsm9.hatenablog.com/entry/2021/02/01/220408
@@ -161,7 +161,7 @@ data:
   requiredBy:
   - data_structure/range-chminmaxaddsum-segtree-beats.hpp
   timestamp: '2025-03-16 14:03:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/data_structure/range_chmin_chmax_add_range_sum.test.cpp
   - test/yukicoder/880.test.cpp
