@@ -140,7 +140,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: rng.hpp
       title: rng.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.hpp
       title: template.hpp
   - name: set-function
@@ -182,11 +182,6 @@ data:
       path: tree/tree-query.hpp
       title: tree/tree-query.hpp
   verificationCategories:
-  - name: .
-    pages:
-    - icon: ':x:'
-      path: for_test.test.cpp
-      title: for_test.test.cpp
   - name: test/aoj
     pages:
     - icon: ':heavy_check_mark:'

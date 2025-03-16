@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: number-theory/enumerate-quotients.hpp
     title: number-theory/enumerate-quotients.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
