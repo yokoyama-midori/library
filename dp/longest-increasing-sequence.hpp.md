@@ -79,7 +79,7 @@ data:
     \ = a[i];\n        idx[j] = i;\n        if(j)\n            previous[i] = idx[j\
     \ - 1];\n    }\n    vector<int> ans;\n    int now = n - 1;\n    while(dp[now]\
     \ == infty)\n        now--;\n    for(int i = idx[now]; i != -1; i = previous[i])\
-    \ {\n        ans.push_back(i);\n    }\n    reverse(all(ans));\n    return ans;\n\
+    \ {\n        ans.emplace_back(i);\n    }\n    reverse(all(ans));\n    return ans;\n\
     }\n"
   code: "#pragma once\n#include \"template.hpp\"\ntemplate <class T>\nvector<int>\
     \ longest_increasing_sequence(const vector<T> &a,\n                          \
@@ -91,14 +91,14 @@ data:
     \ = a[i];\n        idx[j] = i;\n        if(j)\n            previous[i] = idx[j\
     \ - 1];\n    }\n    vector<int> ans;\n    int now = n - 1;\n    while(dp[now]\
     \ == infty)\n        now--;\n    for(int i = idx[now]; i != -1; i = previous[i])\
-    \ {\n        ans.push_back(i);\n    }\n    reverse(all(ans));\n    return ans;\n\
+    \ {\n        ans.emplace_back(i);\n    }\n    reverse(all(ans));\n    return ans;\n\
     }"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: dp/longest-increasing-sequence.hpp
   requiredBy: []
-  timestamp: '2025-03-02 18:30:18+09:00'
+  timestamp: '2025-03-16 11:44:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/other/longest_increasing_subsequence.test.cpp
