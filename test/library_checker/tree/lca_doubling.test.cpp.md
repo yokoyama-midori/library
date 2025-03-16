@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tree/tree-query.hpp
     title: tree/tree-query.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/lca
@@ -24,15 +24,19 @@ data:
     \ PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#line 2 \"template.hpp\"\n\
     // #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC\
     \ optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    // https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n// debug methods\n// usage: debug(x,y);\n\
-    // vector \u51FA\u529B\u3067\u304D\u308B\u3088\u3046\u306B\u4FEE\u6B63\ntemplate\
-    \ <typename T>\nostream& debug_print(ostream& os, const vector<T>& v) {\n    os\
-    \ << \"[\";\n    for (size_t i = 0; i < v.size(); ++i) {\n        os << v[i];\n\
-    \        if (i < v.size() - 1) os << \", \";\n    }\n    os << \"]\";\n    return\
-    \ os;\n}\ntemplate <typename T>\nostream& debug_print(ostream& os, const T& var)\
-    \ {\n    os << var;\n    return os;\n}\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0,\
-    \ a1, a2, a3, a4, x, ...) x\n#define debug_1(x1) { cout << #x1 << \": \"; debug_print(cout,\
-    \ x1) << endl; }\n#define debug_2(x1, x2) { cout << #x1 << \": \"; debug_print(cout,\
+    // https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\ntemplate <class Container,\
+    \ typename = void>\nstruct is_container : std::false_type {};\ntemplate <class\
+    \ Container>\nstruct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()),\
+    \ decltype(std::declval<Container>().end())>> : std::true_type {};\n\ntemplate\
+    \ <typename Container>\nenable_if_t<is_container<Container>::value, ostream&>\
+    \ \ndebug_print(ostream& os, const Container& container) {\n    os << \"[\";\n\
+    \    auto it = container.begin();\n    for (; it != container.end(); ++it) {\n\
+    \        if (it != container.begin()) os << \", \";\n        os << *it;\n    }\n\
+    \    os << \"]\";\n    return os;\n}\ntemplate <typename T>\nenable_if_t<!is_container<T>::value,\
+    \ ostream&> \ndebug_print(ostream& os, const T& var) {\n    os << var;\n    return\
+    \ os;\n}\n#define CHOOSE(a) CHOOSE2 a\n#define CHOOSE2(a0, a1, a2, a3, a4, x,\
+    \ ...) x\n#define debug_1(x1) { cout << #x1 << \": \"; debug_print(cout, x1) <<\
+    \ endl; }\n#define debug_2(x1, x2) { cout << #x1 << \": \"; debug_print(cout,\
     \ x1) << \", \" << #x2 << \": \"; debug_print(cout, x2) << endl; }\n#define debug_3(x1,\
     \ x2, x3) { cout << #x1 << \": \"; debug_print(cout, x1) << \", \" << #x2 << \"\
     : \"; debug_print(cout, x2) << \", \" << #x3 << \": \"; debug_print(cout, x3)\
@@ -57,16 +61,12 @@ data:
     }\nvoid print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    cout << a;\n    (cout << ... << (cout << ' ', b));\n\
     \    cout << '\\n';\n}\nvoid print(const string &s) {\n    cout << s << '\\n';\n\
-    }\ntemplate <class Container, typename = void>\nstruct is_container : std::false_type\
-    \ {};\ntemplate <class Container>\nstruct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()),\
-    \ decltype(std::declval<Container>().end())>> : std::true_type {};\ntemplate <class\
-    \ Container>\ntypename enable_if<is_container<Container>::value>::type print(const\
-    \ Container& x) {\n    if (!x.empty()) {\n        auto it = x.begin();\n     \
-    \   for (; it != prev(x.end()); ++it) {\n            cout << *it << \" \";\n \
-    \       }\n        cout << *it << \"\\n\";  // \u6700\u5F8C\u306E\u8981\u7D20\u3092\
-    \u51FA\u529B\u3057\u3066\u6539\u884C\n    }\n}\n#define INT(...)             \
-    \                                                  \\\n    int __VA_ARGS__;  \
-    \                                                         \\\n    input(__VA_ARGS__)\n\
+    }\ntemplate <class Container>\nenable_if_t<is_container<Container>::value> print(const\
+    \ Container& container) {\n    auto it = container.begin();\n    for(;it != container.end();\
+    \ ++it){\n        if(it != container.begin())\n            cout << \" \";\n  \
+    \      cout << *it;\n    }\n    cout << '\\n';\n}\n#define INT(...)          \
+    \                                                     \\\n    int __VA_ARGS__;\
+    \                                                           \\\n    input(__VA_ARGS__)\n\
     #define LL(...)                                                              \
     \  \\\n    long long __VA_ARGS__;                                            \
     \         \\\n    input(__VA_ARGS__)\n#define STR(...)                       \
@@ -137,8 +137,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/tree/lca_doubling.test.cpp
   requiredBy: []
-  timestamp: '2025-03-08 11:22:41+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-03-16 14:03:42+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/tree/lca_doubling.test.cpp
 layout: document
