@@ -9,7 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/matrix_product.test.cpp
     title: test/library_checker/linear_algebra/matrix_product.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
     title: test/library_checker/linear_algebra/pow_of_matrix.test.cpp
   - icon: ':x:'

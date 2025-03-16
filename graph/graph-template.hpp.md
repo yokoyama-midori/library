@@ -11,10 +11,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/maximum-independent-set.hpp
     title: "\u6700\u5927\u72EC\u7ACB\u96C6\u5408"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/minimum-steiner-tree.hpp
     title: graph/minimum-steiner-tree.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tree/tree-query.hpp
     title: tree/tree-query.hpp
   _extendedVerifiedWith:
@@ -30,25 +30,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/maximum_independent_set.test.cpp
     title: test/library_checker/graph/maximum_independent_set.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/shortest_path.test.cpp
     title: test/library_checker/shortest_path.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/jump_on_tree.test.cpp
     title: test/library_checker/tree/jump_on_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/lca_doubling.test.cpp
     title: test/library_checker/tree/lca_doubling.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_diameter.test.cpp
     title: test/library_checker/tree/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/114.test.cpp
     title: test/yukicoder/114.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1718.test.cpp
     title: test/yukicoder/1718.test.cpp
   - icon: ':x:'

@@ -5,28 +5,28 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: number-theory/divisor-multiple-transform.hpp
     title: number-theory/divisor-multiple-transform.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: number-theory/gcd-convolution.hpp
     title: number-theory/gcd-convolution.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: number-theory/lcm-convolution.hpp
     title: number-theory/lcm-convolution.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/enumerate_primes.test.cpp
     title: test/library_checker/number_theory/enumerate_primes.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/gcd_convolution.test.cpp
     title: test/library_checker/number_theory/gcd_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/lcm_convolution.test.cpp
     title: test/library_checker/number_theory/lcm_convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://nyaannyaan.github.io/library/prime/prime-enumerate.hpp
@@ -118,7 +118,7 @@ data:
   - number-theory/gcd-convolution.hpp
   - number-theory/divisor-multiple-transform.hpp
   timestamp: '2025-03-16 14:03:42+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/gcd_convolution.test.cpp
   - test/library_checker/number_theory/lcm_convolution.test.cpp
