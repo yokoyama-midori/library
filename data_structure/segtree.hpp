@@ -1,7 +1,7 @@
 #pragma once
 #include "template.hpp"
 
-template <class S, S (*op)(S, S), S (*e)()> struct segtree {
+template <class S, auto op, auto e> struct segtree {
     ll n;
     vector<S> v;
     segtree(ll n_) : segtree(vector<S>(n_, e())) {}

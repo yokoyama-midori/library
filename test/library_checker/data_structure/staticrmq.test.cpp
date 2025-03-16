@@ -7,7 +7,7 @@ void solve() {
     LL(n, q);
     vl a(n);
     input(a);
-    segtree<ll, min, e> seg(a);
+    segtree<ll, (ll(*)(ll, ll))min, e> seg(a);
     rep(_, q) {
         LL(l, r);
         print(seg.prod(l, r));
