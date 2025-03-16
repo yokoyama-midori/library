@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: number-theory/gcd-convolution.hpp
     title: number-theory/gcd-convolution.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []

@@ -5,18 +5,20 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/shortest_path.test.cpp
-    title: test/library_checker/shortest_path.test.cpp
-  _isVerificationFailed: false
-  _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _extendedVerifiedWith: []
+  _isVerificationFailed: true
+  _pathExtension: cpp
+  _verificationStatusIcon: ':x:'
   attributes:
-    links: []
-  bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
-    \ GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\n#include\
-    \ <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
+    '*NOT_SPECIAL_COMMENTS*': ''
+    IGNORE: ''
+    IGNORE_IF_GCC: ''
+    links:
+    - https://judge.yosupo.jp/problem/aplusb
+  bundledCode: "#line 1 \"for_test.test.cpp\"\n#define IGNORE\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/aplusb\"\n#line 2 \"template.hpp\"\n// #pragma\
+    \ GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"\
+    unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\
     // debug methods\n// usage: debug(x,y);\n// vector \u51FA\u529B\u3067\u304D\u308B\
     \u3088\u3046\u306B\u4FEE\u6B63\ntemplate <typename T>\nostream& debug_print(ostream&\
     \ os, const vector<T>& v) {\n    os << \"[\";\n    for (size_t i = 0; i < v.size();\
@@ -69,50 +71,24 @@ data:
     #define REP3(i, a, b) for(ll i = a; i < b; i++)\n#define REP4(i, a, b, c) for(ll\
     \ i = a; i < b; i += c)\n#define overload4(a, b, c, d, e, ...) e\n#define rep(...)\
     \ overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)\n\nll inf = 3e18;\n\
-    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 3 \"graph/shortest-path.hpp\"\
-    \ntemplate <class T> struct ShortestPath {\n    int n;\n    Graph<T> &g;\n   \
-    \ vector<int> from;\n    vector<T> dist;\n    ShortestPath(Graph<T> &g, int s)\n\
-    \        : n(g.size()), g(g), from(n, -1), dist(n, -1) {\n        using Pti =\
-    \ pair<T, int>;\n        priority_queue<Pti, vector<Pti>, greater<Pti>> que;\n\
-    \        que.push(Pti(0, s));\n        dist[s] = 0;\n        while(que.size())\
-    \ {\n            auto [cost, idx] = que.top();\n            que.pop();\n     \
-    \       if(dist[idx] < cost)\n                continue;\n            for(auto\
-    \ to : g[idx]) {\n                if(dist[to] == -1 or cost + to.cost < dist[to])\
-    \ {\n                    dist[to] = cost + to.cost;\n                    que.push(Pti(dist[to],\
-    \ to));\n                    from[to] = idx;\n                }\n            }\n\
-    \        }\n    }\n    const T &operator[](int i) const { return dist[i]; }\n\
-    \    vector<int> restore(int t) const {\n        assert(t != -1);\n        vector<int>\
-    \ res = {t};\n        while(from[t] != -1) {\n            t = from[t];\n     \
-    \       res.emplace_back(t);\n        }\n        ranges::reverse(res);\n     \
-    \   return res;\n    }\n};\n"
-  code: "#pragma once\n#include \"template.hpp\"\ntemplate <class T> struct ShortestPath\
-    \ {\n    int n;\n    Graph<T> &g;\n    vector<int> from;\n    vector<T> dist;\n\
-    \    ShortestPath(Graph<T> &g, int s)\n        : n(g.size()), g(g), from(n, -1),\
-    \ dist(n, -1) {\n        using Pti = pair<T, int>;\n        priority_queue<Pti,\
-    \ vector<Pti>, greater<Pti>> que;\n        que.push(Pti(0, s));\n        dist[s]\
-    \ = 0;\n        while(que.size()) {\n            auto [cost, idx] = que.top();\n\
-    \            que.pop();\n            if(dist[idx] < cost)\n                continue;\n\
-    \            for(auto to : g[idx]) {\n                if(dist[to] == -1 or cost\
-    \ + to.cost < dist[to]) {\n                    dist[to] = cost + to.cost;\n  \
-    \                  que.push(Pti(dist[to], to));\n                    from[to]\
-    \ = idx;\n                }\n            }\n        }\n    }\n    const T &operator[](int\
-    \ i) const { return dist[i]; }\n    vector<int> restore(int t) const {\n     \
-    \   assert(t != -1);\n        vector<int> res = {t};\n        while(from[t] !=\
-    \ -1) {\n            t = from[t];\n            res.emplace_back(t);\n        }\n\
-    \        ranges::reverse(res);\n        return res;\n    }\n};\n"
+    vl dx = {1, -1, 0, 0};\nvl dy = {0, 0, 1, -1};\n#line 4 \"for_test.test.cpp\"\n\
+    void solve() {\n    LL(a, b);\n    print(a + b);\n}\nint main() {\n    ll t =\
+    \ 1;\n    rep(_, t) solve();\n}\n"
+  code: "#define IGNORE\n#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\
+    \n#include \"template.hpp\"\nvoid solve() {\n    LL(a, b);\n    print(a + b);\n\
+    }\nint main() {\n    ll t = 1;\n    rep(_, t) solve();\n}\n"
   dependsOn:
   - template.hpp
-  isVerificationFile: false
-  path: graph/shortest-path.hpp
+  isVerificationFile: true
+  path: for_test.test.cpp
   requiredBy: []
-  timestamp: '2025-03-11 04:37:06+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/library_checker/shortest_path.test.cpp
-documentation_of: graph/shortest-path.hpp
+  timestamp: '2025-03-16 13:13:04+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
+  verifiedWith: []
+documentation_of: for_test.test.cpp
 layout: document
 redirect_from:
-- /library/graph/shortest-path.hpp
-- /library/graph/shortest-path.hpp.html
-title: graph/shortest-path.hpp
+- /verify/for_test.test.cpp
+- /verify/for_test.test.cpp.html
+title: for_test.test.cpp
 ---

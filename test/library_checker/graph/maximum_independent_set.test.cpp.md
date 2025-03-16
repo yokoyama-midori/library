@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/maximum-independent-set.hpp
     title: "\u6700\u5927\u72EC\u7ACB\u96C6\u5408"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
