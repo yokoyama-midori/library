@@ -25,7 +25,7 @@ vector<int> longest_increasing_sequence(const vector<T> &a,
     while(dp[now] == infty)
         now--;
     for(int i = idx[now]; i != -1; i = previous[i]) {
-        ans.push_back(i);
+        ans.emplace_back(i);
     }
     reverse(all(ans));
     return ans;
