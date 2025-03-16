@@ -6,21 +6,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 // https://xn--kst.jp/blog/2019/08/29/cpp-comp/
-// debug methods
-// usage: debug(x,y);
-// vector 出力できるように修正
-template <typename T>
-ostream& debug_print(ostream& os, const vector<T>& v) {
+
+template <class Container, typename = void>
+struct is_container : std::false_type {};
+template <class Container>
+struct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()), decltype(std::declval<Container>().end())>> : std::true_type {};
+
+template <typename Container>
+enable_if_t<is_container<Container>::value, ostream&> 
+debug_print(ostream& os, const Container& container) {
     os << "[";
-    for (size_t i = 0; i < v.size(); ++i) {
-        os << v[i];
-        if (i < v.size() - 1) os << ", ";
+    auto it = container.begin();
+    for (; it != container.end(); ++it) {
+        if (it != container.begin()) os << ", ";
+        os << *it;
     }
     os << "]";
     return os;
 }
 template <typename T>
-ostream& debug_print(ostream& os, const T& var) {
+enable_if_t<!is_container<T>::value, ostream&> 
+debug_print(ostream& os, const T& var) {
     os << var;
     return os;
 }
@@ -71,19 +77,15 @@ template <class T, class... Ts> void print(const T &a, const Ts &...b) {
 void print(const string &s) {
     cout << s << '\n';
 }
-template <class Container, typename = void>
-struct is_container : std::false_type {};
 template <class Container>
-struct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()), decltype(std::declval<Container>().end())>> : std::true_type {};
-template <class Container>
-typename enable_if<is_container<Container>::value>::type print(const Container& x) {
-    if (!x.empty()) {
-        auto it = x.begin();
-        for (; it != prev(x.end()); ++it) {
-            cout << *it << " ";
-        }
-        cout << *it << "\n";  // 最後の要素を出力して改行
+enable_if_t<is_container<Container>::value> print(const Container& container) {
+    auto it = container.begin();
+    for(;it != container.end(); ++it){
+        if(it != container.begin())
+            cout << " ";
+        cout << *it;
     }
+    cout << '\n';
 }
 #define INT(...)                                                               \
     int __VA_ARGS__;                                                           \
