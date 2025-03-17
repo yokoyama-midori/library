@@ -36,6 +36,7 @@ struct LinearSieve {
             if(res.empty() or res.back().first != lpf[n])
                 res.emplace_back(lpf[n], 0);
             ++res.back().second;
+            n /= lpf[n];
         }
         return res;
     }
