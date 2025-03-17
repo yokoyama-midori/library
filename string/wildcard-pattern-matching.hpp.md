@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: rng.hpp
     title: rng.hpp
   - icon: ':question:'
@@ -9,12 +9,12 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/string/wildcard_pattern_matching.test.cpp
     title: test/library_checker/string/wildcard_pattern_matching.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://atcoder.jp/contests/utpc2024/tasks/utpc2024_k
@@ -107,7 +107,7 @@ data:
   path: string/wildcard-pattern-matching.hpp
   requiredBy: []
   timestamp: '2025-03-17 22:06:24+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
 documentation_of: string/wildcard-pattern-matching.hpp

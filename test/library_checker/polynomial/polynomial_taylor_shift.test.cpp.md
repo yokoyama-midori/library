@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: poly/poly_taylor_shift.hpp
     title: poly taylor shift
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
@@ -86,17 +86,15 @@ data:
     \ n) f[i] *= fac.inv(i);\n    return f;\n}\n#line 7 \"test/library_checker/polynomial/polynomial_taylor_shift.test.cpp\"\
     \nfactorial<mint> fac;\nvoid solve() {\n    LL(n, c);\n    vector<mint> a(n);\n\
     \    rep(i, n) {\n        LL(ai);\n        a[i] = ai;\n    }\n    auto b = poly_taylor_shift(a,\
-    \ mint(c));\n    rep(i, n) cout << b[i].val() << \" \\n\"[i == n - 1];\n}\nint\
-    \ main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n   \
-    \ solve();\n}\n"
+    \ mint(c));\n    print(b);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/polynomial_taylor_shift\"\
     \n#include <atcoder/convolution>\n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\n\
     #include \"poly/poly_taylor_shift.hpp\"\n#include \"template.hpp\"\nfactorial<mint>\
     \ fac;\nvoid solve() {\n    LL(n, c);\n    vector<mint> a(n);\n    rep(i, n) {\n\
     \        LL(ai);\n        a[i] = ai;\n    }\n    auto b = poly_taylor_shift(a,\
-    \ mint(c));\n    rep(i, n) cout << b[i].val() << \" \\n\"[i == n - 1];\n}\nint\
-    \ main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n   \
-    \ solve();\n}\n"
+    \ mint(c));\n    print(b);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   dependsOn:
   - poly/poly_taylor_shift.hpp
   - math/factorial.hpp
@@ -104,8 +102,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 22:06:24+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-17 22:21:30+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
 layout: document

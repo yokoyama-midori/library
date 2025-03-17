@@ -9,12 +9,12 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/maximum_independent_set.test.cpp
     title: test/library_checker/graph/maximum_independent_set.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://maspypy.github.io/library/graph/maximum_independent_set.hpp
@@ -133,7 +133,7 @@ data:
   path: graph/maximum-independent-set.hpp
   requiredBy: []
   timestamp: '2025-03-17 22:06:24+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/maximum_independent_set.test.cpp
 documentation_of: graph/maximum-independent-set.hpp

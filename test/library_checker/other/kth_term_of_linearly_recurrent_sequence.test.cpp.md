@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: poly/bostan_mori.hpp
     title: poly/bostan_mori.hpp
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
@@ -71,16 +71,15 @@ data:
     \  LL(d, k);\n    vector<mint> a(d);\n    vector<mint> q(d + 1);\n    rep(i, d)\
     \ {\n        LL(ai);\n        a[i] = ai;\n    }\n    q[0] = 1;\n    rep1(i, d)\
     \ {\n        LL(qi);\n        q[i] = -qi;\n    }\n    auto p = convolution(a,\
-    \ q);\n    p.resize(d);\n    print(bostanMori(p, q, k).val());\n}\nint main()\
-    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
-    }\n"
+    \ q);\n    p.resize(d);\n    print(bostanMori(p, q, k));\n}\nint main() {\n  \
+    \  ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM                                                         \
     \       \\\n    \"https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence\"\
     \n#include \"poly/bostan_mori.hpp\"\nusing namespace atcoder;\nusing mint = modint998244353;\n\
     void solve() {\n    LL(d, k);\n    vector<mint> a(d);\n    vector<mint> q(d +\
     \ 1);\n    rep(i, d) {\n        LL(ai);\n        a[i] = ai;\n    }\n    q[0] =\
     \ 1;\n    rep1(i, d) {\n        LL(qi);\n        q[i] = -qi;\n    }\n    auto\
-    \ p = convolution(a, q);\n    p.resize(d);\n    print(bostanMori(p, q, k).val());\n\
+    \ p = convolution(a, q);\n    p.resize(d);\n    print(bostanMori(p, q, k));\n\
     }\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
     \    solve();\n}\n"
   dependsOn:
@@ -89,8 +88,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 22:06:24+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-17 22:21:30+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
 layout: document

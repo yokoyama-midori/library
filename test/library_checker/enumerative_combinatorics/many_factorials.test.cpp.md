@@ -117,13 +117,13 @@ data:
     \   for(ll i = (1LL << K) * r + 1; i <= n; i++) {\n            res *= i;\n   \
     \     }\n        return res;\n    }\n};\n#line 5 \"test/library_checker/enumerative_combinatorics/many_factorials.test.cpp\"\
     \nfactorial_large<atcoder::modint998244353> fac;\nvoid solve() {\n    LL(n);\n\
-    \    print(fac.fac(n).val());\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    std::cin.tie(nullptr);\n    LL(t);\n    rep(_, t) solve();\n}\n"
+    \    print(fac.fac(n));\n}\nint main() {\n    ios::sync_with_stdio(false);\n \
+    \   std::cin.tie(nullptr);\n    LL(t);\n    rep(_, t) solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/many_factorials\"\n// https://suisen-kyopro.hatenablog.com/entry/2023/11/22/201600#:~:text=%E3%81%93%E3%81%A8%E3%81%8C%E3%81%82%E3%82%8B-,%E6%96%B9%E6%B3%95%E2%91%A1,-(\n\
     #include \"math/factorial_large.hpp\"\n#include <atcoder/modint>\nfactorial_large<atcoder::modint998244353>\
-    \ fac;\nvoid solve() {\n    LL(n);\n    print(fac.fac(n).val());\n}\nint main()\
-    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    LL(t);\n\
-    \    rep(_, t) solve();\n}\n"
+    \ fac;\nvoid solve() {\n    LL(n);\n    print(fac.fac(n));\n}\nint main() {\n\
+    \    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    LL(t);\n  \
+    \  rep(_, t) solve();\n}\n"
   dependsOn:
   - math/factorial_large.hpp
   - poly/shift_of_sampling_points.hpp
@@ -132,7 +132,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 22:06:24+09:00'
+  timestamp: '2025-03-17 22:21:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp

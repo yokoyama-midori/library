@@ -12,9 +12,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial
@@ -97,18 +97,16 @@ data:
     \ res;\n}\n#line 7 \"test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp\"\
     \n\nvoid solve() {\n    LL(n, m, c);\n    vector<mint> f(n);\n    rep(i, n) {\n\
     \        LL(fi);\n        f[i] = fi;\n    }\n    auto res = shift_of_sampling_points(f,\
-    \ m, c);\n    rep(i, m) cout << res[i].val() << \" \";\n    cout << endl;\n}\n\
-    int main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n \
-    \   solve();\n}\n"
+    \ m, c);\n    print(res);\n}\nint main() {\n    ios::sync_with_stdio(false);\n\
+    \    std::cin.tie(nullptr);\n    solve();\n}\n"
   code: "#define PROBLEM                                                         \
     \       \\\n    \"https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial\"\
     \n#include <atcoder/modint>\nusing mint = atcoder::modint998244353;\n#include\
     \ \"poly/shift_of_sampling_points.hpp\"\n#include \"template.hpp\"\n\nvoid solve()\
     \ {\n    LL(n, m, c);\n    vector<mint> f(n);\n    rep(i, n) {\n        LL(fi);\n\
     \        f[i] = fi;\n    }\n    auto res = shift_of_sampling_points(f, m, c);\n\
-    \    rep(i, m) cout << res[i].val() << \" \";\n    cout << endl;\n}\nint main()\
-    \ {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n    solve();\n\
-    }\n"
+    \    print(res);\n}\nint main() {\n    ios::sync_with_stdio(false);\n    std::cin.tie(nullptr);\n\
+    \    solve();\n}\n"
   dependsOn:
   - poly/shift_of_sampling_points.hpp
   - math/factorial.hpp
@@ -116,8 +114,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 22:06:24+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2025-03-17 22:21:30+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
 layout: document

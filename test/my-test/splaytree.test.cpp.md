@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: data_structure/splaytree.hpp
     title: "\u30B9\u30D7\u30EC\u30FC\u6728"
-  - icon: ':x:'
+  - icon: ':question:'
     path: rng.hpp
     title: rng.hpp
   - icon: ':question:'
