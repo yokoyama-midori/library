@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
   - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/factorial_large.hpp
     title: math/factorial_large.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
     title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/3004.test.cpp
     title: test/yukicoder/3004.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp
@@ -38,16 +38,17 @@ data:
     n'; }\ntemplate <class T, class... Ts> void print(const T &a, const Ts &...b)\
     \ {\n    print_one(a);\n    ((cout << ' ', print_one(b)), ...);\n    cout << '\\\
     n';\n}\nvoid print(const string &s) { cout << s << '\\n'; }\ntemplate <ranges::range\
-    \ Iterable> void print(const Iterable &v) {\n    auto it = v.begin();\n    for(;\
-    \ it != v.end(); ++it) {\n        if(it != v.begin())\n            cout << \"\
-    \ \";\n        print_one(*it);\n    }\n    cout << '\\n';\n}\nusing ll = long\
-    \ long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\nusing P = pair<ll, ll>;\n\
-    #define all(v) v.begin(), v.end()\ntemplate <typename T> inline bool chmax(T &a,\
-    \ T b) {\n    return ((a < b) ? (a = b, true) : (false));\n}\ntemplate <typename\
-    \ T> inline bool chmin(T &a, T b) {\n    return ((a > b) ? (a = b, true) : (false));\n\
-    }\n#define rep1(i, n) for(ll i = 1; i <= ((ll)n); ++i)\n// https://trap.jp/post/1224/\n\
-    template <class... T> constexpr auto min(T... a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n\
-    }\ntemplate <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
+    \ Iterable>\n    requires(!Streamable<Iterable>)\nvoid print(const Iterable &v)\
+    \ {\n    for(auto it = v.begin(); it != v.end(); ++it) {\n        if(it != v.begin())\n\
+    \            cout << \" \";\n        print_one(*it);\n    }\n    cout << '\\n';\n\
+    }\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\nusing\
+    \ P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename T>\
+    \ inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
+    }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
+    \ (a = b, true) : (false));\n}\n#define rep1(i, n) for(ll i = 1; i <= ((ll)n);\
+    \ ++i)\n// https://trap.jp/post/1224/\ntemplate <class... T> constexpr auto min(T...\
+    \ a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n}\ntemplate\
+    \ <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
     }\ntemplate <class... T> void input(T &...a) { (cin >> ... >> a); }\ntemplate\
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\n#define INT(...)                                                          \
@@ -125,8 +126,8 @@ data:
   path: poly/shift_of_sampling_points.hpp
   requiredBy:
   - math/factorial_large.hpp
-  timestamp: '2025-03-17 22:06:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-03-17 22:44:15+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp

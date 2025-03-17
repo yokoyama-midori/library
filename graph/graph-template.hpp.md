@@ -5,58 +5,58 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/cycle-detection.hpp
     title: graph/cycle-detection.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/maximum-independent-set.hpp
     title: "\u6700\u5927\u72EC\u7ACB\u96C6\u5408"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/minimum-steiner-tree.hpp
     title: graph/minimum-steiner-tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: tree/tree-query.hpp
     title: tree/tree-query.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1040.test.cpp
     title: test/aoj/1040.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/cycle_detection.test.cpp
     title: test/library_checker/graph/cycle_detection.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/maximum_independent_set.test.cpp
     title: test/library_checker/graph/maximum_independent_set.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/graph/shortest_path.test.cpp
     title: test/library_checker/graph/shortest_path.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/tree/jump_on_tree.test.cpp
     title: test/library_checker/tree/jump_on_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/tree/lca_doubling.test.cpp
     title: test/library_checker/tree/lca_doubling.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/tree/tree_diameter.test.cpp
     title: test/library_checker/tree/tree_diameter.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/tree/tree_path_composite_sum.test.cpp
     title: test/library_checker/tree/tree_path_composite_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/114.test.cpp
     title: test/yukicoder/114.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1718.test.cpp
     title: test/yukicoder/1718.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/2677.test.cpp
     title: test/yukicoder/2677.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links:
     - https://ei1333.github.io/library/graph/graph-template.hpp
@@ -71,16 +71,17 @@ data:
     n'; }\ntemplate <class T, class... Ts> void print(const T &a, const Ts &...b)\
     \ {\n    print_one(a);\n    ((cout << ' ', print_one(b)), ...);\n    cout << '\\\
     n';\n}\nvoid print(const string &s) { cout << s << '\\n'; }\ntemplate <ranges::range\
-    \ Iterable> void print(const Iterable &v) {\n    auto it = v.begin();\n    for(;\
-    \ it != v.end(); ++it) {\n        if(it != v.begin())\n            cout << \"\
-    \ \";\n        print_one(*it);\n    }\n    cout << '\\n';\n}\nusing ll = long\
-    \ long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\nusing P = pair<ll, ll>;\n\
-    #define all(v) v.begin(), v.end()\ntemplate <typename T> inline bool chmax(T &a,\
-    \ T b) {\n    return ((a < b) ? (a = b, true) : (false));\n}\ntemplate <typename\
-    \ T> inline bool chmin(T &a, T b) {\n    return ((a > b) ? (a = b, true) : (false));\n\
-    }\n#define rep1(i, n) for(ll i = 1; i <= ((ll)n); ++i)\n// https://trap.jp/post/1224/\n\
-    template <class... T> constexpr auto min(T... a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n\
-    }\ntemplate <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
+    \ Iterable>\n    requires(!Streamable<Iterable>)\nvoid print(const Iterable &v)\
+    \ {\n    for(auto it = v.begin(); it != v.end(); ++it) {\n        if(it != v.begin())\n\
+    \            cout << \" \";\n        print_one(*it);\n    }\n    cout << '\\n';\n\
+    }\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\nusing\
+    \ P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename T>\
+    \ inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
+    }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
+    \ (a = b, true) : (false));\n}\n#define rep1(i, n) for(ll i = 1; i <= ((ll)n);\
+    \ ++i)\n// https://trap.jp/post/1224/\ntemplate <class... T> constexpr auto min(T...\
+    \ a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n}\ntemplate\
+    \ <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
     }\ntemplate <class... T> void input(T &...a) { (cin >> ... >> a); }\ntemplate\
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\n#define INT(...)                                                          \
@@ -142,8 +143,8 @@ data:
   - graph/minimum-steiner-tree.hpp
   - graph/cycle-detection.hpp
   - graph/maximum-independent-set.hpp
-  timestamp: '2025-03-17 22:06:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-03-17 22:44:15+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/tree/jump_on_tree.test.cpp
   - test/library_checker/tree/tree_diameter.test.cpp

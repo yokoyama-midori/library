@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/mod-sqrt.hpp
     title: math/mod-sqrt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: rng.hpp
     title: rng.hpp
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_mod
@@ -35,9 +35,9 @@ data:
     \ &value) { cout << value.val(); }\nvoid print() { cout << '\\n'; }\ntemplate\
     \ <class T, class... Ts> void print(const T &a, const Ts &...b) {\n    print_one(a);\n\
     \    ((cout << ' ', print_one(b)), ...);\n    cout << '\\n';\n}\nvoid print(const\
-    \ string &s) { cout << s << '\\n'; }\ntemplate <ranges::range Iterable> void print(const\
-    \ Iterable &v) {\n    auto it = v.begin();\n    for(; it != v.end(); ++it) {\n\
-    \        if(it != v.begin())\n            cout << \" \";\n        print_one(*it);\n\
+    \ string &s) { cout << s << '\\n'; }\ntemplate <ranges::range Iterable>\n    requires(!Streamable<Iterable>)\n\
+    void print(const Iterable &v) {\n    for(auto it = v.begin(); it != v.end(); ++it)\
+    \ {\n        if(it != v.begin())\n            cout << \" \";\n        print_one(*it);\n\
     \    }\n    cout << '\\n';\n}\nusing ll = long long;\nusing vl = vector<ll>;\n\
     using vll = vector<vl>;\nusing P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\n\
     template <typename T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a\
@@ -107,8 +107,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/number_theory/sqrt_mod.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 22:06:24+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-03-17 22:44:15+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/sqrt_mod.test.cpp
 layout: document

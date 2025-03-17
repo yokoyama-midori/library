@@ -25,7 +25,7 @@ data:
   isVerificationFile: true
   path: aplusb.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 22:06:24+09:00'
+  timestamp: '2025-03-17 22:44:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: aplusb.test.cpp

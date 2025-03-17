@@ -6,15 +6,15 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/3044.test.cpp
     title: test/yukicoder/3044.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -28,16 +28,17 @@ data:
     n'; }\ntemplate <class T, class... Ts> void print(const T &a, const Ts &...b)\
     \ {\n    print_one(a);\n    ((cout << ' ', print_one(b)), ...);\n    cout << '\\\
     n';\n}\nvoid print(const string &s) { cout << s << '\\n'; }\ntemplate <ranges::range\
-    \ Iterable> void print(const Iterable &v) {\n    auto it = v.begin();\n    for(;\
-    \ it != v.end(); ++it) {\n        if(it != v.begin())\n            cout << \"\
-    \ \";\n        print_one(*it);\n    }\n    cout << '\\n';\n}\nusing ll = long\
-    \ long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\nusing P = pair<ll, ll>;\n\
-    #define all(v) v.begin(), v.end()\ntemplate <typename T> inline bool chmax(T &a,\
-    \ T b) {\n    return ((a < b) ? (a = b, true) : (false));\n}\ntemplate <typename\
-    \ T> inline bool chmin(T &a, T b) {\n    return ((a > b) ? (a = b, true) : (false));\n\
-    }\n#define rep1(i, n) for(ll i = 1; i <= ((ll)n); ++i)\n// https://trap.jp/post/1224/\n\
-    template <class... T> constexpr auto min(T... a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n\
-    }\ntemplate <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
+    \ Iterable>\n    requires(!Streamable<Iterable>)\nvoid print(const Iterable &v)\
+    \ {\n    for(auto it = v.begin(); it != v.end(); ++it) {\n        if(it != v.begin())\n\
+    \            cout << \" \";\n        print_one(*it);\n    }\n    cout << '\\n';\n\
+    }\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\nusing\
+    \ P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename T>\
+    \ inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
+    }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
+    \ (a = b, true) : (false));\n}\n#define rep1(i, n) for(ll i = 1; i <= ((ll)n);\
+    \ ++i)\n// https://trap.jp/post/1224/\ntemplate <class... T> constexpr auto min(T...\
+    \ a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n}\ntemplate\
+    \ <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
     }\ntemplate <class... T> void input(T &...a) { (cin >> ... >> a); }\ntemplate\
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\n#define INT(...)                                                          \
@@ -81,8 +82,8 @@ data:
   isVerificationFile: false
   path: poly/bostan_mori.hpp
   requiredBy: []
-  timestamp: '2025-03-17 22:06:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-03-17 22:44:15+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/yukicoder/3044.test.cpp
