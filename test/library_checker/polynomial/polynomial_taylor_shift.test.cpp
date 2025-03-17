@@ -13,7 +13,7 @@ void solve() {
         a[i] = ai;
     }
     auto b = poly_taylor_shift(a, mint(c));
-    rep(i, n) cout << b[i].val() << " \n"[i == n - 1];
+    print(b);
 }
 int main() {
     ios::sync_with_stdio(false);

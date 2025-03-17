@@ -18,7 +18,7 @@ void solve() {
     }
     auto p = convolution(a, q);
     p.resize(d);
-    print(bostanMori(p, q, k).val());
+    print(bostanMori(p, q, k));
 }
 int main() {
     ios::sync_with_stdio(false);
