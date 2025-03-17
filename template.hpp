@@ -25,9 +25,10 @@ template <class T, class... Ts> void print(const T &a, const Ts &...b) {
     cout << '\n';
 }
 void print(const string &s) { cout << s << '\n'; }
-template <ranges::range Iterable> void print(const Iterable &v) {
-    auto it = v.begin();
-    for(; it != v.end(); ++it) {
+template <ranges::range Iterable>
+    requires(!Streamable<Iterable>)
+void print(const Iterable &v) {
+    for(auto it = v.begin(); it != v.end(); ++it) {
         if(it != v.begin())
             cout << " ";
         print_one(*it);
