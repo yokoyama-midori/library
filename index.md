@@ -182,6 +182,11 @@ data:
       path: tree/tree-query.hpp
       title: tree/tree-query.hpp
   verificationCategories:
+  - name: .
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: aplusb.test.cpp
+      title: aplusb.test.cpp
   - name: test/aoj
     pages:
     - icon: ':heavy_check_mark:'
@@ -272,6 +277,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/graph/maximum_independent_set.test.cpp
       title: test/library_checker/graph/maximum_independent_set.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/graph/shortest_path.test.cpp
+      title: test/library_checker/graph/shortest_path.test.cpp
   - name: test/library_checker/linear_algebra
     pages:
     - icon: ':heavy_check_mark:'
@@ -333,11 +341,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/sample/many_aplusb.test.cpp
       title: test/library_checker/sample/many_aplusb.test.cpp
-  - name: test/library_checker
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/shortest_path.test.cpp
-      title: test/library_checker/shortest_path.test.cpp
   - name: test/library_checker/string
     pages:
     - icon: ':heavy_check_mark:'

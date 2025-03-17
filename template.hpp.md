@@ -159,6 +159,9 @@ data:
     title: tree/tree-query.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: aplusb.test.cpp
+    title: aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/aoj/1040.test.cpp
     title: test/aoj/1040.test.cpp
   - icon: ':heavy_check_mark:'
@@ -237,6 +240,9 @@ data:
     path: test/library_checker/graph/maximum_independent_set.test.cpp
     title: test/library_checker/graph/maximum_independent_set.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/graph/shortest_path.test.cpp
+    title: test/library_checker/graph/shortest_path.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/linear_algebra/matrix_product.test.cpp
     title: test/library_checker/linear_algebra/matrix_product.test.cpp
   - icon: ':heavy_check_mark:'
@@ -287,9 +293,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/sample/many_aplusb.test.cpp
     title: test/library_checker/sample/many_aplusb.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/shortest_path.test.cpp
-    title: test/library_checker/shortest_path.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/string/wildcard_pattern_matching.test.cpp
     title: test/library_checker/string/wildcard_pattern_matching.test.cpp
@@ -540,6 +543,7 @@ data:
   timestamp: '2025-03-16 14:03:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - aplusb.test.cpp
   - test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
   - test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
@@ -560,11 +564,11 @@ data:
   - test/library_checker/number_theory/discrete_logarithm_mod.test.cpp
   - test/library_checker/number_theory/sqrt_mod.test.cpp
   - test/library_checker/string/wildcard_pattern_matching.test.cpp
-  - test/library_checker/shortest_path.test.cpp
   - test/library_checker/graph/chromatic_number.test.cpp
   - test/library_checker/graph/cycle_detection.test.cpp
   - test/library_checker/graph/maximum_independent_set.test.cpp
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
+  - test/library_checker/graph/shortest_path.test.cpp
   - test/library_checker/sample/aplusb.test.cpp
   - test/library_checker/sample/many_aplusb.test.cpp
   - test/library_checker/data_structure/associative_array.test.cpp

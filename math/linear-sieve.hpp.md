@@ -84,7 +84,7 @@ data:
     \ int>> factor_count(int n) {\n        vector<pair<int, int>> res;\n        while(n\
     \ > 1) {\n            if(res.empty() or res.back().first != lpf[n])\n        \
     \        res.emplace_back(lpf[n], 0);\n            ++res.back().second;\n    \
-    \    }\n        return res;\n    }\n};\n"
+    \        n /= lpf[n];\n        }\n        return res;\n    }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\n// https://37zigen.com/linear-sieve/\n\
     // AtCoder codetest\n// 1e6   7ms 7.5MB\n// 1e7  53ms  46MB\n// 1e8 650ms 426MB\n\
     struct LinearSieve {\n    int max_value;\n    // lpf[i] = i\u306E\u6700\u5C0F\u7D20\
@@ -100,13 +100,13 @@ data:
     \ factor_count(int n) {\n        vector<pair<int, int>> res;\n        while(n\
     \ > 1) {\n            if(res.empty() or res.back().first != lpf[n])\n        \
     \        res.emplace_back(lpf[n], 0);\n            ++res.back().second;\n    \
-    \    }\n        return res;\n    }\n};"
+    \        n /= lpf[n];\n        }\n        return res;\n    }\n};"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: math/linear-sieve.hpp
   requiredBy: []
-  timestamp: '2025-03-16 14:03:42+09:00'
+  timestamp: '2025-03-17 11:03:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/2896.test.cpp

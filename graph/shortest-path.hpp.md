@@ -7,8 +7,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/shortest_path.test.cpp
-    title: test/library_checker/shortest_path.test.cpp
+    path: test/library_checker/graph/shortest_path.test.cpp
+    title: test/library_checker/graph/shortest_path.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -107,7 +107,7 @@ data:
   timestamp: '2025-03-16 14:03:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/shortest_path.test.cpp
+  - test/library_checker/graph/shortest_path.test.cpp
 documentation_of: graph/shortest-path.hpp
 layout: document
 redirect_from:

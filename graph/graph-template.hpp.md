@@ -31,8 +31,8 @@ data:
     path: test/library_checker/graph/maximum_independent_set.test.cpp
     title: test/library_checker/graph/maximum_independent_set.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/library_checker/shortest_path.test.cpp
-    title: test/library_checker/shortest_path.test.cpp
+    path: test/library_checker/graph/shortest_path.test.cpp
+    title: test/library_checker/graph/shortest_path.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/tree/jump_on_tree.test.cpp
     title: test/library_checker/tree/jump_on_tree.test.cpp
@@ -169,10 +169,10 @@ data:
   - test/library_checker/tree/tree_diameter.test.cpp
   - test/library_checker/tree/tree_path_composite_sum.test.cpp
   - test/library_checker/tree/lca_doubling.test.cpp
-  - test/library_checker/shortest_path.test.cpp
   - test/library_checker/graph/cycle_detection.test.cpp
   - test/library_checker/graph/maximum_independent_set.test.cpp
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
+  - test/library_checker/graph/shortest_path.test.cpp
   - test/aoj/1040.test.cpp
   - test/yukicoder/114.test.cpp
   - test/yukicoder/1718.test.cpp

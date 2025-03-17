@@ -20,11 +20,11 @@ data:
     PROBLEM: https://judge.yosupo.jp/problem/shortest_path
     links:
     - https://judge.yosupo.jp/problem/shortest_path
-  bundledCode: "#line 1 \"test/library_checker/shortest_path.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/shortest_path\"\n#line 2 \"template.hpp\"\n\
-    // #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC\
-    \ optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace std;\n\
-    // https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\ntemplate <class Container,\
+  bundledCode: "#line 1 \"test/library_checker/graph/shortest_path.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n#line 2 \"template.hpp\"\
+    \n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
+    \ GCC optimize(\"unroll-loops\")\n\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n// https://xn--kst.jp/blog/2019/08/29/cpp-comp/\n\ntemplate <class Container,\
     \ typename = void>\nstruct is_container : std::false_type {};\ntemplate <class\
     \ Container>\nstruct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()),\
     \ decltype(std::declval<Container>().end())>> : std::true_type {};\n\ntemplate\
@@ -109,7 +109,7 @@ data:
     \ i) const { return dist[i]; }\n    vector<int> restore(int t) const {\n     \
     \   assert(t != -1);\n        vector<int> res = {t};\n        while(from[t] !=\
     \ -1) {\n            t = from[t];\n            res.emplace_back(t);\n        }\n\
-    \        ranges::reverse(res);\n        return res;\n    }\n};\n#line 5 \"test/library_checker/shortest_path.test.cpp\"\
+    \        ranges::reverse(res);\n        return res;\n    }\n};\n#line 5 \"test/library_checker/graph/shortest_path.test.cpp\"\
     \nvoid solve() {\n    INT(n, m, s, t);\n    Graph<ll> g(n);\n    g.read(m, 0,\
     \ 1, 1);\n    ShortestPath<ll> dijkstra(g, s);\n    if(dijkstra[t] == -1)\n  \
     \      print(-1);\n    else {\n        auto path = dijkstra.restore(t);\n    \
@@ -129,15 +129,15 @@ data:
   - template.hpp
   - graph/shortest-path.hpp
   isVerificationFile: true
-  path: test/library_checker/shortest_path.test.cpp
+  path: test/library_checker/graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2025-03-16 14:03:42+09:00'
+  timestamp: '2025-03-17 11:03:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/shortest_path.test.cpp
+documentation_of: test/library_checker/graph/shortest_path.test.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/shortest_path.test.cpp
-- /verify/test/library_checker/shortest_path.test.cpp.html
-title: test/library_checker/shortest_path.test.cpp
+- /verify/test/library_checker/graph/shortest_path.test.cpp
+- /verify/test/library_checker/graph/shortest_path.test.cpp.html
+title: test/library_checker/graph/shortest_path.test.cpp
 ---
