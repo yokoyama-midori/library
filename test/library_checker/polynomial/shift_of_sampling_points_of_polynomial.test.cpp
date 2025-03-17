@@ -13,8 +13,7 @@ void solve() {
         f[i] = fi;
     }
     auto res = shift_of_sampling_points(f, m, c);
-    rep(i, m) cout << res[i].val() << " ";
-    cout << endl;
+    print(res);
 }
 int main() {
     ios::sync_with_stdio(false);

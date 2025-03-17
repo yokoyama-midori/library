@@ -5,7 +5,7 @@
 factorial_large<atcoder::modint998244353> fac;
 void solve() {
     LL(n);
-    print(fac.fac(n).val());
+    print(fac.fac(n));
 }
 int main() {
     ios::sync_with_stdio(false);
