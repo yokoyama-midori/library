@@ -10,7 +10,7 @@ string trim_whitespace(const string &str) {
     - is_modint(.val()->int) -> .val()して出力
     以下のものは順に再帰的に出力する
     - pair,tuple
-    -ranges::begin(),ranges::end()が使える型(vector,deque,set,map,....)
+    - ranges::begin(),ranges::end()が使える型(vector,deque,set,map,....)
 */
 template <class... Args> void debug_print(const tuple<Args...> &);
 template <ranges::range Iterable>
