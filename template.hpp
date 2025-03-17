@@ -2,48 +2,38 @@
 // #pragma GCC target("avx2")
 // #pragma GCC optimize("O3")
 // #pragma GCC optimize("unroll-loops")
-
 #include <bits/stdc++.h>
 using namespace std;
-// https://xn--kst.jp/blog/2019/08/29/cpp-comp/
-
-template <class Container, typename = void>
-struct is_container : std::false_type {};
-template <class Container>
-struct is_container<Container, std::void_t<decltype(std::declval<Container>().begin()), decltype(std::declval<Container>().end())>> : std::true_type {};
-
-template <typename Container>
-enable_if_t<is_container<Container>::value, ostream&> 
-debug_print(ostream& os, const Container& container) {
-    os << "[";
-    auto it = container.begin();
-    for (; it != container.end(); ++it) {
-        if (it != container.begin()) os << ", ";
-        os << *it;
-    }
-    os << "]";
-    return os;
-}
-template <typename T>
-enable_if_t<!is_container<T>::value, ostream&> 
-debug_print(ostream& os, const T& var) {
-    os << var;
-    return os;
-}
-#define CHOOSE(a) CHOOSE2 a
-#define CHOOSE2(a0, a1, a2, a3, a4, x, ...) x
-#define debug_1(x1) { cout << #x1 << ": "; debug_print(cout, x1) << endl; }
-#define debug_2(x1, x2) { cout << #x1 << ": "; debug_print(cout, x1) << ", " << #x2 << ": "; debug_print(cout, x2) << endl; }
-#define debug_3(x1, x2, x3) { cout << #x1 << ": "; debug_print(cout, x1) << ", " << #x2 << ": "; debug_print(cout, x2) << ", " << #x3 << ": "; debug_print(cout, x3) << endl; }
-#define debug_4(x1, x2, x3, x4) { cout << #x1 << ": "; debug_print(cout, x1) << ", " << #x2 << ": "; debug_print(cout, x2) << ", " << #x3 << ": "; debug_print(cout, x3) << ", " << #x4 << ": "; debug_print(cout, x4) << endl; }
-#define debug_5(x1, x2, x3, x4, x5) { cout << #x1 << ": "; debug_print(cout, x1) << ", " << #x2 << ": "; debug_print(cout, x2) << ", " << #x3 << ": "; debug_print(cout, x3) << ", " << #x4 << ": "; debug_print(cout, x4) << ", " << #x5 << ": "; debug_print(cout, x5) << endl; }
-
+template <class T>
+concept Streamable = requires(ostream os, T &x) { os << x; };
+template <class mint>
+concept is_modint = requires(mint &x) {
+    { x.val() } -> std::convertible_to<int>;
+};
 #ifdef LOCAL
-#define debug(...) CHOOSE((__VA_ARGS__, debug_5, debug_4, debug_3, debug_2, debug_1, ~))(__VA_ARGS__)
+#include <debug.hpp>
 #else
-#define debug(...)
+#define debug(...) 42
 #endif
 
+template <Streamable T> void print_one(const T &value) { cout << value; }
+template <is_modint T> void print_one(const T &value) { cout << value.val(); }
+void print() { cout << '\n'; }
+template <class T, class... Ts> void print(const T &a, const Ts &...b) {
+    print_one(a);
+    ((cout << ' ', print_one(b)), ...);
+    cout << '\n';
+}
+void print(const string &s) { cout << s << '\n'; }
+template <ranges::range Iterable> void print(const Iterable &v) {
+    auto it = v.begin();
+    for(; it != v.end(); ++it) {
+        if(it != v.begin())
+            cout << " ";
+        print_one(*it);
+    }
+    cout << '\n';
+}
 using ll = long long;
 using vl = vector<ll>;
 using vll = vector<vl>;
@@ -67,25 +57,6 @@ template <class... T> void input(T &...a) { (cin >> ... >> a); }
 template <class T> void input(vector<T> &a) {
     for(T &x : a)
         cin >> x;
-}
-void print() { cout << '\n'; }
-template <class T, class... Ts> void print(const T &a, const Ts &...b) {
-    cout << a;
-    (cout << ... << (cout << ' ', b));
-    cout << '\n';
-}
-void print(const string &s) {
-    cout << s << '\n';
-}
-template <class Container>
-enable_if_t<is_container<Container>::value> print(const Container& container) {
-    auto it = container.begin();
-    for(;it != container.end(); ++it){
-        if(it != container.begin())
-            cout << " ";
-        cout << *it;
-    }
-    cout << '\n';
 }
 #define INT(...)                                                               \
     int __VA_ARGS__;                                                           \
