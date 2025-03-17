@@ -14,7 +14,7 @@ data:
     \u3080) -> \u305D\u306E\u307E\u307E\u51FA\u529B\n    - is_modint(.val()->int)\
     \ -> .val()\u3057\u3066\u51FA\u529B\n    \u4EE5\u4E0B\u306E\u3082\u306E\u306F\u9806\
     \u306B\u518D\u5E30\u7684\u306B\u51FA\u529B\u3059\u308B\n    - pair,tuple\n   \
-    \ -ranges::begin(),ranges::end()\u304C\u4F7F\u3048\u308B\u578B(vector,deque,set,map,....)\n\
+    \ - ranges::begin(),ranges::end()\u304C\u4F7F\u3048\u308B\u578B(vector,deque,set,map,....)\n\
     */\ntemplate <class... Args> void debug_print(const tuple<Args...> &);\ntemplate\
     \ <ranges::range Iterable>\n    requires(!Streamable<Iterable>)\nvoid debug_print(const\
     \ Iterable &);\n\ntemplate <Streamable T> void debug_print(const T &value) { cout\
@@ -45,7 +45,7 @@ data:
     \u3080) -> \u305D\u306E\u307E\u307E\u51FA\u529B\n    - is_modint(.val()->int)\
     \ -> .val()\u3057\u3066\u51FA\u529B\n    \u4EE5\u4E0B\u306E\u3082\u306E\u306F\u9806\
     \u306B\u518D\u5E30\u7684\u306B\u51FA\u529B\u3059\u308B\n    - pair,tuple\n   \
-    \ -ranges::begin(),ranges::end()\u304C\u4F7F\u3048\u308B\u578B(vector,deque,set,map,....)\n\
+    \ - ranges::begin(),ranges::end()\u304C\u4F7F\u3048\u308B\u578B(vector,deque,set,map,....)\n\
     */\ntemplate <class... Args> void debug_print(const tuple<Args...> &);\ntemplate\
     \ <ranges::range Iterable>\n    requires(!Streamable<Iterable>)\nvoid debug_print(const\
     \ Iterable &);\n\ntemplate <Streamable T> void debug_print(const T &value) { cout\
@@ -74,7 +74,7 @@ data:
   isVerificationFile: false
   path: debug.hpp
   requiredBy: []
-  timestamp: '2025-03-17 22:06:24+09:00'
+  timestamp: '2025-03-17 22:36:04+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: debug.hpp
