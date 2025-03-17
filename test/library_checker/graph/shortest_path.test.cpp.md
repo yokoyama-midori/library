@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/shortest-path.hpp
     title: graph/shortest-path.hpp
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/shortest_path
@@ -113,7 +113,7 @@ data:
   path: test/library_checker/graph/shortest_path.test.cpp
   requiredBy: []
   timestamp: '2025-03-17 22:44:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/shortest_path.test.cpp
 layout: document

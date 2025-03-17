@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod-sqrt.hpp
     title: math/mod-sqrt.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: rng.hpp
     title: rng.hpp
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_mod
@@ -108,7 +108,7 @@ data:
   path: test/library_checker/number_theory/sqrt_mod.test.cpp
   requiredBy: []
   timestamp: '2025-03-17 22:44:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/number_theory/sqrt_mod.test.cpp
 layout: document

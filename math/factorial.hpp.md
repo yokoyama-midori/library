@@ -8,7 +8,7 @@ data:
   - icon: ':question:'
     path: math/factorial_large.hpp
     title: math/factorial_large.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: poly/poly_taylor_shift.hpp
     title: poly taylor shift
   - icon: ':question:'
@@ -18,10 +18,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
     title: test/library_checker/enumerative_combinatorics/many_factorials.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
     title: test/library_checker/polynomial/shift_of_sampling_points_of_polynomial.test.cpp
   - icon: ':x:'

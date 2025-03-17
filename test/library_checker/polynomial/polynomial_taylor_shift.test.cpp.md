@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: math/factorial.hpp
     title: math/factorial.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: poly/poly_taylor_shift.hpp
     title: poly taylor shift
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
@@ -104,7 +104,7 @@ data:
   path: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
   requiredBy: []
   timestamp: '2025-03-17 22:44:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial/polynomial_taylor_shift.test.cpp
 layout: document

@@ -5,29 +5,29 @@ data:
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod-sqrt.hpp
     title: math/mod-sqrt.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/primitive-root.hpp
     title: math/primitive-root.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/factorize.test.cpp
     title: test/library_checker/number_theory/factorize.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primality_test.test.cpp
     title: test/library_checker/number_theory/primality_test.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/primitive_root.test.cpp
     title: test/library_checker/number_theory/primitive_root.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/sqrt_mod.test.cpp
     title: test/library_checker/number_theory/sqrt_mod.test.cpp
   - icon: ':x:'
@@ -38,7 +38,7 @@ data:
     title: test/yukicoder/888.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -103,7 +103,7 @@ data:
   - math/miller_rabin.hpp
   - math/pollard_rho.hpp
   timestamp: '2025-03-17 22:44:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/number_theory/factorize.test.cpp
   - test/library_checker/number_theory/primality_test.test.cpp

@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/miller_rabin.hpp
     title: math/miller_rabin.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/pollard_rho.hpp
     title: math/pollard_rho.hpp
   - icon: ':question:'

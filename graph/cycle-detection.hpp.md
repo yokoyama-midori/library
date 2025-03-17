@@ -9,15 +9,15 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/cycle_detection.test.cpp
     title: test/library_checker/graph/cycle_detection.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/graph/cycle_detection_undirected.test.cpp
     title: test/library_checker/graph/cycle_detection_undirected.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://ei1333.github.io/library/graph/others/cycle-detection.hpp
@@ -118,7 +118,7 @@ data:
   path: graph/cycle-detection.hpp
   requiredBy: []
   timestamp: '2025-03-17 22:44:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/graph/cycle_detection.test.cpp
   - test/library_checker/graph/cycle_detection_undirected.test.cpp
