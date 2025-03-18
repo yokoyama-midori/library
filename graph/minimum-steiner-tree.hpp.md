@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/aoj/1040.test.cpp
     title: test/aoj/1040.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/114.test.cpp
     title: test/yukicoder/114.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -30,18 +30,17 @@ data:
     \ print_one(const T &value) { cout << value.val(); }\nvoid print() { cout << '\\\
     n'; }\ntemplate <class T, class... Ts> void print(const T &a, const Ts &...b)\
     \ {\n    print_one(a);\n    ((cout << ' ', print_one(b)), ...);\n    cout << '\\\
-    n';\n}\nvoid print(const string &s) { cout << s << '\\n'; }\ntemplate <ranges::range\
-    \ Iterable>\n    requires(!Streamable<Iterable>)\nvoid print(const Iterable &v)\
-    \ {\n    for(auto it = v.begin(); it != v.end(); ++it) {\n        if(it != v.begin())\n\
-    \            cout << \" \";\n        print_one(*it);\n    }\n    cout << '\\n';\n\
-    }\nusing ll = long long;\nusing vl = vector<ll>;\nusing vll = vector<vl>;\nusing\
-    \ P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\ntemplate <typename T>\
-    \ inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a = b, true) : (false));\n\
-    }\ntemplate <typename T> inline bool chmin(T &a, T b) {\n    return ((a > b) ?\
-    \ (a = b, true) : (false));\n}\n#define rep1(i, n) for(ll i = 1; i <= ((ll)n);\
-    \ ++i)\n// https://trap.jp/post/1224/\ntemplate <class... T> constexpr auto min(T...\
-    \ a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n}\ntemplate\
-    \ <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
+    n';\n}\ntemplate <ranges::range Iterable>\n    requires(!Streamable<Iterable>)\n\
+    void print(const Iterable &v) {\n    for(auto it = v.begin(); it != v.end(); ++it)\
+    \ {\n        if(it != v.begin())\n            cout << \" \";\n        print_one(*it);\n\
+    \    }\n    cout << '\\n';\n}\nusing ll = long long;\nusing vl = vector<ll>;\n\
+    using vll = vector<vl>;\nusing P = pair<ll, ll>;\n#define all(v) v.begin(), v.end()\n\
+    template <typename T> inline bool chmax(T &a, T b) {\n    return ((a < b) ? (a\
+    \ = b, true) : (false));\n}\ntemplate <typename T> inline bool chmin(T &a, T b)\
+    \ {\n    return ((a > b) ? (a = b, true) : (false));\n}\n#define rep1(i, n) for(ll\
+    \ i = 1; i <= ((ll)n); ++i)\n// https://trap.jp/post/1224/\ntemplate <class...\
+    \ T> constexpr auto min(T... a) {\n    return min(initializer_list<common_type_t<T...>>{a...});\n\
+    }\ntemplate <class... T> constexpr auto max(T... a) {\n    return max(initializer_list<common_type_t<T...>>{a...});\n\
     }\ntemplate <class... T> void input(T &...a) { (cin >> ... >> a); }\ntemplate\
     \ <class T> void input(vector<T> &a) {\n    for(T &x : a)\n        cin >> x;\n\
     }\n#define INT(...)                                                          \
@@ -119,8 +118,8 @@ data:
   isVerificationFile: false
   path: graph/minimum-steiner-tree.hpp
   requiredBy: []
-  timestamp: '2025-03-17 22:44:15+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2025-03-18 18:04:39+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/aoj/1040.test.cpp
   - test/yukicoder/114.test.cpp

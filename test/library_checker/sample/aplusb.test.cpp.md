@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/aplusb
@@ -25,8 +25,7 @@ data:
     template <is_modint T> void print_one(const T &value) { cout << value.val(); }\n\
     void print() { cout << '\\n'; }\ntemplate <class T, class... Ts> void print(const\
     \ T &a, const Ts &...b) {\n    print_one(a);\n    ((cout << ' ', print_one(b)),\
-    \ ...);\n    cout << '\\n';\n}\nvoid print(const string &s) { cout << s << '\\\
-    n'; }\ntemplate <ranges::range Iterable>\n    requires(!Streamable<Iterable>)\n\
+    \ ...);\n    cout << '\\n';\n}\ntemplate <ranges::range Iterable>\n    requires(!Streamable<Iterable>)\n\
     void print(const Iterable &v) {\n    for(auto it = v.begin(); it != v.end(); ++it)\
     \ {\n        if(it != v.begin())\n            cout << \" \";\n        print_one(*it);\n\
     \    }\n    cout << '\\n';\n}\nusing ll = long long;\nusing vl = vector<ll>;\n\
@@ -62,8 +61,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/sample/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2025-03-17 22:44:15+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2025-03-18 18:04:39+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/sample/aplusb.test.cpp
 layout: document
