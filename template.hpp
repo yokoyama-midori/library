@@ -24,7 +24,6 @@ template <class T, class... Ts> void print(const T &a, const Ts &...b) {
     ((cout << ' ', print_one(b)), ...);
     cout << '\n';
 }
-void print(const string &s) { cout << s << '\n'; }
 template <ranges::range Iterable>
     requires(!Streamable<Iterable>)
 void print(const Iterable &v) {
