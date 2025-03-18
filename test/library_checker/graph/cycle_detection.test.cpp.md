@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/cycle-detection.hpp
     title: graph/cycle-detection.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.hpp
     title: template.hpp
   _extendedRequiredBy: []
