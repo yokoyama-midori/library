@@ -17,3 +17,6 @@ empty:
 	git commit --allow-empty -m"empty commit"
 
 .PHONY: all clean
+
+verify:
+	oj-verify run
