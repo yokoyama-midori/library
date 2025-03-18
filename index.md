@@ -188,11 +188,6 @@ data:
       path: tree/tree-query.hpp
       title: tree/tree-query.hpp
   verificationCategories:
-  - name: .
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: aplusb.test.cpp
-      title: aplusb.test.cpp
   - name: test/aoj
     pages:
     - icon: ':heavy_check_mark:'
@@ -374,6 +369,9 @@ data:
       title: test/library_checker/tree/tree_path_composite_sum.test.cpp
   - name: test/my-test
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/my-test/is_prime-factorize.test.cpp
+      title: test/my-test/is_prime-factorize.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/my-test/run-length-encoding.test.cpp
       title: test/my-test/run-length-encoding.test.cpp

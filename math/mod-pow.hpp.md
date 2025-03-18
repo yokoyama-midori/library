@@ -31,6 +31,9 @@ data:
     path: test/library_checker/number_theory/sqrt_mod.test.cpp
     title: test/library_checker/number_theory/sqrt_mod.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/my-test/is_prime-factorize.test.cpp
+    title: test/my-test/is_prime-factorize.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/2051.test.cpp
     title: test/yukicoder/2051.test.cpp
   - icon: ':heavy_check_mark:'
@@ -109,6 +112,7 @@ data:
   - test/library_checker/number_theory/primality_test.test.cpp
   - test/library_checker/number_theory/primitive_root.test.cpp
   - test/library_checker/number_theory/sqrt_mod.test.cpp
+  - test/my-test/is_prime-factorize.test.cpp
   - test/yukicoder/2051.test.cpp
   - test/yukicoder/888.test.cpp
 documentation_of: math/mod-pow.hpp

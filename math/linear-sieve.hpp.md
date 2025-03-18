@@ -7,6 +7,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/my-test/is_prime-factorize.test.cpp
+    title: test/my-test/is_prime-factorize.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/2896.test.cpp
     title: test/yukicoder/2896.test.cpp
   _isVerificationFailed: false
@@ -60,13 +63,14 @@ data:
     \   lpf[i] = i;\n                primes.emplace_back(i);\n            }\n    \
     \        for(auto p : primes) {\n                if(p * i > max_value or p > lpf[i])\n\
     \                    break;\n                lpf[p * i] = p;\n            }\n\
-    \        }\n    }\n    vector<int> factorize(int n) {\n        vector<int> res;\n\
-    \        while(n > 1) {\n            res.emplace_back(lpf[n]);\n            n\
-    \ /= lpf[n];\n        }\n        return res;\n    }\n    vector<pair<int, int>>\
-    \ factor_count(int n) {\n        vector<pair<int, int>> res;\n        while(n\
-    \ > 1) {\n            if(res.empty() or res.back().first != lpf[n])\n        \
-    \        res.emplace_back(lpf[n], 0);\n            ++res.back().second;\n    \
-    \        n /= lpf[n];\n        }\n        return res;\n    }\n};\n"
+    \        }\n    }\n    bool is_prime(int n) const { return n != 1 and lpf[n] ==\
+    \ n; }\n    vector<int> factorize(int n) {\n        vector<int> res;\n       \
+    \ while(n > 1) {\n            res.emplace_back(lpf[n]);\n            n /= lpf[n];\n\
+    \        }\n        return res;\n    }\n    vector<pair<int, int>> factor_count(int\
+    \ n) {\n        vector<pair<int, int>> res;\n        while(n > 1) {\n        \
+    \    if(res.empty() or res.back().first != lpf[n])\n                res.emplace_back(lpf[n],\
+    \ 0);\n            ++res.back().second;\n            n /= lpf[n];\n        }\n\
+    \        return res;\n    }\n};\n"
   code: "#pragma once\n#include \"template.hpp\"\n// https://37zigen.com/linear-sieve/\n\
     // AtCoder codetest\n// 1e6   7ms 7.5MB\n// 1e7  53ms  46MB\n// 1e8 650ms 426MB\n\
     struct LinearSieve {\n    int max_value;\n    // lpf[i] = i\u306E\u6700\u5C0F\u7D20\
@@ -76,21 +80,23 @@ data:
     \   lpf[i] = i;\n                primes.emplace_back(i);\n            }\n    \
     \        for(auto p : primes) {\n                if(p * i > max_value or p > lpf[i])\n\
     \                    break;\n                lpf[p * i] = p;\n            }\n\
-    \        }\n    }\n    vector<int> factorize(int n) {\n        vector<int> res;\n\
-    \        while(n > 1) {\n            res.emplace_back(lpf[n]);\n            n\
-    \ /= lpf[n];\n        }\n        return res;\n    }\n    vector<pair<int, int>>\
-    \ factor_count(int n) {\n        vector<pair<int, int>> res;\n        while(n\
-    \ > 1) {\n            if(res.empty() or res.back().first != lpf[n])\n        \
-    \        res.emplace_back(lpf[n], 0);\n            ++res.back().second;\n    \
-    \        n /= lpf[n];\n        }\n        return res;\n    }\n};"
+    \        }\n    }\n    bool is_prime(int n) const { return n != 1 and lpf[n] ==\
+    \ n; }\n    vector<int> factorize(int n) {\n        vector<int> res;\n       \
+    \ while(n > 1) {\n            res.emplace_back(lpf[n]);\n            n /= lpf[n];\n\
+    \        }\n        return res;\n    }\n    vector<pair<int, int>> factor_count(int\
+    \ n) {\n        vector<pair<int, int>> res;\n        while(n > 1) {\n        \
+    \    if(res.empty() or res.back().first != lpf[n])\n                res.emplace_back(lpf[n],\
+    \ 0);\n            ++res.back().second;\n            n /= lpf[n];\n        }\n\
+    \        return res;\n    }\n};"
   dependsOn:
   - template.hpp
   isVerificationFile: false
   path: math/linear-sieve.hpp
   requiredBy: []
-  timestamp: '2025-03-17 22:44:15+09:00'
+  timestamp: '2025-03-18 12:11:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/my-test/is_prime-factorize.test.cpp
   - test/yukicoder/2896.test.cpp
 documentation_of: math/linear-sieve.hpp
 layout: document
