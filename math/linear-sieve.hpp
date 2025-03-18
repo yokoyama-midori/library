@@ -22,6 +22,7 @@ struct LinearSieve {
             }
         }
     }
+    bool is_prime(int n) const { return n != 1 and lpf[n] == n; }
     vector<int> factorize(int n) {
         vector<int> res;
         while(n > 1) {
