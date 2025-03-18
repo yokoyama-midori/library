@@ -6,7 +6,7 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - icon: ':x:'
@@ -14,7 +14,7 @@ data:
     title: test/yukicoder/3044.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template.hpp\"\n// #pragma GCC target(\"avx2\")\n// #pragma\
@@ -82,7 +82,7 @@ data:
   path: poly/bostan_mori.hpp
   requiredBy: []
   timestamp: '2025-03-18 18:04:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/other/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/yukicoder/3044.test.cpp

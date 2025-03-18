@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/graph-template.hpp
     title: graph/graph-template.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/maximum-independent-set.hpp
     title: "\u6700\u5927\u72EC\u7ACB\u96C6\u5408"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/maximum_independent_set
@@ -123,7 +123,7 @@ data:
   path: test/library_checker/graph/maximum_independent_set.test.cpp
   requiredBy: []
   timestamp: '2025-03-18 18:04:39+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/graph/maximum_independent_set.test.cpp
 layout: document

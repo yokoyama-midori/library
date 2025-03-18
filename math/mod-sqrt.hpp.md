@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/mod-pow.hpp
     title: math/mod-pow.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: rng.hpp
     title: rng.hpp
   - icon: ':question:'
@@ -12,12 +12,12 @@ data:
     title: template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/number_theory/sqrt_mod.test.cpp
     title: test/library_checker/number_theory/sqrt_mod.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://37zigen.com/cipolla-algorithm/
@@ -116,7 +116,7 @@ data:
   path: math/mod-sqrt.hpp
   requiredBy: []
   timestamp: '2025-03-18 18:04:39+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/number_theory/sqrt_mod.test.cpp
 documentation_of: math/mod-sqrt.hpp
