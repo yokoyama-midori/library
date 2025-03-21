@@ -108,6 +108,12 @@ jobs:
         with:
           fetch-depth: 2147483647
   
+      - name: Clone AC Library
+        run: cd ${GITHUB_WORKSPACE}/../ && git clone https://github.com/atcoder/ac-library.git
+    
+      - name: Add AC Library to CPLUS_INCLUDE_PATH
+        run: echo "CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:${GITHUB_WORKSPACE}/../ac-library" >> $GITHUB_ENV
+    
       - name: Download verify_files.json and all artifacts
         id: all-artifacts
         uses: competitive-verifier/actions/download-verify-artifact@v2
