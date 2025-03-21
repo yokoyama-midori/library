@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/enumerate_quotients"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/enumerate_quotients
 #include "number-theory/enumerate-quotients.hpp"
 void solve() {
     LL(n);

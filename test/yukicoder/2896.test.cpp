@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/2896"
+// competitive-verifier: PROBLEM https://yukicoder.me/problems/no/2896
 #include "math/factorial.hpp"
 #include "math/linear-sieve.hpp"
 #include <atcoder/modint>

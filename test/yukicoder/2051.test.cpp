@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/2051"
+// competitive-verifier: PROBLEM https://yukicoder.me/problems/no/2051
 #include "math/pollard_rho.hpp"
 void solve() {
     LL(a, b);

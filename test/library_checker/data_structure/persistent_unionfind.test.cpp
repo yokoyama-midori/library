@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/persistent_unionfind"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/persistent_unionfind
 #include "data_structure/union-find-with-undo.hpp"
 void solve() {
     INT(n, q);

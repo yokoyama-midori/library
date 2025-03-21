@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/wildcard_pattern_matching"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/wildcard_pattern_matching
 #include "string/wildcard-pattern-matching.hpp"
 void solve() {
     STR(s, t);

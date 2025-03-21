@@ -1,5 +1,4 @@
-#define PROBLEM                                                                \
-    "https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
 #include "data_structure/range-chminmaxaddsum-segtree-beats.hpp"
 void solve() {
     LL(n, q);

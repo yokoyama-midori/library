@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/gcd_convolution"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/gcd_convolution
 #include "number-theory/gcd-convolution.hpp"
 #include "template.hpp"
 #include <atcoder/modint>

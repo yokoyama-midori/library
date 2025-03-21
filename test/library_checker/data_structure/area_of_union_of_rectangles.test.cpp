@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/area_of_union_of_rectangles"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/area_of_union_of_rectangles
 #include "data_structure/rectangle-union-area.hpp"
 void solve() {
     INT(n);

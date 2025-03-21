@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/range_set_range_composite"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_set_range_composite
 #include "data_structure/lazy-segtree.hpp"
 #include "template.hpp"
 #include <atcoder/modint>

@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/manhattanmst"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/manhattanmst
 #include "geometry/manhattan-mst.hpp"
 #include <atcoder/dsu>
 void solve() {

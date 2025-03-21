@@ -1,5 +1,4 @@
-#define PROBLEM                                                                \
-    "https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;
 #include "poly/shift_of_sampling_points.hpp"

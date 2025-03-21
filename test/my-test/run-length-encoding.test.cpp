@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/aplusb
 #include "string/run-length-encoding.hpp"
 #include "template.hpp"
 void test() {
