@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/pow_of_matrix
-#include "math/matrix.hpp"
-#include "template.hpp"
+#include "../../../math/matrix.hpp"
+#include "../../../template.hpp"
 #include <atcoder/modint>
 using namespace atcoder;
 using mint = modint998244353;

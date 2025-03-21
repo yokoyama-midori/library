@@ -1,4 +1,4 @@
-#include "template.hpp"
+#include "../template.hpp"
 template <class S, auto op = [](S a, S b) { return S(0); },
           auto e = []() { return S(0); }>
 struct SplayTree {

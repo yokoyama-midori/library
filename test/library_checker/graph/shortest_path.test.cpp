@@ -1,7 +1,7 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/shortest_path
-#include "graph/graph-template.hpp"
-#include "graph/shortest-path.hpp"
-#include "template.hpp"
+#include "../../../graph/graph-template.hpp"
+#include "../../../graph/shortest-path.hpp"
+#include "../../../template.hpp"
 void solve() {
     INT(n, m, s, t);
     Graph<ll> g(n);

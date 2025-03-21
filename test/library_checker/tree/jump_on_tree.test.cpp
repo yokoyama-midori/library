@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/jump_on_tree
-#include "tree/tree-query.hpp"
+#include "../../../tree/tree-query.hpp"
 int main() {
     ios::sync_with_stdio(false);
     std::cin.tie(nullptr);

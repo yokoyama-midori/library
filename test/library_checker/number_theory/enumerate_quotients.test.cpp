@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/enumerate_quotients
-#include "number-theory/enumerate-quotients.hpp"
+#include "../../../number-theory/enumerate-quotients.hpp"
 void solve() {
     LL(n);
     auto ans = enumerate_quotients<ll>(n);

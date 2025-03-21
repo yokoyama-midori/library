@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/factorize
-#include "math/pollard_rho.hpp"
-#include "template.hpp"
+#include "../../../math/pollard_rho.hpp"
+#include "../../../template.hpp"
 void solve() {
     LL(n);
     if(n == 1) {

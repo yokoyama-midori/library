@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/static_range_sum
-#include "dp/cumulative-sum.hpp"
-#include "template.hpp"
+#include "../../../dp/cumulative-sum.hpp"
+#include "../../../template.hpp"
 void solve() {
     LL(n, q);
     CumulativeSum<ll> cs(n);

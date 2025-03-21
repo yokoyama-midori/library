@@ -1,13 +1,9 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
-#include "data_structure/segtree.hpp"
-#include "template.hpp"
+#include "../../../data_structure/segtree.hpp"
+#include "../../../template.hpp"
 
-ll e() {
-    return 0;
-}
-ll op(ll a, ll b) {
-    return a + b;
-}
+ll e() { return 0; }
+ll op(ll a, ll b) { return a + b; }
 void solve() {
     LL(n, q);
     vl a(n);

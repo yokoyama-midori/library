@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/primitive_root
-#include "math/primitive-root.hpp"
-#include "template.hpp"
+#include "../../../math/primitive-root.hpp"
+#include "../../../template.hpp"
 void solve() {
     LL(p);
     if(p <= numeric_limits<int>::max()) {

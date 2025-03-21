@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/lca
-#include "tree/euler-tour.hpp"
+#include "../../../tree/euler-tour.hpp"
 void solve() {
     INT(n, q);
     vector<vector<int>> g(n);

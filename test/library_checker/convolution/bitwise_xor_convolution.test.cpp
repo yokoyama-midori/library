@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/bitwise_xor_convolution
-#include "set-function/xor-convolution.hpp"
+#include "../../../set-function/xor-convolution.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;
 void solve() {

@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/tree_diameter
-#include "graph/graph-template.hpp"
-#include "tree/tree-diameter.hpp"
+#include "../../../graph/graph-template.hpp"
+#include "../../../tree/tree-diameter.hpp"
 void solve() {
     INT(n);
     Graph<ll> g(n);

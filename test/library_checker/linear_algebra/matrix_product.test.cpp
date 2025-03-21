@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/matrix_product
-#include "math/matrix.hpp"
-#include "template.hpp"
+#include "../../../math/matrix.hpp"
+#include "../../../template.hpp"
 #include <atcoder/modint>
 using namespace atcoder;
 using mint = modint998244353;

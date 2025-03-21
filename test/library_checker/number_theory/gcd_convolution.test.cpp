@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/gcd_convolution
-#include "number-theory/gcd-convolution.hpp"
-#include "template.hpp"
+#include "../../../number-theory/gcd-convolution.hpp"
+#include "../../../template.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;
 void solve() {

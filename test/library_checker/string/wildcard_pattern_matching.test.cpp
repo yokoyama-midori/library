@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/wildcard_pattern_matching
-#include "string/wildcard-pattern-matching.hpp"
+#include "../../../string/wildcard-pattern-matching.hpp"
 void solve() {
     STR(s, t);
     auto ans = wildcard_pattern_matching(s, t);
