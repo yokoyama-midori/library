@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // https://suisen-cp.github.io/cp-library-cpp/library/math/factorial.hpp
 template <class T> struct factorial {
     factorial() {};

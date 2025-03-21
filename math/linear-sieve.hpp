@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // https://37zigen.com/linear-sieve/
 // AtCoder codetest
 // 1e6   7ms 7.5MB

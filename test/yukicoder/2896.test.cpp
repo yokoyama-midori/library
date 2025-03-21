@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/2896
-#include "math/factorial.hpp"
-#include "math/linear-sieve.hpp"
+#include "../../math/factorial.hpp"
+#include "../../math/linear-sieve.hpp"
 #include <atcoder/modint>
 factorial<atcoder::modint998244353> fac;
 void solve() {

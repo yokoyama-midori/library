@@ -1,5 +1,5 @@
 #pragma once
-#include "graph/graph-template.hpp"
+#include "../graph/graph-template.hpp"
 // https://nyaannyaan.github.io/library/tree/tree-query.hpp
 template <class T> struct Tree {
     int n, root, lg;

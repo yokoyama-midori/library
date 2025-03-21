@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // 商がqの範囲[l,r)をqの昇順に返す
 template <class T> vector<tuple<T, T, T>> enumerate_quotients(T n) {
     vector<tuple<T, T, T>> res;

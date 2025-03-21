@@ -1,5 +1,5 @@
 #pragma once
-#include "graph/graph-template.hpp"
+#include "../graph/graph-template.hpp"
 template <class T = ll> struct MinimumSteinerTree {
     int n, k;
     vector<int> terminal;

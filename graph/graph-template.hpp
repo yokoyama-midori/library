@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // https://ei1333.github.io/library/graph/graph-template.hpp
 template <class T = ll> struct Edge {
     int from, to;

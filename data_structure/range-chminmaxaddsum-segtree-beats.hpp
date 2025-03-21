@@ -1,5 +1,5 @@
-#include "data_structure/segtree-beats.hpp"
-#include "template.hpp"
+#include "../data_structure/segtree-beats.hpp"
+#include "../template.hpp"
 namespace RangeChMinMaxAddSum {
 struct S {
     ll min, min2, max, max2;

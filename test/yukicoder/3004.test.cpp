@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/3004
-#include "math/factorial_large.hpp"
+#include "../../math/factorial_large.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;
 factorial_large<mint> fac;

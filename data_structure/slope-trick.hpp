@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8
 // https://ei1333.github.io/library/structure/others/slope-trick.hpp
 struct SlopeTrick {

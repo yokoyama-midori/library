@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 /*
     今の実装では0を根としたときに葉に向かう辺しか見ていない
     辺の向きによってcostを変えるような場合には対応していない

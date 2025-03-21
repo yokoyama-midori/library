@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/aplusb
-#include "string/run-length-encoding.hpp"
-#include "template.hpp"
+#include "../../string/run-length-encoding.hpp"
+#include "../../template.hpp"
 void test() {
     {
         string s = "";

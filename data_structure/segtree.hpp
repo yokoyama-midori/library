@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 
 template <class S, auto op, auto e> struct segtree {
     int n;

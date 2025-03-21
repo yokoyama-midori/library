@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 template <class T> struct ShortestPath {
     int n;
     Graph<T> &g;

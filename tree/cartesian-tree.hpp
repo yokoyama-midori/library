@@ -1,4 +1,4 @@
-#include "template.hpp"
+#include "../template.hpp"
 // a : distinct
 // root = argmin a
 // p[root] = -1

@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 #include <atcoder/convolution>
 #include <atcoder/modint>
 template <class T> T bostanMori(vector<T> p, vector<T> q, ll n) {

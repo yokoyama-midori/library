@@ -1,5 +1,5 @@
 #pragma once
-#include "set-function/fast-hadamard-transform.hpp"
+#include "../set-function/fast-hadamard-transform.hpp"
 template <class T> vector<T> xor_convolution(vector<T> a, vector<T> b) {
     assert(a.size() == b.size());
     fast_hadamard_transform(a);
