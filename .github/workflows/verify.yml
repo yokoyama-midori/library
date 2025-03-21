@@ -63,6 +63,13 @@ jobs:
           path: .competitive-verifier/bundled
           retention-days: 1
 
+      - name: Clone AC-Library
+        uses: actions/checkout@v3
+        with:
+          repository: atcoder/ac-library
+          path: ac-library
+          sparse-checkout: atcoder
+
   verify:
     runs-on: ubuntu-latest
     needs: [setup]
@@ -106,6 +113,7 @@ jobs:
           timeout: 1800
           prev-result: ${{ steps.restore-cached-results.outputs.cache-hit && 'merged-result.json' || ''}}
         env:
+          CPLUS_INCLUDE_PATH: ${{ github.workspace }}/ac-library
           YUKICODER_TOKEN: ${{secrets.YUKICODER_TOKEN}}
 
       - name: Upload result artifact
