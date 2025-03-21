@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/lcm_convolution
-#include "number-theory/lcm-convolution.hpp"
-#include "template.hpp"
+#include "../../../number-theory/lcm-convolution.hpp"
+#include "../../../template.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;
 void solve() {

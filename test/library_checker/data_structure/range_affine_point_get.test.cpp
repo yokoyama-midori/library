@@ -1,8 +1,8 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_affine_point_get
 // 双対セグ木で可能、、だがとりあえず遅延セグ木で
 // https://github.com/yosupo06/library-checker-problems/issues/778
-#include "data_structure/lazy-segtree.hpp"
-#include "template.hpp"
+#include "../../../data_structure/lazy-segtree.hpp"
+#include "../../../template.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;
 struct S {

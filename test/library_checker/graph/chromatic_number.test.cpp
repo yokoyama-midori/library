@@ -1,5 +1,4 @@
-// competitive-verifier: PROBLEM
-// https://judge.yosupo.jp/problem/chromatic_number
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/chromatic_number
 #include "../../../graph/chromatic-number.hpp"
 void solve() {
     LL(n, m);

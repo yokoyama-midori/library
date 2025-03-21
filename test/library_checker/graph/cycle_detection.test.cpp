@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/cycle_detection
-#include "graph/cycle-detection.hpp"
+#include "../../../graph/cycle-detection.hpp"
 void solve() {
     INT(n, m);
     Graph<bool> g(n);

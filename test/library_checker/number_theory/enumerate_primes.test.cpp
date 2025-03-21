@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/enumerate_primes
-#include "number-theory/enumerate-primes.hpp"
-#include "template.hpp"
+#include "../../../number-theory/enumerate-primes.hpp"
+#include "../../../template.hpp"
 void solve() {
     LL(n, a, b);
     auto primes = enumerate_primes(n);

@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/cartesian_tree
-#include "template.hpp"
-#include "tree/cartesian-tree.hpp"
+#include "../../../template.hpp"
+#include "../../../tree/cartesian-tree.hpp"
 void solve() {
     INT(n);
     vector<int> a(n);

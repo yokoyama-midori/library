@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/longest_increasing_subsequence
-#include "dp/longest-increasing-sequence.hpp"
+#include "../../../dp/longest-increasing-sequence.hpp"
 void solve() {
     LL(n);
     vector<int> a(n);

@@ -1,7 +1,7 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/tree_path_composite_sum
-#include "graph/graph-template.hpp"
-#include "template.hpp"
-#include "tree/rerooting.hpp"
+#include "../../../graph/graph-template.hpp"
+#include "../../../template.hpp"
+#include "../../../tree/rerooting.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;
 struct Data {

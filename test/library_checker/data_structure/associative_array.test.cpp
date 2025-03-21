@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/associative_array
-#include "data_structure/hash-map-variable-length.hpp"
-#include "template.hpp"
+#include "../../../data_structure/hash-map-variable-length.hpp"
+#include "../../../template.hpp"
 void solve() {
     LL(q);
     HashMap<ll> a(q);

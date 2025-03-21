@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_set_range_composite
-#include "data_structure/segtree.hpp"
-#include "template.hpp"
+#include "../../../data_structure/segtree.hpp"
+#include "../../../template.hpp"
 #include <atcoder/modint>
 using namespace atcoder;
 using mint = modint998244353;
@@ -8,7 +8,7 @@ using mint = modint998244353;
 struct S {
     mint a, b;
 };
-S op(S fl,S fr){
+S op(S fl, S fr) {
     S res;
     res.a = fr.a * fl.a;
     res.b = fr.a * fl.b + fr.b;
