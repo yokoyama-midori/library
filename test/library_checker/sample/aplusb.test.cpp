@@ -1,5 +1,5 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
-#include "template.hpp"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/aplusb
+#include "../../../template.hpp"
 void solve() {
     LL(a, b);
     print(a + b);

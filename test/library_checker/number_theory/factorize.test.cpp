@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/factorize"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/factorize
 #include "math/pollard_rho.hpp"
 #include "template.hpp"
 void solve() {

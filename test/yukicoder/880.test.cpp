@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/880"
+// competitive-verifier: PROBLEM https://yukicoder.me/problems/no/880
 #include "data_structure/segtree-beats.hpp"
 #include "template.hpp"
 struct S {

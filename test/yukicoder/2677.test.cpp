@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/2677"
+// competitive-verifier: PROBLEM https://yukicoder.me/problems/no/2677
 #include "graph/graph-template.hpp"
 #include "template.hpp"
 #include "tree/rerooting.hpp"

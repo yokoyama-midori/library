@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/3006"
+// competitive-verifier: PROBLEM https://yukicoder.me/problems/no/3006
 #include "math/matrix.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;

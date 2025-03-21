@@ -1,5 +1,6 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/chromatic_number"
-#include "graph/chromatic-number.hpp"
+// competitive-verifier: PROBLEM
+// https://judge.yosupo.jp/problem/chromatic_number
+#include "../../../graph/chromatic-number.hpp"
 void solve() {
     LL(n, m);
     vector g(n, vector<bool>(n, false));

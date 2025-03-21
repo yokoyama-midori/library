@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/discrete_logarithm_mod"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/discrete_logarithm_mod
 #include "math/mod-log.hpp"
 void solve() {
     INT(x, y, mod);

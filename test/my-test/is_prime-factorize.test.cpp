@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/aplusb
 #include "math/linear-sieve.hpp"
 #include "math/pollard_rho.hpp"
 #include "template.hpp"

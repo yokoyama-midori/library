@@ -1,5 +1,11 @@
 #pragma once
 #include "template.hpp"
+/*
+    今の実装では0を根としたときに葉に向かう辺しか見ていない
+    辺の向きによってcostを変えるような場合には対応していない
+    apply関数、idxもほしいしEdge<Cost>を引数にする？
+    でも↑の事情からfrom,toが入れ替わっている可能性がある
+*/
 // https://atcoder.jp/contests/abc222/editorial/2749
 // https://nyaannyaan.github.io/library/tree/rerooting.hpp
 // TreeType : Graph<Cost>

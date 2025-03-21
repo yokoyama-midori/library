@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1040"
+// competitive-verifier: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1040
 #include "graph/graph-template.hpp"
 #include "graph/minimum-steiner-tree.hpp"
 ll h, w;

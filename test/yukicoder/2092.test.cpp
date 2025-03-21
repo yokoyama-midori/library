@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/2092"
+// competitive-verifier: PROBLEM https://yukicoder.me/problems/no/2092
 #include "dp/cumulative-sum.hpp"
 #include "template.hpp"
 void solve() {
