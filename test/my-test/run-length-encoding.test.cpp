@@ -1,4 +1,4 @@
-// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/aplusb
+#define STANDALONE
 #include "../../string/run-length-encoding.hpp"
 #include "../../template.hpp"
 void test() {
@@ -32,13 +32,8 @@ void test() {
         assert(res == ans);
     }
 }
-void solve() {
-    LL(a, b);
-    print(a + b);
-}
 int main() {
     ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
     test();
-    solve();
 }

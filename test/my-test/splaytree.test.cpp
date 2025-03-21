@@ -1,4 +1,4 @@
-// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/aplusb
+#define STANDALONE
 #include "../../data_structure/splaytree.hpp"
 #include "../../rng.hpp"
 void test() {
@@ -92,13 +92,8 @@ void test() {
         debug(q, flag, "ok", a);
     }
 }
-void solve() {
-    LL(a, b);
-    print(a + b);
-}
 int main() {
     ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
     rep(i, 10) test();
-    solve();
 }

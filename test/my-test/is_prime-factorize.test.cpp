@@ -1,4 +1,4 @@
-// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/aplusb
+#define STANDALONE
 #include "../../math/linear-sieve.hpp"
 #include "../../math/pollard_rho.hpp"
 #include "../../template.hpp"
@@ -19,13 +19,8 @@ void test() {
         }
     }
 }
-void solve() {
-    LL(a, b);
-    print(a + b);
-}
 int main() {
     ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
     test();
-    solve();
 }
