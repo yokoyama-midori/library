@@ -1,8 +1,8 @@
 // https://drken1215.hatenablog.com/entry/2023/09/08/003100
 // https://maspypy.github.io/library/poly/poly_taylor_shift.hpp
 // https://x.com/risujiroh/status/1215710785000751104?s=20
-#include "math/factorial.hpp"
-#include "template.hpp"
+#include "../math/factorial.hpp"
+#include "../template.hpp"
 #include <atcoder/convolution>
 #include <atcoder/modint>
 template <class mint> vector<mint> poly_taylor_shift(vector<mint> f, mint c) {

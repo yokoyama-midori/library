@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // https://ei1333.github.io/library/other/compress.hpp
 template <class T> struct Compress {
     bool is_built = false;

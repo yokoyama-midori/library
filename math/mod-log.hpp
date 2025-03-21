@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 #include <atcoder/math>
 // https : // qiita.com/suisen_cp/items/d597c8ec576ae32ee2d7
 ll mod_log_coprime(ll x, ll y, ll mod) {

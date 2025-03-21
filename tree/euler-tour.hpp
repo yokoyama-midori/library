@@ -1,6 +1,6 @@
 #pragma once
-#include "data_structure/sparse-table.hpp"
-#include "template.hpp"
+#include "../data_structure/sparse-table.hpp"
+#include "../template.hpp"
 // https://maspypy.com/euler-tour-%E3%81%AE%E3%81%8A%E5%8B%89%E5%BC%B7
 // https://nyaannyaan.github.io/library/tree/euler-tour.hpp
 

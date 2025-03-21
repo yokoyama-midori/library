@@ -1,6 +1,6 @@
 #pragma once
-#include "graph/graph-template.hpp"
-#include "template.hpp"
+#include "../graph/graph-template.hpp"
+#include "../template.hpp"
 // https://ei1333.github.io/library/graph/others/cycle-detection.hpp
 // 辺素なサイクルを1つ返す なければ空
 // Edgeのidxが必要

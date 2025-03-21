@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // https://sapphire15.hatenablog.com/entry/2021/09/13/114900
 template <class T> void fast_hadamard_transform(vector<T> &a, bool inv = false) {
     if(a.empty())

@@ -1,6 +1,6 @@
 #pragma once
-#include "rng.hpp"
-#include "template.hpp"
+#include "../rng.hpp"
+#include "../template.hpp"
 #include <atcoder/convolution>
 #include <atcoder/modint>
 // https://noshi91.hatenablog.com/entry/2024/05/26/060854

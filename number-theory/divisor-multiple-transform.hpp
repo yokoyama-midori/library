@@ -1,6 +1,6 @@
 #pragma once
-#include "number-theory/enumerate-primes.hpp"
-#include "template.hpp"
+#include "../number-theory/enumerate-primes.hpp"
+#include "../template.hpp"
 template <class mint> void divisor_zeta(vector<mint> &a) {
     // a = {0,a_1,...,a_n};
     int n = ssize(a) - 1;

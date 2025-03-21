@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // dist : distance from d1
 template <class TreeType> struct TreeDiamter {
     TreeType &g;

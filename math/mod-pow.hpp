@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 int mod_pow(int x, ll n, int mod) {
     assert(n >= 0);
     ll res = 1, xpow = x;

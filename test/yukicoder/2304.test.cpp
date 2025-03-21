@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/2304
-#include "data_structure/slope-trick.hpp"
-#include "template.hpp"
+#include "../../data_structure/slope-trick.hpp"
+#include "../../template.hpp"
 void solve() {
     INT(n);
     vl a(n);

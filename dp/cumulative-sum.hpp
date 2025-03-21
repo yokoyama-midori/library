@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // https://ei1333.github.io/library/dp/cumulative-sum.hpp
 template <class T = long long> struct CumulativeSum {
     bool is_built = false;

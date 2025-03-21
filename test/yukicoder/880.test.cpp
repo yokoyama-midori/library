@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/880
-#include "data_structure/segtree-beats.hpp"
-#include "template.hpp"
+#include "../../data_structure/segtree-beats.hpp"
+#include "../../template.hpp"
 struct S {
     ll mini, maxi, lcm, num, sum;
     bool fail;

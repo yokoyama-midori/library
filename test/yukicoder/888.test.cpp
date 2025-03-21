@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/888
-#include "math/pollard_rho.hpp"
+#include "../../math/pollard_rho.hpp"
 void solve() {
     LL(n);
     auto div = divisors(n);

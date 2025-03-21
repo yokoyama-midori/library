@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // https://nyaannyaan.github.io/library/data-structure/rollback-union-find.hpp.html
 // snapshot/rollback いるかな？
 struct UnionFindWithUndo {

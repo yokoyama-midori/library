@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 template <class T> struct Matrix {
     vector<vector<T>> A;
     size_t height, width;

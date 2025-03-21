@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/3044
-#include "poly/bostan_mori.hpp"
+#include "../../poly/bostan_mori.hpp"
 using mint = atcoder::modint998244353;
 void solve() {
     INT(n, t, k, l);

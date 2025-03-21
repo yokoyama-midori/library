@@ -1,7 +1,7 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/114
-#include "data_structure/union-find.hpp"
-#include "graph/graph-template.hpp"
-#include "graph/minimum-steiner-tree.hpp"
+#include "../../data_structure/union-find.hpp"
+#include "../../graph/graph-template.hpp"
+#include "../../graph/minimum-steiner-tree.hpp"
 void solve() {
     INT(n, m, t);
     if(t <= 15) {

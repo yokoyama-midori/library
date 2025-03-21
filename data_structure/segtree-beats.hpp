@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 // https://rsm9.hatenablog.com/entry/2021/02/01/220408
 
 template <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),

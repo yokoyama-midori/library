@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/1634
-#include "data_structure/hash-map-variable-length.hpp"
+#include "../../data_structure/hash-map-variable-length.hpp"
 void solve() {
     LL(n, k);
     vl c(10);

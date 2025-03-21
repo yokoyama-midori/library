@@ -1,5 +1,5 @@
 #pragma once
-#include "graph/graph-template.hpp"
+#include "../graph/graph-template.hpp"
 // https://maspypy.github.io/library/graph/maximum_independent_set.hpp
 // https://yukicoder.me/problems/no/382
 // https://www.slideshare.net/wata_orz/ss-12131479 より高速

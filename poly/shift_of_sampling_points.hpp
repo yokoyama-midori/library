@@ -1,5 +1,5 @@
 #pragma once
-#include "math/factorial.hpp"
+#include "../math/factorial.hpp"
 #include <atcoder/convolution>
 // https://suisen-cp.github.io/cp-library-cpp/library/polynomial/shift_of_sampling_points.hpp
 template <class Mint>

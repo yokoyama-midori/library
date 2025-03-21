@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 template <class T>
 vector<int> longest_increasing_sequence(const vector<T> &a,
                                         bool strong = true) {

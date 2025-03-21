@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/aplusb
-#include "data_structure/splaytree.hpp"
-#include "rng.hpp"
+#include "../../data_structure/splaytree.hpp"
+#include "../../rng.hpp"
 void test() {
     const int size_max = 100, value_max = 1000000000, query_max = 1000;
     int n = rng(1, size_max + 1);

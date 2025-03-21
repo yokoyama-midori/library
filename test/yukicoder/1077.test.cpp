@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/1077
-#include "data_structure/slope-trick.hpp"
+#include "../../data_structure/slope-trick.hpp"
 void solve() {
     LL(n);
     SlopeTrick st;

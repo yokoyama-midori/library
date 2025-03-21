@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 template <class S>
 vector<pair<typename S::value_type, ll>> RunLengthEncoding(S &s) {
     using C = S::value_type;

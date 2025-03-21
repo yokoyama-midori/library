@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/2092
-#include "dp/cumulative-sum.hpp"
-#include "template.hpp"
+#include "../../dp/cumulative-sum.hpp"
+#include "../../template.hpp"
 void solve() {
     LL(n);
     CumulativeSum cs(1e5 + 1);

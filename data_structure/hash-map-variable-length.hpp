@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 template <class Val> struct HashMap {
     int sz, mask, cnt;
     vector<bool> used;
