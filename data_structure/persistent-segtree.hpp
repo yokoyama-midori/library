@@ -1,3 +1,4 @@
+#pragma once
 #include "../template.hpp"
 // https://ei1333.github.io/library/structure/segment-tree/persistent-segment-tree.hpp.html
 // https://37zigen.com/persistent-segment-tree/
