@@ -5,6 +5,7 @@ template <class T = long long> struct CumulativeSum {
     bool is_built = false;
     size_t sz;
     vector<T> data;
+    CumulativeSum() = default;
     CumulativeSum(size_t maxi) : sz(maxi + 1), data(maxi + 1, 0) {}
     CumulativeSum(const vector<T> &v) : sz(v.size() + 1) {
         data = {T(0)};
