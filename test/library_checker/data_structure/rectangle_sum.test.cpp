@@ -1,4 +1,4 @@
-// competitive-verifyer : PROBLEM https://judge.yosupo.jp/problem/rectangle_sum
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/rectangle_sum
 #include "../../../data_structure/rectangle-sum.hpp"
 #include "../../../template.hpp"
 void solve() {
