@@ -13,7 +13,7 @@ concept is_modint = requires(mint &x) {
 #ifdef LOCAL
 #include <debug.hpp>
 #else
-#define debug(...) 42
+#define debug(...)
 #endif
 
 template <Streamable T> void print_one(const T &value) { cout << value; }

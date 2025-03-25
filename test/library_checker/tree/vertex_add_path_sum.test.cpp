@@ -5,7 +5,7 @@
 #include "../../../tree/heavy-light-decomposition.hpp"
 void solve() {
     INT(n, q);
-    vector<int> a(n);
+    vl a(n);
     input(a);
     Graph<bool> g(n);
     g.read(n - 1, 0);
