@@ -1,8 +1,8 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/vertex_add_subtree_sum
-#include "data_structure/segtree.hpp"
-#include "graph/graph-template.hpp"
-#include "template.hpp"
-#include "tree/euler-tour.hpp"
+#include "../../../data_structure/segtree.hpp"
+#include "../../../graph/graph-template.hpp"
+#include "../../../template.hpp"
+#include "../../../tree/euler-tour.hpp"
 void solve() {
     // inしかつかってないからsegの長さは半分にできるけどEulerTourを柔軟にしたほうがいい？
     INT(n, q);
