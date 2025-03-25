@@ -17,7 +17,7 @@ empty:
 resolve:
 	competitive-verifier oj-resolve --config .verify-helper/config.toml > .competitive-verifier/verify_file.json
 
-verify:resolve
+verify:
 	competitive-verifier verify --verify-json .competitive-verifier/verify_file.json --prev-result .competitive-verifier/result.json --output .competitive-verifier/result.json
 
 docs:.competitive-verifier/verify_file.json .competitive-verifier/result.json
