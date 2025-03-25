@@ -45,7 +45,6 @@ template <typename T> inline bool chmax(T &a, T b) {
 template <typename T> inline bool chmin(T &a, T b) {
     return ((a > b) ? (a = b, true) : (false));
 }
-#define rep1(i, n) for(ll i = 1; i <= ((ll)n); ++i)
 // https://trap.jp/post/1224/
 template <class... T> constexpr auto min(T... a) {
     return min(initializer_list<common_type_t<T...>>{a...});
@@ -73,6 +72,7 @@ template <class T> void input(vector<T> &a) {
 #define REP4(i, a, b, c) for(ll i = a; i < b; i += c)
 #define overload4(a, b, c, d, e, ...) e
 #define rep(...) overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)
+#define rep1(i, n) for(ll i = 1; i <= ((ll)n); ++i)
 
 ll inf = 3e18;
 vl dx = {1, -1, 0, 0};
