@@ -23,7 +23,7 @@ template <class G> struct HLD {
     }
     // edge未対応
     template <class F>
-    void path_query_noncommutative(int u, int v, F &f, bool vertex = true) {
+    void path_query_noncommutative(int u, int v, F &&f, bool vertex = true) {
         assert(vertex);
         bool flip = false;
         vector<int> l, r;
