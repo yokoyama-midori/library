@@ -1,3 +1,6 @@
+/**
+ * @brief Heavy Light Decomposition
+ */
 // https://github.com/kth-competitive-programming/kactl/blob/main/content/graph/HLD.h
 // https://nyaannyaan.github.io/library/tree/heavy-light-decomposition.hpp
 #include "../template.hpp"
@@ -11,7 +14,8 @@ template <class G> struct HLD {
         dfs_hld(0);
     };
     // 行きがけ順に並べた列に対するO(log n)回の操作に変換する
-    template <class F> void path_query(int u, int v, F &&f, bool vertex = true) {
+    template <class F>
+    void path_query(int u, int v, F &&f, bool vertex = true) {
         for(;; v = par[root[v]]) {
             if(in[u] > in[v])
                 swap(u, v);
