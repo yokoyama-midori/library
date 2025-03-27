@@ -5,24 +5,24 @@ template <class S, S (*op)(S, S), S (*e)(), class F, S (*mapping)(F, S),
 //   composition(f,g)(x) = f∘g(x) = f(g(x))
 // aclと同じ、maspyさん記事と逆
 struct lazy_segtree {
-    ll n;
+    int n;
     vector<S> v;
     vector<F> vf;
-    lazy_segtree(ll n)
+    lazy_segtree(int n)
         : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};
     lazy_segtree(vector<S> v_) : n(v_.size()) {
         vf = vector<F>(2 * n, id());
         v = vector<S>(2 * n, e());
         rep(i, n) { v[i + n] = v_[i]; }
-        for(ll i = n - 1; i > 0; i--) {
+        for(int i = n - 1; i > 0; i--) {
             v[i] = op(v[i << 1], v[i << 1 | 1]);
         }
     }
-    void apply(ll l, ll r, F f) {
+    void apply(int l, int r, F f) {
         l += n;
         r += n;
-        ll l0 = l / (l & -l);
-        ll r0 = r / (r & -r) - 1;
+        int l0 = l / (l & -l);
+        int r0 = r / (r & -r) - 1;
         propagate_above(l0);
         propagate_above(r0);
         while(l < r) {
@@ -40,25 +40,25 @@ struct lazy_segtree {
         recul_above(l0);
         recul_above(r0);
     }
-    S get(ll x) {
+    S get(int x) {
         x += n;
-        ll maxi = bit_length(x) - 1;
-        for(ll i = maxi; i > 0; i--) {
+        int maxi = (int)bit_width((unsigned)x) - 1;
+        for(int i = maxi; i > 0; i--) {
             propagate_at(x >> i);
         }
         return v[x];
     }
-    void set(ll x, S s) {
+    void set(int x, S s) {
         x += n;
         propagate_above(x);
         v[x] = s;
         recul_above(x);
     }
-    S prod(ll l, ll r) {
+    S prod(int l, int r) {
         l += n;
         r += n;
-        ll l0 = l / (l & -l);
-        ll r0 = r / (r & -r) - 1;
+        int l0 = l / (l & -l);
+        int r0 = r / (r & -r) - 1;
         propagate_above(l0);
         propagate_above(r0);
         S sl = e(), sr = e();
@@ -76,32 +76,31 @@ struct lazy_segtree {
         }
         return op(sl, sr);
     }
-    S all_prod_commute() { 
+    S all_prod_commute() {
         // 可換なモノイド専用
         // 2冪にすれば非可換でも良さそう
-        return v[1]; 
+        return v[1];
     }
 
   private:
-    void apply_at(ll x, F f) {
+    void apply_at(int x, F f) {
         v[x] = mapping(f, v[x]);
         if(x < n)
             vf[x] = composition(f, vf[x]);
     }
-    void propagate_at(ll x) {
+    void propagate_at(int x) {
         apply_at(x << 1, vf[x]);
         apply_at(x << 1 | 1, vf[x]);
         vf[x] = id();
     }
-    ll bit_length(unsigned long long x) const { return 64 - countl_zero(x); }
-    void propagate_above(ll x) {
-        ll maxi = bit_length(x) - 1;
-        for(ll i = maxi; i > 0; i--) {
+    void propagate_above(int x) {
+        int maxi = (int)bit_width((unsigned)x) - 1;
+        for(int i = maxi; i > 0; i--) {
             propagate_at(x >> i);
         }
         return;
     }
-    void recul_above(ll x) {
+    void recul_above(int x) {
         while(x > 1) {
             x >>= 1;
             v[x] = op(v[x << 1], v[x << 1 | 1]);
