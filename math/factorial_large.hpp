@@ -38,7 +38,6 @@ template <class mint> struct factorial_large {
         if(n >= mint::mod())
             return 0;
         ll r = n / (1LL << K);
-        ll q = n - (1LL << K) * r;
         mint res = g[r];
         for(ll i = (1LL << K) * r + 1; i <= n; i++) {
             res *= i;

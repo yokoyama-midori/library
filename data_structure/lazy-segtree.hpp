@@ -10,13 +10,12 @@ struct lazy_segtree {
     vector<F> vf;
     lazy_segtree(int n)
         : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};
-    lazy_segtree(vector<S> v_) : n(v_.size()) {
-        vf = vector<F>(2 * n, id());
-        v = vector<S>(2 * n, e());
-        rep(i, n) { v[i + n] = v_[i]; }
-        for(int i = n - 1; i > 0; i--) {
+    lazy_segtree(const vector<S> &v_)
+        : n(v_.size()), v(2 * n, e()), vf(2 * n, id()) {
+        for(int i = 0; i < n; ++i)
+            v[i + n] = v_[i];
+        for(int i = n - 1; i > 0; --i)
             v[i] = op(v[i << 1], v[i << 1 | 1]);
-        }
     }
     void apply(int l, int r, F f) {
         l += n;
@@ -43,9 +42,8 @@ struct lazy_segtree {
     S get(int x) {
         x += n;
         int maxi = (int)bit_width((unsigned)x) - 1;
-        for(int i = maxi; i > 0; i--) {
+        for(int i = maxi; i > 0; --i) 
             propagate_at(x >> i);
-        }
         return v[x];
     }
     void set(int x, S s) {
@@ -95,7 +93,7 @@ struct lazy_segtree {
     }
     void propagate_above(int x) {
         int maxi = (int)bit_width((unsigned)x) - 1;
-        for(int i = maxi; i > 0; i--) {
+        for(int i = maxi; i > 0; --i) {
             propagate_at(x >> i);
         }
         return;
