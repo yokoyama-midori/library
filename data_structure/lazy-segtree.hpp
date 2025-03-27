@@ -8,9 +8,9 @@ struct lazy_segtree {
     int n;
     vector<S> v;
     vector<F> vf;
-    lazy_segtree(int n)
+    explicit lazy_segtree(int n)
         : n(n), v(vector<S>(2 * n, e())), vf(vector<F>(2 * n, id())) {};
-    lazy_segtree(const vector<S> &v_)
+    explicit lazy_segtree(const vector<S> &v_)
         : n(v_.size()), v(2 * n, e()), vf(2 * n, id()) {
         for(int i = 0; i < n; ++i)
             v[i + n] = v_[i];

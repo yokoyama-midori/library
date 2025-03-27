@@ -4,13 +4,12 @@
 template <class S, auto op, auto e> struct segtree {
     int n;
     vector<S> v;
-    segtree(int n_) : segtree(vector<S>(n_, e())) {}
-    segtree(const vector<S> &v_) : n(v_.size()) {
-        v = vector<S>(2 * n, e());
-        rep(i, n) v[n + i] = v_[i];
-        for(int i = n - 1; i >= 0; i--) {
+    explicit segtree(int n) : n(n), v(2 * n, e()) {}
+    explicit segtree(const vector<S> &v_) : n(v_.size()), v(2 * n, e()) {
+        for(int i = 0; i < n; ++i)
+            v[n + i] = v_[i];
+        for(int i = n - 1; i >= 0; --i)
             v[i] = op(v[i << 1], v[i << 1 | 1]);
-        }
     }
     void set(int x, S p) {
         assert(0 <= x && x < n);
