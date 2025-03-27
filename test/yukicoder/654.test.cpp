@@ -8,7 +8,6 @@ struct flow_edge {
 int main() {
     INT(n, m, d);
     vector<flow_edge> g(m);
-    using pii = pair<int, int>;
     vector<map<int, int>> id(n);
     int sz = 0;
     auto ins = [&](int loc, int time) {

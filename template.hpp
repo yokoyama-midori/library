@@ -39,6 +39,7 @@ using vl = vector<ll>;
 using vll = vector<vl>;
 using P = pair<ll, ll>;
 #define all(v) v.begin(), v.end()
+#define UNIQUE(v) ranges::sort(v), v.erase(unique(all(v)), end(v))
 template <typename T> inline bool chmax(T &a, T b) {
     return ((a < b) ? (a = b, true) : (false));
 }
