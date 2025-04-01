@@ -5,7 +5,7 @@
 // 辺素なサイクルを1つ返す なければ空
 // Edgeのidxが必要
 // 有向/無効 どちらでもok
-template <class T> vector<Edge<T>> cycle_detection(Graph<T> &g) {
+template <class T> vector<Edge<T>> cycle_detection(const Graph<T> &g) {
     int n = g.size();
     using edge_type = Edge<T>;
     vector<char> used(n, 0);
