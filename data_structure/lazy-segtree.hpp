@@ -42,7 +42,7 @@ struct lazy_segtree {
     S get(int x) {
         x += n;
         int maxi = (int)bit_width((unsigned)x) - 1;
-        for(int i = maxi; i > 0; --i) 
+        for(int i = maxi; i > 0; --i)
             propagate_at(x >> i);
         return v[x];
     }
