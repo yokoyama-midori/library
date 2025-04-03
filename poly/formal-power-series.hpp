@@ -2,8 +2,7 @@
 #include "../template.hpp"
 #include <atcoder/convolution>
 // 10^9+7みたいなときconvolutionどうする？
-template <class mint>
-struct FormalPowerSeries : vector<mint> {
+template <class mint> struct FormalPowerSeries : vector<mint> {
     using vector<mint>::vector;
     using FPS = FormalPowerSeries;
     FormalPowerSeries(const vector<mint> &v) : vector<mint>(v) {}
