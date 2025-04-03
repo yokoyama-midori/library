@@ -1,5 +1,4 @@
-// competitive-verifier: PROBLEM
-// https://judge.yosupo.jp/problem/inv_of_formal_power_series
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/inv_of_formal_power_series
 #include "../../../poly/formal-power-series.hpp"
 #include "../../../template.hpp"
 #include <atcoder/modint>
