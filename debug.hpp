@@ -6,7 +6,7 @@ string trim_whitespace(const string &str) {
     return result;
 }
 /*
-    Streamable(string含む) -> そのまま出力
+    - Streamable(string含む) -> そのまま出力
     - is_modint(.val()->int) -> .val()して出力
     以下のものは順に再帰的に出力する
     - pair,tuple
