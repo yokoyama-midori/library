@@ -32,6 +32,13 @@ template <class mint> struct FormalPowerSeries : vector<mint> {
     FPS operator-(const FPS &f) const { return FPS(*this) -= f; }
     FPS operator*(const FPS &f) const { return FPS(*this) *= f; }
     FPS operator*(const mint &x) const { return FPS(*this) *= x; }
+    FPS operator-() const {
+        FPS res = *this;
+        for(mint &vi : res) {
+            vi = -vi;
+        }
+        return res;
+    }
     FPS operator>>(const int sz) const {
         if(sz >= ssize(*this))
             return {};
