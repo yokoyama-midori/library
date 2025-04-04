@@ -4,7 +4,7 @@
  * @brief 列の冪乗和
  * @see https://yukicoder.me/problems/no/1145/editorial
  * 各i(0≦i≦k)についてsum[aj in a]aj^iを求め、長さk+1の列を返す
- * O(n*log(n)^2 + k*log(k))
+ * O(n*log(n)^2 + k*log(k))時間
  */
 template <class mint> vector<mint> sum_of_powers(const vector<mint> &a, int k) {
     queue<FormalPowerSeries<mint>> que;
