@@ -1,5 +1,5 @@
 #pragma once
-#include "miller_rabin.hpp"
+#include "miller-rabin.hpp"
 // https://manabitimes.jp/math/1192
 // https://wacchoz.hatenablog.com/entry/2019/01/05/230128
 // https://nyaannyaan.github.io/library/prime/fast-factorize.hpp

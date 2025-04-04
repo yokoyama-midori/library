@@ -1,5 +1,5 @@
 #pragma once
-#include "../poly/shift_of_sampling_points.hpp"
+#include "../poly/shift-of-sampling-points.hpp"
 #include "../template.hpp"
 #include <atcoder/modint>
 template <class mint> struct factorial_large {
