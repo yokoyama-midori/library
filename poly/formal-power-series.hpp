@@ -48,7 +48,7 @@ template <class mint> struct FormalPowerSeries : vector<mint> {
         if(deg == -1)
             deg = this->size();
         FPS res = {(*this)[0].inv()};
-        FPS f = {(*this)[0]};
+        FPS f;
         f.reserve(this->size());
         for(int d = 1; d < deg << 1; d <<= 1) {
             while(ssize(f) < min(ssize(*this), d))
@@ -87,7 +87,7 @@ template <class mint> struct FormalPowerSeries : vector<mint> {
         FPS res{get_sqrt((*this)[0])};
         if(res[0] * res[0] != (*this)[0])
             return {};
-        FPS f = {(*this)[0]};
+        FPS f;
         f.reserve(this->size());
         mint inv2 = mint(1) / mint(2);
         for(int d = 1; d < deg << 1; d <<= 1) {
@@ -121,5 +121,23 @@ template <class mint> struct FormalPowerSeries : vector<mint> {
         FPS res = t.diff() * t.inv(deg - 1);
         res.resize(deg - 1);
         return res.integral();
+    }
+    FPS exp(int deg = -1) {
+        assert(!this->empty() and (*this)[0] == (mint)0);
+        if(deg == -1)
+            deg = this->size();
+        if(deg == 0)
+            return {};
+        FPS res = {1};
+        FPS f;
+        f.reserve(this->size());
+        for(int d = 1; d < deg << 1; d <<= 1) {
+            while(ssize(f) < min(ssize(*this), d))
+                f.emplace_back((*this)[f.size()]);
+            res *= (FPS({1}) + f - res.log(d));
+            while(ssize(res) > min(d, deg))
+                res.pop_back();
+        }
+        return res;
     }
 };
