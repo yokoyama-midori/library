@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
-#include "../../../poly/bostan_mori.hpp"
+#include "../../../poly/bostan-mori.hpp"
 using namespace atcoder;
 using mint = modint998244353;
 void solve() {

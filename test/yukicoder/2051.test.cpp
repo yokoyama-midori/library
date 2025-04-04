@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/2051
-#include "../../math/pollard_rho.hpp"
+#include "../../math/pollard-rho.hpp"
 void solve() {
     LL(a, b);
     ll ans = 0;

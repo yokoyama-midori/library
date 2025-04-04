@@ -1,6 +1,6 @@
 #define STANDALONE
 #include "../../math/linear-sieve.hpp"
-#include "../../math/pollard_rho.hpp"
+#include "../../math/pollard-rho.hpp"
 #include "../../template.hpp"
 void test() {
     const int n = 1000000;

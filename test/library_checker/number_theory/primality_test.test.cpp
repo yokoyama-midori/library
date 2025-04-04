@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/primality_test
 #include "../../../template.hpp"
-#include "../../../math/miller_rabin.hpp"
+#include "../../../math/miller-rabin.hpp"
 void solve() {
     LL(n);
     rep(_, n) {

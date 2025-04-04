@@ -1,6 +1,6 @@
 #pragma once
 #include "mod-pow.hpp"
-#include "pollard_rho.hpp"
+#include "pollard-rho.hpp"
 int primitive_root(int p) {
     // p:prime
     if(p == 2)
