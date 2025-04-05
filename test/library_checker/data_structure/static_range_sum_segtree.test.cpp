@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/static_range_sum
-#include "../../../data_structure/segtree.hpp"
+#include "../../../data-structure/segtree.hpp"
 #include "../../../template.hpp"
 
 ll e() { return 0; }

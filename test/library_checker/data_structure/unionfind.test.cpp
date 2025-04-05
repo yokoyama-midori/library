@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/unionfind
-#include "../../../data_structure/union-find.hpp"
+#include "../../../data-structure/union-find.hpp"
 #include "../../../template.hpp"
 void solve() {
     INT(n, q);

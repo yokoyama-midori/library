@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/staticrmq
-#include "../../../data_structure/sparse-table.hpp"
+#include "../../../data-structure/sparse-table.hpp"
 #include "../../../template.hpp"
 
 void solve() {

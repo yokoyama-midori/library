@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_kth_smallest
-#include "../../../data_structure/persistent-segtree.hpp"
+#include "../../../data-structure/persistent-segtree.hpp"
 #include "../../../template.hpp"
 int main() {
     cin.tie(nullptr);

@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/dynamic_sequence_range_affine_range_sum
-#include "../../../data_structure/lazy-splaytree.hpp"
+#include "../../../data-structure/lazy-splaytree.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;
 struct S {
