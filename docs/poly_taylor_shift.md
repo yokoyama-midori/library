@@ -1,6 +1,6 @@
 ---
 title: Polynomial Taylor Shift(平行移動)
-documentation_of: ./poly/poly_taylor_shift.hpp
+documentation_of: ./poly/poly-taylor-shift.hpp
 ---
 $N-1$次多項式$f(x)$に対して、$g(x) = f(x + c)$を${\cal O}(N \log N)$で求める。
 
