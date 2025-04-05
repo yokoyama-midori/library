@@ -1,5 +1,5 @@
 #define STANDALONE
-#include "../../data_structure/splaytree.hpp"
+#include "../../data-structure/splaytree.hpp"
 #include "../../rng.hpp"
 void test() {
     const int size_max = 100, value_max = 1000000000, query_max = 1000;
