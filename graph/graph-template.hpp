@@ -1,6 +1,9 @@
 #pragma once
 #include "../template.hpp"
-// https://ei1333.github.io/library/graph/graph-template.hpp
+/**
+ * @brief Graph template(グラフテンプレート)
+ * @see https://ei1333.github.io/library/graph/graph-template.hpp
+ */
 template <class T = ll> struct Edge {
     int from, to;
     T cost;
@@ -18,7 +21,8 @@ template <class T = ll> struct Graph {
     using cost_type = T;
     vector<vector<Edge<T>>> g;
     int es; // edge_size
-    Graph(int n) : g(n), es(0) {};
+    Graph() = default;
+    explicit Graph(int n) : g(n), es(0) {};
     int size() const { return ssize(g); }
     void add_directed_edge(int from, int to, T cost = 1) {
         g[from].emplace_back(from, to, cost, es++);
@@ -31,7 +35,7 @@ template <class T = ll> struct Graph {
     const vector<Edge<T>> &operator[](const int &k) const { return g[k]; }
     void read(int m, int padding = -1, bool weighted = false,
               bool directed = false) {
-        rep(i, m) {
+        for(int i = 0; i < m; ++i) {
             int a, b;
             T c(1);
             cin >> a >> b;
