@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/1508
-#include "../../data_structure/splaytree.hpp"
+#include "../../data-structure/splaytree.hpp"
 void solve() {
     LL(n, q);
     vl a(n);
