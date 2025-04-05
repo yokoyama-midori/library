@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/114
-#include "../../data_structure/union-find.hpp"
+#include "../../data-structure/union-find.hpp"
 #include "../../graph/graph-template.hpp"
 #include "../../graph/minimum-steiner-tree.hpp"
 void solve() {

@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/924
-#include "../../data_structure/persistent-segtree.hpp"
+#include "../../data-structure/persistent-segtree.hpp"
 #include "../../template.hpp"
 P operator-(const P &p, const P &q) {
     return P(p.first - q.first, p.second - q.second);

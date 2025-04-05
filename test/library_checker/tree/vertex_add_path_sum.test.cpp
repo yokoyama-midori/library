@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/vertex_add_path_sum
-#include "../../../data_structure/segtree.hpp"
+#include "../../../data-structure/segtree.hpp"
 #include "../../../graph/graph-template.hpp"
 #include "../../../template.hpp"
 #include "../../../tree/heavy-light-decomposition.hpp"
