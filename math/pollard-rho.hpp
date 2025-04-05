@@ -52,7 +52,7 @@ vl inner_factorize(ll n) {
 }
 vl factorize(ll n) {
     auto res = inner_factorize(n);
-    sort(all(res));
+    ranges::sort(res);
     return res;
 }
 map<ll, ll> factor_count(ll n) {
@@ -77,7 +77,7 @@ vl divisors(ll n) {
             }
         }
     }
-    sort(all(res));
+    ranges::sort(res);
     return res;
 }
 } // namespace fast_factorize
