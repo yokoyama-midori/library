@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_affine_range_sum
-#include "../../../data_structure/lazy-segtree.hpp"
+#include "../../../data-structure/lazy-segtree.hpp"
 #include "../../../template.hpp"
 #include <atcoder/modint>
 using mint = atcoder::modint998244353;

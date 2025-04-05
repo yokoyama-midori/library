@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/rectangle_sum
-#include "../../../data_structure/rectangle-sum.hpp"
+#include "../../../data-structure/rectangle-sum.hpp"
 #include "../../../template.hpp"
 void solve() {
     INT(n, q);

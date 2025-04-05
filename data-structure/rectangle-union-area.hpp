@@ -1,6 +1,7 @@
 #pragma once
-#include "../data_structure/compress.hpp"
-#include "../data_structure/lazy-segtree.hpp"
+#include "../template.hpp"
+#include "compress.hpp"
+#include "lazy-segtree.hpp"
 template <class T = int, class ans_type = ll> struct RectangleUnionArea {
   private:
     using S = pair<T, T>;
