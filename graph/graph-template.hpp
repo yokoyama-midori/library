@@ -1,7 +1,7 @@
 #pragma once
 #include "../template.hpp"
 /**
- * @brief Graph template(グラフテンプレート)
+ * @brief Graph Template(グラフテンプレート)
  * @see https://ei1333.github.io/library/graph/graph-template.hpp
  */
 template <class T = ll> struct Edge {
