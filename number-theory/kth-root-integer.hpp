@@ -22,8 +22,8 @@ uint64_t kth_root_integer(uint64_t n, int k) {
     };
     uint64_t res = 0;
     for(int i = 31; i >= 0; --i) {
-        if(check(res | (1 << i)))
-            res |= 1 << i;
+        if(check(res | (1U << i)))
+            res |= 1U << i;
     }
     return res;
 }
