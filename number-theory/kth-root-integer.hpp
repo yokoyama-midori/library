@@ -3,7 +3,8 @@
  * @brief Kth Root (Integer)
  * @see https://ei1333.github.io/library/math/number-theory/kth-root-integer.hpp
  * @return floor(n^(1/k))
- * O(k loglog n)時間
+ * O(k log(n))時間
+ * 浮動小数点数で計算してから調整する方法もあるが...
  */
 uint64_t kth_root_integer(uint64_t n, int k) {
     assert(k > 0);
