@@ -11,6 +11,7 @@ template <class TreeType> struct TreeDiamter {
         dist = vector<T>(g.size(), -1);
         d2 = bfs(d1);
     }
+    TreeDiamter() = default;
     vector<int> get_path() const {
         vector<int> res = {d2};
         int cur = d2;
