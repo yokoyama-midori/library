@@ -28,3 +28,6 @@ uint64_t kth_root_integer(uint64_t n, int k) {
     }
     return res;
 }
+uint64_t isqrt(uint64_t n){
+    return sqrtl(n);
+}
