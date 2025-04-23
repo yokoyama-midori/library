@@ -1,9 +1,9 @@
 #pragma once
 #include "../template.hpp"
 struct UnionFind {
-    int n;
+    int n, num_groups;
     vector<int> p;
-    UnionFind(int n) : n(n), p(n, -1) {}
+    UnionFind(int n) : n(n), p(n, -1), num_groups(n) {}
     int leader(int x) {
         if(p[x] < 0)
             return x;
@@ -17,6 +17,7 @@ struct UnionFind {
             swap(x, y);
         p[x] += p[y];
         p[y] = x;
+        num_groups--;
         return x;
     }
     int size(int x) { return -p[leader(x)]; }
