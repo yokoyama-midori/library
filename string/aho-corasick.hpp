@@ -51,6 +51,7 @@ template <int char_size = 26, char base = 'a'> struct AhoCorasick {
                     continue;
                 ch->fail = (*this)(cur->fail, i);
                 ch->cnt += ch->fail->cnt;
+                // ↑これ重要 ab/aabcみたいなのがあったときにaabをカウントする
                 que.push(ch);
             }
         }
