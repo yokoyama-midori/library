@@ -1,5 +1,5 @@
 #pragma once
-#include "template.hpp"
+#include "../template.hpp"
 /**
  * @brief タイマー
  * @see https://ei1333.github.io/library/other/chrono-timer.hpp
