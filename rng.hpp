@@ -23,8 +23,8 @@ unsigned long long RNG(unsigned long long lim) { return RNG_64() % lim; }
 1000000000000000009
 1000000000000000031
 */
+// [l,r)
 ll rng(ll l, ll r) {
-    // [l,r)
     return l + RNG_64() % (r - l);
 }
 // [0,1]
