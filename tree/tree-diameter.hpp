@@ -1,7 +1,11 @@
 #pragma once
 #include "../template.hpp"
 // dist : distance from d1
-template <class TreeType> struct TreeDiamter {
+template <class TreeType>
+    requires(numeric_limits<typename TreeType::cost_type>::max() >=
+             1'000'000) // bool間違えて使わないようにするため
+                        // Tを新たに定義したほうがいい？
+struct TreeDiamter {
     TreeType &g;
     using T = typename TreeType::cost_type;
     vector<T> dist;
