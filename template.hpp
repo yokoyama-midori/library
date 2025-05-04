@@ -33,10 +33,10 @@ void print(const Iterable &v) {
     }
     cout << '\n';
 }
-using ll = long long;
 using vi = vector<int>;
 using vii = vector<vector<int>>;
 using pii = pair<int, int>;
+using ll = long long;
 using vl = vector<ll>;
 using vll = vector<vl>;
 using pll = pair<ll, ll>;
