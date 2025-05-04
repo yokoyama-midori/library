@@ -15,7 +15,6 @@ concept is_modint = requires(mint &x) {
 #else
 #define debug(...)
 #endif
-
 template <Streamable T> void print_one(const T &value) { cout << value; }
 template <is_modint T> void print_one(const T &value) { cout << value.val(); }
 void print() { cout << '\n'; }
@@ -35,10 +34,13 @@ void print(const Iterable &v) {
     cout << '\n';
 }
 using ll = long long;
+using vi = vector<int>;
+using vii = vector<vector<int>>;
+using pii = pair<int, int>;
 using vl = vector<ll>;
 using vll = vector<vl>;
-using P = pair<ll, ll>;
-#define all(v) v.begin(), v.end()
+using pll = pair<ll, ll>;
+#define all(v) begin(v), end(v)
 #define UNIQUE(v) ranges::sort(v), v.erase(unique(all(v)), end(v))
 template <typename T> inline bool chmax(T &a, T b) {
     return ((a < b) ? (a = b, true) : (false));
@@ -74,7 +76,16 @@ template <class T> void input(vector<T> &a) {
 #define overload4(a, b, c, d, e, ...) e
 #define rep(...) overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)
 #define rep1(i, n) for(ll i = 1; i <= ((ll)n); ++i)
-
 ll inf = 3e18;
 vl dx = {1, -1, 0, 0};
 vl dy = {0, 0, 1, -1};
+template <class T> T floor(T x, T y) {
+    auto d = div(x, y);
+    return d.quot - (x ^ y < 0 and d.rem);
+}
+template <class T> T ceil(T x, T y) { return floor(x + y - 1, y); }
+// yの符号に関わらず非負で定義
+template <class T> T remainder(T x, T y) {
+    T m = x % y;
+    return (m < 0) ? m + abs(y) : m;
+}
