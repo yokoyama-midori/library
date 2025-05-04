@@ -8,7 +8,7 @@ void solve() {
     const auto &dxy = manhattan_mst(xs, ys);
     atcoder::dsu g(n);
     ll w = 0;
-    vector<P> edge;
+    vector<pll> edge;
     edge.reserve(n - 1);
     for(auto &[d, i, j] : dxy) {
         if(!g.same(i, j)) {

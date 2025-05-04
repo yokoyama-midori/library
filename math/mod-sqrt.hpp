@@ -35,11 +35,11 @@ int mod_sqrt(int y, int p) {
         // 2*int_max*int_max < ll_max
         if(k & 1) {
             tie(f1, f2) =
-                P{f1 * pow1 + f2 * pow2 % p * x2, f1 * pow2 + f2 * pow1};
+                pll{f1 * pow1 + f2 * pow2 % p * x2, f1 * pow2 + f2 * pow1};
             f1 %= p, f2 %= p;
         }
         tie(pow1, pow2) =
-            P{pow1 * pow1 + pow2 * pow2 % p * x2, 2 * pow1 % p * pow2};
+            pll{pow1 * pow1 + pow2 * pow2 % p * x2, 2 * pow1 % p * pow2};
         pow1 %= p, pow2 %= p;
         k >>= 1;
     }
@@ -75,11 +75,11 @@ int mod_sqrt_ll(ll y, ll p) {
         // 2*int_max*int_max < ll_max
         if(k & 1) {
             tie(f1, f2) =
-                P{f1 * pow1 + f2 * pow2 % p * x2, f1 * pow2 + f2 * pow1};
+                pll{f1 * pow1 + f2 * pow2 % p * x2, f1 * pow2 + f2 * pow1};
             f1 %= p, f2 %= p;
         }
         tie(pow1, pow2) =
-            P{pow1 * pow1 + pow2 * pow2 % p * x2, 2 * pow1 % p * pow2};
+            pll{pow1 * pow1 + pow2 * pow2 % p * x2, 2 * pow1 % p * pow2};
         pow1 %= p, pow2 %= p;
         k >>= 1;
     }
