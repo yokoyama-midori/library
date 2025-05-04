@@ -41,7 +41,7 @@ struct SlopeTrick {
     // f(x) <- f(x) + a
     void add_all(ll a) { min_f += a; }
     // f(x) = min_f をとる閉区間[l,r]
-    P min_range() { return P(*rbegin(L) + add_L, *begin(R) + add_R); }
+    pll min_range() { return pll(*rbegin(L) + add_L, *begin(R) + add_R); }
     // f(x) <- f(x) + g(x)
     void merge(SlopeTrick &g) {
         min_f += g.min_f;

@@ -1,8 +1,8 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/924
 #include "../../data-structure/persistent-segtree.hpp"
 #include "../../template.hpp"
-P operator-(const P &p, const P &q) {
-    return P(p.first - q.first, p.second - q.second);
+pll operator-(const pll &p, const pll &q) {
+    return pll(p.first - q.first, p.second - q.second);
 }
 void solve() {
     INT(n, q);
@@ -14,13 +14,13 @@ void solve() {
     for(int i = 0; i < n; i++)
         rev[ord[i]] = i;
     persistent_segtree<
-        P, [](P x, P y) { return P(x.first + y.first, x.second + y.second); },
-        [] { return P(0, 0); }>
+        pll, [](pll x, pll y) { return pll(x.first + y.first, x.second + y.second); },
+        [] { return pll(0, 0); }>
         seg(n);
     using pointer = decltype(seg)::node_type *;
-    vector<pointer> v{seg.build(vector<P>(n))};
+    vector<pointer> v{seg.build(vector<pll>(n))};
     for(int i = 0; i < n; i++) {
-        v.emplace_back(seg.set(v.back(), rev[i], P(a[i], 1)));
+        v.emplace_back(seg.set(v.back(), rev[i], pll(a[i], 1)));
     }
     ranges::sort(a);
     auto cul = [&](int l, int r) -> ll {
@@ -33,8 +33,8 @@ void solve() {
             } else
                 ng = mid;
         }
-        P small = seg.prod(v[r], 0, ok) - seg.prod(v[l], 0, ok);
-        P large = seg.prod(v[r], ok, n) - seg.prod(v[l], ok, n);
+        pll small = seg.prod(v[r], 0, ok) - seg.prod(v[l], 0, ok);
+        pll large = seg.prod(v[r], ok, n) - seg.prod(v[l], ok, n);
         ll ans =
             large.first - small.first + a[ok] * (small.second - large.second);
         return ans;
