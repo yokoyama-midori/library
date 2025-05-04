@@ -6,7 +6,7 @@ template <class T>
 vector<T> grid_rotate(const vector<T> &a, int clockwize_cnt = 1) {
     if(a.empty())
         return vector<T>();
-    clockwize_cnt = remainder(clockwize_cnt, 4);
+    clockwize_cnt = bmod(clockwize_cnt, 4);
     if(clockwize_cnt == 0) {
         return a;
     }

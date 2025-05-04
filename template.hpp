@@ -79,13 +79,18 @@ template <class T> void input(vector<T> &a) {
 ll inf = 3e18;
 vl dx = {1, -1, 0, 0};
 vl dy = {0, 0, 1, -1};
-template <class T> T floor(T x, T y) {
+template <signed_integral T> T floor(T x, T y) {
     auto d = div(x, y);
-    return d.quot - (x ^ y < 0 and d.rem);
+    return d.quot - ((x ^ y) < 0 and d.rem);
 }
-template <class T> T ceil(T x, T y) { return floor(x + y - 1, y); }
-// yの符号に関わらず非負で定義
-template <class T> T remainder(T x, T y) {
+template <signed_integral T> T ceil(T x, T y) {
+    return y < 0 ? floor(-x + -y - 1, -y) : floor(x + y - 1, y);
+}
+// yの符号に関わらず非負で定義 \bmod:texコマンド
+template <signed_integral T> T bmod(T x, T y) {
     T m = x % y;
     return (m < 0) ? m + abs(y) : m;
 }
+template <unsigned_integral T> T floor(T x, T y) { return x / y; }
+template <unsigned_integral T> T ceil(T x, T y) { return (x + y - 1) / y; }
+template <unsigned_integral T> T bmod(T x, T y) { return x % y; }
