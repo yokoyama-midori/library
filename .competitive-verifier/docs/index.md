@@ -1,0 +1,19 @@
+C++20による競技プログラミング用ライブラリ
+[competitive-verifier]("https://competitive-verifier.github.io/competitive-verifier/")により自動でテスト、デプロイされています
+
+### メモ
+C++ジャッジ環境調査(C++20以降,gcc)
+2025/05/05時点
+
+| オンラインジャッジ                                                        | C++20     | C++23     | ライブラリ                                                      | 備考                                         |
+| ------------------------------------------------------------------------- | --------- | --------- | --------------------------------------------------------------- | -------------------------------------------- |
+| [AtCoder](https://img.atcoder.jp/file/language-update/language-list.html) | gcc12.2   | gcc12.2   | AC Library 1.5.1, Boost 1.82.0, GMP 6.2.1, Eigen 3.4.0-2ubuntu2 | 言語アップデートでC++23(gcc14.2.0)になる予定 |
+| yukicoder                                                                 | なし      | gcc13.3.0 | AC Library (version?), Boost 1.87.0                             |                                              |
+| Codeforces                                                                | gcc13.2   | gcc14.2   | -                                                               |                                              |
+| [CodeChef](https://www.codechef.com/wiki/list-compilers)                  | gcc13.2   | なし      | -                                                               |                                              |
+| [AIZU ONLINE JUDGEv2](https://onlinejudge.u-aizu.ac.jp/system_info)       | gcc11.4.1 | gcc11.4.1 | -                                                               | 新しいサイトを使う                           |
+| [Library Checker](https://judge.yosupo.jp/help)                           | gcc14.2   | gcc14.2   | AC Library 1.5.1                                                |                                              |
+
+__gnu_pbds::treeはどれも使える
+ChefでC++23が使えないので当面C++20を使う
+std::bit_widthはgcc13.1(?)で返り値がintになった。それ以前は符号なしの返り値なので注意
