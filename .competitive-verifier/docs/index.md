@@ -1,4 +1,3 @@
-テスト
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yokoyama-midori/library) [![yokoyama-midori](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fcodeforces%2Fjson%2Fyokoyama-midori)](https://codeforces.com/profile/yokoyama-midori)  
 C++20による競技プログラミング用ライブラリ  
 [competitive-verifier]("https://competitive-verifier.github.io/competitive-verifier/")により自動でテスト、デプロイされています
