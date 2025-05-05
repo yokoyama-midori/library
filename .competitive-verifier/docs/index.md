@@ -1,8 +1,8 @@
-C++20による競技プログラミング用ライブラリ
+C++20による競技プログラミング用ライブラリ  
 [competitive-verifier]("https://competitive-verifier.github.io/competitive-verifier/")により自動でテスト、デプロイされています
 
 ### メモ
-C++ジャッジ環境調査(C++20以降,gcc)
+C++ジャッジ環境調査(C++20以降,gcc)  
 2025/05/05時点
 
 | オンラインジャッジ                                                        | C++20     | C++23     | ライブラリ                                                      | 備考                                         |
@@ -14,6 +14,6 @@ C++ジャッジ環境調査(C++20以降,gcc)
 | [AIZU ONLINE JUDGEv2](https://onlinejudge.u-aizu.ac.jp/system_info)       | gcc11.4.1 | gcc11.4.1 | -                                                               | 新しいサイトを使う                           |
 | [Library Checker](https://judge.yosupo.jp/help)                           | gcc14.2   | gcc14.2   | AC Library 1.5.1                                                |                                              |
 
-__gnu_pbds::treeはどれも使える
-ChefでC++23が使えないので当面C++20を使う
-std::bit_widthはgcc13.1(?)で返り値がintになった。それ以前は符号なしの返り値なので注意
+__gnu_pbds::treeはどれも使える  
+ChefでC++23が使えないので当面C++20を使う  
+std::bit_widthはgcc13.1(?)で返り値がintになった。それ以前は符号なしの返り値なので注意  
