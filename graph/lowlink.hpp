@@ -1,3 +1,4 @@
+#pragma once
 #include "../template.hpp"
 #include "./graph/graph-template.hpp"
 /**
