@@ -33,7 +33,7 @@ template <class G> struct LowLink {
                 chmin(low[cur], low[to]);
                 is_articulation |= p != -1 and ord[cur] <= low[to];
                 if(ord[cur] < low[to]) {
-                    bridge.emplace_back(minmax(p, (int)to));
+                    bridge.emplace_back(minmax(cur, (int)to));
                 }
             } else {
                 chmin(low[cur], ord[to]);
