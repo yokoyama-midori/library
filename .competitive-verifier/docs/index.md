@@ -1,9 +1,9 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yokoyama-midori/library) [![yokoyama-midori](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fcodeforces%2Fjson%2Fyokoyama-midori)](https://codeforces.com/profile/yokoyama-midori)  
 C++20による競技プログラミング用ライブラリ  
-[competitive-verifier]("https://competitive-verifier.github.io/competitive-verifier/")により自動でテスト、デプロイされています
+[competitive-verifier](https://competitive-verifier.github.io/competitive-verifier/)により自動でテスト、デプロイされています
 
-### メモ
-C++ジャッジ環境調査(C++20以降,gcc)  
+## メモ
+### C++ジャッジ環境(C++20以降,gcc)  
 2025/05/05時点
 
 | オンラインジャッジ                                                        | C++20     | C++23     | ライブラリ                                                      | 備考                                         |
@@ -18,3 +18,7 @@ C++ジャッジ環境調査(C++20以降,gcc)
 __gnu_pbds::treeはどれも使える  
 ChefでC++23が使えないので当面C++20を使う  
 std::bit_widthはgcc13.1(?)で返り値がintになった。それ以前は符号なしの返り値なので注意  
+
+### リロードしても更新が反映されないとき(Google Chrome)
+- ハードリロード(ctrl+shift+R)する
+- F12->アプリケーション->ストレージ->サイトデータを消去
