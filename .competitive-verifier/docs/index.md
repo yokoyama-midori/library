@@ -20,5 +20,13 @@ ChefでC++23が使えないので当面C++20を使う
 std::bit_widthはgcc13.1(?)で返り値がintになった。それ以前は符号なしの返り値なので注意  
 
 ### リロードしても更新が反映されないとき(Google Chrome)
+下のどれかを行う。下にいく方が永続的
 - ハードリロード(ctrl+shift+R)する
-- F12->アプリケーション->ストレージ->サイトデータを消去
+- F12&rarr;アプリケーション&rarr;ストレージ&rarr;サイトデータを消去
+- .competitive-verifier/docs/static/_includes/head-custom2.htmlに
+ ```
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+```
+を追加。[参考](https://deepwiki.com/search/github-pages-pages-httplast-mo_8bb989be-7fd6-45ac-8023-5f3c01c5d512)
