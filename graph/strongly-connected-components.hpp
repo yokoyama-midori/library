@@ -7,7 +7,7 @@
  * comp[i] : 頂点iが属する強連結成分のid
  * groups : 各強連結成分の頂点集合
  * トポロジカルソートソート済み
- * cul_dag() : 強連結成分を1つの頂点に縮約したときのDAGを作る
+ * cul_dag() : 強連結成分を1つの頂点に縮約したときのDAGを作る(未verify)
  */
 template <class G> struct StronglyConnectedComponents {
     const G &g;
@@ -41,7 +41,7 @@ template <class G> struct StronglyConnectedComponents {
 
   private:
     int id = 0;
-    vector<int> low, ord;
+    vector<int> low, ord; // lowは計算後g.size()に置き換えられる
     vector<int> tmp;
     void dfs(int cur) {
         low[cur] = ord[cur] = id++;
@@ -58,7 +58,8 @@ template <class G> struct StronglyConnectedComponents {
             groups.emplace_back();
             while(true) {
                 groups.back().emplace_back(tmp.back());
-                ord[tmp.back()] = g.size();
+                ord[tmp.back()] =
+                    g.size(); // 今後訪れる頂点はこの強連結成分とは別の強連結成分に属する
                 tmp.pop_back();
                 if(groups.back().back() == cur) {
                     break;
