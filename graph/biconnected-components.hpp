@@ -1,5 +1,6 @@
 #pragma once
 #include "../template.hpp"
+#include "../graph/graph-template.hpp"
 /**
  * @brief 二重頂点連結成分分解
  * 連結・単純でなくても良い
