@@ -5,61 +5,49 @@
  * @brief 二重頂点連結成分分解
  * 連結・単純でなくても良い
  * 各辺と関節点以外の頂点はちょうど一つの連結成分に属する、関節点は複数の連結成分に属する
- * groupsに連結成分ごとの頂点集合が入る
- * 二重辺連結分解より非自明
+ * block-cut-tree.hppとだいたい同じ
  * https://www.hackerearth.com/practice/algorithms/graphs/biconnected-components/tutorial/
- * をよく読む
  */
-template <class G> struct BiConnectedComponents {
-    const G &g;
-    vector<int> low, ord;
-    using T = typename G::cost_type;
-    vector<vector<int>> groups;
-    BiConnectedComponents(const G &g)
-        : g(g), low(g.size(), -1), ord(g.size(), -1), comp_id(g.size(), -1) {
-        for(int i = 0; i < g.size(); ++i) {
-            if(ord[i] == -1) {
-                if(g[i].size())
-                    dfs(i, -1);
-                else
-                    groups.emplace_back(vi({i}));
-            }
-        }
-    }
-
-  private:
+template <class G> vector<vector<int>> biconnected_components(const G &g) {
+    int n = g.size();
+    vector<vector<int>> res;
+    vector<int> low(n, -1), ord(n, -1);
     int id = 0;
-    vector<Edge<T>> tmp;
-    vector<int> comp_id;
-    void dfs(int cur, int p) {
+    vector<int> tmp;
+    auto dfs = [&](auto &dfs, int cur, int p) -> void {
         ord[cur] = low[cur] = id++;
+        tmp.emplace_back(cur);
+        int cnt = 0;
         for(auto &to : g[cur]) {
             if(to == p)
                 continue;
-            if(ord[to] != -1 and ord[to] >= ord[cur])
-                continue;
-            tmp.emplace_back(to);
             if(ord[to] == -1) {
-                dfs(to, cur);
+                int sz = ssize(tmp);
+                ++cnt;
+                dfs(dfs, to, cur);
                 chmin(low[cur], low[to]);
+                if((p == -1 and cnt > 1) or (p != -1 and low[to] >= ord[cur])) {
+                    res.emplace_back();
+                    res.back().emplace_back(cur);
+                    while(ssize(tmp) > sz) {
+                        res.back().emplace_back(tmp.back());
+                        tmp.pop_back();
+                    }
+                }
             } else {
                 chmin(low[cur], ord[to]);
             }
-            if(low[to] >= ord[cur]) {
-                int k = ssize(groups);
-                groups.emplace_back();
-                for(bool end = false; !end;) {
-                    end = tmp.back().idx == to.idx;
-                    int x = tmp.back().from, y = tmp.back().to;
-                    if(chmax(comp_id[x], k)) {
-                        groups.back().emplace_back(x);
-                    }
-                    if(chmax(comp_id[y], k)) {
-                        groups.back().emplace_back(y);
-                    }
-                    tmp.pop_back();
-                }
-            }
         }
+        if(p == -1) {
+            res.emplace_back();
+            for(auto &i : tmp)
+                res.back().emplace_back(i);
+            tmp.clear();
+        }
+    };
+    for(int i = 0; i < n; ++i) {
+        if(ord[i] == -1)
+            dfs(dfs, i, -1);
     }
-};
+    return res;
+}

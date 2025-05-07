@@ -6,8 +6,7 @@ void solve() {
     INT(n, m);
     Graph<bool> g(n);
     g.read(m, 0);
-    BiConnectedComponents graph(g);
-    auto &groups = graph.groups;
+    auto groups = biconnected_components(g);
     print(groups.size());
     for(auto &v : groups) {
         cout << ssize(v) << " ";
