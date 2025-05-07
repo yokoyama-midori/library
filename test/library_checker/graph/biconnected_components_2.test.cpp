@@ -1,16 +1,16 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/biconnected_components
-#include "../../../graph/biconnected-components.hpp"
+#include "../../../graph/block-cut-tree.hpp"
 #include "../../../graph/graph-template.hpp"
 #include "../../../template.hpp"
 void solve() {
     INT(n, m);
     Graph<bool> g(n);
     g.read(m, 0);
-    auto groups = biconnected_components(g);
-    print(groups.size());
-    for(auto &v : groups) {
-        cout << ssize(v) << " ";
-        print(v);
+    auto tree = block_cut_tree(g);
+    print(tree.size() - n);
+    for(int i = n; i < tree.size(); ++i) {
+        cout << tree[i].size() << " ";
+        print(tree[i]);
     }
 }
 int main() {

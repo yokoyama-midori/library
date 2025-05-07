@@ -1,19 +1,23 @@
 #pragma once
+#include "../graph/graph-template.hpp"
 #include "../template.hpp"
-#include "./graph-template.hpp"
 /**
- * @brief 二重頂点連結成分分解
- * 連結・単純でなくても良い
- * 各辺と関節点以外の頂点はちょうど一つの連結成分に属する、関節点は複数の連結成分に属する
- * block-cut-tree.hppとだいたい同じ
- * https://www.hackerearth.com/practice/algorithms/graphs/biconnected-components/tutorial/
+ * @brief ブロックカット木的な
+ * https://maspypy.github.io/library/graph/block_cut.hpp
+ * https://twitter.com/noshi91/status/1529858538650374144
+ * N頂点の無向グラフがC個の二重連結成分を持つとき(N+C)頂点の森を作る
+ * [0,N)のidxは元のグラフの頂点を表し[N,N+C)のidxは二重連結成分を表す
+ * 辺(u,N+v)は頂点uがv番目の二重連結成分に属することを表す
+ * 関節点<->次数2以上
  */
-template <class G> vector<vector<int>> biconnected_components(const G &g) {
+template <class G> Graph<bool> block_cut_tree(const G &g) {
     int n = g.size();
-    vector<vector<int>> res;
+    Graph<bool> tree(n);
     vector<int> low(n, -1), ord(n, -1);
     int id = 0;
     vector<int> tmp;
+    tree.g.reserve(2 * n);
+    tmp.reserve(n);
     auto dfs = [&](auto &dfs, int cur, int p) -> void {
         ord[cur] = low[cur] = id++;
         tmp.emplace_back(cur);
@@ -27,10 +31,11 @@ template <class G> vector<vector<int>> biconnected_components(const G &g) {
                 dfs(dfs, to, cur);
                 chmin(low[cur], low[to]);
                 if((p == -1 and cnt > 1) or (p != -1 and low[to] >= ord[cur])) {
-                    res.emplace_back();
-                    res.back().emplace_back(cur);
+                    int k = tree.size();
+                    tree.g.emplace_back();
+                    tree.add_edge(cur, k);
                     while(ssize(tmp) > sz) {
-                        res.back().emplace_back(tmp.back());
+                        tree.add_edge(tmp.back(), k);
                         tmp.pop_back();
                     }
                 }
@@ -39,9 +44,10 @@ template <class G> vector<vector<int>> biconnected_components(const G &g) {
             }
         }
         if(p == -1) {
-            res.emplace_back();
+            int k = tree.size();
+            tree.g.emplace_back();
             for(auto &i : tmp)
-                res.back().emplace_back(i);
+                tree.add_edge(i, k);
             tmp.clear();
         }
     };
@@ -49,5 +55,5 @@ template <class G> vector<vector<int>> biconnected_components(const G &g) {
         if(ord[i] == -1)
             dfs(dfs, i, -1);
     }
-    return res;
+    return tree;
 }
