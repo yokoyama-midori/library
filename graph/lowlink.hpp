@@ -23,10 +23,12 @@ template <class G> struct LowLink {
     int id = 0;
     void dfs(int cur, int p) {
         ord[cur] = low[cur] = id++;
-        bool is_articulation = false;
+        bool is_articulation = false,
+             second =
+                 false; // 多重辺がある場合にDFS木の辺と後退辺を区別する必要がる
         int cnt = 0;
         for(auto &to : g[cur]) {
-            if(to == p)
+            if(to == p and !exchange(second, true))
                 continue;
             if(ord[to] == -1) {
                 dfs(to, cur);
