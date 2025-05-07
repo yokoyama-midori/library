@@ -16,9 +16,9 @@ template <class G> struct BiConnectedComponents {
     using T = typename G::cost_type;
     vector<vector<int>> groups;
     BiConnectedComponents(const G &g)
-        : g(g), low(g.size(), -1), ord(g.size(), -1), visited(g.size(), -2) {
+        : g(g), low(g.size(), -1), ord(g.size(), -1), comp_id(g.size(), -1) {
         for(int i = 0; i < g.size(); ++i) {
-            if(visited[i] == -2) {
+            if(ord[i] == -1) {
                 if(g[i].size())
                     dfs(i, -1);
                 else
@@ -30,18 +30,17 @@ template <class G> struct BiConnectedComponents {
   private:
     int id = 0;
     vector<Edge<T>> tmp;
-    vector<int> visited;
+    vector<int> comp_id;
     void dfs(int cur, int p) {
         ord[cur] = low[cur] = id++;
-        visited[cur] = -1;
         bool second = false;
         for(auto &to : g[cur]) {
             if(to == p and !exchange(second, true))
                 continue;
-            if(visited[to] != -2 and ord[to] >= ord[cur])
+            if(ord[to] != -1 and ord[to] >= ord[cur])
                 continue;
             tmp.emplace_back(to);
-            if(visited[to] == -2) {
+            if(ord[to] == -1) {
                 dfs(to, cur);
                 chmin(low[cur], low[to]);
             } else {
@@ -53,10 +52,10 @@ template <class G> struct BiConnectedComponents {
                 for(bool end = false; !end;) {
                     end = tmp.back().idx == to.idx;
                     int x = tmp.back().from, y = tmp.back().to;
-                    if(chmax(visited[x], k)) {
+                    if(chmax(comp_id[x], k)) {
                         groups.back().emplace_back(x);
                     }
-                    if(chmax(visited[y], k)) {
+                    if(chmax(comp_id[y], k)) {
                         groups.back().emplace_back(y);
                     }
                     tmp.pop_back();

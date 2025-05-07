@@ -1,6 +1,13 @@
 #pragma once
 #include "../template.hpp"
 #include "./lowlink.hpp"
+/**
+ * @brief 二重辺連結成分分解
+ * 橋を除いたグラフの連結成分の列挙
+ * comp 各頂点に属する二重辺連結成分のid
+ * groups 各二重辺連結成分に属する頂点集合
+ * tree 二重辺連結成分と橋による木(非連結なら森)
+ */
 template <class G> struct TwoEdgeConnectedComponents {
     const G &g;
     LowLink<G> low;
