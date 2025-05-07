@@ -1,6 +1,6 @@
 #pragma once
 #include "../template.hpp"
-#include "../graph/graph-template.hpp"
+#include "./graph-template.hpp"
 /**
  * @brief 二重頂点連結成分分解
  * 連結・単純でなくても良い
@@ -33,9 +33,8 @@ template <class G> struct BiConnectedComponents {
     vector<int> comp_id;
     void dfs(int cur, int p) {
         ord[cur] = low[cur] = id++;
-        bool second = false;
         for(auto &to : g[cur]) {
-            if(to == p and !exchange(second, true))
+            if(to == p)
                 continue;
             if(ord[to] != -1 and ord[to] >= ord[cur])
                 continue;
