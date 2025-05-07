@@ -1,0 +1,69 @@
+#pragma once
+#include "../template.hpp"
+#include "./graph-template.hpp"
+/**
+ * @brief 強連結成分分解(Tarjan)
+ * https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm
+ * comp[i] : 頂点iが属する強連結成分のid
+ * groups : 各強連結成分の頂点集合
+ * トポロジカルソートソート済み
+ * cul_dag() : 強連結成分を1つの頂点に縮約したときのDAGを作る
+ */
+template <class G> struct StronglyConnectedComponents {
+    const G &g;
+    vector<int> comp;
+    vector<vector<int>> groups;
+    StronglyConnectedComponents(const G &g)
+        : g(g), comp(g.size()), low(g.size()), ord(g.size(), -1) {
+        for(int i = 0; i < g.size(); ++i) {
+            if(ord[i] == -1) {
+                dfs(i);
+            }
+        }
+        ranges::reverse(groups);
+        for(int i = 0; i < ssize(groups); ++i) {
+            for(auto j : groups[i])
+                comp[j] = i;
+        }
+    }
+    G cul_dag() const {
+        G dag(groups.size());
+        for(int i = 0; i < g.size(); ++i) {
+            int x = comp[i];
+            for(auto &to : g[i]) {
+                int y = comp[to];
+                if(x != y) {
+                    dag.add_directed_edge(x, y, to.cost);
+                }
+            }
+        }
+    }
+
+  private:
+    int id = 0;
+    vector<int> low, ord;
+    vector<int> tmp;
+    void dfs(int cur) {
+        low[cur] = ord[cur] = id++;
+        tmp.emplace_back(cur);
+        for(auto &to : g[cur]) {
+            if(ord[to] == -1) {
+                dfs(to);
+                chmin(low[cur], low[to]);
+            } else {
+                chmin(low[cur], ord[to]);
+            }
+        }
+        if(low[cur] == ord[cur]) {
+            groups.emplace_back();
+            while(true) {
+                groups.back().emplace_back(tmp.back());
+                ord[tmp.back()] = g.size();
+                tmp.pop_back();
+                if(groups.back().back() == cur) {
+                    break;
+                }
+            }
+        }
+    }
+};
