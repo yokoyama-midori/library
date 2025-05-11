@@ -1,5 +1,5 @@
 #pragma once
-#include "persistent-segtree.hpp"
+#include "./persistent-segtree.hpp"
 #include "../template.hpp"
 // https://nyaannyaan.github.io/library/data-structure-2d/rectangle-sum.hpp
 // T 座標の型, (S, op, e) モノイド
