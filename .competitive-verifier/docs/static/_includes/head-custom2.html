@@ -1,9 +1,35 @@
-<!-- 
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
--->
 {% if site.favicon %}
-  <link rel="shortcut icon" href="{{ '/favicon-96x96.png' | relative_url }}">
+<link rel="shortcut icon" href="{{ '/favicon-96x96.png' | relative_url }}">
 {% endif %}
 <script defer src="{{ '/assets/js/version-assets.js' | relative_url }}"></script>
+<style>
+  /* https://github.com/competitive-verifier/competitive-verifier/commit/b5b66168ce732e4a19e82eec439470042e607524#diff-14300e53e34246de647131c19ab8761068041cd08b57f409bef5c91618a53b5c */
+  /* ↑jekyll-theme-minimalisticでの幅調整など　まだリリースされてないから直接書いてみる(?) */
+  @media screen and (min-width: 900px) {
+    div.wrapper {
+      width: 100%;
+    }
+
+    div.wrapper>header {
+      width: 280px;
+    }
+
+    div.wrapper>section {
+      width: calc(100% - 300px);
+    }
+  }
+
+  a:hover,
+  a:focus {
+    font-weight: normal;
+    text-decoration: underline;
+  }
+
+  h1 a:hover {
+    font-weight: bold;
+  }
+
+  h1 a:focus {
+    font-weight: bold;
+  }
+</style>
