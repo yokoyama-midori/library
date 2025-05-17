@@ -28,7 +28,17 @@ vector<T> grid_rotate(const vector<T> &a, int clockwize_cnt = 1) {
     return res;
 }
 template <class T> vector<T> grid_transpose(const vector<T> &a) {
-    return grid_rotate(a, 2);
+    if(a.empty())
+        return {};
+    using U = typename T::value_type;
+    int h = ssize(a), w = ssize(a[0]);
+    vector res(w, T(h, U()));
+    for(int i = 0; i < h; ++i) {
+        for(int j = 0; j < w; ++j) {
+            res[j][i] = a[i][j];
+        }
+    }
+    return res;
 }
 template <class T> vector<T> grid_expansion(const vector<T> &a, int k) {
     if(a.empty()) {
