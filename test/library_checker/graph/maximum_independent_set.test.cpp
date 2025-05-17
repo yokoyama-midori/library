@@ -1,5 +1,7 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/maximum_independent_set
+#include "../../../graph/graph-template.hpp"
 #include "../../../graph/maximum-independent-set.hpp"
+#include "../../../template.hpp"
 void solve() {
     INT(n, m);
     using edge_type = Edge<bool>;
