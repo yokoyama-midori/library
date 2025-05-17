@@ -12,7 +12,7 @@ vector<tuple<T, int, int>> manhattan_mst(vector<T> xs, vector<T> ys) {
     iota(all(ord), 0);
     auto cul = [&]() -> void {
         map<T, int, greater<T>> mp;
-        for(auto i : ord) {
+        for(int i : ord) {
             for(auto itr = mp.lower_bound(xs[i]); itr != end(mp);
                 itr = mp.erase(itr)) {
                 int j = itr->second;
@@ -30,14 +30,13 @@ vector<tuple<T, int, int>> manhattan_mst(vector<T> xs, vector<T> ys) {
             swap(xs, ys);
         } else {
             if(cnt == 2) {
-                for(auto &&x : xs)
-                    x *= -1;
+                for(T &x : xs)
+                    x = -x;
             }
-            sort(all(ord),
-                 [&](int i, int j) { return xs[i] + ys[i] < xs[j] + ys[j]; });
+            ranges::sort(ord, {}, [&](int i) { return xs[i] + ys[i]; });
         }
         cul();
     }
-    sort(all(res));
+    ranges::sort(res);
     return res;
 }

@@ -1,12 +1,12 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/manhattanmst
+#include "../../../data-structure/union-find.hpp"
 #include "../../../geometry/manhattan-mst.hpp"
-#include <atcoder/dsu>
 void solve() {
     LL(n);
     vl xs(n), ys(n);
     rep(i, n) cin >> xs[i] >> ys[i];
-    const auto &dxy = manhattan_mst(xs, ys);
-    atcoder::dsu g(n);
+    auto dxy = manhattan_mst(xs, ys);
+    UnionFind g(n);
     ll w = 0;
     vector<pll> edge;
     edge.reserve(n - 1);
