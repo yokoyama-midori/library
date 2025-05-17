@@ -8,7 +8,7 @@ C++20による競技プログラミング用ライブラリ
 
 | オンラインジャッジ                                                        | C++20     | C++23     | ライブラリ                                                      | 備考                                         |
 | ------------------------------------------------------------------------- | --------- | --------- | --------------------------------------------------------------- | -------------------------------------------- |
-| [AtCoder](https://img.atcoder.jp/file/language-update/language-list.html) | gcc12.2   | gcc12.2   | AC Library 1.5.1, Boost 1.82.0, GMP 6.2.1, Eigen 3.4.0-2ubuntu2 | 言語アップデートでC++23(gcc14.2.0)になる予定 |
+| [AtCoder](https://img.atcoder.jp/file/language-update/language-list.html) | gcc12.2   | gcc12.2   | AC Library 1.5.1, Boost 1.82.0, GMP 6.2.1, Eigen 3.4.0-2ubuntu2 | 言語アップデートでC++23(gcc~~14.2.0~~ 15.1.0)になる予定 |
 | yukicoder                                                                 | なし      | gcc13.3.0 | AC Library (version?), Boost 1.87.0                             |                                              |
 | Codeforces                                                                | gcc13.2   | gcc14.2   | -                                                               |                                              |
 | [CodeChef](https://www.codechef.com/wiki/list-compilers)                  | gcc13.2   | なし      | -                                                               |                                              |
