@@ -1,3 +1,4 @@
+#pragma once
 #include "../template.hpp"
 /**
  * @brief グリッドの回転・転置・拡大
