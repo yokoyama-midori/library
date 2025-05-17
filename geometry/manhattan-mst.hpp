@@ -1,3 +1,4 @@
+#pragma once
 #include "../template.hpp"
 // Hai Zhou, Narendra Shenoy, and William Nicholls. 2001. Efficient minimum
 // spanning tree construction without Delaunay triangulation.
