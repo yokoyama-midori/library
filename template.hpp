@@ -79,14 +79,17 @@ template <class T> void input(vector<T> &a) {
 ll inf = 3e18;
 vl dx = {1, -1, 0, 0};
 vl dy = {0, 0, 1, -1};
-template <class T> T floor(T x, T y) {
+template <class T> constexpr T floor(T x, T y) noexcept {
     return x / y - ((x ^ y) < 0 and x % y);
 }
-template <class T> T ceil(T x, T y) {
-    return y < 0 ? floor(-x + -y - 1, -y) : floor(x + y - 1, y);
+template <class T> constexpr T ceil(T x, T y) noexcept {
+    return x / y + ((x ^ y) >= 0 and x % y);
 }
 // yの符号に関わらず非負で定義 \bmod:texコマンド
-template <class T> T bmod(T x, T y) {
+template <class T> constexpr T bmod(T x, T y) noexcept {
     T m = x % y;
     return (m < 0) ? m + (y > 0 ? y : -y) : m;
+}
+template <std::signed_integral T> constexpr int bit_width(T x) noexcept {
+    return std::bit_width((uint64_t)x);
 }
