@@ -3,7 +3,7 @@
 void solve() {
     LL(n, k);
     vl c(10);
-    rep1(i, 9) { cin >> c[i]; }
+    rep(i, 1, 10) { cin >> c[i]; }
     ll half = n / 2;
     ll ans = 0;
     auto make_map = [&k](vl &x, const ll base = 1) {
@@ -26,7 +26,7 @@ void solve() {
     vl cnt = {0};
     auto cul = [&]() {
         vl x, y;
-        rep1(i, 9) {
+        rep(i, 1, 10) {
             rep(j, cnt[i]) x.push_back(i);
             rep(j, c[i] - cnt[i]) y.push_back(i);
         }
