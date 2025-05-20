@@ -11,7 +11,7 @@ void solve() {
     }
     cs.build();
     vl ans;
-    rep1(i, 1e5) {
+    rep(i, 1, 1e5 + 1) {
         if(cs.sum(i) == 0)
             break;
         ans.push_back(cs.sum(i));

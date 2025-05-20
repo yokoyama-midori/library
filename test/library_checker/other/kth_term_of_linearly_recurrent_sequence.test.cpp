@@ -11,7 +11,7 @@ void solve() {
         a[i] = ai;
     }
     q[0] = 1;
-    rep1(i, d) {
+    rep(i, 1, d + 1) {
         LL(qi);
         q[i] = -qi;
     }
