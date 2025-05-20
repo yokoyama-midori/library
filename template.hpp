@@ -4,15 +4,15 @@
 // #pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
 using namespace std;
+#ifdef LOCAL
+#include <debug.hpp>
+#else
 template <class T>
 concept Streamable = requires(ostream os, T &x) { os << x; };
 template <class mint>
 concept is_modint = requires(mint &x) {
     { x.val() } -> std::convertible_to<int>;
 };
-#ifdef LOCAL
-#include <debug.hpp>
-#else
 #define debug(...)
 #endif
 template <Streamable T> void print_one(const T &value) { cout << value; }
@@ -41,7 +41,10 @@ using vl = vector<ll>;
 using vll = vector<vl>;
 using pll = pair<ll, ll>;
 #define all(v) begin(v), end(v)
-#define UNIQUE(v) ranges::sort(v), v.erase(unique(all(v)), end(v))
+template <class T> void UNIQUE(T &v) {
+    ranges::sort(v);
+    v.erase(unique(all(v)), end(v));
+}
 template <typename T> inline bool chmax(T &a, T b) {
     return ((a < b) ? (a = b, true) : (false));
 }
@@ -69,9 +72,12 @@ template <class T> void input(vector<T> &a) {
 #define STR(...)                                                               \
     string __VA_ARGS__;                                                        \
     input(__VA_ARGS__)
-#define REP1(a) for(ll i = 0; i < a; i++)
-#define REP2(i, a) for(ll i = 0; i < a; i++)
-#define REP3(i, a, b) for(ll i = a; i < b; i++)
+#define REP1_0(n, c) REP1_1(n, c)
+#define REP1_1(n, c)                                                           \
+    for(ll REP_COUNTER_##c = 0; REP_COUNTER_##c < (ll)(n); REP_COUNTER_##c++)
+#define REP1(n) REP1_0(n, __COUNTER__)
+#define REP2(i, a) for(ll i = 0; i < (ll)(a); i++)
+#define REP3(i, a, b) for(ll i = a; i < (ll)(b); i++)
 #define REP4(i, a, b, c) for(ll i = a; i < b; i += c)
 #define overload4(a, b, c, d, e, ...) e
 #define rep(...) overload4(__VA_ARGS__, REP4, REP3, REP2, REP1)(__VA_ARGS__)
