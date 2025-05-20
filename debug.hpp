@@ -17,60 +17,60 @@ template <ranges::range Iterable>
     requires(!Streamable<Iterable>)
 void debug_print(const Iterable &);
 
-template <Streamable T> void debug_print(const T &value) { cout << value; }
+template <Streamable T> void debug_print(const T &value) { cerr << value; }
 template <is_modint mint>
     requires(!Streamable<mint>)
 void debug_print(const mint &value) {
-    cout << value.val();
+    cerr << value.val();
 }
 template <class F, class S> void debug_print(const pair<F, S> &value) {
-    cout << "[";
+    cerr << "[";
     debug_print(value.first);
-    cout << ", ";
+    cerr << ", ";
     debug_print(value.second);
-    cout << "]";
+    cerr << "]";
 }
 template <size_t N = 0, class T> void enum_tuple(const T &value) {
     if constexpr(N < tuple_size<T>::value) {
         const auto &x = get<N>(value);
         debug_print(x);
         if(N + 1 < tuple_size<T>::value) {
-            cout << ", ";
+            cerr << ", ";
             enum_tuple<N + 1, T>(value);
         }
     }
 }
 template <class... Args> void debug_print(const tuple<Args...> &value) {
-    cout << "[";
+    cerr << "[";
     enum_tuple(value);
-    cout << "]";
+    cerr << "]";
 }
 template <ranges::range Iterable>
     requires(!Streamable<Iterable>)
 void debug_print(const Iterable &v) {
-    cout << "[";
+    cerr << "[";
     for(auto itr = v.begin(); itr != v.end(); itr++) {
         if(itr != v.begin())
-            cout << ", ";
+            cerr << ", ";
         debug_print(*itr);
     }
-    cout << "]";
+    cerr << "]";
 }
 
 template <typename T> void debug_impl(const string &names, const T &value) {
     string name = trim_whitespace(names);
-    cout << name << ": ";
+    cerr << name << ": ";
     debug_print(value);
-    cout << endl;
+    cerr << endl;
 }
 
 template <typename T, typename... Args>
 void debug_impl(const string &names, const T &head, const Args &...rest) {
     size_t pos = names.find(',');
     string name = trim_whitespace(names.substr(0, pos));
-    cout << name << ": ";
+    cerr << name << ": ";
     debug_print(head);
-    cout << ", ";
+    cerr << ", ";
     debug_impl(names.substr(pos + 1), rest...);
 }
 #define debug(...) debug_impl(#__VA_ARGS__, __VA_ARGS__)
