@@ -10,7 +10,6 @@ void test() {
     UnionFindWithUndo ufwu(n);
     assert(uf.num_groups == ufwu.num_groups and uf.num_groups == n);
     int q = rng(1, maxi);
-    debug(n, q);
     rep(q) {
         assert(uf.num_groups == ufwu.num_groups);
         int i = rng(0, n), j = rng(0, n);
