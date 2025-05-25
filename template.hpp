@@ -98,4 +98,7 @@ template <class T> constexpr T bmod(T x, T y) noexcept {
 template <std::signed_integral T> constexpr int bit_width(T x) noexcept {
     return std::bit_width((uint64_t)x);
 }
+template <std::signed_integral T> constexpr int popcount(T x) noexcept {
+    return std::popcount((uint64_t)x);
+}
 constexpr bool kth_bit(auto n, auto k) { return (n >> k) & 1; }
