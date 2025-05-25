@@ -21,7 +21,11 @@ template <class mint> struct FormalPowerSeries : vector<mint> {
         return *this;
     }
     FPS &operator*=(const FPS &f) {
-        return (*this) = atcoder::convolution(*this, f);
+        if constexpr(is_same_v<mint, long long>) {
+            return (*this) = atcoder::convolution_ll(*this, f);
+        } else {
+            return (*this) = atcoder::convolution(*this, f);
+        }
     }
     FPS &operator*=(const mint &x) {
         for(mint &vi : *this)
