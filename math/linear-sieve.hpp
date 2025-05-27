@@ -41,4 +41,21 @@ struct LinearSieve {
         }
         return res;
     }
+    vector<int> divisors(int n) {
+        vector<int> res = {1};
+        auto fc = factor_count(n);
+        for(auto [p, cnt] : fc) {
+            int sz = ssize(res);
+            rep(i, sz) {
+                int pi = p;
+                rep(_, cnt) {
+                    res.emplace_back(res[i] * pi);
+                    if(_ + 1 != cnt)
+                        pi *= p;
+                }
+            }
+        }
+        ranges::sort(res);
+        return res;
+    }
 };
