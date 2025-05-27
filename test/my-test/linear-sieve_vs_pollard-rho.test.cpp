@@ -24,8 +24,7 @@ void test() {
         {
             auto divs = divisors(i);
             auto lsdivs = ls.divisors(i);
-            assert(divs.size() == lsdivs.size());
-            rep(i, ssize(divs)) { assert((int)divs[i] == lsdivs[i]); }
+            ranges::equal(divs, lsdivs);
         }
     }
 }
