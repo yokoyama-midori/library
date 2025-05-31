@@ -1,4 +1,4 @@
-#include "template.hpp"
+#include "../template.hpp"
 /**
  * @brief Aho-Corasick
  * @see https://atcoder.jp/contests/abc268/submissions/34765119 解説放送も
