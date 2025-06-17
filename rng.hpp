@@ -12,7 +12,6 @@ unsigned long long x_ =
                              .count()) *
     10150724397891781847ULL;
 }
-
 unsigned long long RNG_64() {
     using namespace rng_internal;
     x_ ^= x_ << 7;
