@@ -7,7 +7,7 @@ template <class T> T bostanMori(vector<T> p, vector<T> q, ll n) {
     using namespace atcoder;
     assert(p.size() < q.size());
     int k = ssize(q) - 1;
-    if(p.size() < k - 1)
+    if((int)p.size() < k - 1)
         p.resize(k);
     while(n) {
         auto q_minus(q);
