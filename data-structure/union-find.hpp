@@ -22,4 +22,12 @@ struct UnionFind {
     }
     int size(int x) { return -p[leader(x)]; }
     bool same(int x, int y) { return leader(x) == leader(y); }
+    vector<vector<int>> groups() {
+        vector<vector<int>> res(n);
+        for(int i = 0; i < n; ++i) {
+            res[leader(i)].emplace_back(i);
+        }
+        erase_if(res, [](const vector<int> &g) { return g.empty(); });
+        return res;
+    }
 };
