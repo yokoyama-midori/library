@@ -6,15 +6,15 @@ using namespace atcoder;
 using mint = modint998244353;
 
 void solve() {
-    LL(n, m, k);
+    INT(n, m, k);
     Matrix<mint> a(n, m), b(m, k);
     rep(i, n) rep(j, m) {
-        LL(p);
-        a[i][j] = p;
+        INT(p);
+        a(i, j) = p;
     }
     rep(i, m) rep(j, k) {
-        LL(p);
-        b[i][j] = p;
+        INT(p);
+        b(i, j) = p;
     }
     auto c = a * b;
     c.show();

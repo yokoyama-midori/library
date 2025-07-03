@@ -6,11 +6,13 @@ using namespace atcoder;
 using mint = modint998244353;
 
 void solve() {
-    LL(n, k);
+    int n;
+    size_t k;
+    cin >> n >> k;
     Matrix<mint> a(n);
     rep(i, n) rep(j, n) {
-        LL(p);
-        a[i][j] = p;
+        INT(p);
+        a(i, j) = p;
     }
     a ^= k;
     a.show();
