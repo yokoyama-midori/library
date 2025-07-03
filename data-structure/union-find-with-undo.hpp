@@ -26,7 +26,7 @@ struct UnionFindWithUndo {
         return x;
     }
     void undo(int k = 1) {
-        assert(history.size() >= k);
+        assert((int)history.size() >= k);
         while(k--) {
             auto [x, y, px, py] = history.top();
             history.pop();

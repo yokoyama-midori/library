@@ -52,7 +52,7 @@ struct Rerooting {
             ds.emplace_back(apply(memo[d.to], d.to, cur, d.cost));
         }
         vector<Data> left(ds.size() + 1, leaf), right(ds.size() + 1, leaf);
-        for(int i = 0; i + 1 < left.size(); i++)
+        for(int i = 0; i + 1 < (int)left.size(); i++)
             left[i + 1] = merge(left[i], ds[i]);
         for(int i = ssize(right) - 2; 0 < i; i--)
             right[i] = merge(right[i + 1], ds[i]);

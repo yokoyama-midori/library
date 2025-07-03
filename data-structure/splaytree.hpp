@@ -8,8 +8,8 @@ struct SplayTree {
     using pNode = unique_ptr<Node>;
     struct Node {
         Node *left, *right, *parent;
-        S a, prod;
         int size;
+        S a, prod;
         Node()
             : left(nullptr), right(nullptr), parent(nullptr), size(1), a(e()),
               prod(e()) {}

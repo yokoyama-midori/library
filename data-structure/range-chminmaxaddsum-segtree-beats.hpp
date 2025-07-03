@@ -1,5 +1,5 @@
-#include "segtree-beats.hpp"
 #include "../template.hpp"
+#include "segtree-beats.hpp"
 namespace RangeChMinMaxAddSum {
 struct S {
     ll min, min2, max, max2;
@@ -8,8 +8,8 @@ struct S {
     ll sz, szmin, szmax, sum;
     bool fail;
     S(ll x, ll sz = 1)
-        : min(x), min2(x), max(x), max2(x), sum(x * sz), sz(sz), fail(false),
-          szmin(sz), szmax(sz) {};
+        : min(x), min2(x), max(x), max2(x), sz(sz), szmin(sz), szmax(sz),
+          sum(x * sz), fail(false) {};
     S()
         : min(inf), min2(inf), max(-inf), max2(-inf), sz(0), szmin(0), szmax(0),
           sum(0), fail(false) {}

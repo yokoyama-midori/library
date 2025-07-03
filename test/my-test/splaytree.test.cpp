@@ -36,7 +36,9 @@ void test() {
         a[x] = val;
         spt.set(x, val);
     };
-    auto size_query = [&] { assert(a.size() == n and n == spt.size()); };
+    auto size_query = [&] {
+        assert((int)a.size() == n and n == (int)spt.size());
+    };
     auto get_query = [&] {
         int x = make_pos();
         assert(x < n);
