@@ -3,7 +3,8 @@
 struct UnionFind {
     int n, num_groups;
     vector<int> p;
-    UnionFind(int n) : n(n), num_groups(n), p(n, -1) {}
+    UnionFind() = default;
+    explicit UnionFind(int n) : n(n), num_groups(n), p(n, -1) {}
     int leader(int x) {
         if(p[x] < 0)
             return x;

@@ -7,7 +7,8 @@ struct UnionFindWithUndo {
     vector<int> p;
     using T = tuple<int, int, int, int>;
     stack<T> history;
-    UnionFindWithUndo(int n) : n(n), num_groups(n), p(n, -1) {}
+    UnionFindWithUndo() = default;
+    explicit UnionFindWithUndo(int n) : n(n), num_groups(n), p(n, -1) {}
     int leader(int x) {
         while(p[x] >= 0)
             x = p[x];
