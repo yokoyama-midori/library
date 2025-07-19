@@ -2,7 +2,7 @@
 #include "../template.hpp"
 /**
  * @brief Persistent Segment Tree (永続セグメント木)
- * 参考
+ * 参考:
  * https://ei1333.github.io/library/structure/segment-tree/persistent-segment-tree.hpp.html
  * https://37zigen.com/persistent-segment-tree/　
  */
