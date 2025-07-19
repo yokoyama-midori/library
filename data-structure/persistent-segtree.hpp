@@ -1,7 +1,11 @@
 #pragma once
 #include "../template.hpp"
-// https://ei1333.github.io/library/structure/segment-tree/persistent-segment-tree.hpp.html
-// https://37zigen.com/persistent-segment-tree/
+/**
+ * @brief Persistent Segment Tree (永続セグメント木)
+ * 参考
+ * https://ei1333.github.io/library/structure/segment-tree/persistent-segment-tree.hpp.html
+ * https://37zigen.com/persistent-segment-tree/　
+ */
 template <class S, auto op, auto e> struct persistent_segtree {
   private:
     int n;
@@ -52,7 +56,10 @@ template <class S, auto op, auto e> struct persistent_segtree {
   public:
     using node_type = Node;
     persistent_segtree(int n) : n(n) {}
-    Node *build(const vector<S> &v) { return build(0, v.size(), v); }
+    Node *build(const vector<S> &v) {
+        assert(!v.empty());
+        return build(0, v.size(), v);
+    }
     // [a,b) の総積を計算
     S prod(Node *p, int a, int b) { return prod(a, b, p, 0, n); }
     Node *set(Node *p, int k, const S &s) { return set(k, s, p, 0, n); }
