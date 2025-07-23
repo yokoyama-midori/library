@@ -52,8 +52,8 @@ template <class T> struct Matrix {
         swap(*this, res);
         return *this;
     }
-    Matrix &operator^=(int k) {
-        assert(height == width and k >= 0);
+    Matrix &operator^=(uint64_t k) {
+        assert(height == width);
         Matrix<T> res(height);
         for(int i = 0; i < height; ++i)
             res(i, i) = T(1);
@@ -67,7 +67,7 @@ template <class T> struct Matrix {
         swap(res, *this);
         return *this;
     }
-    [[nodiscard]] Matrix pow(int k) const {
+    [[nodiscard]] Matrix pow(uint64_t k) const {
         auto res(*this);
         res ^= k;
         return res;
