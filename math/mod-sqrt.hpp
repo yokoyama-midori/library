@@ -1,5 +1,5 @@
 #pragma once
-#include "mod-pow.hpp"
+#include "./mod-pow.hpp"
 #include "../rng.hpp"
 #include "../template.hpp"
 // Cipolla のアルゴリズム O(log p)

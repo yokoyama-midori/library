@@ -1,5 +1,5 @@
 #pragma once
-#include "mod-pow.hpp"
+#include "./mod-pow.hpp"
 #include "../template.hpp"
 // https://drken1215.hatenablog.com/entry/2023/05/23/233000
 // todo モンゴメリ乗算
