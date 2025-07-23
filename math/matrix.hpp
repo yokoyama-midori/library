@@ -86,6 +86,7 @@ template <class T> struct Matrix {
     O(N^3 + N^2*log mod)
     modは素数である必要がある
     TODO : https://github.com/yosupo06/library-checker-problems/issues/750
+    https://noshi91.hatenablog.com/entry/2020/11/28/115621
     をチェック
     */
     T determinant() const {
