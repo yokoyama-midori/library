@@ -52,8 +52,8 @@ template <class T> struct Matrix {
         swap(*this, res);
         return *this;
     }
-    Matrix &operator^=(size_t k) {
-        assert(height == width);
+    Matrix &operator^=(int k) {
+        assert(height == width and k >= 0);
         Matrix<T> res(height);
         for(int i = 0; i < height; ++i)
             res(i, i) = T(1);
@@ -67,7 +67,7 @@ template <class T> struct Matrix {
         swap(res, *this);
         return *this;
     }
-    [[nodiscard]] Matrix pow(size_t k) const {
+    [[nodiscard]] Matrix pow(int k) const {
         auto res(*this);
         res ^= k;
         return res;
@@ -80,5 +80,42 @@ template <class T> struct Matrix {
     }
     [[nodiscard]] Matrix operator*(const Matrix &B) const {
         return Matrix(*this) *= B;
+    }
+
+    /*
+    O(N^3 + N^2*log mod)
+    modは素数である必要がある
+    TODO : https://github.com/yosupo06/library-checker-problems/issues/750
+    をチェック
+    */
+    T determinant() const {
+        assert(height == width);
+        static_assert(!is_integral_v<T>);
+        Matrix B(*this);
+        // vector一本にしてしまったため行のswapに一工夫...
+        vector<int> ord(height);
+        iota(begin(ord), end(ord), 0);
+        T res = 1;
+        for(int i = 0; i < height; ++i) {
+            if(B(ord[i], i) == 0) {
+                for(int i2 = i + 1; i2 < height; ++i2) {
+                    if(B(ord[i2], i) != 0) {
+                        res *= -1;
+                        swap(ord[i], ord[i2]);
+                        break;
+                    }
+                }
+            }
+            if(B(ord[i], i) == 0)
+                return 0;
+            res *= B(ord[i], i);
+            for(int i2 = i + 1; i2 < height; ++i2) {
+                T r = B(ord[i2], i) / B(ord[i], i);
+                for(int j = 0; j < width; ++j) {
+                    B(ord[i2], j) -= r * B(ord[i], j);
+                }
+            }
+        }
+        return res;
     }
 };
