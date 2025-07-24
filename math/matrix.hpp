@@ -83,7 +83,7 @@ template <class T> struct Matrix {
     }
 
     /*
-    O(N^3 + N^2*log mod)
+    O(N^3 + N*log mod)
     modは素数である必要がある
     TODO : https://github.com/yosupo06/library-checker-problems/issues/750
     https://noshi91.hatenablog.com/entry/2020/11/28/115621
@@ -110,9 +110,15 @@ template <class T> struct Matrix {
             if(B(ord[i], i) == 0)
                 return 0;
             res *= B(ord[i], i);
+            {
+                T r = 1 / B(ord[i], i);
+                for(int j = i; j < width; ++j) {
+                    B(ord[i], j) *= r;
+                }
+            }
             for(int i2 = i + 1; i2 < height; ++i2) {
-                T r = B(ord[i2], i) / B(ord[i], i);
-                for(int j = 0; j < width; ++j) {
+                T r = B(ord[i2], i);
+                for(int j = i; j < width; ++j) {
                     B(ord[i2], j) -= r * B(ord[i], j);
                 }
             }
