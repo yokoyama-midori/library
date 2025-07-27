@@ -52,6 +52,6 @@ template <class T = int> struct NDimEnum {
     iterator end() const { return iterator(n, k, true); }
 };
 
-template <typename T> NDimEnum<T> n_dim_enum(int n, T k) {
+template <class T> NDimEnum<T> n_dim_enum(int n, T k) {
     return NDimEnum<T>{n, k};
 }
