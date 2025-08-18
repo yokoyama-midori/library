@@ -34,6 +34,10 @@ template <class T> struct Tree {
         }
         return table[0][s];
     }
+    int dist(int s, int t) const {
+        int l = lca(s, t);
+        return depth[s] + depth[t] - 2 * depth[l];
+    }
     // sからt方向にk進む
     // dist(s,t) < k なら -1
     int jump(int s, int t, int k) const {
