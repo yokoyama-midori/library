@@ -1,3 +1,4 @@
+#pragma once
 #include "../graph/graph-template.hpp"
 #include "../graph/strongly-connected-components.hpp"
 #include "../template.hpp"
