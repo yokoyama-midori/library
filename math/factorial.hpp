@@ -23,10 +23,6 @@ template <class T> struct factorial {
         }
         return;
     }
-    T get(int i) {
-        ensure(i);
-        return fac[i];
-    }
     T operator[](int i) { return get(i); }
     T inv(int i) {
         ensure(i);
@@ -48,5 +44,9 @@ template <class T> struct factorial {
     }
 
   private:
+    T get(int i) {
+        ensure(i);
+        return fac[i];
+    }
     vector<T> fac, fac_inv;
 };
