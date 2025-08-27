@@ -33,7 +33,7 @@ template <class T> struct factorial {
             return T(0);
         }
         ensure(n);
-        return get_fac()[n] * get_fac_inv()[i] * get_fac_inv[n - i];
+        return get_fac()[n] * get_fac_inv()[i] * get_fac_inv()[n - i];
     }
     T perm(int n, int i) {
         if(n < 0 or i < 0 or n < i) {
