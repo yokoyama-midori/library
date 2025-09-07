@@ -9,7 +9,7 @@ template <class Val> struct HashMap {
         : sz(bit_ceil(2 * n)), mask(sz - 1), cnt(0), used(sz, false),
           keys(sz, 0), vals(sz, Val{}) {}
 
-    Val &operator[](const u64 &key) {
+    Val &operator[](u64 key) {
         if(cnt * 2 >= sz) {
             reallocate();
         }
@@ -21,7 +21,7 @@ template <class Val> struct HashMap {
         }
         return vals[i];
     }
-    bool contains(const u64 &key) const { return used[index(key)]; }
+    bool contains(u64 key) const { return used[index(key)]; }
 
   private:
     int find_next(int i) const {
@@ -105,7 +105,7 @@ template <class Val> struct HashMap {
         x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
         return (x ^ (x >> 31)) & mask;
     }
-    int index(const u64 &key) const {
+    int index(u64 key) const {
         int i = hash(key);
         while(used[i] and keys[i] != key) {
             i = (i + 1) & mask;
