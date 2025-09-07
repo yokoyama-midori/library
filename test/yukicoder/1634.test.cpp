@@ -32,7 +32,7 @@ void solve() {
         }
         auto mx = make_map(x, ten);
         auto my = make_map(y);
-        for(auto [key, val] : mx.enumerate()) {
+        for(auto [key, val] : mx) {
             ll rem = key ? k - key : 0;
             ans += my[rem] * val;
         }
