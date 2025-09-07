@@ -15,7 +15,7 @@ int main() {
         a.insert(end(a), begin(b), end(b));
         return a;
     };
-    auto apply = [](Data data, int from, int to, Cost cost) {
+    auto apply = [](Data data, int /*from*/, int /*to*/, Cost /*cost*/) {
         return Data({ranges::max(data) + 1});
     };
     Rerooting<Data, decltype(g), decltype(merge), decltype(apply)> dp(

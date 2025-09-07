@@ -5,11 +5,11 @@ static S op(S s, S t) { return s + t; }
 static S e() { return 0; }
 // 作用は不要だが...
 struct F {
-    bool operator==(const F &other) const { return true; }
+    bool operator==(const F &) const { return true; }
 };
-static S mapping(F f, S s) { return s; }
+static S mapping(F, S s) { return s; }
 static F id() { return F(); }
-static F composition(F f, F g) {
+static F composition(F, F) {
     // composition(f,g)(s) = f(g(s))
     return id();
 }

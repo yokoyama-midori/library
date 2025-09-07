@@ -11,7 +11,7 @@ template <class S, auto op, auto e> struct persistent_segtree {
     int n;
     struct Node {
         S s;
-        Node *l, *r;
+        Node *l{}, *r{};
     };
     vector<unique_ptr<Node>> pool;
     Node *make_node_ptr(Node node) {
