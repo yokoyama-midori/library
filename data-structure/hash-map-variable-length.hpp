@@ -3,13 +3,13 @@
 template <class Val> struct HashMap {
     int sz, mask, cnt;
     vector<bool> used;
-    vector<ll> keys;
+    vector<u64> keys;
     vector<Val> vals;
     explicit HashMap(unsigned n = 8)
         : sz(bit_ceil(2 * n)), mask(sz - 1), cnt(0), used(sz, false),
           keys(sz, 0), vals(sz, Val{}) {}
 
-    Val &operator[](const ll &key) {
+    Val &operator[](const u64 &key) {
         if(cnt * 2 >= sz) {
             reallocate();
         }
@@ -21,7 +21,7 @@ template <class Val> struct HashMap {
         }
         return vals[i];
     }
-    bool contains(const ll &key) const { return used[index(key)]; }
+    bool contains(const u64 &key) const { return used[index(key)]; }
 
   private:
     int find_next(int i) const {
@@ -34,7 +34,7 @@ template <class Val> struct HashMap {
   public:
     template <bool IsConst> struct basic_iterator {
         using iterator_category = forward_iterator_tag;
-        using value_type = pair<const ll, Val>;
+        using value_type = pair<const u64, Val>;
         using difference_type = ptrdiff_t;
         using map_pointer = conditional_t<IsConst, const HashMap *, HashMap *>;
         using value_reference = conditional_t<IsConst, const Val &, Val &>;
@@ -50,13 +50,14 @@ template <class Val> struct HashMap {
         basic_iterator(map_pointer ptr, int idx)
             : map_ptr_(ptr), current_idx_(idx) {}
 
+        // iteratorからconst_iteratorへの変換
         template <bool OtherIsConst>
         basic_iterator(const basic_iterator<OtherIsConst> &other)
-            requires(IsConst && !OtherIsConst)
+            requires(IsConst and !OtherIsConst)
             : map_ptr_(other.map_ptr_), current_idx_(other.current_idx_) {}
 
         auto operator*() const {
-            return pair<const ll &, value_reference>(
+            return pair<const u64 &, value_reference>(
                 map_ptr_->keys[current_idx_], map_ptr_->vals[current_idx_]);
         }
 
@@ -95,16 +96,16 @@ template <class Val> struct HashMap {
     int size() const { return cnt; }
 
   private:
-    int hash(ll x) const {
+    int hash(u64 x) const {
         // https://judge.yosupo.jp/submission/186759
-        static const ll r =
+        static const u64 r =
             chrono::steady_clock::now().time_since_epoch().count();
         x += r;
         x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
         x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
         return (x ^ (x >> 31)) & mask;
     }
-    int index(const ll &key) const {
+    int index(const u64 &key) const {
         int i = hash(key);
         while(used[i] and keys[i] != key) {
             i = (i + 1) & mask;
@@ -119,7 +120,7 @@ template <class Val> struct HashMap {
 
         // Unqualified call to 'std::move' (fix
         // available)clang(-Wunqualified-std-cast-call)　<-std::をつけないと警告出る
-        vector<ll> old_keys = std::move(keys);
+        vector<u64> old_keys = std::move(keys);
         vector<Val> old_vals = std::move(vals);
         vector<bool> old_used = std::move(used);
 
