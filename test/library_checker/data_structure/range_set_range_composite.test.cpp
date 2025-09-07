@@ -5,7 +5,7 @@
 using mint = atcoder::modint998244353;
 struct S {
     mint b, c;
-    ll sz;
+    ll sz{};
 };
 S e() { return S(1, 0, 0); };
 S op(S g, S f) { return S(f.b * g.b, f.b * g.c + f.c, g.sz + f.sz); }

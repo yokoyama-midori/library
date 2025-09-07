@@ -19,7 +19,7 @@ void solve() {
         return Data(a.exist or b.exist, max(a.max_len, b.max_len),
                     a.val + b.val);
     };
-    auto apply = [&](Data data, int from, int to, bool) {
+    auto apply = [&](Data data, int from, int /*to*/, bool) {
         if(data.exist |= d[from])
             data.val += 2, data.max_len++;
         return data;
