@@ -33,10 +33,14 @@ void print(const Iterable &v) {
     }
     cout << '\n';
 }
+using ll = long long;
+using u32 = unsigned int;
+using u64 = unsigned long long;
+using i128 = __int128;
+using u128 = unsigned __int128;
 using vi = vector<int>;
 using vii = vector<vector<int>>;
 using pii = pair<int, int>;
-using ll = long long;
 using vl = vector<ll>;
 using vll = vector<vl>;
 using pll = pair<ll, ll>;
