@@ -113,25 +113,17 @@ template <class Val> struct HashMap {
         return i;
     }
     void reallocate() {
-        int old_sz = sz;
-        sz <<= 1;
+        HashMap old_map = std::move(*this);
+
+        sz = old_map.sz << 1;
         mask = sz - 1;
         cnt = 0;
-
-        // Unqualified call to 'std::move' (fix
-        // available)clang(-Wunqualified-std-cast-call)　<-std::をつけないと警告出る
-        vector<u64> old_keys = std::move(keys);
-        vector<Val> old_vals = std::move(vals);
-        vector<bool> old_used = std::move(used);
-
+        used.assign(sz, false);
         keys.assign(sz, 0);
         vals.assign(sz, Val{});
-        used.assign(sz, false);
 
-        for(int i = 0; i < old_sz; ++i) {
-            if(old_used[i]) {
-                (*this)[old_keys[i]] = move(old_vals[i]);
-            }
+        for(auto &&[key, val] : old_map) {
+            (*this)[key] = std::move(val);
         }
     }
 };
