@@ -53,7 +53,7 @@ void input() {}
 template <class Head, class... Tail> void input(Head &head, Tail &...tail) {
 #ifdef LOCAL
     cin >> head;
-#elif
+#else
     fastio::read(head);
 #endif
     input(tail...);
