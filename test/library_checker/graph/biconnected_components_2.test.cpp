@@ -1,4 +1,5 @@
-// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/biconnected_components
+// competitive-verifier: PROBLEM
+// https://judge.yosupo.jp/problem/biconnected_components
 #include "../../../graph/block-cut-tree.hpp"
 #include "../../../graph/graph-template.hpp"
 #include "../../../template.hpp"
@@ -7,11 +8,12 @@ void solve() {
     Graph<bool> g(n);
     g.read(m, 0);
     auto tree = block_cut_tree(g);
-    print(tree.size() - n);
+    cout << tree.size() - n << '\n';
     for(int i = n; i < tree.size(); ++i) {
-        write(tree[i].size());
-        write(" ");
-        print(tree[i]);
+        cout << tree[i].size() << " ";
+        for(auto j : tree[i])
+            cout << j << " ";
+        cout << '\n';
     }
 }
 int main() {

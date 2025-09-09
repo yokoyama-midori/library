@@ -91,11 +91,13 @@ void write(char c) {
         flush();
     out_buf[out_right++] = c;
 }
+void write(const char *c) { write_range(c, strlen(c)); }
 void write(const std::string &s) { write_range(s.data(), s.size()); }
 template <std::floating_point T> void write(T x) {
     int n = std::snprintf(out_tmp, sizeof(out_tmp), "%.16g", x);
     write_range(out_tmp, n);
 }
+void write(bool x) { write(x ? '1' : '0'); }
 template <extended_integral T> void write(T x) {
     if(x == 0) {
         write('0');
