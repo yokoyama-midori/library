@@ -2,13 +2,15 @@
 #include "../../../data-structure/hash-map-variable-length.hpp"
 #include "../../../template.hpp"
 void solve() {
-    LL(q);
+    INT(q);
     HashMap<ll> a(q);
     // or HashMap<ll> a;
-    rep(_, q) {
-        LL(flag, k);
+    bool flag;
+    ll k, v;
+    rep(q) {
+        input(flag, k);
         if(flag == 0) {
-            LL(v);
+            input(v);
             a[k] = v;
         } else {
             print(a[k]);

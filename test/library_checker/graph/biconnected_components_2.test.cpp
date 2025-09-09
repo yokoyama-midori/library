@@ -1,5 +1,4 @@
-// competitive-verifier: PROBLEM
-// https://judge.yosupo.jp/problem/biconnected_components
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/biconnected_components
 #include "../../../graph/block-cut-tree.hpp"
 #include "../../../graph/graph-template.hpp"
 #include "../../../template.hpp"
