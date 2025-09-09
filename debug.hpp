@@ -1,10 +1,4 @@
-#include <bits/stdc++.h>
-template <class T>
-concept Streamable = requires(std::ostream os, T &x) { os << x; };
-template <class mint>
-concept is_modint = requires(mint &x) {
-    { x.val() } -> std::convertible_to<int>;
-};
+#include "./other/type-utils.hpp"
 /*
     - Streamable(string含む) -> そのまま出力
     - is_modint(.val()->int) -> .val()して出力
