@@ -8,7 +8,7 @@ using mint = modint998244353;
 void solve() {
     int n;
     size_t k;
-    cin >> n >> k;
+    input(n, k);
     Matrix<mint> a(n);
     rep(i, n) rep(j, n) {
         INT(p);

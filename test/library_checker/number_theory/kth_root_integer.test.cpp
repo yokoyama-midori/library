@@ -2,8 +2,8 @@
 #include "../../../number-theory/kth-root-integer.hpp"
 #include "../../../template.hpp"
 void solve() {
-    uint64_t a, k;
-    cin >> a >> k;
+    u64 a, k;
+    input(a, k);
     print(kth_root_integer(a, k));
 }
 int main() {

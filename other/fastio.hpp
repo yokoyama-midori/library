@@ -75,7 +75,7 @@ template <extended_integral T> void read(T &x) {
     }
 }
 void flush() { fwrite(out_buf, 1, std::exchange(out_right, 0), stdout); }
-void write_range(char *c, int n) {
+void write_range(const char *c, int n) {
     while(n > 0) {
         if(out_right == SZ)
             flush();
@@ -91,6 +91,7 @@ void write(char c) {
         flush();
     out_buf[out_right++] = c;
 }
+void write(const std::string &s) { write_range(s.data(), s.size()); }
 template <std::floating_point T> void write(T x) {
     int n = std::snprintf(out_tmp, sizeof(out_tmp), "%.16g", x);
     write_range(out_tmp, n);
@@ -129,3 +130,4 @@ struct Dummy {
     ~Dummy() { flush(); }
 } dummy;
 } // namespace fastio
+using fastio::write;

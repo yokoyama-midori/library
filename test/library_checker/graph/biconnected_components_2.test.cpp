@@ -9,7 +9,8 @@ void solve() {
     auto tree = block_cut_tree(g);
     print(tree.size() - n);
     for(int i = n; i < tree.size(); ++i) {
-        cout << tree[i].size() << " ";
+        write(tree[i].size());
+        write(" ");
         print(tree[i]);
     }
 }

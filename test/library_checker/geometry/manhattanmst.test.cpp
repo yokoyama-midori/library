@@ -4,7 +4,7 @@
 void solve() {
     LL(n);
     vl xs(n), ys(n);
-    rep(i, n) cin >> xs[i] >> ys[i];
+    rep(i, n) input(xs[i], ys[i]);
     auto dxy = manhattan_mst(xs, ys);
     UnionFind g(n);
     ll w = 0;

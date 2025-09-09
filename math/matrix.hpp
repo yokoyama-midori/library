@@ -17,10 +17,12 @@ template <class T> struct Matrix {
         for(int i = 0; i < height; ++i) {
             for(int j = 0; j < width; ++j) {
                 if constexpr(is_arithmetic_v<T>) {
-                    cout << (*this)(i, j) << " \n"[j + 1 == width];
+                    write((*this)(i, j));
+                    write(" \n"[j + 1 == width]);
                 } else {
                     // atcoder::modint用
-                    cout << (*this)(i, j).val() << " \n"[j + 1 == width];
+                    write((*this)(i, j).val());
+                    write(" \n"[j + 1 == width]);
                 }
             }
         }

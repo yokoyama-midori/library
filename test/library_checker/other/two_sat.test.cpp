@@ -3,7 +3,7 @@
 #include "../../../template.hpp"
 void solve() {
     string tmp;
-    cin >> tmp >> tmp;
+    input(tmp, tmp);
     INT(n, m);
     TwoSat ts(n);
     rep(m) {
@@ -13,9 +13,10 @@ void solve() {
     auto f = ts.satisfiable();
     if(f) {
         print("s SATISFIABLE");
-        cout << "v ";
+        write("v ");
         for(int i = 0; i < n; ++i) {
-            cout << (ts.ans[i] ? i + 1 : -i - 1) << " ";
+            write(ts.ans[i] ? i + 1 : -i - 1);
+            write(' ');
         }
         print(0);
     } else {

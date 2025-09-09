@@ -9,7 +9,7 @@ void solve() {
         g.read(m, -1, true);
         vector<int> term(t);
         for(auto &ti : term) {
-            cin >> ti;
+            input(ti);
             --ti;
         }
         MinimumSteinerTree<int> mst(g, term);
