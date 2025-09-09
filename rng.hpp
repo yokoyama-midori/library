@@ -5,24 +5,22 @@
  * @see https://maspypy.github.io/library/random/base.hpp
  */
 namespace rng_internal {
-unsigned long long x_ =
-    (unsigned long long)(chrono::duration_cast<chrono::nanoseconds>(
-                             chrono::high_resolution_clock::now()
-                                 .time_since_epoch())
-                             .count()) *
-    10150724397891781847ULL;
+u64 x_ = (u64)(chrono::duration_cast<chrono::nanoseconds>(
+                   chrono::high_resolution_clock::now().time_since_epoch())
+                   .count()) *
+         10150724397891781847ULL;
 }
 
-unsigned long long RNG_64() {
+u64 RNG_64() {
     using namespace rng_internal;
     x_ ^= x_ << 7;
     return x_ ^= x_ >> 9;
 }
-void init_rng(unsigned long long seed = 10'000'000'000'000'000'000ULL) {
+void init_rng(u64 seed = 10'000'000'000'000'000'000ULL) {
     rng_internal::x_ = seed;
 }
 
-unsigned long long RNG(unsigned long long lim) { return RNG_64() % lim; }
+u64 RNG(u64 lim) { return RNG_64() % lim; }
 
 /*
 1e18くらいの素数
