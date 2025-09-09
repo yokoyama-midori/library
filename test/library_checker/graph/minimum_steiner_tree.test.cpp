@@ -14,7 +14,9 @@ int main() {
     MinimumSteinerTree mst(graph, terminal);
     auto edges = mst.restore();
     print(mst.cost, edges.size());
-    for(auto &e : edges)
-        cout << e.idx << " ";
-    print();
+    for(auto &e : edges) {
+        write(e.idx);
+        write(" ");
+    }
+print();
 }

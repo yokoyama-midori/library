@@ -9,7 +9,8 @@ void solve() {
     auto groups = biconnected_components(g);
     print(groups.size());
     for(auto &v : groups) {
-        cout << ssize(v) << " ";
+        write(ssize(v));
+        write(" ");
         print(v);
     }
 }

@@ -10,8 +10,7 @@ void solve() {
     }
     cs.build();
     rep(_, q) {
-        int l, r;
-        cin >> l >> r;
+        INT(l, r);
         print(cs.sum(l, r));
     }
 }

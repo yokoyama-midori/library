@@ -19,7 +19,7 @@ void solve2() {
     c = grid_expansion(c, k);
     for(auto &ci : c) {
         for(auto j : ci)
-            cout << j;
+            write(j);
         print();
     }
 }

@@ -9,7 +9,8 @@ void solve() {
     TwoEdgeConnectedComponents graph(g);
     print(graph.k);
     for(auto &v : graph.groups) {
-        cout << ssize(v) << " ";
+        write(ssize(v));
+        write(" ");
         print(v);
     }
 }

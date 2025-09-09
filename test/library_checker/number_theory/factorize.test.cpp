@@ -8,7 +8,8 @@ void solve() {
         return;
     }
     auto ans = factorize(n);
-    cout << ssize(ans) << " ";
+    write(ssize(ans));
+    write(" ");
     print(ans);
 }
 int main() {

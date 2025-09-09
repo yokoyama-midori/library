@@ -9,7 +9,8 @@ void solve() {
     StronglyConnectedComponents scc(g);
     print(ssize(scc.groups));
     for(auto &v : scc.groups) {
-        cout << ssize(v) << " ";
+        write(ssize(v));
+        write(" ");
         print(v);
     }
 }

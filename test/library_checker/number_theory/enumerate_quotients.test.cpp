@@ -6,7 +6,8 @@ void solve() {
     print(ans.size());
     for(int i : views::iota(0, ssize(ans))) {
         auto [q, l, r] = ans[i];
-        cout << q << " \n"[i + 1 == ssize(ans)];
+        write(q);
+        write(" \n"[i + 1 == ssize(ans)]);
         assert(1 <= l and l < r and r <= n + 1);
         assert(q == (n / l) and q == (n / (r - 1)));
         assert(q != n / r);
