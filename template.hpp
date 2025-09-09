@@ -1,4 +1,6 @@
 #pragma once
+#include "./other/fastio.hpp"
+#include "./other/type-utils.hpp"
 // #pragma GCC target("avx2")
 // #pragma GCC optimize("O3")
 // #pragma GCC optimize("unroll-loops")
@@ -7,43 +9,28 @@ using namespace std;
 #ifdef LOCAL
 #include <debug.hpp>
 #else
-template <class T>
-concept Streamable = requires(ostream os, T &x) { os << x; };
-template <class mint>
-concept is_modint = requires(mint &x) {
-    { x.val() } -> std::convertible_to<int>;
-};
 #define debug(...)
 #endif
-template <Streamable T> void print_one(const T &value) { cout << value; }
-template <is_modint T> void print_one(const T &value) { cout << value.val(); }
-void print() { cout << '\n'; }
+template <Streamable T> void print_one(const T &value) { fastio::write(value); }
+template <is_modint T> void print_one(const T &value) {
+    print_one(value.val());
+}
+void print() { print_one('\n'); }
 template <class T, class... Ts> void print(const T &a, const Ts &...b) {
     print_one(a);
-    ((cout << ' ', print_one(b)), ...);
-    cout << '\n';
+    ((print_one(' '), print_one(b)), ...);
+    print();
 }
 template <ranges::range Iterable>
     requires(!Streamable<Iterable>)
 void print(const Iterable &v) {
     for(auto it = v.begin(); it != v.end(); ++it) {
         if(it != v.begin())
-            cout << " ";
+            print_one(' ');
         print_one(*it);
     }
-    cout << '\n';
+    print();
 }
-using ll = long long;
-using u32 = unsigned int;
-using u64 = unsigned long long;
-using i128 = __int128;
-using u128 = unsigned __int128;
-using vi = vector<int>;
-using vii = vector<vector<int>>;
-using pii = pair<int, int>;
-using vl = vector<ll>;
-using vll = vector<vl>;
-using pll = pair<ll, ll>;
 #define all(v) begin(v), end(v)
 template <class T> void UNIQUE(T &v) {
     ranges::sort(v);
@@ -62,10 +49,18 @@ template <class... T> constexpr auto min(T... a) {
 template <class... T> constexpr auto max(T... a) {
     return max(initializer_list<common_type_t<T...>>{a...});
 }
-template <class... T> void input(T &...a) { (cin >> ... >> a); }
+void input() {}
+template <class Head, class... Tail> void input(Head &head, Tail &...tail) {
+#ifdef LOCAL
+    cin >> head;
+#elif
+    fastio::read(head);
+#endif
+    input(tail...);
+}
 template <class T> void input(vector<T> &a) {
     for(T &x : a)
-        cin >> x;
+        input(x);
 }
 #define INT(...)                                                               \
     int __VA_ARGS__;                                                           \
