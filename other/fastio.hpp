@@ -76,13 +76,14 @@ template <extended_integral T> void read(T &x) {
 }
 void flush() { fwrite(out_buf, 1, std::exchange(out_right, 0), stdout); }
 void write_range(const char *c, int n) {
-    while(n > 0) {
+    int pos{};
+    while(pos < n) {
         if(out_right == SZ)
             flush();
-        int len = std::min(n, SZ - out_right);
-        memcpy(out_buf + out_right, c, len);
+        int len = std::min(n - pos, SZ - out_right);
+        memcpy(out_buf + out_right, c + pos, len);
         out_right += len;
-        n -= len;
+        pos += len;
     }
 }
 
