@@ -38,11 +38,11 @@ template <class T = ll> struct Graph {
         for(int i = 0; i < m; ++i) {
             int a, b;
             T c(1);
-            cin >> a >> b;
+            input(a, b);
             a += padding;
             b += padding;
             if(weighted)
-                cin >> c;
+                input(c);
             if(directed)
                 add_directed_edge(a, b, c);
             else
