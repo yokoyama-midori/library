@@ -9,7 +9,7 @@ void solve() {
         print(-1);
         return;
     }
-    print(cycle.size());
+    cout << cycle.size() << '\n';
     for(auto i : cycle)
         cout << i.from << " ";
     cout << "\n";

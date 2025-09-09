@@ -1,7 +1,7 @@
 // competitive-verifier: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1040
 #include "../../graph/graph-template.hpp"
 #include "../../graph/minimum-steiner-tree.hpp"
-ll h, w;
+ll h, w, c;
 void solve() {
     if(h == 0 and w == 0)
         exit(0);
@@ -14,7 +14,7 @@ void solve() {
     }
     vector<int> term;
     rep(i, h) rep(j, w) {
-        INT(c);
+        cin >> c;
         if(c)
             term.emplace_back(i * w + j);
     }
