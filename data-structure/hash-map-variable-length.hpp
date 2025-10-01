@@ -10,9 +10,8 @@ template <class Val> struct HashMap {
           keys(sz, 0), vals(sz, Val{}) {}
 
     Val &operator[](u64 key) {
-        if(cnt * 2 >= sz) {
+        if(cnt * 2 >= sz)
             reallocate();
-        }
         int i = index(key);
         if(!used[i]) {
             used[i] = true;
@@ -25,9 +24,8 @@ template <class Val> struct HashMap {
 
   private:
     int find_next(int i) const {
-        while(i < sz and !used[i]) {
+        while(i < sz and !used[i])
             i++;
-        }
         return i;
     }
 
@@ -107,9 +105,8 @@ template <class Val> struct HashMap {
     }
     int index(u64 key) const {
         int i = hash(key);
-        while(used[i] and keys[i] != key) {
+        while(used[i] and keys[i] != key)
             i = (i + 1) & mask;
-        }
         return i;
     }
     void reallocate() {
@@ -122,8 +119,7 @@ template <class Val> struct HashMap {
         keys.assign(sz, 0);
         vals.assign(sz, Val{});
 
-        for(auto &&[key, val] : old_map) {
+        for(auto &&[key, val] : old_map)
             (*this)[key] = std::move(val);
-        }
     }
 };
