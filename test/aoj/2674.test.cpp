@@ -1,5 +1,5 @@
 // clang-format off
-// competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/challenges/search/titles/2674
+// competitive-verifier: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2674
 // clang-format on
 #include "../../data-structure/wavelet-matrix.hpp"
 #include "../../template.hpp"
