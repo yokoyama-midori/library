@@ -77,7 +77,6 @@ template <class T, bool COMPRESS = true> struct WaveletMatrix {
     // #{i : l<=i<r and a[i]<upper}
     T count(int l, int r, T upper) const {
         if constexpr(COMPRESS) {
-            debug(upper, int(ranges::lower_bound(memo, upper) - begin(memo)));
             upper = ranges::lower_bound(memo, upper) - begin(memo);
         }
         if(upper >> lg) {
