@@ -1,3 +1,4 @@
+// competitive-verifier: IGNORE
 #include "./other/type-utils.hpp"
 /*
     - Streamable(string含む) -> そのまま出力
