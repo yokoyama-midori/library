@@ -26,7 +26,7 @@ template <class F, class S> void debug_print(const std::pair<F, S> &value) {
 }
 template <size_t N = 0, class T> void enum_tuple(const T &value) {
     if constexpr(N < std::tuple_size<T>::value) {
-        const auto &x = get<N>(value);
+        const auto &x = std::get<N>(value);
         debug_print(x);
         if(N + 1 < std::tuple_size<T>::value) {
             std::cerr << ", ";
