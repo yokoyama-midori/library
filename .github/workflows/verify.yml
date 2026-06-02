@@ -87,6 +87,11 @@ jobs:
           submodules: recursive
           fetch-depth: 2147483647
 
+      - name: Debug compilation
+        run: |
+          g++ --version
+          g++ -std=c++20 -O2 -Wall -Wextra -Werror -I ac-library -I . -dM -E debug.hpp 2>&1 | head -100
+
       - name: Restore cached results
         if: ${{ ! inputs.ignore_prev_result }}
         uses: actions/cache/restore@v4
